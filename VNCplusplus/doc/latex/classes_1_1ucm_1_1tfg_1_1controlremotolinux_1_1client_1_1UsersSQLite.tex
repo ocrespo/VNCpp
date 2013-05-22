@@ -1,0 +1,434 @@
+\section{Referencia de la Clase es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite}
+\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite}\index{es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite@{es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite}}
+
+
+Clase encargada del control de la base de datos.  
+
+
+
+
+Diagrama de herencias de es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite
+
+
+Diagrama de colaboración para es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite\-:
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Users\-S\-Q\-Lite} (Context context)
+\item 
+{\bf Users\-S\-Q\-Lite} (Fragment context)
+\item 
+{\bf Users\-S\-Q\-Lite} (Context context, String name, Cursor\-Factory factory, int version)
+\item 
+void {\bf on\-Create} (S\-Q\-Lite\-Database db)
+\begin{DoxyCompactList}\small\item\em Create the sqlite database of Users. \end{DoxyCompactList}\item 
+void {\bf on\-Upgrade} (S\-Q\-Lite\-Database db, int version\-Anterior, int version\-Nueva)
+\begin{DoxyCompactList}\small\item\em Recreate the sqlite database of Users. \end{DoxyCompactList}\item 
+void {\bf new\-User} ({\bf User} u)
+\begin{DoxyCompactList}\small\item\em Create a new \doxyref{User}{p.}{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User}. \end{DoxyCompactList}\item 
+{\bf User} {\bf get\-User\-Connection} (String name\-I\-D)
+\begin{DoxyCompactList}\small\item\em Devuelve un usuario especifico. \end{DoxyCompactList}\item 
+Array\-List$<$ {\bf User} $>$ {\bf get\-All\-Users} ()
+\begin{DoxyCompactList}\small\item\em Recoge todos los usuarios. \end{DoxyCompactList}\item 
+Array\-List$<$ {\bf User} $>$ {\bf get\-All\-Fav\-Users} ()
+\begin{DoxyCompactList}\small\item\em Devuelve los usuarios favoritos. \end{DoxyCompactList}\item 
+void {\bf update\-User} ({\bf User} user)
+\begin{DoxyCompactList}\small\item\em Actualizando usuario. \end{DoxyCompactList}\item 
+void {\bf delete\-User} ({\bf User} user)
+\begin{DoxyCompactList}\small\item\em Se elimina un usuario indicado. \end{DoxyCompactList}\item 
+int {\bf get\-Users\-Count} ()
+\begin{DoxyCompactList}\small\item\em Devuelve el numero de usuarios almacenados. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributos privados estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static final int {\bf D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-V\-E\-R\-S\-I\-O\-N} = 1
+\item 
+static final String {\bf D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-N\-A\-M\-E} = \char`\"{}D\-B\-Users\char`\"{}
+\item 
+static final String {\bf T\-A\-B\-L\-E\-\_\-\-U\-S\-E\-R\-S} = \char`\"{}Users\char`\"{}
+\item 
+static final String {\bf K\-E\-Y\-\_\-\-N\-A\-M\-E} = \char`\"{}Name\-Connection\char`\"{}
+\item 
+static final String {\bf K\-E\-Y\-\_\-\-I\-P} = \char`\"{}ip\char`\"{}
+\item 
+static final String {\bf K\-E\-Y\-\_\-\-P\-O\-R\-T} = \char`\"{}port\char`\"{}
+\item 
+static final String {\bf K\-E\-Y\-\_\-\-P\-S\-W} = \char`\"{}psw\char`\"{}
+\item 
+static final String {\bf K\-E\-Y\-\_\-\-F\-A\-V} = \char`\"{}fav\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+\begin{DoxyAuthor}{Autor}
+gorka 
+\end{DoxyAuthor}
+
+
+Definición en la línea 18 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+\subsection{Documentación del constructor y destructor}
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!Users\-S\-Q\-Lite@{Users\-S\-Q\-Lite}}
+\index{Users\-S\-Q\-Lite@{Users\-S\-Q\-Lite}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{Users\-S\-Q\-Lite}]{\setlength{\rightskip}{0pt plus 5cm}es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-Users\-S\-Q\-Lite (
+\begin{DoxyParamCaption}
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_a57620c802d9bab5c000275ea9c4ca1f5}
+
+
+Definición en la línea 41 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Hace referencia a es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-N\-A\-M\-E y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-V\-E\-R\-S\-I\-O\-N.
+
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!Users\-S\-Q\-Lite@{Users\-S\-Q\-Lite}}
+\index{Users\-S\-Q\-Lite@{Users\-S\-Q\-Lite}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{Users\-S\-Q\-Lite}]{\setlength{\rightskip}{0pt plus 5cm}es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-Users\-S\-Q\-Lite (
+\begin{DoxyParamCaption}
+\item[{Fragment}]{context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_a311831bad100e852ea54fb0e4d206c1e}
+
+
+Definición en la línea 45 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Hace referencia a es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-N\-A\-M\-E y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-V\-E\-R\-S\-I\-O\-N.
+
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!Users\-S\-Q\-Lite@{Users\-S\-Q\-Lite}}
+\index{Users\-S\-Q\-Lite@{Users\-S\-Q\-Lite}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{Users\-S\-Q\-Lite}]{\setlength{\rightskip}{0pt plus 5cm}es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-Users\-S\-Q\-Lite (
+\begin{DoxyParamCaption}
+\item[{Context}]{context, }
+\item[{String}]{name, }
+\item[{Cursor\-Factory}]{factory, }
+\item[{int}]{version}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_ade1d1f3f456244e0a6d08a1c556c9bc2}
+
+
+Definición en la línea 51 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+\subsection{Documentación de las funciones miembro}
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!delete\-User@{delete\-User}}
+\index{delete\-User@{delete\-User}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{delete\-User}]{\setlength{\rightskip}{0pt plus 5cm}void es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-delete\-User (
+\begin{DoxyParamCaption}
+\item[{{\bf User}}]{user}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_aaf00cb0fce468a22221c106e83a21122}
+
+\begin{DoxyParams}{Parámetros}
+{\em user} & \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 231 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Hace referencia a es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-get\-Name(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-N\-A\-M\-E y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-T\-A\-B\-L\-E\-\_\-\-U\-S\-E\-R\-S.
+
+
+
+Referenciado por es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-List\-Fragment\-Tab\-Fav.\-delete\-User(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-List\-Fragment\-Tab.\-delete\-User(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-List\-Fragment\-Tab\-Fav.\-deleting(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Client\-Activity\-Tabs.\-deleting() y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-List\-Fragment\-Tab.\-deleting().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!get\-All\-Fav\-Users@{get\-All\-Fav\-Users}}
+\index{get\-All\-Fav\-Users@{get\-All\-Fav\-Users}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{get\-All\-Fav\-Users}]{\setlength{\rightskip}{0pt plus 5cm}Array\-List$<${\bf User}$>$ es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-get\-All\-Fav\-Users (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_a9770e9483b60c0f2c124d87e4dc66a35}
+\begin{DoxyReturn}{Devuelve}
+usuario\-\_\-favorito 
+\end{DoxyReturn}
+
+
+Definición en la línea 174 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Hace referencia a es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-get\-Fav(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-set\-Fav(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-set\-I\-P(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-set\-Name(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-set\-P\-O\-R\-T(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-set\-Psw() y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-T\-A\-B\-L\-E\-\_\-\-U\-S\-E\-R\-S.
+
+
+
+Referenciado por es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-List\-Fragment\-Tab\-Fav.\-delete\-User(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-List\-Fragment\-Tab\-Fav.\-deleting(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-List\-Fragment\-Tab\-Fav.\-on\-Create\-View() y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-List\-Fragment\-Tab\-Fav.\-on\-Start().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!get\-All\-Users@{get\-All\-Users}}
+\index{get\-All\-Users@{get\-All\-Users}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{get\-All\-Users}]{\setlength{\rightskip}{0pt plus 5cm}Array\-List$<${\bf User}$>$ es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-get\-All\-Users (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_a167e2376adccdcf117feae059fa3851e}
+\begin{DoxyReturn}{Devuelve}
+todos los usuarios 
+\end{DoxyReturn}
+
+
+Definición en la línea 142 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Hace referencia a es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-set\-Fav(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-set\-I\-P(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-set\-Name(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-set\-P\-O\-R\-T(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-set\-Psw() y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-T\-A\-B\-L\-E\-\_\-\-U\-S\-E\-R\-S.
+
+
+
+Referenciado por es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-List\-Fragment\-Tab.\-delete\-User(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Client\-Activity\-Tabs.\-deleting(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-List\-Fragment\-Tab.\-deleting(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-List\-Fragment\-Tab.\-on\-Create\-View() y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-List\-Fragment\-Tab.\-on\-Start().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!get\-User\-Connection@{get\-User\-Connection}}
+\index{get\-User\-Connection@{get\-User\-Connection}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{get\-User\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}{\bf User} es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-get\-User\-Connection (
+\begin{DoxyParamCaption}
+\item[{String}]{name\-I\-D}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_a669d204ef2a24756c13db3061e95bb0b}
+
+\begin{DoxyParams}{Parámetros}
+{\em name\-I\-D} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea 118 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Hace referencia a es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-F\-A\-V, es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-I\-P, es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-N\-A\-M\-E, es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-P\-O\-R\-T, es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-P\-S\-W y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-T\-A\-B\-L\-E\-\_\-\-U\-S\-E\-R\-S.
+
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!get\-Users\-Count@{get\-Users\-Count}}
+\index{get\-Users\-Count@{get\-Users\-Count}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{get\-Users\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-get\-Users\-Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_a7799840a6c56c9e4565d8fbc568c9b43}
+\begin{DoxyReturn}{Devuelve}
+num\-\_\-usuarios 
+\end{DoxyReturn}
+
+
+Definición en la línea 243 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Hace referencia a es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-T\-A\-B\-L\-E\-\_\-\-U\-S\-E\-R\-S.
+
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!new\-User@{new\-User}}
+\index{new\-User@{new\-User}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{new\-User}]{\setlength{\rightskip}{0pt plus 5cm}void es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-new\-User (
+\begin{DoxyParamCaption}
+\item[{{\bf User}}]{u}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_a188606391051dd1d5a7ed88b0d7e73d7}
+
+\begin{DoxyParams}{Parámetros}
+{\em u} & \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 94 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Hace referencia a es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-get\-I\-P(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-get\-Name(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-get\-P\-O\-R\-T(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-get\-Psw(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-F\-A\-V, es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-I\-P, es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-N\-A\-M\-E, es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-P\-O\-R\-T, es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-P\-S\-W y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-T\-A\-B\-L\-E\-\_\-\-U\-S\-E\-R\-S.
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!on\-Create@{on\-Create}}
+\index{on\-Create@{on\-Create}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{on\-Create}]{\setlength{\rightskip}{0pt plus 5cm}void es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-on\-Create (
+\begin{DoxyParamCaption}
+\item[{S\-Q\-Lite\-Database}]{db}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_ad6f8bcc498beb47ee785c2ce4557850f}
+
+
+Definición en la línea 60 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Hace referencia a es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-F\-A\-V, es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-I\-P, es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-N\-A\-M\-E, es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-P\-O\-R\-T, es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-P\-S\-W y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-T\-A\-B\-L\-E\-\_\-\-U\-S\-E\-R\-S.
+
+
+
+Referenciado por es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-on\-Upgrade().
+
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!on\-Upgrade@{on\-Upgrade}}
+\index{on\-Upgrade@{on\-Upgrade}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{on\-Upgrade}]{\setlength{\rightskip}{0pt plus 5cm}void es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-on\-Upgrade (
+\begin{DoxyParamCaption}
+\item[{S\-Q\-Lite\-Database}]{db, }
+\item[{int}]{version\-Anterior, }
+\item[{int}]{version\-Nueva}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_a7b716258425ee3e3aaa91c95fd612f59}
+
+
+Definición en la línea 76 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Hace referencia a es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-on\-Create() y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-T\-A\-B\-L\-E\-\_\-\-U\-S\-E\-R\-S.
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!update\-User@{update\-User}}
+\index{update\-User@{update\-User}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{update\-User}]{\setlength{\rightskip}{0pt plus 5cm}void es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-update\-User (
+\begin{DoxyParamCaption}
+\item[{{\bf User}}]{user}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_ac8ea0dcee092382501e3f75b2eaf73d4}
+
+\begin{DoxyParams}{Parámetros}
+{\em user} & \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 208 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Hace referencia a es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-get\-Fav(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-get\-I\-P(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-get\-Name(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-get\-P\-O\-R\-T(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-User.\-get\-Psw(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-F\-A\-V, es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-I\-P, es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-N\-A\-M\-E, es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-P\-O\-R\-T, es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-P\-S\-W y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-T\-A\-B\-L\-E\-\_\-\-U\-S\-E\-R\-S.
+
+
+
+Referenciado por es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Client\-Activity\-Tabs.\-on\-Activity\-Result() y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-List\-Fragment\-Tab.\-refresh\-Favorites().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+
+
+\subsection{Documentación de los datos miembro}
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-N\-A\-M\-E@{D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-N\-A\-M\-E}}
+\index{D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-N\-A\-M\-E@{D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-N\-A\-M\-E}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-N\-A\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}final String es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-N\-A\-M\-E = \char`\"{}D\-B\-Users\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_a927444b136d43852acf78c51f1956d22}
+
+
+Definición en la línea 24 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Referenciado por es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-Users\-S\-Q\-Lite().
+
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-V\-E\-R\-S\-I\-O\-N@{D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-V\-E\-R\-S\-I\-O\-N}}
+\index{D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-V\-E\-R\-S\-I\-O\-N@{D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-V\-E\-R\-S\-I\-O\-N}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-V\-E\-R\-S\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}final int es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-V\-E\-R\-S\-I\-O\-N = 1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_a5a24adaafc3ce5bdff16cea01cedee9d}
+
+
+Definición en la línea 21 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Referenciado por es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-Users\-S\-Q\-Lite().
+
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!K\-E\-Y\-\_\-\-F\-A\-V@{K\-E\-Y\-\_\-\-F\-A\-V}}
+\index{K\-E\-Y\-\_\-\-F\-A\-V@{K\-E\-Y\-\_\-\-F\-A\-V}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{K\-E\-Y\-\_\-\-F\-A\-V}]{\setlength{\rightskip}{0pt plus 5cm}final String es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-F\-A\-V = \char`\"{}fav\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_a2f4aa451b949e4c0cf48fed5375cce38}
+
+
+Definición en la línea 34 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Referenciado por es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-get\-User\-Connection(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-new\-User(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-on\-Create() y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-update\-User().
+
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!K\-E\-Y\-\_\-\-I\-P@{K\-E\-Y\-\_\-\-I\-P}}
+\index{K\-E\-Y\-\_\-\-I\-P@{K\-E\-Y\-\_\-\-I\-P}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{K\-E\-Y\-\_\-\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}final String es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-I\-P = \char`\"{}ip\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_ac5fefaf28b842a8f60d08c37c786cee0}
+
+
+Definición en la línea 31 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Referenciado por es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-get\-User\-Connection(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-new\-User(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-on\-Create() y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-update\-User().
+
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!K\-E\-Y\-\_\-\-N\-A\-M\-E@{K\-E\-Y\-\_\-\-N\-A\-M\-E}}
+\index{K\-E\-Y\-\_\-\-N\-A\-M\-E@{K\-E\-Y\-\_\-\-N\-A\-M\-E}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{K\-E\-Y\-\_\-\-N\-A\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}final String es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-N\-A\-M\-E = \char`\"{}Name\-Connection\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_a1b63e7cbaceee8ba44799f37f8a7f2e4}
+
+
+Definición en la línea 30 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Referenciado por es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-delete\-User(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-get\-User\-Connection(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-new\-User(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-on\-Create() y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-update\-User().
+
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!K\-E\-Y\-\_\-\-P\-O\-R\-T@{K\-E\-Y\-\_\-\-P\-O\-R\-T}}
+\index{K\-E\-Y\-\_\-\-P\-O\-R\-T@{K\-E\-Y\-\_\-\-P\-O\-R\-T}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{K\-E\-Y\-\_\-\-P\-O\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}final String es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-P\-O\-R\-T = \char`\"{}port\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_aa77de7efda2a6764c8c622517e6a3428}
+
+
+Definición en la línea 32 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Referenciado por es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-get\-User\-Connection(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-new\-User(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-on\-Create() y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-update\-User().
+
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!K\-E\-Y\-\_\-\-P\-S\-W@{K\-E\-Y\-\_\-\-P\-S\-W}}
+\index{K\-E\-Y\-\_\-\-P\-S\-W@{K\-E\-Y\-\_\-\-P\-S\-W}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{K\-E\-Y\-\_\-\-P\-S\-W}]{\setlength{\rightskip}{0pt plus 5cm}final String es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-K\-E\-Y\-\_\-\-P\-S\-W = \char`\"{}psw\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_a4677016d9144141c47cd0ac7a5047ee0}
+
+
+Definición en la línea 33 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Referenciado por es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-get\-User\-Connection(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-new\-User(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-on\-Create() y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-update\-User().
+
+\index{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}!T\-A\-B\-L\-E\-\_\-\-U\-S\-E\-R\-S@{T\-A\-B\-L\-E\-\_\-\-U\-S\-E\-R\-S}}
+\index{T\-A\-B\-L\-E\-\_\-\-U\-S\-E\-R\-S@{T\-A\-B\-L\-E\-\_\-\-U\-S\-E\-R\-S}!es::ucm::tfg::controlremotolinux::client::UsersSQLite@{es\-::ucm\-::tfg\-::controlremotolinux\-::client\-::\-Users\-S\-Q\-Lite}}
+\subsubsection[{T\-A\-B\-L\-E\-\_\-\-U\-S\-E\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}final String es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-T\-A\-B\-L\-E\-\_\-\-U\-S\-E\-R\-S = \char`\"{}Users\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite_a6742d841b5ff13fc7b2b4c7879d43d66}
+
+
+Definición en la línea 27 del archivo Users\-S\-Q\-Lite.\-java.
+
+
+
+Referenciado por es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-delete\-User(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-get\-All\-Fav\-Users(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-get\-All\-Users(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-get\-User\-Connection(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-get\-Users\-Count(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-new\-User(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-on\-Create(), es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-on\-Upgrade() y es.\-ucm.\-tfg.\-controlremotolinux.\-client.\-Users\-S\-Q\-Lite.\-update\-User().
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\-:\begin{DoxyCompactItemize}
+\item 
+src/es/ucm/tfg/controlremotolinux/client/{\bf Users\-S\-Q\-Lite.\-java}\end{DoxyCompactItemize}

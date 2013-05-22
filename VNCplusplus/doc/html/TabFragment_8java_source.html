@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>TFGControlRemotoLinux: Fichero Fuente src/es/ucm/tfg/controlremotolinux/client/controller/TabFragment.java</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">TFGControlRemotoLinux
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.1.2 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="globals.html"><span>Miembros&#160;de&#160;los&#160;ficheros</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('TabFragment_8java_source.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">TabFragment.java</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="TabFragment_8java.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">package </span>es.ucm.tfg.controlremotolinux.client.controller;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> android.os.Bundle;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> android.view.LayoutInflater;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> android.view.View;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> android.view.ViewGroup;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> android.widget.ListView;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> com.actionbarsherlock.app.SherlockFragment;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1TabFragment.html">   11</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1TabFragment.html">TabFragment</a> <span class="keyword">extends</span> SherlockFragment {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1TabFragment.html#aa760860103fdc80e525a91729fc8a50b">   13</a></span>&#160;        <span class="keyword">private</span> ListView <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1TabFragment.html#aa760860103fdc80e525a91729fc8a50b">lstListado</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;          <span class="comment">// your member variables here</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;          @Override</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1TabFragment.html#a5233814df53faa3a664e980e6c3d64ec">   16</a></span>&#160;          <span class="keyword">public</span> View <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1TabFragment.html#a5233814df53faa3a664e980e6c3d64ec">onCreateView</a>(LayoutInflater inflater, </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                         ViewGroup container, Bundle savedInstanceState) {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="comment">// Inflate the layout for this fragment</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            View view = inflater.inflate(R.layout.list_users, container, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="comment">// do your view initialization here</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="comment">//TextView text  = (TextView) findViewById(R.id.textViewConnection_name);</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="comment">//Sets the new text to TextView (runtime click event)</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="comment">//text.setText(&quot;You Have click the button&quot;);</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;           </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">return</span> view;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;          }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;          </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;          @Override</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1TabFragment.html#ac233a93b2f8c64d4a141c67fa3013c00">   32</a></span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1TabFragment.html#ac233a93b2f8c64d4a141c67fa3013c00">onActivityCreated</a>(Bundle state) {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                super.onActivityCreated(state);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                <span class="comment">//UsersSQLite admin = new UsersSQLite(this);</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="comment">//SQLiteDatabase db = admin.getWritableDatabase();</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;         </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1TabFragment.html#aa760860103fdc80e525a91729fc8a50b">lstListado</a> = (ListView)getView().findViewById(R.id.list);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;         </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="comment">//lstListado.setAdapter(new Adapter(this,</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="comment">//                admin.getAllUsers()));</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;          </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d0a4516af6932200a01e306753dd4051.html">src</a></li><li class="navelem"><a class="el" href="dir_251c40205e7dd79b24bfd9f8fa7707f6.html">es</a></li><li class="navelem"><a class="el" href="dir_2c655d72bbe720edd7f730010bed6bfb.html">ucm</a></li><li class="navelem"><a class="el" href="dir_a1d07b4aee76f452ab2346acf7e26494.html">tfg</a></li><li class="navelem"><a class="el" href="dir_80c48e7f4d2c0509fcb7e7c3fc6969ad.html">controlremotolinux</a></li><li class="navelem"><a class="el" href="dir_b69e1a1779b0fb6d3c2fc8c9d5459b9d.html">client</a></li><li class="navelem"><a class="el" href="dir_79369056839a0b70f2ad88a95c397da7.html">controller</a></li><li class="navelem"><a class="el" href="TabFragment_8java.html">TabFragment.java</a></li>
+    <li class="footer">Generado el Viernes, 3 de Mayo de 2013 16:55:53 para TFGControlRemotoLinux por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
+  </ul>
+</div>
+</body>
+</html>

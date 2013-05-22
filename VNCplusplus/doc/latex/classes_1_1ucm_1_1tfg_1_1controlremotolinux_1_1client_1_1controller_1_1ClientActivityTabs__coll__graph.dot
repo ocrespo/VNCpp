@@ -1,0 +1,21 @@
+digraph "es.ucm.tfg.controlremotolinux.client.controller.ClientActivityTabs"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="es.ucm.tfg.controlremotolinux.client.controller.\lClientActivityTabs",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="SherlockFragmentActivity",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node3 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="es.ucm.tfg.controlremotolinux.client.view.\lDialogOptions.SuperListener",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfacees_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1DialogOptions_1_1SuperListener.html"];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" adapter" ];
+  Node4 [label="es.ucm.tfg.controlremotolinux.client.view.\lAdapter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1Adapter.html"];
+  Node5 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="BaseAdapter",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node6 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" activity" ];
+  Node6 [label="Activity",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node7 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" list" ];
+  Node7 [label="ArrayList\< Connection \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node8 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mFragment" ];
+  Node8 [label="Fragment",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

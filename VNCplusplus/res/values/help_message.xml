@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <string name="help_title">Help!</string>
+ <string name="help_message">\n
+  Help message.\n
+  Completed by Luis.\n
+  Under construction.\n
+ </string>
+ <string name="help_ok">OK</string>
+</resources>

@@ -1,0 +1,130 @@
+\hypertarget{CommonType_8h}{\section{Referencia del Archivo jni/src/\-Common\-Type.h}
+\label{CommonType_8h}\index{jni/src/\-Common\-Type.\-h@{jni/src/\-Common\-Type.\-h}}
+}
+Gráfico de los archivos que directa o indirectamente incluyen a este archivo\-:
+\subsection*{'defines'}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{CommonType_8h_ad72dbcf6d0153db1b8d8a58001feed83}{D\-E\-B\-U\-G}~0
+\begin{DoxyCompactList}\small\item\em Indica si se esta en modo debug para mostrar los logs o no. \end{DoxyCompactList}\item 
+\#define \hyperlink{CommonType_8h_a7ce0df38eb467e59f209470c8f5ac4e6}{L\-O\-G\-\_\-\-T\-A\-G}~\char`\"{}V\-N\-C\-\_\-\-J\-N\-I\char`\"{}
+\begin{DoxyCompactList}\small\item\em Etiqueta que sera mostrada en el logcat junto con el mensaje. \end{DoxyCompactList}\item 
+\#define \hyperlink{CommonType_8h_a5512e59d578a380a441a70256af997d0}{L\-O\-G\-I}(...)~\-\_\-\-\_\-android\-\_\-log\-\_\-print(A\-N\-D\-R\-O\-I\-D\-\_\-\-L\-O\-G\-\_\-\-I\-N\-F\-O,\hyperlink{CommonType_8h_a7ce0df38eb467e59f209470c8f5ac4e6}{L\-O\-G\-\_\-\-T\-A\-G},\-\_\-\-\_\-\-V\-A\-\_\-\-A\-R\-G\-S\-\_\-\-\_\-)
+\begin{DoxyCompactList}\small\item\em Muestra un mensaje en el logcat como info. \end{DoxyCompactList}\item 
+\#define \hyperlink{CommonType_8h_ae02538a80ad5fc009caec73487d11a8d}{L\-O\-G\-E}(...)~\-\_\-\-\_\-android\-\_\-log\-\_\-print(A\-N\-D\-R\-O\-I\-D\-\_\-\-L\-O\-G\-\_\-\-E\-R\-R\-O\-R,\hyperlink{CommonType_8h_a7ce0df38eb467e59f209470c8f5ac4e6}{L\-O\-G\-\_\-\-T\-A\-G},\-\_\-\-\_\-\-V\-A\-\_\-\-A\-R\-G\-S\-\_\-\-\_\-)
+\begin{DoxyCompactList}\small\item\em Muestra un mensaje en el logcat como error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{CommonType_8h_a3eb2ebd912cc5460d23e45f7188a0a86}{Connection\-Error} \{ \hyperlink{CommonType_8h_a3eb2ebd912cc5460d23e45f7188a0a86a177835555c1d262b4070d4dcd1103f41}{A\-L\-L\-O\-K} =  0, 
+\hyperlink{CommonType_8h_a3eb2ebd912cc5460d23e45f7188a0a86acbb47e5c30191f72b9d7087662b99f58}{No\-Server\-Found} =  1, 
+\hyperlink{CommonType_8h_a3eb2ebd912cc5460d23e45f7188a0a86acb281ae8ccf81589b1fe9cc478a1324b}{No\-Frame\-Found} =  2, 
+\hyperlink{CommonType_8h_a3eb2ebd912cc5460d23e45f7188a0a86a4c4011105eb39b639fb15ea4c3d77c16}{error\-Create\-Thread} =  3
+ \}
+\begin{DoxyCompactList}\small\item\em Indica diferentes errores que puedes sucederse al iniciar la conexion. \end{DoxyCompactList}\item 
+enum \hyperlink{CommonType_8h_a5f278706f235727f39ae168af63b1d99}{Mouse\-Event} \{ \\*
+\hyperlink{CommonType_8h_a5f278706f235727f39ae168af63b1d99aa73aab1d3dc041438ed3eb5a26960a68}{left\-Click} =  1, 
+\hyperlink{CommonType_8h_a5f278706f235727f39ae168af63b1d99a34a19452ec9114363c0c7bc609287c33}{wheel\-Click} =  2, 
+\hyperlink{CommonType_8h_a5f278706f235727f39ae168af63b1d99ade42d8e88f1fd57f4eea9bced3ea96eb}{double\-Click} =  3, 
+\hyperlink{CommonType_8h_a5f278706f235727f39ae168af63b1d99ab17d57d3c2f8da17803b5697fb231d98}{right\-Click} =  4, 
+\\*
+\hyperlink{CommonType_8h_a5f278706f235727f39ae168af63b1d99a628a4efc116673b237824a877d4e9e06}{wheel\-Up} =  8, 
+\hyperlink{CommonType_8h_a5f278706f235727f39ae168af63b1d99a81615fcb0164053ae4b50ef9992dbe0a}{wheel\-Down} =  16
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de los 'defines'}
+\hypertarget{CommonType_8h_ad72dbcf6d0153db1b8d8a58001feed83}{\index{Common\-Type.\-h@{Common\-Type.\-h}!D\-E\-B\-U\-G@{D\-E\-B\-U\-G}}
+\index{D\-E\-B\-U\-G@{D\-E\-B\-U\-G}!CommonType.h@{Common\-Type.\-h}}
+\subsubsection[{D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-B\-U\-G~0}}\label{CommonType_8h_ad72dbcf6d0153db1b8d8a58001feed83}
+
+
+Definición en la línea 14 del archivo Common\-Type.\-h.
+
+
+
+Referenciado por Client\-Connection\-R\-F\-B\-::clean\-Rfb(), Client\-Connection\-R\-F\-B\-::event\-Loop(), Observable\-J\-N\-I\-::finish\-By\-Client(), Observable\-J\-N\-I\-::get\-Bitmap\-Data(), Observable\-J\-N\-I\-::get\-Bitmap\-Object(), Vnc\-::ini\-Connection(), Client\-Connection\-R\-F\-B\-::ini\-Connection(), Client\-Screen\-::ini\-Screen(), Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-finish(), Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-Connect(), Observable\-J\-N\-I\-::notify\-Finish\-Connection(), Observable\-J\-N\-I\-::notify\-Ini\-Frame(), Observable\-J\-N\-I\-::notify\-Re\-Draw(), Client\-Screen\-::update\-Screen(), Client\-Connection\-R\-F\-B\-::$\sim$\-Client\-Connection\-R\-F\-B(), Client\-Screen\-::$\sim$\-Client\-Screen(), Observable\-J\-N\-I\-::$\sim$\-Observable\-J\-N\-I() y Vnc\-::$\sim$\-Vnc().
+
+\hypertarget{CommonType_8h_a7ce0df38eb467e59f209470c8f5ac4e6}{\index{Common\-Type.\-h@{Common\-Type.\-h}!L\-O\-G\-\_\-\-T\-A\-G@{L\-O\-G\-\_\-\-T\-A\-G}}
+\index{L\-O\-G\-\_\-\-T\-A\-G@{L\-O\-G\-\_\-\-T\-A\-G}!CommonType.h@{Common\-Type.\-h}}
+\subsubsection[{L\-O\-G\-\_\-\-T\-A\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-G\-\_\-\-T\-A\-G~\char`\"{}V\-N\-C\-\_\-\-J\-N\-I\char`\"{}}}\label{CommonType_8h_a7ce0df38eb467e59f209470c8f5ac4e6}
+
+
+Definición en la línea 20 del archivo Common\-Type.\-h.
+
+\hypertarget{CommonType_8h_ae02538a80ad5fc009caec73487d11a8d}{\index{Common\-Type.\-h@{Common\-Type.\-h}!L\-O\-G\-E@{L\-O\-G\-E}}
+\index{L\-O\-G\-E@{L\-O\-G\-E}!CommonType.h@{Common\-Type.\-h}}
+\subsubsection[{L\-O\-G\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-G\-E(
+\begin{DoxyParamCaption}
+\item[{}]{...}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-android\-\_\-log\-\_\-print(A\-N\-D\-R\-O\-I\-D\-\_\-\-L\-O\-G\-\_\-\-E\-R\-R\-O\-R,{\bf L\-O\-G\-\_\-\-T\-A\-G},\-\_\-\-\_\-\-V\-A\-\_\-\-A\-R\-G\-S\-\_\-\-\_\-)}}\label{CommonType_8h_ae02538a80ad5fc009caec73487d11a8d}
+
+
+Definición en la línea 30 del archivo Common\-Type.\-h.
+
+
+
+Referenciado por Observable\-J\-N\-I\-::add\-Observer(), Client\-Connection\-R\-F\-B\-::clean\-Rfb(), Client\-Connection\-R\-F\-B\-::event\-Loop(), Observable\-J\-N\-I\-::finish\-By\-Client(), Observable\-J\-N\-I\-::get\-Bitmap\-Data(), Observable\-J\-N\-I\-::get\-Bitmap\-Object(), Vnc\-::ini\-Connection(), Client\-Connection\-R\-F\-B\-::ini\-Connection(), Client\-Screen\-::ini\-Screen(), Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-finish(), Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-Connect(), Observable\-J\-N\-I\-::notify\-Finish\-Connection(), Observable\-J\-N\-I\-::notify\-Ini\-Frame(), Observable\-J\-N\-I\-::notify\-Re\-Draw(), Client\-Screen\-::update\-Screen(), Client\-Connection\-R\-F\-B\-::$\sim$\-Client\-Connection\-R\-F\-B(), Client\-Screen\-::$\sim$\-Client\-Screen(), Observable\-J\-N\-I\-::$\sim$\-Observable\-J\-N\-I() y Vnc\-::$\sim$\-Vnc().
+
+\hypertarget{CommonType_8h_a5512e59d578a380a441a70256af997d0}{\index{Common\-Type.\-h@{Common\-Type.\-h}!L\-O\-G\-I@{L\-O\-G\-I}}
+\index{L\-O\-G\-I@{L\-O\-G\-I}!CommonType.h@{Common\-Type.\-h}}
+\subsubsection[{L\-O\-G\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-G\-I(
+\begin{DoxyParamCaption}
+\item[{}]{...}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-android\-\_\-log\-\_\-print(A\-N\-D\-R\-O\-I\-D\-\_\-\-L\-O\-G\-\_\-\-I\-N\-F\-O,{\bf L\-O\-G\-\_\-\-T\-A\-G},\-\_\-\-\_\-\-V\-A\-\_\-\-A\-R\-G\-S\-\_\-\-\_\-)}}\label{CommonType_8h_a5512e59d578a380a441a70256af997d0}
+
+
+Definición en la línea 25 del archivo Common\-Type.\-h.
+
+
+
+\subsection{Documentación de las enumeraciones}
+\hypertarget{CommonType_8h_a3eb2ebd912cc5460d23e45f7188a0a86}{\index{Common\-Type.\-h@{Common\-Type.\-h}!Connection\-Error@{Connection\-Error}}
+\index{Connection\-Error@{Connection\-Error}!CommonType.h@{Common\-Type.\-h}}
+\subsubsection[{Connection\-Error}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Connection\-Error}}}\label{CommonType_8h_a3eb2ebd912cc5460d23e45f7188a0a86}
+\begin{Desc}
+\item[Valores de enumeraciones\-: ]\par
+\begin{description}
+\index{A\-L\-L\-O\-K@{A\-L\-L\-O\-K}!Common\-Type.\-h@{Common\-Type.\-h}}\index{Common\-Type.\-h@{Common\-Type.\-h}!A\-L\-L\-O\-K@{A\-L\-L\-O\-K}}\item[{\em 
+\hypertarget{CommonType_8h_a3eb2ebd912cc5460d23e45f7188a0a86a177835555c1d262b4070d4dcd1103f41}{A\-L\-L\-O\-K}\label{CommonType_8h_a3eb2ebd912cc5460d23e45f7188a0a86a177835555c1d262b4070d4dcd1103f41}
+}]No ha habido ningun error. \index{No\-Server\-Found@{No\-Server\-Found}!Common\-Type.\-h@{Common\-Type.\-h}}\index{Common\-Type.\-h@{Common\-Type.\-h}!No\-Server\-Found@{No\-Server\-Found}}\item[{\em 
+\hypertarget{CommonType_8h_a3eb2ebd912cc5460d23e45f7188a0a86acbb47e5c30191f72b9d7087662b99f58}{No\-Server\-Found}\label{CommonType_8h_a3eb2ebd912cc5460d23e45f7188a0a86acbb47e5c30191f72b9d7087662b99f58}
+}]No se ha podido conectar con ningun servidor. \index{No\-Frame\-Found@{No\-Frame\-Found}!Common\-Type.\-h@{Common\-Type.\-h}}\index{Common\-Type.\-h@{Common\-Type.\-h}!No\-Frame\-Found@{No\-Frame\-Found}}\item[{\em 
+\hypertarget{CommonType_8h_a3eb2ebd912cc5460d23e45f7188a0a86acb281ae8ccf81589b1fe9cc478a1324b}{No\-Frame\-Found}\label{CommonType_8h_a3eb2ebd912cc5460d23e45f7188a0a86acb281ae8ccf81589b1fe9cc478a1324b}
+}]No hay ninguna informacion en el frame\-Buffer. \index{error\-Create\-Thread@{error\-Create\-Thread}!Common\-Type.\-h@{Common\-Type.\-h}}\index{Common\-Type.\-h@{Common\-Type.\-h}!error\-Create\-Thread@{error\-Create\-Thread}}\item[{\em 
+\hypertarget{CommonType_8h_a3eb2ebd912cc5460d23e45f7188a0a86a4c4011105eb39b639fb15ea4c3d77c16}{error\-Create\-Thread}\label{CommonType_8h_a3eb2ebd912cc5460d23e45f7188a0a86a4c4011105eb39b639fb15ea4c3d77c16}
+}]No se ha podido crear el hilo para atender las peticiones de rfb. \end{description}
+\end{Desc}
+
+
+
+Definición en la línea 35 del archivo Common\-Type.\-h.
+
+\hypertarget{CommonType_8h_a5f278706f235727f39ae168af63b1d99}{\index{Common\-Type.\-h@{Common\-Type.\-h}!Mouse\-Event@{Mouse\-Event}}
+\index{Mouse\-Event@{Mouse\-Event}!CommonType.h@{Common\-Type.\-h}}
+\subsubsection[{Mouse\-Event}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Mouse\-Event}}}\label{CommonType_8h_a5f278706f235727f39ae168af63b1d99}
+\begin{Desc}
+\item[Valores de enumeraciones\-: ]\par
+\begin{description}
+\index{left\-Click@{left\-Click}!Common\-Type.\-h@{Common\-Type.\-h}}\index{Common\-Type.\-h@{Common\-Type.\-h}!left\-Click@{left\-Click}}\item[{\em 
+\hypertarget{CommonType_8h_a5f278706f235727f39ae168af63b1d99aa73aab1d3dc041438ed3eb5a26960a68}{left\-Click}\label{CommonType_8h_a5f278706f235727f39ae168af63b1d99aa73aab1d3dc041438ed3eb5a26960a68}
+}]\index{wheel\-Click@{wheel\-Click}!Common\-Type.\-h@{Common\-Type.\-h}}\index{Common\-Type.\-h@{Common\-Type.\-h}!wheel\-Click@{wheel\-Click}}\item[{\em 
+\hypertarget{CommonType_8h_a5f278706f235727f39ae168af63b1d99a34a19452ec9114363c0c7bc609287c33}{wheel\-Click}\label{CommonType_8h_a5f278706f235727f39ae168af63b1d99a34a19452ec9114363c0c7bc609287c33}
+}]\index{double\-Click@{double\-Click}!Common\-Type.\-h@{Common\-Type.\-h}}\index{Common\-Type.\-h@{Common\-Type.\-h}!double\-Click@{double\-Click}}\item[{\em 
+\hypertarget{CommonType_8h_a5f278706f235727f39ae168af63b1d99ade42d8e88f1fd57f4eea9bced3ea96eb}{double\-Click}\label{CommonType_8h_a5f278706f235727f39ae168af63b1d99ade42d8e88f1fd57f4eea9bced3ea96eb}
+}]\index{right\-Click@{right\-Click}!Common\-Type.\-h@{Common\-Type.\-h}}\index{Common\-Type.\-h@{Common\-Type.\-h}!right\-Click@{right\-Click}}\item[{\em 
+\hypertarget{CommonType_8h_a5f278706f235727f39ae168af63b1d99ab17d57d3c2f8da17803b5697fb231d98}{right\-Click}\label{CommonType_8h_a5f278706f235727f39ae168af63b1d99ab17d57d3c2f8da17803b5697fb231d98}
+}]\index{wheel\-Up@{wheel\-Up}!Common\-Type.\-h@{Common\-Type.\-h}}\index{Common\-Type.\-h@{Common\-Type.\-h}!wheel\-Up@{wheel\-Up}}\item[{\em 
+\hypertarget{CommonType_8h_a5f278706f235727f39ae168af63b1d99a628a4efc116673b237824a877d4e9e06}{wheel\-Up}\label{CommonType_8h_a5f278706f235727f39ae168af63b1d99a628a4efc116673b237824a877d4e9e06}
+}]\index{wheel\-Down@{wheel\-Down}!Common\-Type.\-h@{Common\-Type.\-h}}\index{Common\-Type.\-h@{Common\-Type.\-h}!wheel\-Down@{wheel\-Down}}\item[{\em 
+\hypertarget{CommonType_8h_a5f278706f235727f39ae168af63b1d99a81615fcb0164053ae4b50ef9992dbe0a}{wheel\-Down}\label{CommonType_8h_a5f278706f235727f39ae168af63b1d99a81615fcb0164053ae4b50ef9992dbe0a}
+}]\end{description}
+\end{Desc}
+
+
+
+Definición en la línea 41 del archivo Common\-Type.\-h.
+

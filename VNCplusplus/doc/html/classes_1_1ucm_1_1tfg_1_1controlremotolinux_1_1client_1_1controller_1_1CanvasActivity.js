@@ -1,0 +1,27 @@
+var classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity =
+[
+    [ "GestureListener", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener" ],
+    [ "onCreate", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#acf75cc7d2c377828d1867dbb7db18a5c", null ],
+    [ "onDrag", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a09ced297c15e7eb11f05d7319e626916", null ],
+    [ "onKeyDown", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a16ecf145718bb0bcaf12974329d1170e", null ],
+    [ "onKeyUp", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a48d761e87c01fb342d7955d6a419b17a", null ],
+    [ "onTouchEvent", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aeb5475156c552b45b123631ffe38e4f3", null ],
+    [ "onUpMouse", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aabf81736f09591b50dd7631e2e53123e", null ],
+    [ "updateFinish", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#af38507eafb0adc47dd2c96bc546c69b0", null ],
+    [ "updateIniFrame", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a8a3ee414f2dd6f2059017fa9c7d8e648", null ],
+    [ "updateRedraw", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#af5b910f066c7052f9d7f94670763fe48", null ],
+    [ "canvas", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397", null ],
+    [ "DEBUG_TAG", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6eb4ed0771188a692df57ceca3fb5f7e", null ],
+    [ "endScrollRun", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ae5baf801f9649f1234cfe1140a3fb6f5", null ],
+    [ "endScrollThread", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a8dd8485425c6232979b318d0647cc84f", null ],
+    [ "gesture", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a29bef2fb0df9169e676ed728fb3776f5", null ],
+    [ "isDrag", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a234c2998bfb3ee769792e760357425a1", null ],
+    [ "realX", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3946282d86de3f4ef1ef65c54b2669bc", null ],
+    [ "realY", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ad8b534f3e3c61b4ff0576ac5a16f7d44", null ],
+    [ "scaleFactor", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590", null ],
+    [ "scaleGesture", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a68ba3fc3f0711e6c81db1423484db6a7", null ],
+    [ "scrollThread", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3f767c3d6228080158c4ac690b4ca4b3", null ],
+    [ "VELOCITY_MOD", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a646d0e209d35564cdc42d837671bd7a4", null ],
+    [ "vnc", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a7508b6459e8ff8e166d2e6494a6eb356", null ],
+    [ "zoom", "classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a24f84d52429b8d6256f422a949f76ac2", null ]
+];

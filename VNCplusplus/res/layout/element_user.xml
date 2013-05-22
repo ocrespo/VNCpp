@@ -1,0 +1,54 @@
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="fill_parent"
+       android:layout_height="?android:attr/listPreferredItemHeight">
+		
+		    <LinearLayout android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dip">          
+            
+         <CheckBox
+	        android:id="@+id/checkFav"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="0px"
+	        android:background="@drawable/star_emp"
+	        android:button="@drawable/tab_favorites"
+	        android:focusable="false"
+	        android:focusableInTouchMode="false" 
+	        android:onClick="onCheckboxFavClicked" />
+ 
+    	</LinearLayout>
+       
+       <TextView android:id="@+id/nameConnection"
+        android:layout_toRightOf="@+id/checkFav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+    	android:layout_centerHorizontal="true"
+    	android:text="@string/add_connection"
+    	android:textAppearance="?android:attr/textAppearanceLarge"
+        android:paddingTop="15dip" />
+ 
+       <TextView android:id="@+id/descIP"
+        android:layout_below="@+id/nameConnection"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" /> 
+        
+	      <CheckBox
+	        android:id="@+id/checkConnect"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:layout_marginRight="0dp"
+	        android:layout_alignRight="@+id/descIP"
+	        android:button="@drawable/connect"
+	        android:focusable="false"
+	        android:focusableInTouchMode="false" 
+	        android:onClick="onCheckboxConnectClicked" />
+
+
+</RelativeLayout>

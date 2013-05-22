@@ -1,0 +1,241 @@
+\hypertarget{classClientScreen}{\section{Referencia de la Clase Client\-Screen}
+\label{classClientScreen}\index{Client\-Screen@{Client\-Screen}}
+}
+
+
+Clase encargada de gestionar los eventos de rfb y transformar la imagen.  
+
+
+
+
+{\ttfamily \#include $<$Client\-Screen.\-h$>$}
+
+
+
+Diagrama de herencias de Client\-Screen
+
+
+Diagrama de colaboración para Client\-Screen\-:
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classClientScreen_a4918c7b39d6ffbd66b00447e0eea66b5}{Client\-Screen} ()
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+virtual \hyperlink{classClientScreen_a4cda5f769adf88c13e2d16653f12eee5}{$\sim$\-Client\-Screen} ()
+\begin{DoxyCompactList}\small\item\em Destructor por defecto. \end{DoxyCompactList}\item 
+void \hyperlink{classClientScreen_ac3afa184bedeb1c0b53da93ae9792d9c}{do\-Mask} (rfb\-Client $\ast$client)
+\item 
+int \hyperlink{classClientScreen_a319d02c12d61c5b78c500a6ddcf8ca74}{ini\-Screen} (const int \hyperlink{classClientScreen_ac6f888c59861f6cca2f0ed9ea2c6b81b}{width}, const int \hyperlink{classClientScreen_ad6ead1ee3668a762e8fe2a0912ed282c}{height}, const int bits\-Per\-Pixel)
+\begin{DoxyCompactList}\small\item\em Inicializa frame\-Buffer. \end{DoxyCompactList}\item 
+void \hyperlink{classClientScreen_a949b67312c5f00fd4b58dd2b2685a6c5}{update\-Screen} (uint8\-\_\-t $\ast$frame\-Buffer, const int x, const int y, const int w, const int h)
+\begin{DoxyCompactList}\small\item\em Actualiza la regin de la imagen especificados por el rectangulo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classClientScreen_ac6f888c59861f6cca2f0ed9ea2c6b81b}{width}
+\begin{DoxyCompactList}\small\item\em Anchura dela imagen. \end{DoxyCompactList}\item 
+int \hyperlink{classClientScreen_ad6ead1ee3668a762e8fe2a0912ed282c}{height}
+\begin{DoxyCompactList}\small\item\em altura de la imagen \end{DoxyCompactList}\item 
+int \hyperlink{classClientScreen_a76eeef3335185b032cf23820a423b094}{bytes\-Per\-Pixel}
+\begin{DoxyCompactList}\small\item\em bytes por pixel \end{DoxyCompactList}\item 
+int \hyperlink{classClientScreen_acdc02740aa020f6b66a933213e0bec7e}{size}
+\begin{DoxyCompactList}\small\item\em tamaño del frame\-Buffer, se calcula con height$\ast$width$\ast$bytes\-Per\-Pixel \end{DoxyCompactList}\item 
+int \hyperlink{classClientScreen_ab56f74d3f4375a74a8275c61a128910d}{depth}
+\begin{DoxyCompactList}\small\item\em profundidad de la imagen, es igual que los bits\-Per\-Pixel \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Clase encargada de gestionar los eventos de rfb y transformar la imagen. Hereda la clase \hyperlink{classObservableJNI}{Observable\-J\-N\-I} para asi poder notificar cambios a Java 
+
+Definición en la línea 27 del archivo Client\-Screen.\-h.
+
+
+
+\subsection{Documentación del constructor y destructor}
+\hypertarget{classClientScreen_a4918c7b39d6ffbd66b00447e0eea66b5}{\index{Client\-Screen@{Client\-Screen}!Client\-Screen@{Client\-Screen}}
+\index{Client\-Screen@{Client\-Screen}!ClientScreen@{Client\-Screen}}
+\subsubsection[{Client\-Screen}]{\setlength{\rightskip}{0pt plus 5cm}Client\-Screen\-::\-Client\-Screen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classClientScreen_a4918c7b39d6ffbd66b00447e0eea66b5}
+Inicia todos los parametros a 0 y screen apunta a la propia clase (this) 
+
+Definición en la línea 21 del archivo Client\-Screen.\-cpp.
+
+
+
+Hace referencia a bytes\-Per\-Pixel, depth, height, size y width.
+
+\hypertarget{classClientScreen_a4cda5f769adf88c13e2d16653f12eee5}{\index{Client\-Screen@{Client\-Screen}!$\sim$\-Client\-Screen@{$\sim$\-Client\-Screen}}
+\index{$\sim$\-Client\-Screen@{$\sim$\-Client\-Screen}!ClientScreen@{Client\-Screen}}
+\subsubsection[{$\sim$\-Client\-Screen}]{\setlength{\rightskip}{0pt plus 5cm}Client\-Screen\-::$\sim$\-Client\-Screen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classClientScreen_a4cda5f769adf88c13e2d16653f12eee5}
+Pone screen a N\-U\-L\-L 
+
+Definición en la línea 34 del archivo Client\-Screen.\-cpp.
+
+
+
+Hace referencia a D\-E\-B\-U\-G y L\-O\-G\-E.
+
+
+
+\subsection{Documentación de las funciones miembro}
+\hypertarget{classClientScreen_ac3afa184bedeb1c0b53da93ae9792d9c}{\index{Client\-Screen@{Client\-Screen}!do\-Mask@{do\-Mask}}
+\index{do\-Mask@{do\-Mask}!ClientScreen@{Client\-Screen}}
+\subsubsection[{do\-Mask}]{\setlength{\rightskip}{0pt plus 5cm}void Client\-Screen\-::do\-Mask (
+\begin{DoxyParamCaption}
+\item[{rfb\-Client $\ast$}]{client}
+\end{DoxyParamCaption}
+)}}\label{classClientScreen_ac3afa184bedeb1c0b53da93ae9792d9c}
+
+
+Definición en la línea 39 del archivo Client\-Screen.\-cpp.
+
+
+
+Referenciado por Handler\-R\-F\-B\-::ini\-Frame\-Buffer().
+
+\hypertarget{classClientScreen_a319d02c12d61c5b78c500a6ddcf8ca74}{\index{Client\-Screen@{Client\-Screen}!ini\-Screen@{ini\-Screen}}
+\index{ini\-Screen@{ini\-Screen}!ClientScreen@{Client\-Screen}}
+\subsubsection[{ini\-Screen}]{\setlength{\rightskip}{0pt plus 5cm}int Client\-Screen\-::ini\-Screen (
+\begin{DoxyParamCaption}
+\item[{const int}]{width, }
+\item[{const int}]{height, }
+\item[{const int}]{bits\-Per\-Pixel}
+\end{DoxyParamCaption}
+)}}\label{classClientScreen_a319d02c12d61c5b78c500a6ddcf8ca74}
+Evento generado por rfb, inicializa las dimensiones del frame\-Buffer a size y se toman el resto de atributos, para almacenarlos en la clase. 
+\begin{DoxyParams}{Parámetros}
+{\em client} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+
+Definición en la línea 60 del archivo Client\-Screen.\-cpp.
+
+
+
+Hace referencia a bytes\-Per\-Pixel, D\-E\-B\-U\-G, depth, height, L\-O\-G\-E, Observable\-J\-N\-I\-::notify\-Ini\-Frame(), size y width.
+
+
+
+Referenciado por Handler\-R\-F\-B\-::ini\-Frame\-Buffer().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\hypertarget{classClientScreen_a949b67312c5f00fd4b58dd2b2685a6c5}{\index{Client\-Screen@{Client\-Screen}!update\-Screen@{update\-Screen}}
+\index{update\-Screen@{update\-Screen}!ClientScreen@{Client\-Screen}}
+\subsubsection[{update\-Screen}]{\setlength{\rightskip}{0pt plus 5cm}void Client\-Screen\-::update\-Screen (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{frame\-Buffer, }
+\item[{const int}]{x, }
+\item[{const int}]{y, }
+\item[{const int}]{w, }
+\item[{const int}]{h}
+\end{DoxyParamCaption}
+)}}\label{classClientScreen_a949b67312c5f00fd4b58dd2b2685a6c5}
+Evento generado por rfb, indica la actualizacion de la imagen en el buffer. La seccion formada por el rectandulo, siendo x e y las coordenadas iniciales, y w y h la anchura y altura, es la que ha recibido cambios. 
+\begin{DoxyParams}{Parámetros}
+{\em cl} & cliente rfb que se actualiza \\
+\hline
+{\em x} & coordenada x inicial del rectangulo \\
+\hline
+{\em y} & coordenada y inicial del rectangulo \\
+\hline
+{\em w} & anchura del rectangulo \\
+\hline
+{\em h} & altura del rectangulo \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 98 del archivo Client\-Screen.\-cpp.
+
+
+
+Hace referencia a bytes\-Per\-Pixel, D\-E\-B\-U\-G, Observable\-J\-N\-I\-::get\-Array\-Elements(), Observable\-J\-N\-I\-::get\-Bitmap\-Data(), L\-O\-G\-E, Observable\-J\-N\-I\-::notify\-Re\-Draw(), Observable\-J\-N\-I\-::set\-Array\-Elements() y width.
+
+
+
+Referenciado por Handler\-R\-F\-B\-::update\-Screen().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+
+
+\subsection{Documentación de los datos miembro}
+\hypertarget{classClientScreen_a76eeef3335185b032cf23820a423b094}{\index{Client\-Screen@{Client\-Screen}!bytes\-Per\-Pixel@{bytes\-Per\-Pixel}}
+\index{bytes\-Per\-Pixel@{bytes\-Per\-Pixel}!ClientScreen@{Client\-Screen}}
+\subsubsection[{bytes\-Per\-Pixel}]{\setlength{\rightskip}{0pt plus 5cm}int Client\-Screen\-::bytes\-Per\-Pixel\hspace{0.3cm}{\ttfamily [private]}}}\label{classClientScreen_a76eeef3335185b032cf23820a423b094}
+
+
+Definición en la línea 32 del archivo Client\-Screen.\-h.
+
+
+
+Referenciado por Client\-Screen(), ini\-Screen() y update\-Screen().
+
+\hypertarget{classClientScreen_ab56f74d3f4375a74a8275c61a128910d}{\index{Client\-Screen@{Client\-Screen}!depth@{depth}}
+\index{depth@{depth}!ClientScreen@{Client\-Screen}}
+\subsubsection[{depth}]{\setlength{\rightskip}{0pt plus 5cm}int Client\-Screen\-::depth\hspace{0.3cm}{\ttfamily [private]}}}\label{classClientScreen_ab56f74d3f4375a74a8275c61a128910d}
+
+
+Definición en la línea 34 del archivo Client\-Screen.\-h.
+
+
+
+Referenciado por Client\-Screen() y ini\-Screen().
+
+\hypertarget{classClientScreen_ad6ead1ee3668a762e8fe2a0912ed282c}{\index{Client\-Screen@{Client\-Screen}!height@{height}}
+\index{height@{height}!ClientScreen@{Client\-Screen}}
+\subsubsection[{height}]{\setlength{\rightskip}{0pt plus 5cm}int Client\-Screen\-::height\hspace{0.3cm}{\ttfamily [private]}}}\label{classClientScreen_ad6ead1ee3668a762e8fe2a0912ed282c}
+
+
+Definición en la línea 30 del archivo Client\-Screen.\-h.
+
+
+
+Referenciado por Client\-Screen() y ini\-Screen().
+
+\hypertarget{classClientScreen_acdc02740aa020f6b66a933213e0bec7e}{\index{Client\-Screen@{Client\-Screen}!size@{size}}
+\index{size@{size}!ClientScreen@{Client\-Screen}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}int Client\-Screen\-::size\hspace{0.3cm}{\ttfamily [private]}}}\label{classClientScreen_acdc02740aa020f6b66a933213e0bec7e}
+
+
+Definición en la línea 33 del archivo Client\-Screen.\-h.
+
+
+
+Referenciado por Client\-Screen() y ini\-Screen().
+
+\hypertarget{classClientScreen_ac6f888c59861f6cca2f0ed9ea2c6b81b}{\index{Client\-Screen@{Client\-Screen}!width@{width}}
+\index{width@{width}!ClientScreen@{Client\-Screen}}
+\subsubsection[{width}]{\setlength{\rightskip}{0pt plus 5cm}int Client\-Screen\-::width\hspace{0.3cm}{\ttfamily [private]}}}\label{classClientScreen_ac6f888c59861f6cca2f0ed9ea2c6b81b}
+
+
+Definición en la línea 29 del archivo Client\-Screen.\-h.
+
+
+
+Referenciado por Client\-Screen(), ini\-Screen() y update\-Screen().
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\-:\begin{DoxyCompactItemize}
+\item 
+jni/src/model/screen/\hyperlink{ClientScreen_8h}{Client\-Screen.\-h}\item 
+jni/src/model/screen/\hyperlink{ClientScreen_8cpp}{Client\-Screen.\-cpp}\end{DoxyCompactItemize}

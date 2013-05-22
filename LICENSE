@@ -1,0 +1,34 @@
+The source code located in the VNC++/jni/src and VNC++/es/farfuteam/vncplusplus directories is under the following license.
+
+Copyright 2013 Oscar Crespo Salazar
+Copyright 2013 Gorka Jimeno Garrachon
+Copyright 2013 Luis Valero Martin
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or 
+any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+The rest of the source code is property of their owners.
+
+This software uses the following libraries:
+
+libVNCserver: http://libvncserver.sourceforge.net/
+
+slidingmenu, located in the slideLibrary directory (project reference): https://github.com/jfeinstein10/SlidingMenu
+
+The documentantion is under a Cretive Commons Attribution-ShareAlike license: http://creativecommons.org/licenses/by/3.0/deed.en
+
+The VNC++ logo under the following license:
+
+Copyright 2013 Sergio Barrasa Bazaga
+
+The VNC++ logo is under a Cretive Commons Attribution-ShareAlike license: http://creativecommons.org/licenses/by/3.0/deed.en

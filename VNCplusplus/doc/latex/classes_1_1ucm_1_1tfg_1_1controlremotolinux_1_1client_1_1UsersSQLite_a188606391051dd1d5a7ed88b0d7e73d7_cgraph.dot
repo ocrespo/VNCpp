@@ -1,0 +1,15 @@
+digraph "es.ucm.tfg.controlremotolinux.client.UsersSQLite.newUser"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="es.ucm.tfg.controlremotolinux.client.\lUsersSQLite.newUser",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="es.ucm.tfg.controlremotolinux.client.\lUser.getIP",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a3ca42d141d23695fb23267259d66ba8d"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="es.ucm.tfg.controlremotolinux.client.\lUser.getName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a9a224b1386a94768f5fcecd2808a9233"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="es.ucm.tfg.controlremotolinux.client.\lUser.getPORT",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a4360af18965579e2dd9055d8255519b4"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="es.ucm.tfg.controlremotolinux.client.\lUser.getPsw",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a503cace3feb13cc0094741f2ef3e0c43"];
+}

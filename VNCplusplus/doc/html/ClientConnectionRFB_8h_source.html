@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>TFGControlRemotoLinux: Fichero Fuente jni/src/model/comunication/ClientConnectionRFB.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">TFGControlRemotoLinux
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.1.2 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="globals.html"><span>Miembros&#160;de&#160;los&#160;ficheros</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('ClientConnectionRFB_8h_source.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">ClientConnectionRFB.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="ClientConnectionRFB_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * ClientConnectionRFB.h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  Created on: 14/04/2013</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *      Author: roni</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef CLIENTCONNECTIONRFB_H_</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CLIENTCONNECTIONRFB_H_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;rfb/rfbclient.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;pthread.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="CommonType_8h.html">CommonType.h</a>&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">class </span><a class="code" href="classHandlerRFB.html">HandlerRFB</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="classClientConnectionRFB.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="classClientConnectionRFB.html" title="Clase encargada de gestionar la conexion con el servidor mediante rfb.">ClientConnectionRFB</a> {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="classClientConnectionRFB.html#a7e3efe49516da3950ca4a8c8084ba872">   28</a></span>&#160;        rfbClient *<a class="code" href="classClientConnectionRFB.html#a7e3efe49516da3950ca4a8c8084ba872" title="Puntero a la estructura de rfb con la informacion del cliente.">clientRFB</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="classClientConnectionRFB.html#ace0de911ed81b46a190032fc9d0792e8">   29</a></span>&#160;        pthread_t <a class="code" href="classClientConnectionRFB.html#ace0de911ed81b46a190032fc9d0792e8" title="ID del hilo que ejecuta el bucle principal.">mainThreadId</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="classClientConnectionRFB.html#a6abf99187b5b7f796903e60537bad442">   31</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classClientConnectionRFB.html#a6abf99187b5b7f796903e60537bad442" title="Indica si la conexion debe ser interrumpida.">stop_connection</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="classClientConnectionRFB.html#abed37570b0fcc1acfae40cfca845c332">   33</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classClientConnectionRFB.html#abed37570b0fcc1acfae40cfca845c332">thread_finish</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="classClientConnectionRFB.html#a716c3e543a42d2eb9163d831d7f7d9c0">   35</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classClientConnectionRFB.html#a716c3e543a42d2eb9163d831d7f7d9c0">buttonMask</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span>* eventLoop(<span class="keywordtype">void</span> *This);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="classClientConnectionRFB.html" title="Clase encargada de gestionar la conexion con el servidor mediante rfb.">ClientConnectionRFB</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        ~<a class="code" href="classClientConnectionRFB.html" title="Clase encargada de gestionar la conexion con el servidor mediante rfb.">ClientConnectionRFB</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="CommonType_8h.html#a3eb2ebd912cc5460d23e45f7188a0a86" title="Indica diferentes errores que puedes sucederse al iniciar la conexion.">ConnectionError</a> iniConnection(<span class="keywordtype">char</span>* host,<span class="keywordtype">int</span> port);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">void</span> cleanRfb();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">bool</span> sendMouseEvent(<span class="keywordtype">int</span> x,<span class="keywordtype">int</span> y,<a class="code" href="CommonType_8h.html#a5f278706f235727f39ae168af63b1d99">MouseEvent</a> event);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">void</span> stopConnection();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* CLIENTCONNECTIONRFB_H_ */</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_c5aabee391184a762ac1b32f1d4716d2.html">jni</a></li><li class="navelem"><a class="el" href="dir_a452bb55a652a5280ad3d8554bc48b9f.html">src</a></li><li class="navelem"><a class="el" href="dir_581903b642829978cb3efcda7bb649dd.html">model</a></li><li class="navelem"><a class="el" href="dir_309e0ea135f1888f0a29fde9a7a2b997.html">comunication</a></li><li class="navelem"><a class="el" href="ClientConnectionRFB_8h.html">ClientConnectionRFB.h</a></li>
+    <li class="footer">Generado el Viernes, 3 de Mayo de 2013 16:55:53 para TFGControlRemotoLinux por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
+  </ul>
+</div>
+</body>
+</html>

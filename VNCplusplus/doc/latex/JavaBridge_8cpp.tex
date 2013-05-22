@@ -1,0 +1,150 @@
+\hypertarget{JavaBridge_8cpp}{\section{Referencia del Archivo jni/src/\-Java\-Bridge.cpp}
+\label{JavaBridge_8cpp}\index{jni/src/\-Java\-Bridge.\-cpp@{jni/src/\-Java\-Bridge.\-cpp}}
+}
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$jni.\-h$>$}\\*
+{\ttfamily \#include $<$android/log.\-h$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$model/\-Vnc.\-h$>$}\\*
+{\ttfamily \#include $<$Common\-Type.\-h$>$}\\*
+Dependencia gráfica adjunta para Java\-Bridge.\-cpp\-:
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+J\-N\-I\-E\-X\-P\-O\-R\-T jint J\-N\-I\-C\-A\-L\-L \hyperlink{JavaBridge_8cpp_a324a2093cbff3b5462a1f3ab14b14ff0}{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-Connect} (J\-N\-I\-Env $\ast$env, jobject java\-This, jstring host\-\_\-java, jint port\-\_\-java)
+\item 
+J\-N\-I\-E\-X\-P\-O\-R\-T void J\-N\-I\-C\-A\-L\-L \hyperlink{JavaBridge_8cpp_ab5d1b5326da72917e2b0463f709a56b0}{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-close\-Connection} (J\-N\-I\-Env $\ast$env, jobject java\-This)
+\item 
+J\-N\-I\-E\-X\-P\-O\-R\-T void J\-N\-I\-C\-A\-L\-L \hyperlink{JavaBridge_8cpp_aa861a8803ad357dbde2edccceba8fde8}{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-finish} (J\-N\-I\-Env $\ast$env, jobject java\-This)
+\item 
+J\-N\-I\-E\-X\-P\-O\-R\-T void J\-N\-I\-C\-A\-L\-L \hyperlink{JavaBridge_8cpp_a16ea699525a22a48e6e1cd2120ba2463}{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-J\-N\-I} (J\-N\-I\-Env $\ast$env, jobject java\-This)
+\item 
+J\-N\-I\-E\-X\-P\-O\-R\-T jboolean J\-N\-I\-C\-A\-L\-L \hyperlink{JavaBridge_8cpp_a65ccfc8ea6b9a46a4750b713ff310188}{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-mouse\-Event} (J\-N\-I\-Env $\ast$env, jobject java\-This, int x, int y, int event)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classVnc}{Vnc} $\ast$ \hyperlink{JavaBridge_8cpp_acef54cfdc4d257f9a9c8d71c256f6725}{vnc}
+\begin{DoxyCompactList}\small\item\em Referencia al objecto \hyperlink{classVnc}{Vnc}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de las funciones}
+\hypertarget{JavaBridge_8cpp_ab5d1b5326da72917e2b0463f709a56b0}{\index{Java\-Bridge.\-cpp@{Java\-Bridge.\-cpp}!Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-close\-Connection@{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-close\-Connection}}
+\index{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-close\-Connection@{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-close\-Connection}!JavaBridge.cpp@{Java\-Bridge.\-cpp}}
+\subsubsection[{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-close\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}J\-N\-I\-E\-X\-P\-O\-R\-T void J\-N\-I\-C\-A\-L\-L Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-close\-Connection (
+\begin{DoxyParamCaption}
+\item[{J\-N\-I\-Env $\ast$}]{env, }
+\item[{jobject}]{java\-This}
+\end{DoxyParamCaption}
+)}}\label{JavaBridge_8cpp_ab5d1b5326da72917e2b0463f709a56b0}
+
+
+Definición en la línea 58 del archivo Java\-Bridge.\-cpp.
+
+
+
+Hace referencia a Vnc\-::close\-Connection() y vnc.
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\hypertarget{JavaBridge_8cpp_aa861a8803ad357dbde2edccceba8fde8}{\index{Java\-Bridge.\-cpp@{Java\-Bridge.\-cpp}!Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-finish@{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-finish}}
+\index{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-finish@{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-finish}!JavaBridge.cpp@{Java\-Bridge.\-cpp}}
+\subsubsection[{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-finish}]{\setlength{\rightskip}{0pt plus 5cm}J\-N\-I\-E\-X\-P\-O\-R\-T void J\-N\-I\-C\-A\-L\-L Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-finish (
+\begin{DoxyParamCaption}
+\item[{J\-N\-I\-Env $\ast$}]{env, }
+\item[{jobject}]{java\-This}
+\end{DoxyParamCaption}
+)}}\label{JavaBridge_8cpp_aa861a8803ad357dbde2edccceba8fde8}
+
+
+Definición en la línea 61 del archivo Java\-Bridge.\-cpp.
+
+
+
+Hace referencia a D\-E\-B\-U\-G, L\-O\-G\-E y vnc.
+
+\hypertarget{JavaBridge_8cpp_a324a2093cbff3b5462a1f3ab14b14ff0}{\index{Java\-Bridge.\-cpp@{Java\-Bridge.\-cpp}!Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-Connect@{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-Connect}}
+\index{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-Connect@{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-Connect}!JavaBridge.cpp@{Java\-Bridge.\-cpp}}
+\subsubsection[{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-Connect}]{\setlength{\rightskip}{0pt plus 5cm}J\-N\-I\-E\-X\-P\-O\-R\-T jint J\-N\-I\-C\-A\-L\-L Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-Connect (
+\begin{DoxyParamCaption}
+\item[{J\-N\-I\-Env $\ast$}]{env, }
+\item[{jobject}]{java\-This, }
+\item[{jstring}]{host\-\_\-java, }
+\item[{jint}]{port\-\_\-java}
+\end{DoxyParamCaption}
+)}}\label{JavaBridge_8cpp_a324a2093cbff3b5462a1f3ab14b14ff0}
+
+
+Definición en la línea 29 del archivo Java\-Bridge.\-cpp.
+
+
+
+Hace referencia a D\-E\-B\-U\-G, Vnc\-::ini\-Connection(), L\-O\-G\-E y vnc.
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\hypertarget{JavaBridge_8cpp_a16ea699525a22a48e6e1cd2120ba2463}{\index{Java\-Bridge.\-cpp@{Java\-Bridge.\-cpp}!Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-J\-N\-I@{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-J\-N\-I}}
+\index{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-J\-N\-I@{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-J\-N\-I}!JavaBridge.cpp@{Java\-Bridge.\-cpp}}
+\subsubsection[{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-J\-N\-I}]{\setlength{\rightskip}{0pt plus 5cm}J\-N\-I\-E\-X\-P\-O\-R\-T void J\-N\-I\-C\-A\-L\-L Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-J\-N\-I (
+\begin{DoxyParamCaption}
+\item[{J\-N\-I\-Env $\ast$}]{env, }
+\item[{jobject}]{java\-This}
+\end{DoxyParamCaption}
+)}}\label{JavaBridge_8cpp_a16ea699525a22a48e6e1cd2120ba2463}
+
+
+Definición en la línea 25 del archivo Java\-Bridge.\-cpp.
+
+
+
+Hace referencia a Vnc\-::add\-Observer() y vnc.
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\hypertarget{JavaBridge_8cpp_a65ccfc8ea6b9a46a4750b713ff310188}{\index{Java\-Bridge.\-cpp@{Java\-Bridge.\-cpp}!Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-mouse\-Event@{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-mouse\-Event}}
+\index{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-mouse\-Event@{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-mouse\-Event}!JavaBridge.cpp@{Java\-Bridge.\-cpp}}
+\subsubsection[{Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-mouse\-Event}]{\setlength{\rightskip}{0pt plus 5cm}J\-N\-I\-E\-X\-P\-O\-R\-T jboolean J\-N\-I\-C\-A\-L\-L Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-mouse\-Event (
+\begin{DoxyParamCaption}
+\item[{J\-N\-I\-Env $\ast$}]{env, }
+\item[{jobject}]{java\-This, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{event}
+\end{DoxyParamCaption}
+)}}\label{JavaBridge_8cpp_a65ccfc8ea6b9a46a4750b713ff310188}
+
+
+Definición en la línea 117 del archivo Java\-Bridge.\-cpp.
+
+
+
+Hace referencia a Vnc\-::send\-Mouse\-Event() y vnc.
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+
+
+\subsection{Documentación de las variables}
+\hypertarget{JavaBridge_8cpp_acef54cfdc4d257f9a9c8d71c256f6725}{\index{Java\-Bridge.\-cpp@{Java\-Bridge.\-cpp}!vnc@{vnc}}
+\index{vnc@{vnc}!JavaBridge.cpp@{Java\-Bridge.\-cpp}}
+\subsubsection[{vnc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vnc}$\ast$ vnc}}\label{JavaBridge_8cpp_acef54cfdc4d257f9a9c8d71c256f6725}
+
+
+Definición en la línea 12 del archivo Java\-Bridge.\-cpp.
+
+
+
+Referenciado por Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-close\-Connection(), Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-finish(), Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-Connect(), Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-J\-N\-I() y Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-mouse\-Event().
+

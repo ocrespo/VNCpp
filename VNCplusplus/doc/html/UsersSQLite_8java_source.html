@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>TFGControlRemotoLinux: Fichero Fuente src/es/ucm/tfg/controlremotolinux/client/UsersSQLite.java</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">TFGControlRemotoLinux
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.1.2 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="globals.html"><span>Miembros&#160;de&#160;los&#160;ficheros</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('UsersSQLite_8java_source.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">UsersSQLite.java</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="UsersSQLite_8java.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">package </span>es.ucm.tfg.controlremotolinux.client;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> java.util.ArrayList;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> android.content.ContentValues;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> android.content.Context;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> android.database.Cursor;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> android.database.sqlite.SQLiteDatabase;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> android.database.sqlite.SQLiteDatabase.CursorFactory;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> android.database.sqlite.SQLiteOpenHelper;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> android.support.v4.app.Fragment;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> android.util.Log;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html">   18</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html" title="Clase encargada del control de la base de datos.">UsersSQLite</a> <span class="keyword">extends</span> SQLiteOpenHelper {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="comment">// Database Version</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a5a24adaafc3ce5bdff16cea01cedee9d">   21</a></span>&#160;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keywordtype">int</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a5a24adaafc3ce5bdff16cea01cedee9d">DATABASE_VERSION</a> = 1;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">// Database Name</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a927444b136d43852acf78c51f1956d22">   24</a></span>&#160;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a927444b136d43852acf78c51f1956d22">DATABASE_NAME</a> = <span class="stringliteral">&quot;DBUsers&quot;</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// Contacts table name</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a6742d841b5ff13fc7b2b4c7879d43d66">   27</a></span>&#160;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a6742d841b5ff13fc7b2b4c7879d43d66">TABLE_USERS</a> = <span class="stringliteral">&quot;Users&quot;</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Contacts Table Columns names</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a1b63e7cbaceee8ba44799f37f8a7f2e4">   30</a></span>&#160;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a1b63e7cbaceee8ba44799f37f8a7f2e4">KEY_NAME</a> = <span class="stringliteral">&quot;NameConnection&quot;</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#ac5fefaf28b842a8f60d08c37c786cee0">   31</a></span>&#160;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#ac5fefaf28b842a8f60d08c37c786cee0">KEY_IP</a> = <span class="stringliteral">&quot;ip&quot;</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#aa77de7efda2a6764c8c622517e6a3428">   32</a></span>&#160;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#aa77de7efda2a6764c8c622517e6a3428">KEY_PORT</a> = <span class="stringliteral">&quot;port&quot;</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a4677016d9144141c47cd0ac7a5047ee0">   33</a></span>&#160;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a4677016d9144141c47cd0ac7a5047ee0">KEY_PSW</a> = <span class="stringliteral">&quot;psw&quot;</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a2f4aa451b949e4c0cf48fed5375cce38">   34</a></span>&#160;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a2f4aa451b949e4c0cf48fed5375cce38">KEY_FAV</a> = <span class="stringliteral">&quot;fav&quot;</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="comment">//Sentencia SQL para crear la tabla de Usuarios</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//String sqlCreate = &quot;CREATE TABLE Users (NameConnection TEXT, ip TEXT, port TEXT, psw TEXT, fav TEXT)&quot;;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a57620c802d9bab5c000275ea9c4ca1f5">   41</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a57620c802d9bab5c000275ea9c4ca1f5">UsersSQLite</a>(Context context) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        super(context, <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a927444b136d43852acf78c51f1956d22">DATABASE_NAME</a>, null, <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a5a24adaafc3ce5bdff16cea01cedee9d">DATABASE_VERSION</a>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a311831bad100e852ea54fb0e4d206c1e">   45</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a311831bad100e852ea54fb0e4d206c1e">UsersSQLite</a>(Fragment context) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        super(context.getActivity(), <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a927444b136d43852acf78c51f1956d22">DATABASE_NAME</a>, null, <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a5a24adaafc3ce5bdff16cea01cedee9d">DATABASE_VERSION</a>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#ade1d1f3f456244e0a6d08a1c556c9bc2">   51</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a57620c802d9bab5c000275ea9c4ca1f5">UsersSQLite</a>(Context context, String name,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                               CursorFactory factory, <span class="keywordtype">int</span> version) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        super(context, name, factory, version);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    @Override</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#ad6f8bcc498beb47ee785c2ce4557850f">   60</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#ad6f8bcc498beb47ee785c2ce4557850f" title="Create the sqlite database of Users.">onCreate</a>(SQLiteDatabase db) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        String CREATE_USERS_TABLE = <span class="stringliteral">&quot;CREATE TABLE &quot;</span> + <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a6742d841b5ff13fc7b2b4c7879d43d66">TABLE_USERS</a> + <span class="stringliteral">&quot;(&quot;</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                + <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a1b63e7cbaceee8ba44799f37f8a7f2e4">KEY_NAME</a> + <span class="stringliteral">&quot; TEXT PRIMARY KEY,&quot;</span> + <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#ac5fefaf28b842a8f60d08c37c786cee0">KEY_IP</a> + <span class="stringliteral">&quot; TEXT,&quot;</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                + <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#aa77de7efda2a6764c8c622517e6a3428">KEY_PORT</a> + <span class="stringliteral">&quot; TEXT,&quot;</span> + <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a4677016d9144141c47cd0ac7a5047ee0">KEY_PSW</a> + <span class="stringliteral">&quot; TEXT,&quot;</span> +  <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a2f4aa451b949e4c0cf48fed5375cce38">KEY_FAV</a> + <span class="stringliteral">&quot; TEXT&quot;</span> +  <span class="stringliteral">&quot;)&quot;</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        db.execSQL(CREATE_USERS_TABLE);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">//db.execSQL(sqlCreate);</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    @Override</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a7b716258425ee3e3aaa91c95fd612f59">   76</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a7b716258425ee3e3aaa91c95fd612f59" title="Recreate the sqlite database of Users.">onUpgrade</a>(SQLiteDatabase db, <span class="keywordtype">int</span> versionAnterior, <span class="keywordtype">int</span> versionNueva) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="comment">//Se elimina la versión anterior de la tabla,aunque quizas</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="comment">//hubiese que salvar datos anteriores, pero de momento no interesa</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        db.execSQL(<span class="stringliteral">&quot;DROP TABLE IF EXISTS &quot;</span> + <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a6742d841b5ff13fc7b2b4c7879d43d66">TABLE_USERS</a>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      <span class="comment">//Se crea la nueva versión de la tabla</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#ad6f8bcc498beb47ee785c2ce4557850f" title="Create the sqlite database of Users.">onCreate</a>(db);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="comment">//CONTROL BASE DE DATOS</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        </div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a188606391051dd1d5a7ed88b0d7e73d7">   94</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a188606391051dd1d5a7ed88b0d7e73d7" title="Create a new User.">newUser</a>(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html">User</a> u ) {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                SQLiteDatabase db = this.getWritableDatabase();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                 </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        ContentValues values = <span class="keyword">new</span> ContentValues();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        values.put(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a1b63e7cbaceee8ba44799f37f8a7f2e4">KEY_NAME</a>, u.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a9a224b1386a94768f5fcecd2808a9233">getName</a>());</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        values.put(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#ac5fefaf28b842a8f60d08c37c786cee0">KEY_IP</a>, u.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a3ca42d141d23695fb23267259d66ba8d">getIP</a>());</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        values.put(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#aa77de7efda2a6764c8c622517e6a3428">KEY_PORT</a>, u.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a4360af18965579e2dd9055d8255519b4">getPORT</a>() );</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        values.put(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a4677016d9144141c47cd0ac7a5047ee0">KEY_PSW</a>, u.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a503cace3feb13cc0094741f2ef3e0c43">getPsw</a>() );</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="comment">//values.put(KEY_FAV, u.getFav());</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        values.put(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a2f4aa451b949e4c0cf48fed5375cce38">KEY_FAV</a>, <span class="stringliteral">&quot;false&quot;</span>);<span class="comment">//se crea sin ser favorito</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="comment">// Inserting Row</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        db.insert(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a6742d841b5ff13fc7b2b4c7879d43d66">TABLE_USERS</a>, null, values);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a669d204ef2a24756c13db3061e95bb0b">  118</a></span>&#160;      <span class="keyword">public</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html">User</a> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a669d204ef2a24756c13db3061e95bb0b" title="Devuelve un usuario especifico.">getUserConnection</a>(String nameID) {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;          SQLiteDatabase db = this.getReadableDatabase();</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;          </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;          Cursor cursor = db.query(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a6742d841b5ff13fc7b2b4c7879d43d66">TABLE_USERS</a>, <span class="keyword">new</span> String[] { <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a1b63e7cbaceee8ba44799f37f8a7f2e4">KEY_NAME</a>,</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                  <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#ac5fefaf28b842a8f60d08c37c786cee0">KEY_IP</a>, <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#aa77de7efda2a6764c8c622517e6a3428">KEY_PORT</a>, <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a4677016d9144141c47cd0ac7a5047ee0">KEY_PSW</a>, <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a2f4aa451b949e4c0cf48fed5375cce38">KEY_FAV</a> }, <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a1b63e7cbaceee8ba44799f37f8a7f2e4">KEY_NAME</a> + <span class="stringliteral">&quot;=?&quot;</span>,</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                  <span class="keyword">new</span> String[] { String.valueOf(nameID) }, null, null, null, null);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;          <span class="keywordflow">if</span> (cursor != null)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;              cursor.moveToFirst();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;   </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;          <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html">User</a> u = <span class="keyword">new</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html">User</a>(cursor.getString(0),</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                  cursor.getString(1), cursor.getString(2),cursor.getString(3),cursor.getString(4));</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;          <span class="comment">//cursor.close();</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;          <span class="keywordflow">return</span> u;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a167e2376adccdcf117feae059fa3851e">  142</a></span>&#160;      <span class="keyword">public</span> ArrayList&lt;User&gt; <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a167e2376adccdcf117feae059fa3851e" title="Recoge todos los usuarios.">getAllUsers</a>() {</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;          ArrayList&lt;User&gt; userList = <span class="keyword">new</span> ArrayList&lt;User&gt;();</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;          <span class="comment">// Select All Query</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;          String selectQuery = <span class="stringliteral">&quot;SELECT  * FROM &quot;</span> + <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a6742d841b5ff13fc7b2b4c7879d43d66">TABLE_USERS</a>;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;   </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;          SQLiteDatabase db = this.getWritableDatabase();</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;          Cursor cursor = db.rawQuery(selectQuery, null);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;   </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;          <span class="comment">// looping through all rows and adding to list</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;          <span class="keywordflow">if</span> (cursor.moveToFirst()) {</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;              <span class="keywordflow">do</span> {</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                  <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html">User</a> user = <span class="keyword">new</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html">User</a>();</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                  user.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a04b6ccccd257a018e4653abe8dcfe8f0">setName</a>(cursor.getString(0));</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                  user.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a048d764f8e48e5da2e5854ce6e581039">setIP</a>(cursor.getString(1));</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                  user.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a2065f92ca08806ee17eb04ea24a2333c">setPORT</a>(cursor.getString(2));</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                  user.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a0dc5be2520f53aa34ee95e3ce4b5097b">setPsw</a>(cursor.getString(3));</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                  user.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a90d3c37dcec6ebc1bae029367d73f101">setFav</a>(cursor.getString(4));</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                  <span class="comment">// Adding users to list</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                  userList.add(user);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;              } <span class="keywordflow">while</span> (cursor.moveToNext());</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;          }</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;          <span class="comment">//cursor.close();</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;          </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;          <span class="comment">// return users list</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;          <span class="keywordflow">return</span> userList;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;      }</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;      </div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a9770e9483b60c0f2c124d87e4dc66a35">  174</a></span>&#160;      <span class="keyword">public</span> ArrayList&lt;User&gt; <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a9770e9483b60c0f2c124d87e4dc66a35" title="Devuelve los usuarios favoritos.">getAllFavUsers</a>() {</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;          ArrayList&lt;User&gt; userList = <span class="keyword">new</span> ArrayList&lt;User&gt;();</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;          <span class="comment">// Select All Query</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;          String selectQuery = <span class="stringliteral">&quot;SELECT  * FROM &quot;</span> + <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a6742d841b5ff13fc7b2b4c7879d43d66">TABLE_USERS</a>;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;   </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;          SQLiteDatabase db = this.getWritableDatabase();</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;          Cursor cursor = db.rawQuery(selectQuery, null);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;   </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;          <span class="keywordflow">if</span> (cursor.moveToFirst()) {</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;              <span class="keywordflow">do</span> {</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                  <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html">User</a> user = <span class="keyword">new</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html">User</a>();</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                  user.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a04b6ccccd257a018e4653abe8dcfe8f0">setName</a>(cursor.getString(0));</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                  user.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a048d764f8e48e5da2e5854ce6e581039">setIP</a>(cursor.getString(1));</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                  user.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a2065f92ca08806ee17eb04ea24a2333c">setPORT</a>(cursor.getString(2));</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                  user.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a0dc5be2520f53aa34ee95e3ce4b5097b">setPsw</a>(cursor.getString(3));</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                  user.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a90d3c37dcec6ebc1bae029367d73f101">setFav</a>(cursor.getString(4));</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                  Log.i(<span class="stringliteral">&quot;enfavvv&quot;</span>, user.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#afeef5440c51148475ec40449f811e731">getFav</a>());</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                  <span class="comment">// Adding users to list if is favorite</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                  <span class="keywordflow">if</span> (user.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#afeef5440c51148475ec40449f811e731">getFav</a>().equalsIgnoreCase(<span class="stringliteral">&quot;true&quot;</span>))</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                          userList.add(user);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;              </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;              } <span class="keywordflow">while</span> (cursor.moveToNext());</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;          }</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;          <span class="comment">//cursor.close();</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;          </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;          <span class="comment">// return users list</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;          <span class="keywordflow">return</span> userList;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      }</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;      </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
+<div class="line"><a name="l00208"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#ac8ea0dcee092382501e3f75b2eaf73d4">  208</a></span>&#160;      <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#ac8ea0dcee092382501e3f75b2eaf73d4" title="Actualizando usuario.">updateUser</a>(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html">User</a> user) {</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;          </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;          Log.i(<span class="stringliteral">&quot;UPDATE&quot;</span>, <span class="stringliteral">&quot;ESTOY UPDATE&quot;</span>);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;          </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;          SQLiteDatabase db = this.getWritableDatabase();</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;   </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;          ContentValues values = <span class="keyword">new</span> ContentValues();</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;          values.put(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#ac5fefaf28b842a8f60d08c37c786cee0">KEY_IP</a>, user.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a3ca42d141d23695fb23267259d66ba8d">getIP</a>());</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;          values.put(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#aa77de7efda2a6764c8c622517e6a3428">KEY_PORT</a>, user.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a4360af18965579e2dd9055d8255519b4">getPORT</a>());</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;          values.put(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a4677016d9144141c47cd0ac7a5047ee0">KEY_PSW</a>, user.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a503cace3feb13cc0094741f2ef3e0c43">getPsw</a>());</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;          values.put(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a2f4aa451b949e4c0cf48fed5375cce38">KEY_FAV</a>, user.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#afeef5440c51148475ec40449f811e731">getFav</a>());</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;          <span class="comment">// updating row </span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;          db.update(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a6742d841b5ff13fc7b2b4c7879d43d66">TABLE_USERS</a>, values, <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a1b63e7cbaceee8ba44799f37f8a7f2e4">KEY_NAME</a> + <span class="stringliteral">&quot; = ?&quot;</span>,</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;          <span class="keyword">new</span> String[] { String.valueOf(user.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a9a224b1386a94768f5fcecd2808a9233">getName</a>()) });</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;          <span class="comment">//db.close();</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      }</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;   </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
+<div class="line"><a name="l00231"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#aaf00cb0fce468a22221c106e83a21122">  231</a></span>&#160;      <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#aaf00cb0fce468a22221c106e83a21122" title="Se elimina un usuario indicado.">deleteUser</a>(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html">User</a> user) {</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;          SQLiteDatabase db = this.getWritableDatabase();</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;          db.delete(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a6742d841b5ff13fc7b2b4c7879d43d66">TABLE_USERS</a>, <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a1b63e7cbaceee8ba44799f37f8a7f2e4">KEY_NAME</a> + <span class="stringliteral">&quot; = ?&quot;</span>,</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                  <span class="keyword">new</span> String[] { String.valueOf(user.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a9a224b1386a94768f5fcecd2808a9233">getName</a>()) });</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;          <span class="comment">//db.close();</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      }</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;   </div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
+<div class="line"><a name="l00243"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a7799840a6c56c9e4565d8fbc568c9b43">  243</a></span>&#160;      <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a7799840a6c56c9e4565d8fbc568c9b43" title="Devuelve el numero de usuarios almacenados.">getUsersCount</a>() {</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;          String countQuery = <span class="stringliteral">&quot;SELECT  * FROM &quot;</span> + <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a6742d841b5ff13fc7b2b4c7879d43d66">TABLE_USERS</a>;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;          SQLiteDatabase db = this.getReadableDatabase();</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;          Cursor cursor = db.rawQuery(countQuery, null);</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;          cursor.close(); </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;          <span class="comment">//db.close(); // Closing database connection</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;          <span class="comment">// return count</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;          <span class="keywordflow">return</span> cursor.getCount();</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      }</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    </div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        </div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d0a4516af6932200a01e306753dd4051.html">src</a></li><li class="navelem"><a class="el" href="dir_251c40205e7dd79b24bfd9f8fa7707f6.html">es</a></li><li class="navelem"><a class="el" href="dir_2c655d72bbe720edd7f730010bed6bfb.html">ucm</a></li><li class="navelem"><a class="el" href="dir_a1d07b4aee76f452ab2346acf7e26494.html">tfg</a></li><li class="navelem"><a class="el" href="dir_80c48e7f4d2c0509fcb7e7c3fc6969ad.html">controlremotolinux</a></li><li class="navelem"><a class="el" href="dir_b69e1a1779b0fb6d3c2fc8c9d5459b9d.html">client</a></li><li class="navelem"><a class="el" href="UsersSQLite_8java.html">UsersSQLite.java</a></li>
+    <li class="footer">Generado el Lunes, 22 de Abril de 2013 02:37:31 para TFGControlRemotoLinux por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
+  </ul>
+</div>
+</body>
+</html>

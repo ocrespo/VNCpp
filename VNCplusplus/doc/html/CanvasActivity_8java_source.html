@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>TFGControlRemotoLinux: Fichero Fuente src/es/ucm/tfg/controlremotolinux/client/controller/CanvasActivity.java</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">TFGControlRemotoLinux
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.1.2 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="globals.html"><span>Miembros&#160;de&#160;los&#160;ficheros</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('CanvasActivity_8java_source.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">CanvasActivity.java</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="CanvasActivity_8java.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="code" href="namespacees_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller.html">    4</a></span>&#160;<span class="keyword">package </span>es.ucm.tfg.controlremotolinux.client.controller;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> android.app.Activity;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> android.os.Bundle;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> android.support.v4.view.MotionEventCompat;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> android.util.Log;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> android.view.GestureDetector;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> android.view.GestureDetector.OnGestureListener;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> android.view.KeyEvent;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> android.view.MotionEvent;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">import</span> android.view.ScaleGestureDetector;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> android.view.ScaleGestureDetector.OnScaleGestureListener;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">import</span> android.view.Window;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">import</span> android.view.WindowManager;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">import</span> android.widget.Toast;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">import</span> es.ucm.tfg.controlremotolinux.client.model.ObserverCanvas;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">import</span> es.ucm.tfg.controlremotolinux.client.model.VncBridgeJNI;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">import</span> es.ucm.tfg.controlremotolinux.client.model.VncBridgeJNI.ConnectionError;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">import</span> es.ucm.tfg.controlremotolinux.client.model.VncBridgeJNI.MouseEvent;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">import</span> es.ucm.tfg.controlremotolinux.client.view.CanvasView;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html">   30</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html">CanvasActivity</a> <span class="keyword">extends</span> Activity implements <a class="code" href="interfacees_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1ObserverCanvas.html">ObserverCanvas</a>{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="comment">//etiqueta debug</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6eb4ed0771188a692df57ceca3fb5f7e">   33</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6eb4ed0771188a692df57ceca3fb5f7e">DEBUG_TAG</a> = <span class="stringliteral">&quot;CanvasActivity&quot;</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a646d0e209d35564cdc42d837671bd7a4">   35</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keywordtype">int</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a646d0e209d35564cdc42d837671bd7a4">VELOCITY_MOD</a> = 50;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a7508b6459e8ff8e166d2e6494a6eb356">   37</a></span>&#160;        <span class="keyword">private</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1VncBridgeJNI.html">VncBridgeJNI</a> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a7508b6459e8ff8e166d2e6494a6eb356">vnc</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">   38</a></span>&#160;        <span class="keyword">private</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1CanvasView.html">CanvasView</a> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a29bef2fb0df9169e676ed728fb3776f5">   40</a></span>&#160;        <span class="keyword">private</span> GestureDetector <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a29bef2fb0df9169e676ed728fb3776f5">gesture</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a68ba3fc3f0711e6c81db1423484db6a7">   41</a></span>&#160;        <span class="keyword">private</span> ScaleGestureDetector <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a68ba3fc3f0711e6c81db1423484db6a7">scaleGesture</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3946282d86de3f4ef1ef65c54b2669bc">   43</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">float</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3946282d86de3f4ef1ef65c54b2669bc">realX</a> = 0;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ad8b534f3e3c61b4ff0576ac5a16f7d44">   44</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">float</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ad8b534f3e3c61b4ff0576ac5a16f7d44">realY</a> = 0;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">   45</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">float</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a> = 1;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3f767c3d6228080158c4ac690b4ca4b3">   47</a></span>&#160;        <span class="keyword">private</span> Thread <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3f767c3d6228080158c4ac690b4ca4b3">scrollThread</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a8dd8485425c6232979b318d0647cc84f">   48</a></span>&#160;        <span class="keyword">private</span> Thread <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a8dd8485425c6232979b318d0647cc84f">endScrollThread</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ae5baf801f9649f1234cfe1140a3fb6f5">   50</a></span>&#160;        <span class="keyword">private</span> Runnable <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ae5baf801f9649f1234cfe1140a3fb6f5">endScrollRun</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a234c2998bfb3ee769792e760357425a1">   52</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">boolean</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a234c2998bfb3ee769792e760357425a1">isDrag</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a24f84d52429b8d6256f422a949f76ac2">   53</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">boolean</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a24f84d52429b8d6256f422a949f76ac2">zoom</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#acf75cc7d2c377828d1867dbb7db18a5c">   56</a></span>&#160;        <span class="keyword">protected</span> <span class="keywordtype">void</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#acf75cc7d2c377828d1867dbb7db18a5c">onCreate</a>(Bundle savedInstanceState){</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                super.onCreate(savedInstanceState);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="comment">//No se muestra la barra de accion superior</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                requestWindowFeature(Window.FEATURE_NO_TITLE);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                WindowManager.LayoutParams.FLAG_FULLSCREEN);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                setContentView(R.layout.canvas);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a> = (<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1CanvasView.html">CanvasView</a>)findViewById(R.id.vnc_canvas);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                Bundle info = getIntent().getExtras();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a7508b6459e8ff8e166d2e6494a6eb356">vnc</a> = <span class="keyword">new</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1VncBridgeJNI.html">VncBridgeJNI</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a7508b6459e8ff8e166d2e6494a6eb356">vnc</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1ObservableCanvas.html#af0b5f3dcc7000e46b4132a5284b65578">addObserver</a>(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <a class="code" href="enumes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1VncBridgeJNI_1_1ConnectionError.html">ConnectionError</a> error = <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a7508b6459e8ff8e166d2e6494a6eb356">vnc</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1VncBridgeJNI.html#a0ae954e57823b9801b127b181e728569">startConnect</a>(info.getString(<span class="stringliteral">&quot;ip&quot;</span>),Integer.parseInt(info.getString(<span class="stringliteral">&quot;port&quot;</span>)));</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="comment">//new Thread(vnc).start();</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keywordflow">if</span>(error != <a class="code" href="enumes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1VncBridgeJNI_1_1ConnectionError.html">ConnectionError</a>.<a class="code" href="enumes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1VncBridgeJNI_1_1ConnectionError.html#a8930d5ec0d2c18eb0ddff23fa412fa4e">ALLOK</a>){</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a7508b6459e8ff8e166d2e6494a6eb356">vnc</a> = null;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                        finish();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html">GestureListener</a> gestureListener =  <span class="keyword">new</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html">GestureListener</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a29bef2fb0df9169e676ed728fb3776f5">gesture</a> = <span class="keyword">new</span> GestureDetector(gestureListener);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a68ba3fc3f0711e6c81db1423484db6a7">scaleGesture</a> = <span class="keyword">new</span> ScaleGestureDetector(<span class="keyword">this</span>,gestureListener);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ae5baf801f9649f1234cfe1140a3fb6f5">endScrollRun</a> = <span class="keyword">new</span> Runnable() {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                        </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                        @Override</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                        <span class="keyword">public</span> <span class="keywordtype">void</span> run() {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                                <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                                        Thread.sleep(1500);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                                } <span class="keywordflow">catch</span> (InterruptedException e) {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                                        <span class="comment">// TODO Auto-generated catch block</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                                        <span class="comment">//e.printStackTrace();</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                                }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                                <span class="keywordflow">if</span>(!<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a234c2998bfb3ee769792e760357425a1">isDrag</a> &amp;&amp; <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3f767c3d6228080158c4ac690b4ca4b3">scrollThread</a> != null &amp;&amp; !<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3f767c3d6228080158c4ac690b4ca4b3">scrollThread</a>.isAlive()){</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1CanvasView.html#a11046fc9fc6769116e5f6f5ebd509b91">endDrag</a>();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                                        <span class="comment">//isDrag = false;</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                                }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                                </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                        }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                };</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        @Override</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a16ecf145718bb0bcaf12974329d1170e">  105</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a16ecf145718bb0bcaf12974329d1170e">onKeyDown</a>(<span class="keywordtype">int</span> keyCode, KeyEvent evt){</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                super.onKeyDown(keyCode, evt);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keywordflow">if</span>(keyCode == KeyEvent.KEYCODE_BACK){</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                        <span class="keywordflow">if</span>(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a7508b6459e8ff8e166d2e6494a6eb356">vnc</a> != null){</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a7508b6459e8ff8e166d2e6494a6eb356">vnc</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1VncBridgeJNI.html#af47a6c1a5477402703578483b143f91c">finishVnc</a>();</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#af38507eafb0adc47dd2c96bc546c69b0">updateFinish</a>();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                        }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                Toast.makeText(<span class="keyword">this</span>, <span class="stringliteral">&quot;onKeyDown&quot;</span>, Toast.LENGTH_SHORT).show();</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="comment">/*</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">        @Override</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">        public boolean onKeyDown(int keyCode, KeyEvent  event) {</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">                if(keyCode == KeyEvent.KEYCODE_BACK){</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">                        vnc.finishVnc();</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">                        updateFinish();</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">                }</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">                </span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">                return true;</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">        }</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        @Override</div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a48d761e87c01fb342d7955d6a419b17a">  131</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a48d761e87c01fb342d7955d6a419b17a">onKeyUp</a>(<span class="keywordtype">int</span> keyCode, KeyEvent evt){</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                super.onKeyUp(keyCode, evt);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                Toast.makeText(<span class="keyword">this</span>, <span class="stringliteral">&quot;onKeyUp&quot;</span>, Toast.LENGTH_SHORT).show();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        @Override</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aeb5475156c552b45b123631ffe38e4f3">  138</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aeb5475156c552b45b123631ffe38e4f3">onTouchEvent</a>(MotionEvent event){</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                super.onTouchEvent(event);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a68ba3fc3f0711e6c81db1423484db6a7">scaleGesture</a>.onTouchEvent(event);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a29bef2fb0df9169e676ed728fb3776f5">gesture</a>.onTouchEvent(event);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                <span class="keywordtype">int</span> action = MotionEventCompat.getActionMasked(event);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">switch</span> (action) {</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                <span class="comment">//case (MotionEvent.ACTION_DOWN):</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                    </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                <span class="comment">//case (MotionEvent.ACTION_MOVE):</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;         </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                <span class="keywordflow">case</span> (MotionEvent.ACTION_UP):</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aabf81736f09591b50dd7631e2e53123e">onUpMouse</a>(event);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;               <span class="keywordflow">case</span> (MotionEvent.ACTION_CANCEL):</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                    Log.d(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6eb4ed0771188a692df57ceca3fb5f7e">DEBUG_TAG</a>, <span class="stringliteral">&quot;La accion ha sido CANCEL&quot;</span>);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                <span class="keywordflow">case</span> (MotionEvent.ACTION_OUTSIDE):</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                    Log.d(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6eb4ed0771188a692df57ceca3fb5f7e">DEBUG_TAG</a>,</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                            <span class="stringliteral">&quot;La accion ha sido fuera del elemento de la pantalla&quot;</span>);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                    </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        }</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        }</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        </div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aabf81736f09591b50dd7631e2e53123e">  169</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aabf81736f09591b50dd7631e2e53123e">onUpMouse</a>(MotionEvent e){</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                <span class="keywordflow">if</span>(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a234c2998bfb3ee769792e760357425a1">isDrag</a>){</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                        <span class="keywordflow">if</span>(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a8dd8485425c6232979b318d0647cc84f">endScrollThread</a> != null){</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                                <span class="keywordflow">if</span>(!<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a8dd8485425c6232979b318d0647cc84f">endScrollThread</a>.isAlive()){</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a8dd8485425c6232979b318d0647cc84f">endScrollThread</a> = <span class="keyword">new</span> Thread(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ae5baf801f9649f1234cfe1140a3fb6f5">endScrollRun</a>);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a8dd8485425c6232979b318d0647cc84f">endScrollThread</a>.start();</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                                }</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                        }</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                        <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a8dd8485425c6232979b318d0647cc84f">endScrollThread</a> = <span class="keyword">new</span> Thread(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ae5baf801f9649f1234cfe1140a3fb6f5">endScrollRun</a>);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a8dd8485425c6232979b318d0647cc84f">endScrollThread</a>.start();</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                        }</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                        <span class="comment">//canvas.endDrag();</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a234c2998bfb3ee769792e760357425a1">isDrag</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        }</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a24f84d52429b8d6256f422a949f76ac2">zoom</a> ){</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a24f84d52429b8d6256f422a949f76ac2">zoom</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                        </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                }</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        }</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        @Override</div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#af5b910f066c7052f9d7f94670763fe48">  192</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#af5b910f066c7052f9d7f94670763fe48">updateRedraw</a>(<span class="keywordtype">int</span> x,<span class="keywordtype">int</span> y,<span class="keywordtype">int</span> width,<span class="keywordtype">int</span> height) {</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1CanvasView.html#a57ea01dac003903b77a1da1b5cf3a8ba">reDraw</a>();</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.postInvalidate();</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                <span class="comment">//canvas.postInvalidate(x, y, width+x, height+y);</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        }</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        @Override</div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a8a3ee414f2dd6f2059017fa9c7d8e648">  199</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a8a3ee414f2dd6f2059017fa9c7d8e648">updateIniFrame</a>(<span class="keywordtype">int</span>[] data,<span class="keywordtype">int</span> offset,<span class="keywordtype">int</span> x,<span class="keywordtype">int</span> y,<span class="keywordtype">int</span> width,<span class="keywordtype">int</span> height,<span class="keywordtype">int</span> realWidth,<span class="keywordtype">int</span> realHeight) {</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1CanvasView.html#a429357bb9cd1bbc27a63c34f28511d9f">initCanvas</a>(data, offset, realWidth, x,y,  realWidth, realHeight);                </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        }</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        @Override</div>
+<div class="line"><a name="l00204"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#af38507eafb0adc47dd2c96bc546c69b0">  204</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#af38507eafb0adc47dd2c96bc546c69b0">updateFinish</a>() {</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a7508b6459e8ff8e166d2e6494a6eb356">vnc</a> = null;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                finish();</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        }</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        </div>
+<div class="line"><a name="l00210"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a09ced297c15e7eb11f05d7319e626916">  210</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">boolean</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a09ced297c15e7eb11f05d7319e626916">onDrag</a>(MotionEvent e1, MotionEvent e2, <span class="keywordtype">float</span> distanceX,</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                        <span class="keywordtype">float</span> distanceY){</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                <span class="keywordflow">if</span>(!<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a234c2998bfb3ee769792e760357425a1">isDrag</a>){</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a234c2998bfb3ee769792e760357425a1">isDrag</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1CanvasView.html#aceb8c5400ed1623ef664cfffff52f0e7">startDrag</a>();</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                }</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                <span class="keywordtype">float</span> moveX = 0;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                <span class="keywordtype">float</span> moveY =0;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                <span class="keywordtype">boolean</span> allOkX= <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                <span class="keywordtype">boolean</span> allOkY= <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                </div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                <span class="keywordtype">float</span> width = <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.getWidth() / <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a> ;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                <span class="keywordtype">float</span> height = <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.getHeight() / <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a> ;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                <span class="keywordflow">if</span>((<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3946282d86de3f4ef1ef65c54b2669bc">realX</a>+width &gt;= <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1CanvasView.html#a624a938ee92ee1646292fd887cd11cef">getRealWidth</a>() &amp;&amp; distanceX &gt; 0)|| (<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3946282d86de3f4ef1ef65c54b2669bc">realX</a> == 0 &amp;&amp; distanceX &lt; 0) ){</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                        moveX = 0;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                        allOkX = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                }</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                <span class="keywordflow">if</span>( (<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ad8b534f3e3c61b4ff0576ac5a16f7d44">realY</a>+height &gt;= <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1CanvasView.html#a6103cf34fe6db477cdce9a1800e6a89d">getRealHeight</a>() &amp;&amp; distanceY&gt;0) || (<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ad8b534f3e3c61b4ff0576ac5a16f7d44">realY</a> == 0 &amp;&amp; distanceY &lt; 0) ){</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                        moveY = 0;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                        allOkY = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                }</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                <span class="keywordflow">if</span>(allOkX){</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                        <span class="keywordflow">if</span>(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3946282d86de3f4ef1ef65c54b2669bc">realX</a>+width+distanceX &gt; <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1CanvasView.html#a624a938ee92ee1646292fd887cd11cef">getRealWidth</a>() || <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3946282d86de3f4ef1ef65c54b2669bc">realX</a>+distanceX &lt; 0){ </div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                                <span class="keywordflow">if</span>(distanceX &lt; 0){</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                                        moveX = -<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3946282d86de3f4ef1ef65c54b2669bc">realX</a> ;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                                        </div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                                }</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                                <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                                        <span class="comment">//moveX = (int) (distanceX - (canvas.getRealWidth()-(realX+(int)distanceX)));</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                                        moveX = <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1CanvasView.html#a624a938ee92ee1646292fd887cd11cef">getRealWidth</a>() - (<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3946282d86de3f4ef1ef65c54b2669bc">realX</a> + width);</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                                }</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;                                allOkX = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                        }</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                }</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                <span class="keywordflow">if</span>(allOkY){</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                        <span class="keywordflow">if</span>(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ad8b534f3e3c61b4ff0576ac5a16f7d44">realY</a>+height+distanceY &gt; <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1CanvasView.html#a6103cf34fe6db477cdce9a1800e6a89d">getRealHeight</a>() || <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ad8b534f3e3c61b4ff0576ac5a16f7d44">realY</a>+distanceY &lt; 0){</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                                <span class="keywordflow">if</span>(distanceY &lt; 0){</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                                        moveY = -<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ad8b534f3e3c61b4ff0576ac5a16f7d44">realY</a> ;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                                }</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                                <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                                        <span class="comment">//moveY = (int) (distanceY - (canvas.getRealHeight()-(realY+(int)distanceY)));</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                                        moveY = <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1CanvasView.html#a6103cf34fe6db477cdce9a1800e6a89d">getRealHeight</a>() - (<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ad8b534f3e3c61b4ff0576ac5a16f7d44">realY</a> + height);</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                                }</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                                allOkY = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                        }</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                }</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                <span class="keywordflow">if</span>(allOkY){</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                        moveY =  distanceY;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                }</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                <span class="keywordflow">if</span>(allOkX){</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                        moveX =  distanceX;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                }</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                <span class="keywordflow">if</span>(moveX != 0 || moveY != 0){</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                        </div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                        <span class="keywordtype">float</span> realMoveX = (moveX/<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a>);</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                        <span class="keywordtype">float</span> realMoveY = (moveY/<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a>);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                        </div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                        <span class="keywordflow">if</span>(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a> != 1 &amp;&amp; moveX == -<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3946282d86de3f4ef1ef65c54b2669bc">realX</a> &amp;&amp; <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a> &gt; Math.abs(moveX)  &amp;&amp; moveX != 0){</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                                realMoveX = -1;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                        }</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                        <span class="keywordflow">if</span>(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a> != 1 &amp;&amp; moveY == -<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ad8b534f3e3c61b4ff0576ac5a16f7d44">realY</a> &amp;&amp; <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a> &gt; Math.abs(moveY) &amp;&amp; moveY != 0){</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                                realMoveY = -1;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                        }</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                        </div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3946282d86de3f4ef1ef65c54b2669bc">realX</a> = <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3946282d86de3f4ef1ef65c54b2669bc">realX</a> + (int)(realMoveX);</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ad8b534f3e3c61b4ff0576ac5a16f7d44">realY</a> = <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ad8b534f3e3c61b4ff0576ac5a16f7d44">realY</a> + (int)(realMoveY);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                        </div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                        <span class="comment">//realX += (int)moveX;</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                        <span class="comment">//realY += (int)moveY;</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;                        </div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                        </div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                        <span class="keyword">final</span> <span class="keywordtype">int</span> aux_moveX = (int)moveX;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;                        <span class="keyword">final</span> <span class="keywordtype">int</span> aux_moveY = (int)moveY;</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                        Log.e(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6eb4ed0771188a692df57ceca3fb5f7e">DEBUG_TAG</a>, <span class="stringliteral">&quot;scale:&quot;</span>+<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a>+<span class="stringliteral">&quot; RX:&quot;</span>+<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3946282d86de3f4ef1ef65c54b2669bc">realX</a>+<span class="stringliteral">&quot; RY:&quot;</span>+<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ad8b534f3e3c61b4ff0576ac5a16f7d44">realY</a>+<span class="stringliteral">&quot; MX:&quot;</span>+aux_moveX+<span class="stringliteral">&quot; MY:&quot;</span>+aux_moveY+<span class="stringliteral">&quot; RMX:&quot;</span>+realMoveX+<span class="stringliteral">&quot; RMY:&quot;</span>+realMoveY);</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3f767c3d6228080158c4ac690b4ca4b3">scrollThread</a> = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() {</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;                                </div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;                                @Override</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;                                <span class="keyword">public</span> <span class="keywordtype">void</span> run() {</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;                                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.scrollBy(aux_moveX,aux_moveY);</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;                                }</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                        });</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3f767c3d6228080158c4ac690b4ca4b3">scrollThread</a>.start();</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;                }</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;                </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        }</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        </div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
+<div class="line"><a name="l00301"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html">  301</a></span>&#160;        <span class="keyword">private</span> <span class="keyword">class </span><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html">GestureListener</a> <span class="keyword">implements</span> OnScaleGestureListener,OnGestureListener{</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;                </div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;                @Override</div>
+<div class="line"><a name="l00304"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#ab9bbf6372c5ef51802defd66e42c2a41">  304</a></span>&#160;                <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#ab9bbf6372c5ef51802defd66e42c2a41">onDown</a>(MotionEvent e) {</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                        </div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                }</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                </div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                @Override</div>
+<div class="line"><a name="l00310"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#a9047c32bc20fc9d04d0cd80a9b4d159c">  310</a></span>&#160;                <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#a9047c32bc20fc9d04d0cd80a9b4d159c">onLongPress</a>(MotionEvent e) {</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                        <span class="keywordflow">if</span>(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a234c2998bfb3ee769792e760357425a1">isDrag</a>){</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;                                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a234c2998bfb3ee769792e760357425a1">isDrag</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1CanvasView.html#a11046fc9fc6769116e5f6f5ebd509b91">endDrag</a>();</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;                        }</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                        <span class="keywordtype">float</span> posX = <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3946282d86de3f4ef1ef65c54b2669bc">realX</a> + (e.getX() / <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a>);</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                        <span class="keywordtype">float</span> posY = <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ad8b534f3e3c61b4ff0576ac5a16f7d44">realY</a> + (e.getY() / <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a>);</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a7508b6459e8ff8e166d2e6494a6eb356">vnc</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1VncBridgeJNI.html#a4f8dafeebd227101df0a17b280d215ec">sendMouseEvent</a>((<span class="keywordtype">int</span>)posX,(<span class="keywordtype">int</span>)posY,<a class="code" href="enumes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1VncBridgeJNI_1_1MouseEvent.html">MouseEvent</a>.<a class="code" href="enumes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1VncBridgeJNI_1_1MouseEvent.html#a2436e1521d0a97377bc32586e630cdd8">RightClick</a>);</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                }</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                @Override</div>
+<div class="line"><a name="l00320"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#a91d0d0bab36a91c7458d563d46c6a454">  320</a></span>&#160;                <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#a91d0d0bab36a91c7458d563d46c6a454">onFling</a>(MotionEvent e1, MotionEvent e2, <span class="keywordtype">float</span> velocityX,</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;                                <span class="keywordtype">float</span> velocityY) {</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#a9e8b21806da72f62465932781965322f">onScroll</a>(e1, e2,  -velocityX/<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a646d0e209d35564cdc42d837671bd7a4">VELOCITY_MOD</a>, -velocityY/<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a646d0e209d35564cdc42d837671bd7a4">VELOCITY_MOD</a>);</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;                        </div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;                }</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                @Override</div>
+<div class="line"><a name="l00328"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#a9e8b21806da72f62465932781965322f">  328</a></span>&#160;                <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#a9e8b21806da72f62465932781965322f">onScroll</a>(MotionEvent e1, MotionEvent e2,<span class="keywordtype">float</span> distanceX,</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                                <span class="keywordtype">float</span> distanceY) {</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                        <span class="comment">//Log.d(DEBUG_TAG, &quot; x:&quot;+distanceX+&quot; Y:&quot;+distanceY);</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                        <span class="keywordflow">if</span>(!<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a24f84d52429b8d6256f422a949f76ac2">zoom</a>){</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a09ced297c15e7eb11f05d7319e626916">onDrag</a>(e1, e2, distanceX, distanceY);</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                        }</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;                }</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                </div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;                @Override</div>
+<div class="line"><a name="l00338"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#afd14433b5aa9071fb3700e0f452cb25b">  338</a></span>&#160;                <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#afd14433b5aa9071fb3700e0f452cb25b">onShowPress</a>(MotionEvent e) {</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;                }</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                @Override</div>
+<div class="line"><a name="l00343"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#aed50074c59f6d951e8d3b6ded9f7ab1e">  343</a></span>&#160;                <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#aed50074c59f6d951e8d3b6ded9f7ab1e">onSingleTapUp</a>(MotionEvent e) {</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;                        <span class="keywordflow">if</span>(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a234c2998bfb3ee769792e760357425a1">isDrag</a>){</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a234c2998bfb3ee769792e760357425a1">isDrag</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1CanvasView.html#a11046fc9fc6769116e5f6f5ebd509b91">endDrag</a>();</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                        }</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;                        </div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;                        </div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;                        <span class="keywordtype">float</span> posX = <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3946282d86de3f4ef1ef65c54b2669bc">realX</a> + (e.getX() / <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a>);</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;                        <span class="keywordtype">float</span> posY = <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ad8b534f3e3c61b4ff0576ac5a16f7d44">realY</a> + (e.getY() / <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a>);</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a7508b6459e8ff8e166d2e6494a6eb356">vnc</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1VncBridgeJNI.html#a4f8dafeebd227101df0a17b280d215ec">sendMouseEvent</a>((<span class="keywordtype">int</span>)posX,(<span class="keywordtype">int</span>)posY,<a class="code" href="enumes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1VncBridgeJNI_1_1MouseEvent.html">MouseEvent</a>.<a class="code" href="enumes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1VncBridgeJNI_1_1MouseEvent.html#abe1dcbcc087c2504c7e9354056c64424">Click</a>);</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                }</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;                </div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                </div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                </div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                @Override</div>
+<div class="line"><a name="l00359"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#aca0b89d5c91b658e6b713dc3513b695d">  359</a></span>&#160;                <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#aca0b89d5c91b658e6b713dc3513b695d">onScale</a>(ScaleGestureDetector detector) {</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                        <span class="keywordtype">float</span> factor = detector.getScaleFactor();</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                        <span class="keywordflow">if</span>(factor &gt; 1 &amp;&amp; <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a> != 3){</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                                <span class="keywordflow">if</span>(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a> + 0.2 &lt; 3){</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a> += 0.1;</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;                                        </div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                                }</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                                <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;                                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a> = 3;</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                                        </div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;                                        </div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                                }</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;                                </div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                        }</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(factor &lt; 1 &amp;&amp; <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a> != 0.5f){</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                                <span class="keywordflow">if</span>(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a> - 0.2 &gt; 1){</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;                                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a> -= 0.1;</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                                        </div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                                }</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                                <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;                                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a> = 0.5f;</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;                                }</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;        </div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;                        }</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;                        Log.e(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6eb4ed0771188a692df57ceca3fb5f7e">DEBUG_TAG</a>, <span class="stringliteral">&quot;scale:&quot;</span>+<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a>+<span class="stringliteral">&quot; RX:&quot;</span>+<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a3946282d86de3f4ef1ef65c54b2669bc">realX</a>+<span class="stringliteral">&quot; RY:&quot;</span>+<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#ad8b534f3e3c61b4ff0576ac5a16f7d44">realY</a>);</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;                        <span class="keywordtype">float</span> pivotX = detector.getPreviousSpanX();</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;                        <span class="keywordtype">float</span> pivotY = detector.getPreviousSpanY();</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;                        </div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;                        </div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;                        </div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1CanvasView.html#a0c67965110402610909c29526aa27dbe">setScale</a>(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#aa0192b9a1f96c69dc102fb49edc9f590">scaleFactor</a>,0,0);</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.postInvalidate();</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;                        <span class="comment">//Log.e(DEBUG_TAG, &quot;num: &quot;+num+&quot; factor&quot;+scaleFactor);</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;                        <span class="comment">//canvas.setScaleX(scaleFactor);</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;                        <span class="comment">//canvas.setScaleY(scaleFactor);</span></div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;                        </div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;                }</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        </div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;                @Override</div>
+<div class="line"><a name="l00399"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#a5a0cf5966099481e898f00a5eecfed54">  399</a></span>&#160;                <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#a5a0cf5966099481e898f00a5eecfed54">onScaleBegin</a>(ScaleGestureDetector detector) {</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;                        </div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a24f84d52429b8d6256f422a949f76ac2">zoom</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                }</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        </div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                @Override</div>
+<div class="line"><a name="l00406"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#ac6a2d8cfb188726e816b5acc6dd69504">  406</a></span>&#160;                <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener.html#ac6a2d8cfb188726e816b5acc6dd69504">onScaleEnd</a>(ScaleGestureDetector detector) {</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;                        <span class="comment">//float distance = detector.getScaleFactor();</span></div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;                        <span class="keywordflow">if</span>(<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a234c2998bfb3ee769792e760357425a1">isDrag</a>){</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;                                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a234c2998bfb3ee769792e760357425a1">isDrag</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;                                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1CanvasView.html#a11046fc9fc6769116e5f6f5ebd509b91">endDrag</a>();</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;                        }</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;                        <span class="comment">//zoom = false;</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;                        <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity.html#a6b6d291cfbc0e886364a1c300d034397">canvas</a>.postInvalidate();</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;                }</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        };</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        </div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d0a4516af6932200a01e306753dd4051.html">src</a></li><li class="navelem"><a class="el" href="dir_251c40205e7dd79b24bfd9f8fa7707f6.html">es</a></li><li class="navelem"><a class="el" href="dir_2c655d72bbe720edd7f730010bed6bfb.html">ucm</a></li><li class="navelem"><a class="el" href="dir_a1d07b4aee76f452ab2346acf7e26494.html">tfg</a></li><li class="navelem"><a class="el" href="dir_80c48e7f4d2c0509fcb7e7c3fc6969ad.html">controlremotolinux</a></li><li class="navelem"><a class="el" href="dir_b69e1a1779b0fb6d3c2fc8c9d5459b9d.html">client</a></li><li class="navelem"><a class="el" href="dir_79369056839a0b70f2ad88a95c397da7.html">controller</a></li><li class="navelem"><a class="el" href="CanvasActivity_8java.html">CanvasActivity.java</a></li>
+    <li class="footer">Generado el Viernes, 3 de Mayo de 2013 16:55:53 para TFGControlRemotoLinux por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,208 @@
+cursor.lo: cursor.c ../rfb/rfbclient.h \
+ /tmp/my-android-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.6/include-fixed/stdio.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/cdefs.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/cdefs_elf.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/android/api-level.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/_types.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/machine/_types.h \
+ /tmp/my-android-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.6/include/stdarg.h \
+ /tmp/my-android-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.6/include/stddef.h \
+ /tmp/my-android-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.6/include-fixed/sys/types.h \
+ /tmp/my-android-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.6/include/stdint.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/stdint.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/posix_types.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/stddef.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/compiler.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/asm/posix_types.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/asm/types.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/types.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/machine/kernel.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/sysmacros.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/stdlib.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/string.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/malloc.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/alloca.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/strings.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/memory.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/time.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/time.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/unistd.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/select.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/signal.h \
+ /tmp/my-android-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.6/include-fixed/limits.h \
+ /tmp/my-android-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.6/include-fixed/syslimits.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/limits.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/limits.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/limits.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/machine/internal_types.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/machine/limits.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/syslimits.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/asm/page.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/asm/signal.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/asm-generic/signal.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/asm/sigcontext.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/asm/siginfo.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/asm-generic/siginfo.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/sysconf.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/capability.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/pathconf.h \
+ ../rfb/rfbproto.h ../rfb/rfbconfig.h ../rfb/rfbint.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/zlib.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/zconf.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/netinet/in.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/endian.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/endian.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/socket.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/asm/socket.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/asm/sockios.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/sockios.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/uio.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/in.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/asm/byteorder.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/byteorder/little_endian.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/byteorder/swab.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/byteorder/generic.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/in6.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/ipv6.h \
+ /tmp/my-android-toolchain/bin/../sysroot/usr/include/netinet/in6.h \
+ ../rfb/keysym.h
+
+../rfb/rfbclient.h:
+
+/tmp/my-android-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.6/include-fixed/stdio.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/cdefs.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/cdefs_elf.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/android/api-level.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/_types.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/machine/_types.h:
+
+/tmp/my-android-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.6/include/stdarg.h:
+
+/tmp/my-android-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.6/include/stddef.h:
+
+/tmp/my-android-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.6/include-fixed/sys/types.h:
+
+/tmp/my-android-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.6/include/stdint.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/stdint.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/posix_types.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/stddef.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/compiler.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/asm/posix_types.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/asm/types.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/types.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/machine/kernel.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/sysmacros.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/stdlib.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/string.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/malloc.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/alloca.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/strings.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/memory.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/time.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/time.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/unistd.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/select.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/signal.h:
+
+/tmp/my-android-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.6/include-fixed/limits.h:
+
+/tmp/my-android-toolchain/bin/../lib/gcc/arm-linux-androideabi/4.6/include-fixed/syslimits.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/limits.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/limits.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/limits.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/machine/internal_types.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/machine/limits.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/syslimits.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/asm/page.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/asm/signal.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/asm-generic/signal.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/asm/sigcontext.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/asm/siginfo.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/asm-generic/siginfo.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/sysconf.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/capability.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/pathconf.h:
+
+../rfb/rfbproto.h:
+
+../rfb/rfbconfig.h:
+
+../rfb/rfbint.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/zlib.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/zconf.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/netinet/in.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/endian.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/sys/endian.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/socket.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/asm/socket.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/asm/sockios.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/sockios.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/uio.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/in.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/asm/byteorder.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/byteorder/little_endian.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/byteorder/swab.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/byteorder/generic.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/in6.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/linux/ipv6.h:
+
+/tmp/my-android-toolchain/bin/../sysroot/usr/include/netinet/in6.h:
+
+../rfb/keysym.h:

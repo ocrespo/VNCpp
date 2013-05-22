@@ -1,0 +1,33 @@
+digraph "es.ucm.tfg.controlremotolinux.client.controller.ClientActivityTabs.onCheckboxDeleteClicked"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="es.ucm.tfg.controlremotolinux.client.controller.\lClientActivityTabs.onCheckboxDeleteClicked",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="es.ucm.tfg.controlremotolinux.client.controller.\lClientActivityTabs.deleting",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1ClientActivityTabs.html#ad0783ed34c9e4c08d8ee5dfd9b139697"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="es.ucm.tfg.controlremotolinux.client.model.sql.\lConnectionSQLite.deleteUser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1sql_1_1ConnectionSQLite.html#a6e31796809638ebc2b8eb8c440c75407",tooltip="Se elimina un usuario indicado."];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="es.ucm.tfg.controlremotolinux.client.model.sql.\lConnection.getName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1sql_1_1Connection.html#a6694bb1be6d9d9b2778345efe560b66b"];
+  Node2 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="es.ucm.tfg.controlremotolinux.client.model.sql.\lConnectionSQLite.getAllUsers",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1sql_1_1ConnectionSQLite.html#ad31166c02a019e76ae6d927aa4bdf57f",tooltip="Recoge todos los usuarios."];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="es.ucm.tfg.controlremotolinux.client.model.sql.\lConnection.setName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1sql_1_1Connection.html#a9d5fcb33c0f99c39dbe8928472d50026"];
+  Node5 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="es.ucm.tfg.controlremotolinux.client.model.sql.\lConnection.setIP",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1sql_1_1Connection.html#a6ac6fc49eab23fdfd943386f5182519c"];
+  Node5 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="es.ucm.tfg.controlremotolinux.client.model.sql.\lConnection.setPORT",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1sql_1_1Connection.html#a8db51932b82b6c93efc1242a1ee9cb71"];
+  Node5 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="es.ucm.tfg.controlremotolinux.client.model.sql.\lConnection.setPsw",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1sql_1_1Connection.html#a1b97e16dfb9d2263b833bad18308297c"];
+  Node5 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="es.ucm.tfg.controlremotolinux.client.model.sql.\lConnection.setFav",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1sql_1_1Connection.html#a7fa3affef66dedc621aefad4fd74816a"];
+  Node2 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="es.ucm.tfg.controlremotolinux.client.model.sql.\lConnectionSQLite.getInstance",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1sql_1_1ConnectionSQLite.html#a0f82a8e698f6666f8fccedca93bafcc9"];
+  Node11 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="es.ucm.tfg.controlremotolinux.client.model.sql.\lConnectionSQLite.ConnectionSQLite",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1sql_1_1ConnectionSQLite.html#a4dc4c2ff2209a11e9c36fcb1574307cb"];
+  Node2 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="es.ucm.tfg.controlremotolinux.client.controller.\lClientActivityTabs.getO",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1ClientActivityTabs.html#a4a3c7682b57e70e206d5ede428e109f3"];
+  Node1 -> Node14 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="es.ucm.tfg.controlremotolinux.client.controller.\lClientActivityTabs.setO",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1ClientActivityTabs.html#a16f371a4cd5fe40e71e71f33a840184a"];
+}

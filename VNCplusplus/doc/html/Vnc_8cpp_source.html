@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>TFGControlRemotoLinux: Fichero Fuente jni/src/model/Vnc.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">TFGControlRemotoLinux
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.1.2 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="globals.html"><span>Miembros&#160;de&#160;los&#160;ficheros</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('Vnc_8cpp_source.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Vnc.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Vnc_8cpp.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Vnc.cpp</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  Created on: 18/04/2013</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *      Author: roni</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Vnc_8h.html">Vnc.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include  &lt;<a class="code" href="ClientScreen_8h.html">model/screen/ClientScreen.h</a>&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include  &lt;<a class="code" href="ClientConnectionRFB_8h.html">model/comunication/ClientConnectionRFB.h</a>&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include  &lt;<a class="code" href="HandlerRFB_8h.html">model/comunication/HandlerRFB.h</a>&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classVnc.html#a6fe654ca9108d8322b6d7325ad380e24">   18</a></span>&#160;<a class="code" href="classVnc.html#a6fe654ca9108d8322b6d7325ad380e24" title="Constructor por defecto.">Vnc::Vnc</a>() {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="classVnc.html#ac0da4746a714f42c6ce69d2a383471f5" title="referencia a ClientConnectionRfb, se encarga de gestionar la conexion rfb">rfb</a> = <span class="keyword">new</span> <a class="code" href="classClientConnectionRFB.html" title="Clase encargada de gestionar la conexion con el servidor mediante rfb.">ClientConnectionRFB</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="classVnc.html#a88a77096922ce7dc38974bbfd62b5a2e" title="referencia a ClientScreen, se encarga de gestion los eventos rfb y tratar la imagen">screen</a> = <span class="keyword">new</span> <a class="code" href="classClientScreen.html" title="Clase encargada de gestionar los eventos de rfb y transformar la imagen.">ClientScreen</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <a class="code" href="classHandlerRFB.html#a6208a6166deccda656b80b7b7d954abb">HandlerRFB::setScreen</a>(<a class="code" href="classVnc.html#a88a77096922ce7dc38974bbfd62b5a2e" title="referencia a ClientScreen, se encarga de gestion los eventos rfb y tratar la imagen">screen</a>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="classVnc.html#a0c6595fef85db5354c87d6bb5419b831">   27</a></span>&#160;<a class="code" href="classVnc.html#a0c6595fef85db5354c87d6bb5419b831" title="destructor por defecto">Vnc::~Vnc</a>() {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="CommonType_8h.html#ad72dbcf6d0153db1b8d8a58001feed83" title="Indica si se esta en modo debug para mostrar los logs o no.">DEBUG</a>){</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                <a class="code" href="CommonType_8h.html#ae02538a80ad5fc009caec73487d11a8d" title="Muestra un mensaje en el logcat como error.">LOGE</a>(<span class="stringliteral">&quot;Limpiando vnc&quot;</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">delete</span> <a class="code" href="classVnc.html#ac0da4746a714f42c6ce69d2a383471f5" title="referencia a ClientConnectionRfb, se encarga de gestionar la conexion rfb">rfb</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">delete</span> <a class="code" href="classVnc.html#a88a77096922ce7dc38974bbfd62b5a2e" title="referencia a ClientScreen, se encarga de gestion los eventos rfb y tratar la imagen">screen</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="classVnc.html#a409b432af687e287ae403aa4eb72665d">   40</a></span>&#160;<a class="code" href="CommonType_8h.html#a3eb2ebd912cc5460d23e45f7188a0a86" title="Indica diferentes errores que puedes sucederse al iniciar la conexion.">ConnectionError</a> <a class="code" href="classVnc.html#a409b432af687e287ae403aa4eb72665d" title="Invoca rfb-&gt;iniConnect, para que inicie la conexion.">Vnc::iniConnection</a>(<span class="keywordtype">char</span> *host,<span class="keywordtype">int</span> port){</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="CommonType_8h.html#a3eb2ebd912cc5460d23e45f7188a0a86" title="Indica diferentes errores que puedes sucederse al iniciar la conexion.">ConnectionError</a> error = <a class="code" href="classVnc.html#ac0da4746a714f42c6ce69d2a383471f5" title="referencia a ClientConnectionRfb, se encarga de gestionar la conexion rfb">rfb</a>-&gt;<a class="code" href="classClientConnectionRFB.html#a10f5844b2c660c62f3ab7dbf8970e651" title="Inicia la conexion.">iniConnection</a>(host,port);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="CommonType_8h.html#ad72dbcf6d0153db1b8d8a58001feed83" title="Indica si se esta en modo debug para mostrar los logs o no.">DEBUG</a>)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <a class="code" href="CommonType_8h.html#ae02538a80ad5fc009caec73487d11a8d" title="Muestra un mensaje en el logcat como error.">LOGE</a>(<span class="stringliteral">&quot;Return inicio de conexion&quot;</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> error;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">//rfb-&gt;eventLoop();</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="classVnc.html#a2450126c5fdcb3d89473e60576219854">   50</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classVnc.html#a2450126c5fdcb3d89473e60576219854" title="Invoca rfb-&gt;cleanRfb, para que cierra la conexion con el servidor.">Vnc::closeConnection</a>(){</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="classVnc.html#ac0da4746a714f42c6ce69d2a383471f5" title="referencia a ClientConnectionRfb, se encarga de gestionar la conexion rfb">rfb</a>-&gt;<a class="code" href="classClientConnectionRFB.html#a6d2a65faea61da0fac61aaeaf3eae640" title="Limpia la informacion de clientRFB y lo pone a NULL.">cleanRfb</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="classVnc.html#a5c8ce7fb97832fb21cd638b14b49843d">   58</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classVnc.html#a5c8ce7fb97832fb21cd638b14b49843d" title="Añade a screen el observer, para que este se comunique con java.">Vnc::addObserver</a>(jobject observer,JNIEnv *env){</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="classVnc.html#a88a77096922ce7dc38974bbfd62b5a2e" title="referencia a ClientScreen, se encarga de gestion los eventos rfb y tratar la imagen">screen</a>-&gt;<a class="code" href="classObservableJNI.html#ae8fe89634934a94aa315320817a75d81" title="Añade el objecto java que recibira las notificaciones.">addObserver</a>(observer,env);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="classVnc.html#a0df40ea1d639cf16e9b8b42229438715">   61</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classVnc.html#a0df40ea1d639cf16e9b8b42229438715">Vnc::sendMouseEvent</a>(<span class="keywordtype">int</span> x,<span class="keywordtype">int</span> y,<a class="code" href="CommonType_8h.html#a5f278706f235727f39ae168af63b1d99">MouseEvent</a> event){</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classVnc.html#ac0da4746a714f42c6ce69d2a383471f5" title="referencia a ClientConnectionRfb, se encarga de gestionar la conexion rfb">rfb</a>-&gt;<a class="code" href="classClientConnectionRFB.html#aada8dfc1d985e0ff47aa058a2200598d">sendMouseEvent</a>(x,y,event);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">/*void Vnc::rfbLoop(JNIEnv* env){</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">        screen-&gt;setEnv(env);</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">        rfb-&gt;eventLoop();</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">}</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">*/</span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_c5aabee391184a762ac1b32f1d4716d2.html">jni</a></li><li class="navelem"><a class="el" href="dir_a452bb55a652a5280ad3d8554bc48b9f.html">src</a></li><li class="navelem"><a class="el" href="dir_581903b642829978cb3efcda7bb649dd.html">model</a></li><li class="navelem"><a class="el" href="Vnc_8cpp.html">Vnc.cpp</a></li>
+    <li class="footer">Generado el Viernes, 3 de Mayo de 2013 16:55:53 para TFGControlRemotoLinux por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
+  </ul>
+</div>
+</body>
+</html>

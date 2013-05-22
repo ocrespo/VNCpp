@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:layout_weight="1.0" >    
+
+    <LinearLayout
+        android:paddingTop="15dip"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" > 
+                <TextView
+                        android:id="@+id/textViewConnection_name"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="3dip"
+                        android:text="@string/connection_text"
+                        />
+                <EditText android:id="@+id/ConnectionName_inserted"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="3dip"
+                         />
+                <TextView
+                        android:id="@+id/textViewIP"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/message_ip"
+                        android:paddingLeft="3dip"
+                        />
+                <EditText android:id="@+id/IP_inserted"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="3dip"
+                         />
+                
+                <TextView
+                        android:id="@+id/textViewPort"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/message_port"
+                        android:paddingLeft="3dip"
+                        />
+                <EditText android:id="@+id/PORT_inserted"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="3dip"
+                        android:text="5900"
+                         />
+                
+               <TextView
+                        android:id="@+id/User_Connect"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/message_user"
+                        android:paddingLeft="3dip"
+                        />
+                <EditText android:id="@+id/User_inserted"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="3dip"                        
+                         />
+                
+                <TextView
+                        android:id="@+id/PSW_Connect"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"                        
+                        android:text="@string/message_psw"
+                        android:paddingLeft="3dip"
+                        />
+                <EditText android:id="@+id/PSW_inserted"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="3dip"
+                         /> 
+                         
+                
+                <Spinner android:id="@+id/Spinner_colors"
+					    android:layout_width="match_parent"
+					    android:layout_height="wrap_content" />  
+					    
+				<LinearLayout 
+				    android:layout_width="fill_parent"
+       				android:layout_height="wrap_content"
+       				 android:gravity="center">	          
+
+                	<Button
+	                    android:id="@+id/buttonConnect"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="fill_parent"
+	                    android:text="@string/connect"
+	                    android:isScrollContainer="true"
+                    />
+             
+             		<Button
+	                    android:id="@+id/buttonCancel"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="fill_parent"
+	                    android:text="@string/cancel"
+	                    android:isScrollContainer="true"
+                    
+                    />
+				</LinearLayout>
+				
+         </LinearLayout>
+</ScrollView>     
+	
+	
+
+
+
+
+

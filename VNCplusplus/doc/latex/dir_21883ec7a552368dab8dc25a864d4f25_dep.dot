@@ -1,0 +1,9 @@
+digraph "src/es/ucm/tfg/controlremotolinux/client/model/sql/" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_b93e4639b75f0fb4df8739679d851a35 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="model" fontname="Helvetica", fontsize="10", URL="dir_b93e4639b75f0fb4df8739679d851a35.html"]
+  dir_21883ec7a552368dab8dc25a864d4f25 [shape=box, label="sql", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_21883ec7a552368dab8dc25a864d4f25.html"];
+  }
+}

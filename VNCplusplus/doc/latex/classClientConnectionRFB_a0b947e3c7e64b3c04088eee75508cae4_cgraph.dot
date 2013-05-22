@@ -1,0 +1,18 @@
+digraph "ClientConnectionRFB::eventLoop"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ClientConnectionRFB\l::eventLoop",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="HandlerRFB::finishClient",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlerRFB.html#ab00b49e201ac9eade5824b8d9b27709e"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="ObservableJNI::finishByClient",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservableJNI.html#a912cb33f317c7c875ee85f9ccf9a8a4d"];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="ObservableJNI::getEnviroment",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservableJNI.html#aa585114e66e7531e738a0be9669bceab",tooltip="Coloca el entorno de ejecucion de java al hilo actual."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="HandlerRFB::finishConnection",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlerRFB.html#acf7030c8441d5aacac10e014460ec59e"];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="ObservableJNI::notifyFinish\lConnection",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservableJNI.html#a5356d8a9177f5ebc4c9d7d583a68b345"];
+  Node6 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+}

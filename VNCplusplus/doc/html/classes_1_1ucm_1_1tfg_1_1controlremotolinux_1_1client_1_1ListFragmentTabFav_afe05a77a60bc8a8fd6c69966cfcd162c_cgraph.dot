@@ -1,0 +1,29 @@
+digraph "es.ucm.tfg.controlremotolinux.client.ListFragmentTabFav.deleting"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="es.ucm.tfg.controlremotolinux.client.\lListFragmentTabFav.deleting",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="es.ucm.tfg.controlremotolinux.client.\lUsersSQLite.deleteUser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#aaf00cb0fce468a22221c106e83a21122",tooltip="Se elimina un usuario indicado."];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="es.ucm.tfg.controlremotolinux.client.\lUser.getName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a9a224b1386a94768f5fcecd2808a9233"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="es.ucm.tfg.controlremotolinux.client.\lUsersSQLite.getAllFavUsers",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1UsersSQLite.html#a9770e9483b60c0f2c124d87e4dc66a35",tooltip="Devuelve los usuarios favoritos."];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="es.ucm.tfg.controlremotolinux.client.\lUser.setName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a04b6ccccd257a018e4653abe8dcfe8f0"];
+  Node4 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="es.ucm.tfg.controlremotolinux.client.\lUser.setIP",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a048d764f8e48e5da2e5854ce6e581039"];
+  Node4 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="es.ucm.tfg.controlremotolinux.client.\lUser.setPORT",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a2065f92ca08806ee17eb04ea24a2333c"];
+  Node4 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="es.ucm.tfg.controlremotolinux.client.\lUser.setPsw",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a0dc5be2520f53aa34ee95e3ce4b5097b"];
+  Node4 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="es.ucm.tfg.controlremotolinux.client.\lUser.setFav",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#a90d3c37dcec6ebc1bae029367d73f101"];
+  Node4 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="es.ucm.tfg.controlremotolinux.client.\lUser.getFav",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1User.html#afeef5440c51148475ec40449f811e731"];
+  Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="es.ucm.tfg.controlremotolinux.client.\lListFragmentTabFav.getO",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1ListFragmentTabFav.html#a69d78a4c6285ba31737d572fe8728a7c",tooltip="Return the Object User down at the list."];
+  Node1 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="es.ucm.tfg.controlremotolinux.client.\lAdapter.setList",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1Adapter.html#a0b0bfc3e66a08775d8440972626d02b7"];
+}

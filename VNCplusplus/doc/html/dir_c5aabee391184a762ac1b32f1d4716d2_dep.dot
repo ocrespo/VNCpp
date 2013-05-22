@@ -1,0 +1,10 @@
+digraph "jni/" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_c5aabee391184a762ac1b32f1d4716d2 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_c5aabee391184a762ac1b32f1d4716d2.html"];
+    dir_c5aabee391184a762ac1b32f1d4716d2 [shape=plaintext label="jni"];
+    dir_a452bb55a652a5280ad3d8554bc48b9f [shape=box label="src" color="red" fillcolor="white" style="filled" URL="dir_a452bb55a652a5280ad3d8554bc48b9f.html"];
+  }
+}

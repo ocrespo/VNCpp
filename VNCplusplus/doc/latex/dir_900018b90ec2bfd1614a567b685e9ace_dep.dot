@@ -1,0 +1,9 @@
+digraph "jni/src/model/screen/" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_581903b642829978cb3efcda7bb649dd {
+    graph [ bgcolor="#ddddee", pencolor="black", label="model" fontname="Helvetica", fontsize="10", URL="dir_581903b642829978cb3efcda7bb649dd.html"]
+  dir_900018b90ec2bfd1614a567b685e9ace [shape=box, label="screen", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_900018b90ec2bfd1614a567b685e9ace.html"];
+  }
+}

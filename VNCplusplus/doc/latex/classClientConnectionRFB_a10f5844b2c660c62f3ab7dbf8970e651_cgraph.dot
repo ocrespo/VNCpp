@@ -1,0 +1,47 @@
+digraph "ClientConnectionRFB::iniConnection"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ClientConnectionRFB\l::iniConnection",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ClientConnectionRFB\l::cleanRfb",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classClientConnectionRFB.html#a6d2a65faea61da0fac61aaeaf3eae640",tooltip="Limpia la informacion de clientRFB y lo pone a NULL."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="ClientConnectionRFB\l::eventLoop",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classClientConnectionRFB.html#a0b947e3c7e64b3c04088eee75508cae4",tooltip="Bucle principal de rfb."];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="HandlerRFB::finishClient",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlerRFB.html#ab00b49e201ac9eade5824b8d9b27709e"];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="ObservableJNI::finishByClient",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservableJNI.html#a912cb33f317c7c875ee85f9ccf9a8a4d"];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="ObservableJNI::getEnviroment",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservableJNI.html#aa585114e66e7531e738a0be9669bceab",tooltip="Coloca el entorno de ejecucion de java al hilo actual."];
+  Node3 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="HandlerRFB::finishConnection",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlerRFB.html#acf7030c8441d5aacac10e014460ec59e"];
+  Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="ObservableJNI::notifyFinish\lConnection",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservableJNI.html#a5356d8a9177f5ebc4c9d7d583a68b345"];
+  Node8 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="HandlerRFB::iniFrameBuffer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlerRFB.html#a574d5d29dce6b5700d59480a8b247d77"];
+  Node9 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="ClientScreen::iniScreen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classClientScreen.html#a319d02c12d61c5b78c500a6ddcf8ca74",tooltip="Inicializa frameBuffer."];
+  Node10 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="ObservableJNI::notifyIni\lFrame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservableJNI.html#ade6b8675bd964566f4a2a0b63f704dda",tooltip="Invoca el metodo updateIniFrame del observer."];
+  Node11 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 -> Node12 [color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="ClientScreen::doMask",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classClientScreen.html#ac3afa184bedeb1c0b53da93ae9792d9c"];
+  Node1 -> Node13 [color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="HandlerRFB::updateScreen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlerRFB.html#a1507701a4adb4952e0946993bd491093"];
+  Node13 -> Node14 [color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="ClientScreen::updateScreen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classClientScreen.html#a949b67312c5f00fd4b58dd2b2685a6c5",tooltip="Actualiza la regin de la imagen especificados por el rectangulo."];
+  Node14 -> Node15 [color="midnightblue",fontsize="10",style="solid"];
+  Node15 [label="ObservableJNI::getBitmapData",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservableJNI.html#a14bee04164981b0ff38500d041bbaa61"];
+  Node15 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node15 -> Node16 [color="midnightblue",fontsize="10",style="solid"];
+  Node16 [label="ObservableJNI::getBitmap\lObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservableJNI.html#a9eb441b7fa11d3e743036264b1cc1549"];
+  Node14 -> Node17 [color="midnightblue",fontsize="10",style="solid"];
+  Node17 [label="ObservableJNI::getArrayElements",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservableJNI.html#a5b072bd86c5e832a794d812f9567dca3"];
+  Node14 -> Node18 [color="midnightblue",fontsize="10",style="solid"];
+  Node18 [label="ObservableJNI::setArrayElements",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservableJNI.html#a5d5d9b84e308f3ea3f2c6ec3bc49f2d1"];
+  Node14 -> Node19 [color="midnightblue",fontsize="10",style="solid"];
+  Node19 [label="ObservableJNI::notifyReDraw",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservableJNI.html#a1a376a0653883311533d4786675c8de0"];
+  Node19 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+}

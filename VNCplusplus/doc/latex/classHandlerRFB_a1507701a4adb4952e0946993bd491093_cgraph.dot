@@ -1,0 +1,22 @@
+digraph "HandlerRFB::updateScreen"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="HandlerRFB::updateScreen",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ClientScreen::updateScreen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classClientScreen.html#a949b67312c5f00fd4b58dd2b2685a6c5",tooltip="Actualiza la regin de la imagen especificados por el rectangulo."];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="ObservableJNI::getArrayElements",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservableJNI.html#a5b072bd86c5e832a794d812f9567dca3"];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="ObservableJNI::getBitmapData",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservableJNI.html#a14bee04164981b0ff38500d041bbaa61"];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="ObservableJNI::getEnviroment",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservableJNI.html#aa585114e66e7531e738a0be9669bceab",tooltip="Coloca el entorno de ejecucion de java al hilo actual."];
+  Node4 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="ObservableJNI::getBitmap\lObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservableJNI.html#a9eb441b7fa11d3e743036264b1cc1549"];
+  Node2 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="ObservableJNI::notifyReDraw",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservableJNI.html#a1a376a0653883311533d4786675c8de0"];
+  Node7 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="ObservableJNI::setArrayElements",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservableJNI.html#a5d5d9b84e308f3ea3f2c6ec3bc49f2d1"];
+}

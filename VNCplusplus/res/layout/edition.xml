@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"  
+        >
+        
+        <ScrollView android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+          <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="3dip"
+                android:paddingRight="3dip" 
+                >
+              	<TextView
+                        android:id="@+id/editTextViewName"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="3dip"
+                        />  
+              
+                <TextView
+                        android:id="@+id/editTextViewIP"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/message_ip"
+                        android:paddingLeft="3dip"
+                        />
+                <EditText android:id="@+id/editIP_inserted"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="3dip"
+                         />
+                
+                <TextView
+                        android:id="@+id/editTextViewPort"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/message_port"
+                        android:paddingLeft="3dip"
+                        />
+                <EditText android:id="@+id/editPORT_inserted"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="3dip"
+                         />
+                
+                <TextView
+                        android:id="@+id/editUser_Connect"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/message_user"
+                        android:paddingLeft="3dip"
+                        />
+                <EditText android:id="@+id/editUser_inserted"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="3dip"                        
+                         />
+                
+                
+                <TextView
+                        android:id="@+id/editPSW_Connect"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/message_psw"
+                        android:paddingLeft="3dip"
+                        />
+                <EditText android:id="@+id/editPSW_inserted"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="3dip"
+                         /> 
+                         
+                <Spinner android:id="@+id/Spinner_colors"
+					    android:layout_width="match_parent"
+					    android:layout_height="wrap_content" />
+                                
+                         
+             <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="3dip"
+                android:paddingRight="3dip"
+                android:paddingTop="5dip" 
+                >
+             <Button
+                    android:id="@+id/buttonEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="@string/edit_connection"
+                    />
+             
+             
+             </LinearLayout>                           
+                          
+             </LinearLayout>
+
+          	</ScrollView>
+          	
+
+</LinearLayout>
+

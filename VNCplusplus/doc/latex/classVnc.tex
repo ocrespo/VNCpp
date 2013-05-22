@@ -1,0 +1,233 @@
+\hypertarget{classVnc}{\section{Referencia de la Clase Vnc}
+\label{classVnc}\index{Vnc@{Vnc}}
+}
+
+
+Clase encargada de enlazar la conexion, hecha en la clase \hyperlink{classClientConnectionRFB}{Client\-Connection\-R\-F\-B} con la clase encargada de convertir la imagen y gestionar eventos de rfb.  
+
+
+
+
+{\ttfamily \#include $<$Vnc.\-h$>$}
+
+
+
+Diagrama de colaboración para Vnc\-:
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classVnc_a6fe654ca9108d8322b6d7325ad380e24}{Vnc} ()
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+virtual \hyperlink{classVnc_a0c6595fef85db5354c87d6bb5419b831}{$\sim$\-Vnc} ()
+\begin{DoxyCompactList}\small\item\em destructor por defecto \end{DoxyCompactList}\item 
+\hyperlink{CommonType_8h_a3eb2ebd912cc5460d23e45f7188a0a86}{Connection\-Error} \hyperlink{classVnc_a409b432af687e287ae403aa4eb72665d}{ini\-Connection} (char $\ast$host, int port)
+\begin{DoxyCompactList}\small\item\em Invoca rfb-\/$>$ini\-Connect, para que inicie la conexion. \end{DoxyCompactList}\item 
+void \hyperlink{classVnc_a2450126c5fdcb3d89473e60576219854}{close\-Connection} ()
+\begin{DoxyCompactList}\small\item\em Invoca rfb-\/$>$clean\-Rfb, para que cierra la conexion con el servidor. \end{DoxyCompactList}\item 
+void \hyperlink{classVnc_a5c8ce7fb97832fb21cd638b14b49843d}{add\-Observer} (jobject observer, J\-N\-I\-Env $\ast$env)
+\begin{DoxyCompactList}\small\item\em Añade a screen el observer, para que este se comunique con java. \end{DoxyCompactList}\item 
+bool \hyperlink{classVnc_a0df40ea1d639cf16e9b8b42229438715}{send\-Mouse\-Event} (int x, int y, \hyperlink{CommonType_8h_a5f278706f235727f39ae168af63b1d99}{Mouse\-Event} event)
+\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classClientConnectionRFB}{Client\-Connection\-R\-F\-B} $\ast$ \hyperlink{classVnc_ac0da4746a714f42c6ce69d2a383471f5}{rfb}
+\begin{DoxyCompactList}\small\item\em referencia a Client\-Connection\-Rfb, se encarga de gestionar la conexion rfb \end{DoxyCompactList}\item 
+\hyperlink{classClientScreen}{Client\-Screen} $\ast$ \hyperlink{classVnc_a88a77096922ce7dc38974bbfd62b5a2e}{screen}
+\begin{DoxyCompactList}\small\item\em referencia a \hyperlink{classClientScreen}{Client\-Screen}, se encarga de gestion los eventos rfb y tratar la imagen \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+Definición en la línea 25 del archivo Vnc.\-h.
+
+
+
+\subsection{Documentación del constructor y destructor}
+\hypertarget{classVnc_a6fe654ca9108d8322b6d7325ad380e24}{\index{Vnc@{Vnc}!Vnc@{Vnc}}
+\index{Vnc@{Vnc}!Vnc@{Vnc}}
+\subsubsection[{Vnc}]{\setlength{\rightskip}{0pt plus 5cm}Vnc\-::\-Vnc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classVnc_a6fe654ca9108d8322b6d7325ad380e24}
+
+
+Definición en la línea 18 del archivo Vnc.\-cpp.
+
+
+
+Hace referencia a rfb, screen y Handler\-R\-F\-B\-::set\-Screen().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\hypertarget{classVnc_a0c6595fef85db5354c87d6bb5419b831}{\index{Vnc@{Vnc}!$\sim$\-Vnc@{$\sim$\-Vnc}}
+\index{$\sim$\-Vnc@{$\sim$\-Vnc}!Vnc@{Vnc}}
+\subsubsection[{$\sim$\-Vnc}]{\setlength{\rightskip}{0pt plus 5cm}Vnc\-::$\sim$\-Vnc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classVnc_a0c6595fef85db5354c87d6bb5419b831}
+
+
+Definición en la línea 27 del archivo Vnc.\-cpp.
+
+
+
+Hace referencia a D\-E\-B\-U\-G, L\-O\-G\-E, rfb y screen.
+
+
+
+\subsection{Documentación de las funciones miembro}
+\hypertarget{classVnc_a5c8ce7fb97832fb21cd638b14b49843d}{\index{Vnc@{Vnc}!add\-Observer@{add\-Observer}}
+\index{add\-Observer@{add\-Observer}!Vnc@{Vnc}}
+\subsubsection[{add\-Observer}]{\setlength{\rightskip}{0pt plus 5cm}void Vnc\-::add\-Observer (
+\begin{DoxyParamCaption}
+\item[{jobject}]{observer, }
+\item[{J\-N\-I\-Env $\ast$}]{env}
+\end{DoxyParamCaption}
+)}}\label{classVnc_a5c8ce7fb97832fb21cd638b14b49843d}
+
+\begin{DoxyParams}{Parámetros}
+{\em observer} & objecto que sera observador, es un objeto J\-A\-V\-A \\
+\hline
+{\em env} & entorno jni cuando se hace la llamada \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 58 del archivo Vnc.\-cpp.
+
+
+
+Hace referencia a Observable\-J\-N\-I\-::add\-Observer() y screen.
+
+
+
+Referenciado por Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-J\-N\-I().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\hypertarget{classVnc_a2450126c5fdcb3d89473e60576219854}{\index{Vnc@{Vnc}!close\-Connection@{close\-Connection}}
+\index{close\-Connection@{close\-Connection}!Vnc@{Vnc}}
+\subsubsection[{close\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}void Vnc\-::close\-Connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classVnc_a2450126c5fdcb3d89473e60576219854}
+
+
+Definición en la línea 50 del archivo Vnc.\-cpp.
+
+
+
+Hace referencia a Client\-Connection\-R\-F\-B\-::clean\-Rfb() y rfb.
+
+
+
+Referenciado por Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-close\-Connection().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\hypertarget{classVnc_a409b432af687e287ae403aa4eb72665d}{\index{Vnc@{Vnc}!ini\-Connection@{ini\-Connection}}
+\index{ini\-Connection@{ini\-Connection}!Vnc@{Vnc}}
+\subsubsection[{ini\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Connection\-Error} Vnc\-::ini\-Connection (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{host, }
+\item[{int}]{port}
+\end{DoxyParamCaption}
+)}}\label{classVnc_a409b432af687e287ae403aa4eb72665d}
+
+\begin{DoxyParams}{Parámetros}
+{\em host} & ip a la que se conecta \\
+\hline
+{\em port} & el puerto mediante el que se realiza la conexion \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+devuelve si la conexion tuvo exito, mediante el enum Connection\-Error 
+\end{DoxyReturn}
+
+
+Definición en la línea 40 del archivo Vnc.\-cpp.
+
+
+
+Hace referencia a D\-E\-B\-U\-G, Client\-Connection\-R\-F\-B\-::ini\-Connection(), L\-O\-G\-E y rfb.
+
+
+
+Referenciado por Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-ini\-Connect().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\hypertarget{classVnc_a0df40ea1d639cf16e9b8b42229438715}{\index{Vnc@{Vnc}!send\-Mouse\-Event@{send\-Mouse\-Event}}
+\index{send\-Mouse\-Event@{send\-Mouse\-Event}!Vnc@{Vnc}}
+\subsubsection[{send\-Mouse\-Event}]{\setlength{\rightskip}{0pt plus 5cm}bool Vnc\-::send\-Mouse\-Event (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{{\bf Mouse\-Event}}]{event}
+\end{DoxyParamCaption}
+)}}\label{classVnc_a0df40ea1d639cf16e9b8b42229438715}
+
+
+Definición en la línea 61 del archivo Vnc.\-cpp.
+
+
+
+Hace referencia a rfb y Client\-Connection\-R\-F\-B\-::send\-Mouse\-Event().
+
+
+
+Referenciado por Java\-\_\-es\-\_\-ucm\-\_\-tfg\-\_\-controlremotolinux\-\_\-client\-\_\-model\-\_\-\-Vnc\-Bridge\-J\-N\-I\-\_\-mouse\-Event().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+
+
+\subsection{Documentación de los datos miembro}
+\hypertarget{classVnc_ac0da4746a714f42c6ce69d2a383471f5}{\index{Vnc@{Vnc}!rfb@{rfb}}
+\index{rfb@{rfb}!Vnc@{Vnc}}
+\subsubsection[{rfb}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Client\-Connection\-R\-F\-B}$\ast$ Vnc\-::rfb\hspace{0.3cm}{\ttfamily [private]}}}\label{classVnc_ac0da4746a714f42c6ce69d2a383471f5}
+
+
+Definición en la línea 27 del archivo Vnc.\-h.
+
+
+
+Referenciado por close\-Connection(), ini\-Connection(), send\-Mouse\-Event(), Vnc() y $\sim$\-Vnc().
+
+\hypertarget{classVnc_a88a77096922ce7dc38974bbfd62b5a2e}{\index{Vnc@{Vnc}!screen@{screen}}
+\index{screen@{screen}!Vnc@{Vnc}}
+\subsubsection[{screen}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Client\-Screen}$\ast$ Vnc\-::screen\hspace{0.3cm}{\ttfamily [private]}}}\label{classVnc_a88a77096922ce7dc38974bbfd62b5a2e}
+
+
+Definición en la línea 28 del archivo Vnc.\-h.
+
+
+
+Referenciado por add\-Observer(), Vnc() y $\sim$\-Vnc().
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\-:\begin{DoxyCompactItemize}
+\item 
+jni/src/model/\hyperlink{Vnc_8h}{Vnc.\-h}\item 
+jni/src/model/\hyperlink{Vnc_8cpp}{Vnc.\-cpp}\end{DoxyCompactItemize}

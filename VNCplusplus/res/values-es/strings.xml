@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">VNC++</string>
+    <string name="menu_settings">Herramientas</string>
+    
+    
+    <!-- CONNECTIONS MESSAGES  -->
+    
+    <string name="message_ip">Inserta la IP: </string>
+    <string name="message_port">Inserta puerto de conexión: </string>
+    <string name="message_user">Autenticar usuario(opcional) </string>
+    <string name="message_psw">Contraseña(opcional)</string>
+    <string name="connect">Conectar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="connection_text">Nombre de la conexión</string>
+    <string name="open">Abrir conexión</string>
+    <string name="help">Ayuda</string>
+    <string name="new_connection">Nueva conexión</string>
+    
+    
+    <!-- CONTEXT MENU -->
+    
+    <string name="add_connection">Nueva conexión</string>
+    <string name="delete_connection">Eliminar conexión</string>
+    <string name="edit_connection">Editar conexión</string>
+    <string name="save_connection">Guardar</string>
+    
+    <!-- IMAGE TEXT -->
+    
+    <string name="image_example">Imagen ejemplo</string>
+    
+    <!-- USER TEXT -->
+    
+    <string name="Users">Conexiones</string>
+    <string name="emptyUsers"></string>
+    <string name="favorites">Favoritos</string>
+    
+        <!-- INFO DIALOG -->
+    
+    <string name="DialogInfo">Información</string>
+    <string name="DialogSomethingEmpty">Hay algún campo de la conexión sin rellenar</string>
+    <string name="DialogTitleExit">Salir</string>
+    <string name="DialogQuestion">¿Estás seguro?</string>
+    <string name="RememberCheckBox">No volver a preguntar</string>
+    
+    
+        <!-- MENU OPTIONS DIALOG -->
+    
+    <string name="DialogTitle">Opciones</string>
+    <string name="DialogConnect">Conectar</string>
+    <string name="DialogEdit">Editar</string>
+    <string name="DialogDelete">Eliminar</string> 
+    
+        <!-- TEXT TAB -->
+    
+    <string name="recents">RECIENTES</string>
+	<string name="favoritesTab">FAVORITOS</string>
+	
+		<!-- TOAST -->
+    
+    <string name="invalidIp">IP Inválida</string>
+    <string name="invalidPort">PUERTO Inválido</string>
+    <string name="invalidName">Nombre de conexión inválido(ya en uso)</string>
+    <string name="invalidUserOrPass">Usuario o contraseña vacío</string>
+    
+
+    	<!-- MENU CANVAS OPTIONS DIALOG -->
+	<string name="Keyboard">Teclado</string>
+	<string name="disconnect">Desconectar</string> 
+	
+		<!-- DOWN MENU -->
+	<string name="options_down">Opciones</string>
+	<string name="howto">Cómo usar</string>
+	<string name="about">Acerca de</string>
+	
+	<string name="center_image">Centrar Imagen</string>
+	
+		<!-- DIALOG CANVAS -->
+	<string name="server_dialog">Servidor</string>
+	<string name="server_not_found">Servidor no encontrado</string>
+	<string name="server_interrupt">Conexión interrumpida por el servidor</string>
+	
+		<!-- DIALOG SPECIAL KEYS -->
+	<string name="special_keys_title">Teclas especiales</string>
+	<string name="function_keys_title">Teclas función</string>
+	<string name="combo_keys_title">Combo teclas</string>
+
+</resources>

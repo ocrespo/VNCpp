@@ -1,0 +1,13 @@
+digraph "src/es/ucm/tfg/controlremotolinux/client/model/" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_b69e1a1779b0fb6d3c2fc8c9d5459b9d {
+    graph [ bgcolor="#ddddee", pencolor="black", label="client" fontname="Helvetica", fontsize="10", URL="dir_b69e1a1779b0fb6d3c2fc8c9d5459b9d.html"]
+  subgraph clusterdir_b93e4639b75f0fb4df8739679d851a35 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_b93e4639b75f0fb4df8739679d851a35.html"];
+    dir_b93e4639b75f0fb4df8739679d851a35 [shape=plaintext label="model"];
+    dir_21883ec7a552368dab8dc25a864d4f25 [shape=box label="sql" color="black" fillcolor="white" style="filled" URL="dir_21883ec7a552368dab8dc25a864d4f25.html"];
+  }
+  }
+}

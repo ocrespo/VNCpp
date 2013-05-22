@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/addConnection"
+        android:icon="@drawable/addsimbol"
+        android:showAsAction="always" />
+    
+    <item
+        android:id="@+id/configuration"
+        android:icon="@drawable/ic_action_overflow"
+        android:showAsAction="always"
+        android:title="configuration" >
+    
+    	<!-- "file" submenu -->
+        <menu>
+            <item android:id="@+id/howto"
+                  android:title="@string/howto"
+                  android:icon="@drawable/howto_image" />
+            <item android:id="@+id/about"
+                  android:title="@string/about"
+                  android:icon="@drawable/about_image" />
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,36 @@
+digraph "es.ucm.tfg.controlremotolinux.client.controller.CanvasActivity"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="es.ucm.tfg.controlremotolinux.client.controller.\lCanvasActivity",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Activity",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node3 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="es.ucm.tfg.controlremotolinux.client.model.\lObserverCanvas",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfacees_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1ObserverCanvas.html"];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" scaleGesture" ,fontname="Helvetica"];
+  Node4 [label="ScaleGestureDetector",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" canvas" ,fontname="Helvetica"];
+  Node5 [label="es.ucm.tfg.controlremotolinux.client.view.\lCanvasView",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1CanvasView.html"];
+  Node6 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="ImageView",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node7 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" bitmapRect" ,fontname="Helvetica"];
+  Node7 [label="Rect",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node8 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" bitmap" ,fontname="Helvetica"];
+  Node8 [label="Bitmap",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node9 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" paint" ,fontname="Helvetica"];
+  Node9 [label="Paint",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node10 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" gesture" ,fontname="Helvetica"];
+  Node10 [label="GestureDetector",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node11 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" vnc" ,fontname="Helvetica"];
+  Node11 [label="es.ucm.tfg.controlremotolinux.client.model.\lVncBridgeJNI",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1VncBridgeJNI.html"];
+  Node12 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="es.ucm.tfg.controlremotolinux.client.model.\lObservableCanvas",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1ObservableCanvas.html"];
+  Node3 -> Node12 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" observer" ,fontname="Helvetica"];
+  Node13 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="es.ucm.tfg.controlremotolinux.client.model.\lObserverJNI",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfacees_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1ObserverJNI.html"];
+  Node14 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" screen" ,fontname="Helvetica"];
+  Node14 [label="es.ucm.tfg.controlremotolinux.client.model.\lScreen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html"];
+  Node15 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" handlerView" ,fontname="Helvetica"];
+  Node15 [label="Handler",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

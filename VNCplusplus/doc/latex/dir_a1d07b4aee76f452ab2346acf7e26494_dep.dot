@@ -1,0 +1,13 @@
+digraph "src/es/ucm/tfg/" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_2c655d72bbe720edd7f730010bed6bfb {
+    graph [ bgcolor="#ddddee", pencolor="black", label="ucm" fontname="Helvetica", fontsize="10", URL="dir_2c655d72bbe720edd7f730010bed6bfb.html"]
+  subgraph clusterdir_a1d07b4aee76f452ab2346acf7e26494 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_a1d07b4aee76f452ab2346acf7e26494.html"];
+    dir_a1d07b4aee76f452ab2346acf7e26494 [shape=plaintext label="tfg"];
+    dir_80c48e7f4d2c0509fcb7e7c3fc6969ad [shape=box label="controlremotolinux" color="red" fillcolor="white" style="filled" URL="dir_80c48e7f4d2c0509fcb7e7c3fc6969ad.html"];
+  }
+  }
+}

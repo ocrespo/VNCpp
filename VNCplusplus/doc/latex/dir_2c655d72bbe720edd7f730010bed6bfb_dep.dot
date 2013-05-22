@@ -1,0 +1,13 @@
+digraph "src/es/ucm/" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_251c40205e7dd79b24bfd9f8fa7707f6 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="es" fontname="Helvetica", fontsize="10", URL="dir_251c40205e7dd79b24bfd9f8fa7707f6.html"]
+  subgraph clusterdir_2c655d72bbe720edd7f730010bed6bfb {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_2c655d72bbe720edd7f730010bed6bfb.html"];
+    dir_2c655d72bbe720edd7f730010bed6bfb [shape=plaintext label="ucm"];
+    dir_a1d07b4aee76f452ab2346acf7e26494 [shape=box label="tfg" color="red" fillcolor="white" style="filled" URL="dir_a1d07b4aee76f452ab2346acf7e26494.html"];
+  }
+  }
+}

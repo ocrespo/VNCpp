@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>TFGControlRemotoLinux: Fichero Fuente jni/src/CommonType.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">TFGControlRemotoLinux
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.1.2 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="globals.html"><span>Miembros&#160;de&#160;los&#160;ficheros</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('CommonType_8h_source.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">CommonType.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="CommonType_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * CommonType.h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  Created on: 21/04/2013</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *      Author: roni</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef COMMONTYPE_H_</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define COMMONTYPE_H_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="CommonType_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">   14</a></span>&#160;<span class="preprocessor">#define DEBUG 0</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="CommonType_8h.html#a7ce0df38eb467e59f209470c8f5ac4e6">   20</a></span>&#160;<span class="preprocessor">#define  LOG_TAG    &quot;VNC_JNI&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="CommonType_8h.html#a5512e59d578a380a441a70256af997d0">   25</a></span>&#160;<span class="preprocessor">#define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="code" href="CommonType_8h.html#ae02538a80ad5fc009caec73487d11a8d">   30</a></span>&#160;<span class="preprocessor">#define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="CommonType_8h.html#a3eb2ebd912cc5460d23e45f7188a0a86">   35</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="CommonType_8h.html#a3eb2ebd912cc5460d23e45f7188a0a86" title="Indica diferentes errores que puedes sucederse al iniciar la conexion.">ConnectionError</a>{</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="CommonType_8h.html#a3eb2ebd912cc5460d23e45f7188a0a86a177835555c1d262b4070d4dcd1103f41">   36</a></span>&#160;                        <a class="code" href="CommonType_8h.html#a3eb2ebd912cc5460d23e45f7188a0a86a177835555c1d262b4070d4dcd1103f41" title="No ha habido ningun error.">ALLOK</a> = 0,             </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="CommonType_8h.html#a3eb2ebd912cc5460d23e45f7188a0a86acbb47e5c30191f72b9d7087662b99f58">   37</a></span>&#160;                        <a class="code" href="CommonType_8h.html#a3eb2ebd912cc5460d23e45f7188a0a86acbb47e5c30191f72b9d7087662b99f58" title="No se ha podido conectar con ningun servidor.">NoServerFound</a> = 1,     </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="CommonType_8h.html#a3eb2ebd912cc5460d23e45f7188a0a86acb281ae8ccf81589b1fe9cc478a1324b">   38</a></span>&#160;                        <a class="code" href="CommonType_8h.html#a3eb2ebd912cc5460d23e45f7188a0a86acb281ae8ccf81589b1fe9cc478a1324b" title="No hay ninguna informacion en el frameBuffer.">NoFrameFound</a> = 2,      </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="CommonType_8h.html#a3eb2ebd912cc5460d23e45f7188a0a86a4c4011105eb39b639fb15ea4c3d77c16">   39</a></span>&#160;                        <a class="code" href="CommonType_8h.html#a3eb2ebd912cc5460d23e45f7188a0a86a4c4011105eb39b639fb15ea4c3d77c16" title="No se ha podido crear el hilo para atender las peticiones de rfb.">errorCreateThread</a> = 3</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="CommonType_8h.html#a5f278706f235727f39ae168af63b1d99">   41</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="CommonType_8h.html#a5f278706f235727f39ae168af63b1d99">MouseEvent</a>{</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="CommonType_8h.html#a5f278706f235727f39ae168af63b1d99aa73aab1d3dc041438ed3eb5a26960a68">   42</a></span>&#160;                        <a class="code" href="CommonType_8h.html#a5f278706f235727f39ae168af63b1d99aa73aab1d3dc041438ed3eb5a26960a68">leftClick</a> = 1,</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="CommonType_8h.html#a5f278706f235727f39ae168af63b1d99a34a19452ec9114363c0c7bc609287c33">   43</a></span>&#160;                        <a class="code" href="CommonType_8h.html#a5f278706f235727f39ae168af63b1d99a34a19452ec9114363c0c7bc609287c33">wheelClick</a> = 2,</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="CommonType_8h.html#a5f278706f235727f39ae168af63b1d99ade42d8e88f1fd57f4eea9bced3ea96eb">   44</a></span>&#160;                        <a class="code" href="CommonType_8h.html#a5f278706f235727f39ae168af63b1d99ade42d8e88f1fd57f4eea9bced3ea96eb">doubleClick</a> = 3,</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="CommonType_8h.html#a5f278706f235727f39ae168af63b1d99ab17d57d3c2f8da17803b5697fb231d98">   45</a></span>&#160;                        <a class="code" href="CommonType_8h.html#a5f278706f235727f39ae168af63b1d99ab17d57d3c2f8da17803b5697fb231d98">rightClick</a> = 4,</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="CommonType_8h.html#a5f278706f235727f39ae168af63b1d99a628a4efc116673b237824a877d4e9e06">   46</a></span>&#160;                        <a class="code" href="CommonType_8h.html#a5f278706f235727f39ae168af63b1d99a628a4efc116673b237824a877d4e9e06">wheelUp</a> = 8,</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="CommonType_8h.html#a5f278706f235727f39ae168af63b1d99a81615fcb0164053ae4b50ef9992dbe0a">   47</a></span>&#160;                        <a class="code" href="CommonType_8h.html#a5f278706f235727f39ae168af63b1d99a81615fcb0164053ae4b50ef9992dbe0a">wheelDown</a> = 16,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* COMMONTYPE_H_ */</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_c5aabee391184a762ac1b32f1d4716d2.html">jni</a></li><li class="navelem"><a class="el" href="dir_a452bb55a652a5280ad3d8554bc48b9f.html">src</a></li><li class="navelem"><a class="el" href="CommonType_8h.html">CommonType.h</a></li>
+    <li class="footer">Generado el Viernes, 3 de Mayo de 2013 16:55:53 para TFGControlRemotoLinux por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
+  </ul>
+</div>
+</body>
+</html>

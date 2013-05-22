@@ -1,0 +1,209 @@
+\hypertarget{classHandlerRFB}{\section{Referencia de la Clase Handler\-R\-F\-B}
+\label{classHandlerRFB}\index{Handler\-R\-F\-B@{Handler\-R\-F\-B}}
+}
+
+
+{\ttfamily \#include $<$Handler\-R\-F\-B.\-h$>$}
+
+
+
+Diagrama de colaboración para Handler\-R\-F\-B\-:
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHandlerRFB_a380840a9c41b9d81b4391c4a6c02f552}{Handler\-R\-F\-B} ()
+\item 
+virtual \hyperlink{classHandlerRFB_a67c40c4e0a209c77693df07295e9c82b}{$\sim$\-Handler\-R\-F\-B} ()
+\end{DoxyCompactItemize}
+\subsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classHandlerRFB_a6208a6166deccda656b80b7b7d954abb}{set\-Screen} (\hyperlink{classClientScreen}{Client\-Screen} $\ast$\hyperlink{classHandlerRFB_a0b22cc3fbf6603e02d33c51b4ed11432}{screen})
+\item 
+static rfb\-Bool \hyperlink{classHandlerRFB_a574d5d29dce6b5700d59480a8b247d77}{ini\-Frame\-Buffer} (rfb\-Client $\ast$client\-\_\-screen)
+\item 
+static void \hyperlink{classHandlerRFB_a1507701a4adb4952e0946993bd491093}{update\-Screen} (rfb\-Client $\ast$client, int x, int y, int w, int h)
+\item 
+static void \hyperlink{classHandlerRFB_acf7030c8441d5aacac10e014460ec59e}{finish\-Connection} ()
+\item 
+static void \hyperlink{classHandlerRFB_ab00b49e201ac9eade5824b8d9b27709e}{finish\-Client} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos privados estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classClientScreen}{Client\-Screen} $\ast$ \hyperlink{classHandlerRFB_a0b22cc3fbf6603e02d33c51b4ed11432}{screen} = N\-U\-L\-L
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+Definición en la línea 16 del archivo Handler\-R\-F\-B.\-h.
+
+
+
+\subsection{Documentación del constructor y destructor}
+\hypertarget{classHandlerRFB_a380840a9c41b9d81b4391c4a6c02f552}{\index{Handler\-R\-F\-B@{Handler\-R\-F\-B}!Handler\-R\-F\-B@{Handler\-R\-F\-B}}
+\index{Handler\-R\-F\-B@{Handler\-R\-F\-B}!HandlerRFB@{Handler\-R\-F\-B}}
+\subsubsection[{Handler\-R\-F\-B}]{\setlength{\rightskip}{0pt plus 5cm}Handler\-R\-F\-B\-::\-Handler\-R\-F\-B (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classHandlerRFB_a380840a9c41b9d81b4391c4a6c02f552}
+
+
+Definición en la línea 14 del archivo Handler\-R\-F\-B.\-cpp.
+
+\hypertarget{classHandlerRFB_a67c40c4e0a209c77693df07295e9c82b}{\index{Handler\-R\-F\-B@{Handler\-R\-F\-B}!$\sim$\-Handler\-R\-F\-B@{$\sim$\-Handler\-R\-F\-B}}
+\index{$\sim$\-Handler\-R\-F\-B@{$\sim$\-Handler\-R\-F\-B}!HandlerRFB@{Handler\-R\-F\-B}}
+\subsubsection[{$\sim$\-Handler\-R\-F\-B}]{\setlength{\rightskip}{0pt plus 5cm}Handler\-R\-F\-B\-::$\sim$\-Handler\-R\-F\-B (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classHandlerRFB_a67c40c4e0a209c77693df07295e9c82b}
+
+
+Definición en la línea 19 del archivo Handler\-R\-F\-B.\-cpp.
+
+
+
+\subsection{Documentación de las funciones miembro}
+\hypertarget{classHandlerRFB_ab00b49e201ac9eade5824b8d9b27709e}{\index{Handler\-R\-F\-B@{Handler\-R\-F\-B}!finish\-Client@{finish\-Client}}
+\index{finish\-Client@{finish\-Client}!HandlerRFB@{Handler\-R\-F\-B}}
+\subsubsection[{finish\-Client}]{\setlength{\rightskip}{0pt plus 5cm}void Handler\-R\-F\-B\-::finish\-Client (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classHandlerRFB_ab00b49e201ac9eade5824b8d9b27709e}
+
+
+Definición en la línea 48 del archivo Handler\-R\-F\-B.\-cpp.
+
+
+
+Hace referencia a Observable\-J\-N\-I\-::finish\-By\-Client() y screen.
+
+
+
+Referenciado por Client\-Connection\-R\-F\-B\-::event\-Loop().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\hypertarget{classHandlerRFB_acf7030c8441d5aacac10e014460ec59e}{\index{Handler\-R\-F\-B@{Handler\-R\-F\-B}!finish\-Connection@{finish\-Connection}}
+\index{finish\-Connection@{finish\-Connection}!HandlerRFB@{Handler\-R\-F\-B}}
+\subsubsection[{finish\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}void Handler\-R\-F\-B\-::finish\-Connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classHandlerRFB_acf7030c8441d5aacac10e014460ec59e}
+
+
+Definición en la línea 45 del archivo Handler\-R\-F\-B.\-cpp.
+
+
+
+Hace referencia a Observable\-J\-N\-I\-::notify\-Finish\-Connection() y screen.
+
+
+
+Referenciado por Client\-Connection\-R\-F\-B\-::event\-Loop().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\hypertarget{classHandlerRFB_a574d5d29dce6b5700d59480a8b247d77}{\index{Handler\-R\-F\-B@{Handler\-R\-F\-B}!ini\-Frame\-Buffer@{ini\-Frame\-Buffer}}
+\index{ini\-Frame\-Buffer@{ini\-Frame\-Buffer}!HandlerRFB@{Handler\-R\-F\-B}}
+\subsubsection[{ini\-Frame\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}rfb\-Bool Handler\-R\-F\-B\-::ini\-Frame\-Buffer (
+\begin{DoxyParamCaption}
+\item[{rfb\-Client $\ast$}]{client\-\_\-screen}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classHandlerRFB_a574d5d29dce6b5700d59480a8b247d77}
+
+
+Definición en la línea 25 del archivo Handler\-R\-F\-B.\-cpp.
+
+
+
+Hace referencia a Client\-Screen\-::do\-Mask(), Client\-Screen\-::ini\-Screen() y screen.
+
+
+
+Referenciado por Client\-Connection\-R\-F\-B\-::ini\-Connection().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\hypertarget{classHandlerRFB_a6208a6166deccda656b80b7b7d954abb}{\index{Handler\-R\-F\-B@{Handler\-R\-F\-B}!set\-Screen@{set\-Screen}}
+\index{set\-Screen@{set\-Screen}!HandlerRFB@{Handler\-R\-F\-B}}
+\subsubsection[{set\-Screen}]{\setlength{\rightskip}{0pt plus 5cm}void Handler\-R\-F\-B\-::set\-Screen (
+\begin{DoxyParamCaption}
+\item[{{\bf Client\-Screen} $\ast$}]{screen}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classHandlerRFB_a6208a6166deccda656b80b7b7d954abb}
+
+
+Definición en la línea 22 del archivo Handler\-R\-F\-B.\-cpp.
+
+
+
+Hace referencia a screen.
+
+
+
+Referenciado por Vnc\-::\-Vnc().
+
+\hypertarget{classHandlerRFB_a1507701a4adb4952e0946993bd491093}{\index{Handler\-R\-F\-B@{Handler\-R\-F\-B}!update\-Screen@{update\-Screen}}
+\index{update\-Screen@{update\-Screen}!HandlerRFB@{Handler\-R\-F\-B}}
+\subsubsection[{update\-Screen}]{\setlength{\rightskip}{0pt plus 5cm}void Handler\-R\-F\-B\-::update\-Screen (
+\begin{DoxyParamCaption}
+\item[{rfb\-Client $\ast$}]{client, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{w, }
+\item[{int}]{h}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classHandlerRFB_a1507701a4adb4952e0946993bd491093}
+
+
+Definición en la línea 42 del archivo Handler\-R\-F\-B.\-cpp.
+
+
+
+Hace referencia a screen y Client\-Screen\-::update\-Screen().
+
+
+
+Referenciado por Client\-Connection\-R\-F\-B\-::ini\-Connection().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+
+
+\subsection{Documentación de los datos miembro}
+\hypertarget{classHandlerRFB_a0b22cc3fbf6603e02d33c51b4ed11432}{\index{Handler\-R\-F\-B@{Handler\-R\-F\-B}!screen@{screen}}
+\index{screen@{screen}!HandlerRFB@{Handler\-R\-F\-B}}
+\subsubsection[{screen}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Client\-Screen} $\ast$ Handler\-R\-F\-B\-::screen = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classHandlerRFB_a0b22cc3fbf6603e02d33c51b4ed11432}
+
+
+Definición en la línea 18 del archivo Handler\-R\-F\-B.\-h.
+
+
+
+Referenciado por finish\-Client(), finish\-Connection(), ini\-Frame\-Buffer(), set\-Screen() y update\-Screen().
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\-:\begin{DoxyCompactItemize}
+\item 
+jni/src/model/comunication/\hyperlink{HandlerRFB_8h}{Handler\-R\-F\-B.\-h}\item 
+jni/src/model/comunication/\hyperlink{HandlerRFB_8cpp}{Handler\-R\-F\-B.\-cpp}\end{DoxyCompactItemize}

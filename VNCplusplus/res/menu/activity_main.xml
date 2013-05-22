@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/favoritos"
+        android:icon="@drawable/star_ful"
+        android:showAsAction="always"
+        android:title="@string/favorites" />
+ 
+    <item
+        android:id="@+id/configuracion"
+        android:icon="@drawable/ic_action_overflow"
+        android:showAsAction="always"
+        android:title="configuracion" />
+
+</menu>

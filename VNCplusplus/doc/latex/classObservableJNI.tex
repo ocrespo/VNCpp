@@ -1,0 +1,439 @@
+\hypertarget{classObservableJNI}{\section{Referencia de la Clase Observable\-J\-N\-I}
+\label{classObservableJNI}\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}}
+}
+
+
+Clase que notifica a java.  
+
+
+
+
+{\ttfamily \#include $<$Observable\-J\-N\-I.\-h$>$}
+
+
+
+Diagrama de herencias de Observable\-J\-N\-I
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classObservableJNI_a934d22156cf5219cfe0a840b95e7709b}{Observable\-J\-N\-I} ()
+\begin{DoxyCompactList}\small\item\em Constructor por efecto, no inicializa nada. \end{DoxyCompactList}\item 
+virtual \hyperlink{classObservableJNI_a3a945cd9dd86a5d8100ee1419e50afce}{$\sim$\-Observable\-J\-N\-I} ()
+\begin{DoxyCompactList}\small\item\em Destructor por defecto. \end{DoxyCompactList}\item 
+void \hyperlink{classObservableJNI_ae8fe89634934a94aa315320817a75d81}{add\-Observer} (jobject observer, J\-N\-I\-Env $\ast$\hyperlink{classObservableJNI_a8d0b0f613e2cff5fa51cd9fcfc161d3f}{env})
+\begin{DoxyCompactList}\small\item\em Añade el objecto java que recibira las notificaciones. \end{DoxyCompactList}\item 
+void \hyperlink{classObservableJNI_ade6b8675bd964566f4a2a0b63f704dda}{notify\-Ini\-Frame} (int width, int height, int bpp, int depth)
+\begin{DoxyCompactList}\small\item\em Invoca el metodo update\-Ini\-Frame del observer. \end{DoxyCompactList}\item 
+void \hyperlink{classObservableJNI_a1a376a0653883311533d4786675c8de0}{notify\-Re\-Draw} (int x, int y, int width, int height)
+\item 
+void \hyperlink{classObservableJNI_a5356d8a9177f5ebc4c9d7d583a68b345}{notify\-Finish\-Connection} ()
+\item 
+void \hyperlink{classObservableJNI_a912cb33f317c7c875ee85f9ccf9a8a4d}{finish\-By\-Client} ()
+\item 
+void \hyperlink{classObservableJNI_a14bee04164981b0ff38500d041bbaa61}{get\-Bitmap\-Data} ()
+\item 
+jint $\ast$ \hyperlink{classObservableJNI_a5b072bd86c5e832a794d812f9567dca3}{get\-Array\-Elements} ()
+\item 
+void \hyperlink{classObservableJNI_a5d5d9b84e308f3ea3f2c6ec3bc49f2d1}{set\-Array\-Elements} (jint $\ast$info)
+\end{DoxyCompactItemize}
+\subsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classObservableJNI_aa585114e66e7531e738a0be9669bceab}{get\-Enviroment} ()
+\begin{DoxyCompactList}\small\item\em Coloca el entorno de ejecucion de java al hilo actual. \end{DoxyCompactList}\item 
+void \hyperlink{classObservableJNI_a9eb441b7fa11d3e743036264b1cc1549}{get\-Bitmap\-Object} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+jobject \hyperlink{classObservableJNI_a83ba449601906c8683fceabb2d99794e}{observer\-\_\-object}
+\begin{DoxyCompactList}\small\item\em Objeto java al que seran enviadas las notificaciones. \end{DoxyCompactList}\item 
+jclass \hyperlink{classObservableJNI_ab6114ef78b80e3c0942207c6c7c91283}{observer\-\_\-class}
+\begin{DoxyCompactList}\small\item\em Clase java de observer\-\_\-object, necesaria para buscar el I\-D de los metodos. \end{DoxyCompactList}\item 
+jobject \hyperlink{classObservableJNI_ab10266460395b3a80d8e64467b54119b}{bitmap\-\_\-object}
+\begin{DoxyCompactList}\small\item\em Objeto java que sera modificado con la nueva informacion de pixeles. \end{DoxyCompactList}\item 
+jclass \hyperlink{classObservableJNI_a59b4cc88f56425846a2535b72bc3cbd1}{bitmap\-\_\-class}
+\begin{DoxyCompactList}\small\item\em Clase java de bitmap\-\_\-object, necesaria para buscar el I\-D del array. \end{DoxyCompactList}\item 
+Java\-V\-M $\ast$ \hyperlink{classObservableJNI_addca6d6dd302fd9902108a7f0941556a}{vm}
+\begin{DoxyCompactList}\small\item\em Puntero a la maquina virtual java. Necesario para coger el entorno actual de ejecuccion. \end{DoxyCompactList}\item 
+J\-N\-I\-Env $\ast$ \hyperlink{classObservableJNI_a8d0b0f613e2cff5fa51cd9fcfc161d3f}{env}
+\item 
+jint\-Array \hyperlink{classObservableJNI_a7f0ff32e3eca71dae17c435f75a6156a}{bitmap\-\_\-data}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+Definición en la línea 22 del archivo Observable\-J\-N\-I.\-h.
+
+
+
+\subsection{Documentación del constructor y destructor}
+\hypertarget{classObservableJNI_a934d22156cf5219cfe0a840b95e7709b}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!Observable\-J\-N\-I@{Observable\-J\-N\-I}}
+\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{Observable\-J\-N\-I}]{\setlength{\rightskip}{0pt plus 5cm}Observable\-J\-N\-I\-::\-Observable\-J\-N\-I (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classObservableJNI_a934d22156cf5219cfe0a840b95e7709b}
+
+
+Definición en la línea 23 del archivo Observable\-J\-N\-I.\-cpp.
+
+
+
+Hace referencia a bitmap\-\_\-data y bitmap\-\_\-object.
+
+\hypertarget{classObservableJNI_a3a945cd9dd86a5d8100ee1419e50afce}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!$\sim$\-Observable\-J\-N\-I@{$\sim$\-Observable\-J\-N\-I}}
+\index{$\sim$\-Observable\-J\-N\-I@{$\sim$\-Observable\-J\-N\-I}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{$\sim$\-Observable\-J\-N\-I}]{\setlength{\rightskip}{0pt plus 5cm}Observable\-J\-N\-I\-::$\sim$\-Observable\-J\-N\-I (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classObservableJNI_a3a945cd9dd86a5d8100ee1419e50afce}
+$\ast$\-Elimina la referencia global de observer\-\_\-object 
+
+Definición en la línea 32 del archivo Observable\-J\-N\-I.\-cpp.
+
+
+
+Hace referencia a bitmap\-\_\-data, bitmap\-\_\-object, D\-E\-B\-U\-G, env, get\-Enviroment(), L\-O\-G\-E y observer\-\_\-object.
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+
+
+\subsection{Documentación de las funciones miembro}
+\hypertarget{classObservableJNI_ae8fe89634934a94aa315320817a75d81}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!add\-Observer@{add\-Observer}}
+\index{add\-Observer@{add\-Observer}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{add\-Observer}]{\setlength{\rightskip}{0pt plus 5cm}void Observable\-J\-N\-I\-::add\-Observer (
+\begin{DoxyParamCaption}
+\item[{jobject}]{observer, }
+\item[{J\-N\-I\-Env $\ast$}]{env}
+\end{DoxyParamCaption}
+)}}\label{classObservableJNI_ae8fe89634934a94aa315320817a75d81}
+Observer se transforma en un variabel global, para que perdure a los cambios de entorno de jni. Ademas se toma la referencia de la maquina virtual de java (java\-V\-M). 
+\begin{DoxyParams}{Parámetros}
+{\em observer} & Objecto java que recibira las notificaciones. \\
+\hline
+{\em env} & Entorno actual en el que se hace la llamada, necesario para coger la referencia a java\-V\-M. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 57 del archivo Observable\-J\-N\-I.\-cpp.
+
+
+
+Hace referencia a L\-O\-G\-E, observer\-\_\-object y vm.
+
+
+
+Referenciado por Vnc\-::add\-Observer().
+
+\hypertarget{classObservableJNI_a912cb33f317c7c875ee85f9ccf9a8a4d}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!finish\-By\-Client@{finish\-By\-Client}}
+\index{finish\-By\-Client@{finish\-By\-Client}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{finish\-By\-Client}]{\setlength{\rightskip}{0pt plus 5cm}void Observable\-J\-N\-I\-::finish\-By\-Client (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classObservableJNI_a912cb33f317c7c875ee85f9ccf9a8a4d}
+
+
+Definición en la línea 165 del archivo Observable\-J\-N\-I.\-cpp.
+
+
+
+Hace referencia a D\-E\-B\-U\-G, env, get\-Enviroment(), L\-O\-G\-E y vm.
+
+
+
+Referenciado por Handler\-R\-F\-B\-::finish\-Client().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\hypertarget{classObservableJNI_a5b072bd86c5e832a794d812f9567dca3}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!get\-Array\-Elements@{get\-Array\-Elements}}
+\index{get\-Array\-Elements@{get\-Array\-Elements}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{get\-Array\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}jint $\ast$ Observable\-J\-N\-I\-::get\-Array\-Elements (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classObservableJNI_a5b072bd86c5e832a794d812f9567dca3}
+
+
+Definición en la línea 228 del archivo Observable\-J\-N\-I.\-cpp.
+
+
+
+Hace referencia a bitmap\-\_\-data y env.
+
+
+
+Referenciado por Client\-Screen\-::update\-Screen().
+
+\hypertarget{classObservableJNI_a14bee04164981b0ff38500d041bbaa61}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!get\-Bitmap\-Data@{get\-Bitmap\-Data}}
+\index{get\-Bitmap\-Data@{get\-Bitmap\-Data}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{get\-Bitmap\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void Observable\-J\-N\-I\-::get\-Bitmap\-Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classObservableJNI_a14bee04164981b0ff38500d041bbaa61}
+
+
+Definición en la línea 202 del archivo Observable\-J\-N\-I.\-cpp.
+
+
+
+Hace referencia a bitmap\-\_\-class, bitmap\-\_\-data, bitmap\-\_\-object, D\-E\-B\-U\-G, env, get\-Bitmap\-Object(), get\-Enviroment() y L\-O\-G\-E.
+
+
+
+Referenciado por Client\-Screen\-::update\-Screen().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\hypertarget{classObservableJNI_a9eb441b7fa11d3e743036264b1cc1549}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!get\-Bitmap\-Object@{get\-Bitmap\-Object}}
+\index{get\-Bitmap\-Object@{get\-Bitmap\-Object}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{get\-Bitmap\-Object}]{\setlength{\rightskip}{0pt plus 5cm}void Observable\-J\-N\-I\-::get\-Bitmap\-Object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classObservableJNI_a9eb441b7fa11d3e743036264b1cc1549}
+
+
+Definición en la línea 177 del archivo Observable\-J\-N\-I.\-cpp.
+
+
+
+Hace referencia a bitmap\-\_\-object, D\-E\-B\-U\-G, env, L\-O\-G\-E, observer\-\_\-class y observer\-\_\-object.
+
+
+
+Referenciado por get\-Bitmap\-Data().
+
+\hypertarget{classObservableJNI_aa585114e66e7531e738a0be9669bceab}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!get\-Enviroment@{get\-Enviroment}}
+\index{get\-Enviroment@{get\-Enviroment}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{get\-Enviroment}]{\setlength{\rightskip}{0pt plus 5cm}void Observable\-J\-N\-I\-::get\-Enviroment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classObservableJNI_aa585114e66e7531e738a0be9669bceab}
+\begin{DoxyReturn}{Devuelve}
+puntero al entorno actual de ejecucion 
+\end{DoxyReturn}
+
+
+Definición en la línea 79 del archivo Observable\-J\-N\-I.\-cpp.
+
+
+
+Hace referencia a env y vm.
+
+
+
+Referenciado por finish\-By\-Client(), get\-Bitmap\-Data(), notify\-Finish\-Connection(), notify\-Ini\-Frame(), notify\-Re\-Draw() y $\sim$\-Observable\-J\-N\-I().
+
+\hypertarget{classObservableJNI_a5356d8a9177f5ebc4c9d7d583a68b345}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!notify\-Finish\-Connection@{notify\-Finish\-Connection}}
+\index{notify\-Finish\-Connection@{notify\-Finish\-Connection}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{notify\-Finish\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}void Observable\-J\-N\-I\-::notify\-Finish\-Connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classObservableJNI_a5356d8a9177f5ebc4c9d7d583a68b345}
+
+
+Definición en la línea 141 del archivo Observable\-J\-N\-I.\-cpp.
+
+
+
+Hace referencia a D\-E\-B\-U\-G, env, get\-Enviroment(), L\-O\-G\-E, observer\-\_\-class, observer\-\_\-object y vm.
+
+
+
+Referenciado por Handler\-R\-F\-B\-::finish\-Connection().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\hypertarget{classObservableJNI_ade6b8675bd964566f4a2a0b63f704dda}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!notify\-Ini\-Frame@{notify\-Ini\-Frame}}
+\index{notify\-Ini\-Frame@{notify\-Ini\-Frame}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{notify\-Ini\-Frame}]{\setlength{\rightskip}{0pt plus 5cm}void Observable\-J\-N\-I\-::notify\-Ini\-Frame (
+\begin{DoxyParamCaption}
+\item[{int}]{width, }
+\item[{int}]{height, }
+\item[{int}]{bpp, }
+\item[{int}]{depth}
+\end{DoxyParamCaption}
+)}}\label{classObservableJNI_ade6b8675bd964566f4a2a0b63f704dda}
+
+\begin{DoxyParams}{Parámetros}
+{\em width} & anchura de la imagen \\
+\hline
+{\em height} & altura de la imagen \\
+\hline
+{\em bpp} & Bytes por pixel \\
+\hline
+{\em depth} & Profundidad (bits por pixel) \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 96 del archivo Observable\-J\-N\-I.\-cpp.
+
+
+
+Hace referencia a D\-E\-B\-U\-G, env, get\-Enviroment(), L\-O\-G\-E, observer\-\_\-class y observer\-\_\-object.
+
+
+
+Referenciado por Client\-Screen\-::ini\-Screen().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\hypertarget{classObservableJNI_a1a376a0653883311533d4786675c8de0}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!notify\-Re\-Draw@{notify\-Re\-Draw}}
+\index{notify\-Re\-Draw@{notify\-Re\-Draw}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{notify\-Re\-Draw}]{\setlength{\rightskip}{0pt plus 5cm}void Observable\-J\-N\-I\-::notify\-Re\-Draw (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{width, }
+\item[{int}]{height}
+\end{DoxyParamCaption}
+)}}\label{classObservableJNI_a1a376a0653883311533d4786675c8de0}
+
+
+Definición en la línea 119 del archivo Observable\-J\-N\-I.\-cpp.
+
+
+
+Hace referencia a D\-E\-B\-U\-G, env, get\-Enviroment(), L\-O\-G\-E, observer\-\_\-class y observer\-\_\-object.
+
+
+
+Referenciado por Client\-Screen\-::update\-Screen().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\hypertarget{classObservableJNI_a5d5d9b84e308f3ea3f2c6ec3bc49f2d1}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!set\-Array\-Elements@{set\-Array\-Elements}}
+\index{set\-Array\-Elements@{set\-Array\-Elements}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{set\-Array\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}void Observable\-J\-N\-I\-::set\-Array\-Elements (
+\begin{DoxyParamCaption}
+\item[{jint $\ast$}]{info}
+\end{DoxyParamCaption}
+)}}\label{classObservableJNI_a5d5d9b84e308f3ea3f2c6ec3bc49f2d1}
+
+
+Definición en la línea 234 del archivo Observable\-J\-N\-I.\-cpp.
+
+
+
+Hace referencia a bitmap\-\_\-data y env.
+
+
+
+Referenciado por Client\-Screen\-::update\-Screen().
+
+
+
+\subsection{Documentación de los datos miembro}
+\hypertarget{classObservableJNI_a59b4cc88f56425846a2535b72bc3cbd1}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!bitmap\-\_\-class@{bitmap\-\_\-class}}
+\index{bitmap\-\_\-class@{bitmap\-\_\-class}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{bitmap\-\_\-class}]{\setlength{\rightskip}{0pt plus 5cm}jclass Observable\-J\-N\-I\-::bitmap\-\_\-class\hspace{0.3cm}{\ttfamily [private]}}}\label{classObservableJNI_a59b4cc88f56425846a2535b72bc3cbd1}
+
+
+Definición en la línea 29 del archivo Observable\-J\-N\-I.\-h.
+
+
+
+Referenciado por get\-Bitmap\-Data().
+
+\hypertarget{classObservableJNI_a7f0ff32e3eca71dae17c435f75a6156a}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!bitmap\-\_\-data@{bitmap\-\_\-data}}
+\index{bitmap\-\_\-data@{bitmap\-\_\-data}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{bitmap\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}jint\-Array Observable\-J\-N\-I\-::bitmap\-\_\-data\hspace{0.3cm}{\ttfamily [private]}}}\label{classObservableJNI_a7f0ff32e3eca71dae17c435f75a6156a}
+
+
+Definición en la línea 34 del archivo Observable\-J\-N\-I.\-h.
+
+
+
+Referenciado por get\-Array\-Elements(), get\-Bitmap\-Data(), Observable\-J\-N\-I(), set\-Array\-Elements() y $\sim$\-Observable\-J\-N\-I().
+
+\hypertarget{classObservableJNI_ab10266460395b3a80d8e64467b54119b}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!bitmap\-\_\-object@{bitmap\-\_\-object}}
+\index{bitmap\-\_\-object@{bitmap\-\_\-object}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{bitmap\-\_\-object}]{\setlength{\rightskip}{0pt plus 5cm}jobject Observable\-J\-N\-I\-::bitmap\-\_\-object\hspace{0.3cm}{\ttfamily [private]}}}\label{classObservableJNI_ab10266460395b3a80d8e64467b54119b}
+
+
+Definición en la línea 28 del archivo Observable\-J\-N\-I.\-h.
+
+
+
+Referenciado por get\-Bitmap\-Data(), get\-Bitmap\-Object(), Observable\-J\-N\-I() y $\sim$\-Observable\-J\-N\-I().
+
+\hypertarget{classObservableJNI_a8d0b0f613e2cff5fa51cd9fcfc161d3f}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!env@{env}}
+\index{env@{env}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{env}]{\setlength{\rightskip}{0pt plus 5cm}J\-N\-I\-Env$\ast$ Observable\-J\-N\-I\-::env\hspace{0.3cm}{\ttfamily [private]}}}\label{classObservableJNI_a8d0b0f613e2cff5fa51cd9fcfc161d3f}
+
+
+Definición en la línea 32 del archivo Observable\-J\-N\-I.\-h.
+
+
+
+Referenciado por finish\-By\-Client(), get\-Array\-Elements(), get\-Bitmap\-Data(), get\-Bitmap\-Object(), get\-Enviroment(), notify\-Finish\-Connection(), notify\-Ini\-Frame(), notify\-Re\-Draw(), set\-Array\-Elements() y $\sim$\-Observable\-J\-N\-I().
+
+\hypertarget{classObservableJNI_ab6114ef78b80e3c0942207c6c7c91283}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!observer\-\_\-class@{observer\-\_\-class}}
+\index{observer\-\_\-class@{observer\-\_\-class}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{observer\-\_\-class}]{\setlength{\rightskip}{0pt plus 5cm}jclass Observable\-J\-N\-I\-::observer\-\_\-class\hspace{0.3cm}{\ttfamily [private]}}}\label{classObservableJNI_ab6114ef78b80e3c0942207c6c7c91283}
+
+
+Definición en la línea 26 del archivo Observable\-J\-N\-I.\-h.
+
+
+
+Referenciado por get\-Bitmap\-Object(), notify\-Finish\-Connection(), notify\-Ini\-Frame() y notify\-Re\-Draw().
+
+\hypertarget{classObservableJNI_a83ba449601906c8683fceabb2d99794e}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!observer\-\_\-object@{observer\-\_\-object}}
+\index{observer\-\_\-object@{observer\-\_\-object}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{observer\-\_\-object}]{\setlength{\rightskip}{0pt plus 5cm}jobject Observable\-J\-N\-I\-::observer\-\_\-object\hspace{0.3cm}{\ttfamily [private]}}}\label{classObservableJNI_a83ba449601906c8683fceabb2d99794e}
+
+
+Definición en la línea 25 del archivo Observable\-J\-N\-I.\-h.
+
+
+
+Referenciado por add\-Observer(), get\-Bitmap\-Object(), notify\-Finish\-Connection(), notify\-Ini\-Frame(), notify\-Re\-Draw() y $\sim$\-Observable\-J\-N\-I().
+
+\hypertarget{classObservableJNI_addca6d6dd302fd9902108a7f0941556a}{\index{Observable\-J\-N\-I@{Observable\-J\-N\-I}!vm@{vm}}
+\index{vm@{vm}!ObservableJNI@{Observable\-J\-N\-I}}
+\subsubsection[{vm}]{\setlength{\rightskip}{0pt plus 5cm}Java\-V\-M$\ast$ Observable\-J\-N\-I\-::vm\hspace{0.3cm}{\ttfamily [private]}}}\label{classObservableJNI_addca6d6dd302fd9902108a7f0941556a}
+
+
+Definición en la línea 31 del archivo Observable\-J\-N\-I.\-h.
+
+
+
+Referenciado por add\-Observer(), finish\-By\-Client(), get\-Enviroment() y notify\-Finish\-Connection().
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\-:\begin{DoxyCompactItemize}
+\item 
+jni/src/\hyperlink{ObservableJNI_8h}{Observable\-J\-N\-I.\-h}\item 
+jni/src/\hyperlink{ObservableJNI_8cpp}{Observable\-J\-N\-I.\-cpp}\end{DoxyCompactItemize}

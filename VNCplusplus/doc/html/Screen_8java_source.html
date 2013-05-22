@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>TFGControlRemotoLinux: Fichero Fuente src/es/ucm/tfg/controlremotolinux/client/model/Screen.java</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">TFGControlRemotoLinux
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.1.2 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="globals.html"><span>Miembros&#160;de&#160;los&#160;ficheros</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('Screen_8java_source.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Screen.java</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Screen_8java.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">package </span>es.ucm.tfg.controlremotolinux.client.model;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html">   10</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html">Screen</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a9dfbbee16f33137483d67ab15ebd5adb">   11</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">int</span>[] <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a9dfbbee16f33137483d67ab15ebd5adb">data</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#ae670efacad579788a6f2520a9b28ab15">   12</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">int</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#ae670efacad579788a6f2520a9b28ab15">width</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a8c3d5e32772854cbe34a7e7d090537f9">   13</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">int</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a8c3d5e32772854cbe34a7e7d090537f9">height</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a126efcd618ec63cee5f4ffcf5e05d247">   14</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">int</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a126efcd618ec63cee5f4ffcf5e05d247">bpp</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a9a2e9a4494e6d4db5f860ec7693546de">   16</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a9a2e9a4494e6d4db5f860ec7693546de">Screen</a>(<span class="keywordtype">int</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#ae670efacad579788a6f2520a9b28ab15">width</a>, <span class="keywordtype">int</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a8c3d5e32772854cbe34a7e7d090537f9">height</a>,<span class="keywordtype">int</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a126efcd618ec63cee5f4ffcf5e05d247">bpp</a>){</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                this.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#aa99497e51bfb092b16fd42f108fce9be">setWidth</a>(width);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                this.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a1565b6461e787931902665386044bade">setHeight</a>(height);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                this.<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a236f1411a5edac77646e5b9499ff2ed6">setBpp</a>(bpp);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#aaeeef7ac83037bde5ea65b8a4aa0e9f1">   22</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#aaeeef7ac83037bde5ea65b8a4aa0e9f1">createData</a>(){</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a9dfbbee16f33137483d67ab15ebd5adb">data</a> = <span class="keyword">new</span> <span class="keywordtype">int</span>[<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a8c3d5e32772854cbe34a7e7d090537f9">height</a>*<a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#ae670efacad579788a6f2520a9b28ab15">width</a>];</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a81a2766f44791d920f2c611107391dfe">   29</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a81a2766f44791d920f2c611107391dfe">getWidth</a>() {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#ae670efacad579788a6f2520a9b28ab15">width</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#aa99497e51bfb092b16fd42f108fce9be">   36</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#aa99497e51bfb092b16fd42f108fce9be">setWidth</a>(<span class="keywordtype">int</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#ae670efacad579788a6f2520a9b28ab15">width</a>) {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                this.width = <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#ae670efacad579788a6f2520a9b28ab15">width</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a20ad4dbd4e8078cfb78b1241fb01f97b">   43</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a20ad4dbd4e8078cfb78b1241fb01f97b">getHeight</a>() {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a8c3d5e32772854cbe34a7e7d090537f9">height</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a1565b6461e787931902665386044bade">   50</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a1565b6461e787931902665386044bade">setHeight</a>(<span class="keywordtype">int</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a8c3d5e32772854cbe34a7e7d090537f9">height</a>) {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                this.height = <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a8c3d5e32772854cbe34a7e7d090537f9">height</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a453931efd039eb60140efcb6e844f2ec">   57</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a453931efd039eb60140efcb6e844f2ec">getBpp</a>() {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a126efcd618ec63cee5f4ffcf5e05d247">bpp</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a236f1411a5edac77646e5b9499ff2ed6">   64</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a236f1411a5edac77646e5b9499ff2ed6">setBpp</a>(<span class="keywordtype">int</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a126efcd618ec63cee5f4ffcf5e05d247">bpp</a>) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                this.bpp = <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a126efcd618ec63cee5f4ffcf5e05d247">bpp</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#aacbe6717307e25f408e364c920b1fb8f">   68</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">int</span>[] <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#aacbe6717307e25f408e364c920b1fb8f">getData</a>() {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a9dfbbee16f33137483d67ab15ebd5adb">data</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a9acce003570ff652dc06af9c0ec50f25">   71</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a9acce003570ff652dc06af9c0ec50f25">add</a>(<span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> value){</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <a class="code" href="classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen.html#a9dfbbee16f33137483d67ab15ebd5adb">data</a>[pos] = value;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d0a4516af6932200a01e306753dd4051.html">src</a></li><li class="navelem"><a class="el" href="dir_251c40205e7dd79b24bfd9f8fa7707f6.html">es</a></li><li class="navelem"><a class="el" href="dir_2c655d72bbe720edd7f730010bed6bfb.html">ucm</a></li><li class="navelem"><a class="el" href="dir_a1d07b4aee76f452ab2346acf7e26494.html">tfg</a></li><li class="navelem"><a class="el" href="dir_80c48e7f4d2c0509fcb7e7c3fc6969ad.html">controlremotolinux</a></li><li class="navelem"><a class="el" href="dir_b69e1a1779b0fb6d3c2fc8c9d5459b9d.html">client</a></li><li class="navelem"><a class="el" href="dir_b93e4639b75f0fb4df8739679d851a35.html">model</a></li><li class="navelem"><a class="el" href="Screen_8java.html">Screen.java</a></li>
+    <li class="footer">Generado el Viernes, 3 de Mayo de 2013 16:55:53 para TFGControlRemotoLinux por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
+  </ul>
+</div>
+</body>
+</html>

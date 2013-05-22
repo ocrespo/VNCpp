@@ -1,0 +1,11 @@
+digraph "jni/src/model/comunication/" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_581903b642829978cb3efcda7bb649dd {
+    graph [ bgcolor="#ddddee", pencolor="black", label="model" fontname="Helvetica", fontsize="10", URL="dir_581903b642829978cb3efcda7bb649dd.html"]
+  dir_309e0ea135f1888f0a29fde9a7a2b997 [shape=box, label="comunication", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_309e0ea135f1888f0a29fde9a7a2b997.html"];
+  }
+  dir_900018b90ec2bfd1614a567b685e9ace [shape=box label="screen" URL="dir_900018b90ec2bfd1614a567b685e9ace.html"];
+  dir_309e0ea135f1888f0a29fde9a7a2b997->dir_900018b90ec2bfd1614a567b685e9ace [headlabel="1", labeldistance=1.5 headhref="dir_000003_000004.html"];
+}

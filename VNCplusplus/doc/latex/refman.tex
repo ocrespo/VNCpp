@@ -1,0 +1,150 @@
+\documentclass{book}
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage{makeidx}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{ifthen}
+\usepackage[table]{xcolor}
+\usepackage{textcomp}
+\usepackage{alltt}
+\usepackage{ifpdf}
+\ifpdf
+\usepackage[pdftex,
+            pagebackref=true,
+            colorlinks=true,
+            linkcolor=blue,
+            unicode
+           ]{hyperref}
+\else
+\usepackage[ps2pdf,
+            pagebackref=true,
+            colorlinks=true,
+            linkcolor=blue,
+            unicode
+           ]{hyperref}
+\usepackage{pspicture}
+\fi
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{mathptmx}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+\usepackage{sectsty}
+\usepackage{amssymb}
+\usepackage[titles]{tocloft}
+\usepackage{doxygen}
+\lstset{language=C++,inputencoding=utf8,basicstyle=\footnotesize,breaklines=true,breakatwhitespace=true,tabsize=8,numbers=left }
+\makeindex
+\setcounter{tocdepth}{3}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\familydefault}{\sfdefault}
+\hfuzz=15pt
+\setlength{\emergencystretch}{15pt}
+\hbadness=750
+\tolerance=750
+\begin{document}
+\hypersetup{pageanchor=false,citecolor=blue}
+\begin{titlepage}
+\vspace*{7cm}
+\begin{center}
+{\Large T\-F\-G\-Control\-Remoto\-Linux }\\
+\vspace*{1cm}
+{\large Generado por Doxygen 1.8.1.2}\\
+\vspace*{0.5cm}
+{\small Viernes, 3 de Mayo de 2013 16:55:54}\\
+\end{center}
+\end{titlepage}
+\clearemptydoublepage
+\pagenumbering{roman}
+\tableofcontents
+\clearemptydoublepage
+\pagenumbering{arabic}
+\hypersetup{pageanchor=true,citecolor=blue}
+\chapter{Indice de namespaces}
+\input{namespaces}
+\chapter{Índice de clases}
+\input{hierarchy}
+\chapter{Índice de clases}
+\input{annotated}
+\chapter{Indice de archivos}
+\input{files}
+\chapter{Documentación de namespaces}
+\input{namespacees}
+\input{namespacees_1_1ucm}
+\input{namespacees_1_1ucm_1_1tfg}
+\input{namespacees_1_1ucm_1_1tfg_1_1controlremotolinux}
+\input{namespacees_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client}
+\input{namespacees_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller}
+\input{namespacees_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model}
+\input{namespacees_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1sql}
+\input{namespacees_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view}
+\input{namespacees_1_1ucm_1_1tfg_1_1controlremotolinux_1_1exceptions}
+\chapter{Documentación de las clases}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1Adapter}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1CanvasView}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1ClientActivityTabs}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1ClientConfiguration}
+\input{classClientConnectionRFB}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1exceptions_1_1ClientExceptions}
+\input{classClientScreen}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1sql_1_1Connection}
+\input{enumes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1VncBridgeJNI_1_1ConnectionError}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1sql_1_1ConnectionSQLite}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1DialogOptions}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1EditionActivity}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1CanvasActivity_1_1GestureListener}
+\input{classHandlerRFB}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1ListFragmentTab}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1ListFragmentTabFav}
+\input{enumes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1VncBridgeJNI_1_1MouseEvent}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1NewConnectionActivity}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1ObservableCanvas}
+\input{classObservableJNI}
+\input{interfacees_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1ObserverCanvas}
+\input{interfacees_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1ObserverJNI}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1Screen}
+\input{interfacees_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1view_1_1DialogOptions_1_1SuperListener}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1TabFragment}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1controller_1_1TabListener_3_01T_01extends_01ListFragment_01_4}
+\input{classVnc}
+\input{classes_1_1ucm_1_1tfg_1_1controlremotolinux_1_1client_1_1model_1_1VncBridgeJNI}
+\chapter{Documentación de archivos}
+\input{CommonType_8h}
+\input{JavaBridge_8cpp}
+\input{ClientConnectionRFB_8cpp}
+\input{ClientConnectionRFB_8h}
+\input{HandlerRFB_8cpp}
+\input{HandlerRFB_8h}
+\input{ClientScreen_8cpp}
+\input{ClientScreen_8h}
+\input{Vnc_8cpp}
+\input{Vnc_8h}
+\input{ObservableJNI_8cpp}
+\input{ObservableJNI_8h}
+\input{CanvasActivity_8java}
+\input{ClientActivityTabs_8java}
+\input{EditionActivity_8java}
+\input{ListFragmentTab_8java}
+\input{ListFragmentTabFav_8java}
+\input{NewConnectionActivity_8java}
+\input{TabFragment_8java}
+\input{TabListener_8java}
+\input{ClientConfiguration_8java}
+\input{ObservableCanvas_8java}
+\input{ObserverCanvas_8java}
+\input{ObserverJNI_8java}
+\input{Screen_8java}
+\input{Connection_8java}
+\input{ConnectionSQLite_8java}
+\input{VncBridgeJNI_8java}
+\input{Adapter_8java}
+\input{CanvasView_8java}
+\input{DialogOptions_8java}
+\input{ClientExceptions_8java}
+\printindex
+\end{document}

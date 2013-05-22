@@ -1,0 +1,272 @@
+\hypertarget{classClientConnectionRFB}{\section{Referencia de la Clase Client\-Connection\-R\-F\-B}
+\label{classClientConnectionRFB}\index{Client\-Connection\-R\-F\-B@{Client\-Connection\-R\-F\-B}}
+}
+
+
+Clase encargada de gestionar la conexion con el servidor mediante rfb.  
+
+
+
+
+{\ttfamily \#include $<$Client\-Connection\-R\-F\-B.\-h$>$}
+
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classClientConnectionRFB_ae7789d8f42a5ff2b6b62e20ce1997891}{Client\-Connection\-R\-F\-B} ()
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\hyperlink{classClientConnectionRFB_a6a0cc84c190e83dfda21f7b9a922bf51}{$\sim$\-Client\-Connection\-R\-F\-B} ()
+\begin{DoxyCompactList}\small\item\em Destructor por defecto. \end{DoxyCompactList}\item 
+\hyperlink{CommonType_8h_a3eb2ebd912cc5460d23e45f7188a0a86}{Connection\-Error} \hyperlink{classClientConnectionRFB_a10f5844b2c660c62f3ab7dbf8970e651}{ini\-Connection} (char $\ast$host, int port)
+\begin{DoxyCompactList}\small\item\em Inicia la conexion. \end{DoxyCompactList}\item 
+void \hyperlink{classClientConnectionRFB_a6d2a65faea61da0fac61aaeaf3eae640}{clean\-Rfb} ()
+\begin{DoxyCompactList}\small\item\em Limpia la informacion de client\-R\-F\-B y lo pone a N\-U\-L\-L. \end{DoxyCompactList}\item 
+bool \hyperlink{classClientConnectionRFB_aada8dfc1d985e0ff47aa058a2200598d}{send\-Mouse\-Event} (int x, int y, \hyperlink{CommonType_8h_a5f278706f235727f39ae168af63b1d99}{Mouse\-Event} event)
+\item 
+void \hyperlink{classClientConnectionRFB_acee39ded0ad8c2f33adbde7e02d78137}{stop\-Connection} ()
+\begin{DoxyCompactList}\small\item\em Para la conexion con el servidor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Métodos privados estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static void $\ast$ \hyperlink{classClientConnectionRFB_a0b947e3c7e64b3c04088eee75508cae4}{event\-Loop} (void $\ast$This)
+\begin{DoxyCompactList}\small\item\em Bucle principal de rfb. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+rfb\-Client $\ast$ \hyperlink{classClientConnectionRFB_a7e3efe49516da3950ca4a8c8084ba872}{client\-R\-F\-B}
+\begin{DoxyCompactList}\small\item\em Puntero a la estructura de rfb con la informacion del cliente. \end{DoxyCompactList}\item 
+pthread\-\_\-t \hyperlink{classClientConnectionRFB_ace0de911ed81b46a190032fc9d0792e8}{main\-Thread\-Id}
+\begin{DoxyCompactList}\small\item\em I\-D del hilo que ejecuta el bucle principal. \end{DoxyCompactList}\item 
+bool \hyperlink{classClientConnectionRFB_a6abf99187b5b7f796903e60537bad442}{stop\-\_\-connection}
+\begin{DoxyCompactList}\small\item\em Indica si la conexion debe ser interrumpida. \end{DoxyCompactList}\item 
+bool \hyperlink{classClientConnectionRFB_abed37570b0fcc1acfae40cfca845c332}{thread\-\_\-finish}
+\item 
+int \hyperlink{classClientConnectionRFB_a716c3e543a42d2eb9163d831d7f7d9c0}{button\-Mask}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+Definición en la línea 26 del archivo Client\-Connection\-R\-F\-B.\-h.
+
+
+
+\subsection{Documentación del constructor y destructor}
+\hypertarget{classClientConnectionRFB_ae7789d8f42a5ff2b6b62e20ce1997891}{\index{Client\-Connection\-R\-F\-B@{Client\-Connection\-R\-F\-B}!Client\-Connection\-R\-F\-B@{Client\-Connection\-R\-F\-B}}
+\index{Client\-Connection\-R\-F\-B@{Client\-Connection\-R\-F\-B}!ClientConnectionRFB@{Client\-Connection\-R\-F\-B}}
+\subsubsection[{Client\-Connection\-R\-F\-B}]{\setlength{\rightskip}{0pt plus 5cm}Client\-Connection\-R\-F\-B\-::\-Client\-Connection\-R\-F\-B (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classClientConnectionRFB_ae7789d8f42a5ff2b6b62e20ce1997891}
+Inicializa client\-R\-F\-B a N\-U\-L\-L y stop\-\_\-connection a false 
+
+Definición en la línea 29 del archivo Client\-Connection\-R\-F\-B.\-cpp.
+
+
+
+Hace referencia a client\-R\-F\-B, stop\-\_\-connection y thread\-\_\-finish.
+
+\hypertarget{classClientConnectionRFB_a6a0cc84c190e83dfda21f7b9a922bf51}{\index{Client\-Connection\-R\-F\-B@{Client\-Connection\-R\-F\-B}!$\sim$\-Client\-Connection\-R\-F\-B@{$\sim$\-Client\-Connection\-R\-F\-B}}
+\index{$\sim$\-Client\-Connection\-R\-F\-B@{$\sim$\-Client\-Connection\-R\-F\-B}!ClientConnectionRFB@{Client\-Connection\-R\-F\-B}}
+\subsubsection[{$\sim$\-Client\-Connection\-R\-F\-B}]{\setlength{\rightskip}{0pt plus 5cm}Client\-Connection\-R\-F\-B\-::$\sim$\-Client\-Connection\-R\-F\-B (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classClientConnectionRFB_a6a0cc84c190e83dfda21f7b9a922bf51}
+Pone stop\-\_\-connection a true, el hilo se parara y limpiara la inforacion de la conexion 
+
+Definición en la línea 44 del archivo Client\-Connection\-R\-F\-B.\-cpp.
+
+
+
+Hace referencia a clean\-Rfb(), D\-E\-B\-U\-G, L\-O\-G\-E, stop\-\_\-connection y thread\-\_\-finish.
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+
+
+\subsection{Documentación de las funciones miembro}
+\hypertarget{classClientConnectionRFB_a6d2a65faea61da0fac61aaeaf3eae640}{\index{Client\-Connection\-R\-F\-B@{Client\-Connection\-R\-F\-B}!clean\-Rfb@{clean\-Rfb}}
+\index{clean\-Rfb@{clean\-Rfb}!ClientConnectionRFB@{Client\-Connection\-R\-F\-B}}
+\subsubsection[{clean\-Rfb}]{\setlength{\rightskip}{0pt plus 5cm}void Client\-Connection\-R\-F\-B\-::clean\-Rfb (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classClientConnectionRFB_a6d2a65faea61da0fac61aaeaf3eae640}
+Si hubiese una conexion activa esta se cerraria. 
+
+Definición en la línea 139 del archivo Client\-Connection\-R\-F\-B.\-cpp.
+
+
+
+Hace referencia a client\-R\-F\-B, D\-E\-B\-U\-G y L\-O\-G\-E.
+
+
+
+Referenciado por Vnc\-::close\-Connection(), ini\-Connection() y $\sim$\-Client\-Connection\-R\-F\-B().
+
+\hypertarget{classClientConnectionRFB_a0b947e3c7e64b3c04088eee75508cae4}{\index{Client\-Connection\-R\-F\-B@{Client\-Connection\-R\-F\-B}!event\-Loop@{event\-Loop}}
+\index{event\-Loop@{event\-Loop}!ClientConnectionRFB@{Client\-Connection\-R\-F\-B}}
+\subsubsection[{event\-Loop}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Client\-Connection\-R\-F\-B\-::event\-Loop (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{This}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classClientConnectionRFB_a0b947e3c7e64b3c04088eee75508cae4}
+Bucle que atiende a los eventos de rfb. No parara hasta que stop\-\_\-connection sea true. 
+\begin{DoxyParams}{Parámetros}
+{\em This} & Puntero al objeto. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 170 del archivo Client\-Connection\-R\-F\-B.\-cpp.
+
+
+
+Hace referencia a client\-R\-F\-B, D\-E\-B\-U\-G, Handler\-R\-F\-B\-::finish\-Client(), Handler\-R\-F\-B\-::finish\-Connection(), L\-O\-G\-E, stop\-\_\-connection, thread\-\_\-finish y time\-Wait.
+
+
+
+Referenciado por ini\-Connection().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\hypertarget{classClientConnectionRFB_a10f5844b2c660c62f3ab7dbf8970e651}{\index{Client\-Connection\-R\-F\-B@{Client\-Connection\-R\-F\-B}!ini\-Connection@{ini\-Connection}}
+\index{ini\-Connection@{ini\-Connection}!ClientConnectionRFB@{Client\-Connection\-R\-F\-B}}
+\subsubsection[{ini\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Connection\-Error} Client\-Connection\-R\-F\-B\-::ini\-Connection (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{host, }
+\item[{int}]{port}
+\end{DoxyParamCaption}
+)}}\label{classClientConnectionRFB_a10f5844b2c660c62f3ab7dbf8970e651}
+Inicia la conexion con el servidor indicado, configura las funciones (handler)que deben ser invocadas por los eventos de rfb. Una vez verificada que la conexion es satisfactoria invoca event\-Loop en otro hilo. 
+\begin{DoxyParams}{Parámetros}
+{\em host} & I\-P del servidor a la que se conectara. \\
+\hline
+{\em port} & Puerto por el que se realizara la conexion. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+devuelve si la conexion tuvo exito, mediante el enum Connection\-Error. 
+\end{DoxyReturn}
+
+
+Definición en la línea 73 del archivo Client\-Connection\-R\-F\-B.\-cpp.
+
+
+
+Hace referencia a A\-L\-L\-O\-K, bits\-Per\-Sample, bytes\-Per\-Pixel, clean\-Rfb(), client\-R\-F\-B, D\-E\-B\-U\-G, error\-Create\-Thread, event\-Loop(), Handler\-R\-F\-B\-::ini\-Frame\-Buffer(), L\-O\-G\-E, main\-Thread\-Id, No\-Frame\-Found, No\-Server\-Found, samples\-Per\-Pixel, stop\-\_\-connection y Handler\-R\-F\-B\-::update\-Screen().
+
+
+
+Referenciado por Vnc\-::ini\-Connection().
+
+
+
+Gráfico de llamadas para esta función\-:
+
+
+\hypertarget{classClientConnectionRFB_aada8dfc1d985e0ff47aa058a2200598d}{\index{Client\-Connection\-R\-F\-B@{Client\-Connection\-R\-F\-B}!send\-Mouse\-Event@{send\-Mouse\-Event}}
+\index{send\-Mouse\-Event@{send\-Mouse\-Event}!ClientConnectionRFB@{Client\-Connection\-R\-F\-B}}
+\subsubsection[{send\-Mouse\-Event}]{\setlength{\rightskip}{0pt plus 5cm}bool Client\-Connection\-R\-F\-B\-::send\-Mouse\-Event (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{{\bf Mouse\-Event}}]{event}
+\end{DoxyParamCaption}
+)}}\label{classClientConnectionRFB_aada8dfc1d985e0ff47aa058a2200598d}
+
+
+Definición en la línea 216 del archivo Client\-Connection\-R\-F\-B.\-cpp.
+
+
+
+Hace referencia a client\-R\-F\-B.
+
+
+
+Referenciado por Vnc\-::send\-Mouse\-Event().
+
+\hypertarget{classClientConnectionRFB_acee39ded0ad8c2f33adbde7e02d78137}{\index{Client\-Connection\-R\-F\-B@{Client\-Connection\-R\-F\-B}!stop\-Connection@{stop\-Connection}}
+\index{stop\-Connection@{stop\-Connection}!ClientConnectionRFB@{Client\-Connection\-R\-F\-B}}
+\subsubsection[{stop\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}void Client\-Connection\-R\-F\-B\-::stop\-Connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classClientConnectionRFB_acee39ded0ad8c2f33adbde7e02d78137}
+
+
+Definición en la línea 213 del archivo Client\-Connection\-R\-F\-B.\-cpp.
+
+
+
+Hace referencia a stop\-\_\-connection.
+
+
+
+\subsection{Documentación de los datos miembro}
+\hypertarget{classClientConnectionRFB_a716c3e543a42d2eb9163d831d7f7d9c0}{\index{Client\-Connection\-R\-F\-B@{Client\-Connection\-R\-F\-B}!button\-Mask@{button\-Mask}}
+\index{button\-Mask@{button\-Mask}!ClientConnectionRFB@{Client\-Connection\-R\-F\-B}}
+\subsubsection[{button\-Mask}]{\setlength{\rightskip}{0pt plus 5cm}int Client\-Connection\-R\-F\-B\-::button\-Mask\hspace{0.3cm}{\ttfamily [private]}}}\label{classClientConnectionRFB_a716c3e543a42d2eb9163d831d7f7d9c0}
+
+
+Definición en la línea 35 del archivo Client\-Connection\-R\-F\-B.\-h.
+
+\hypertarget{classClientConnectionRFB_a7e3efe49516da3950ca4a8c8084ba872}{\index{Client\-Connection\-R\-F\-B@{Client\-Connection\-R\-F\-B}!client\-R\-F\-B@{client\-R\-F\-B}}
+\index{client\-R\-F\-B@{client\-R\-F\-B}!ClientConnectionRFB@{Client\-Connection\-R\-F\-B}}
+\subsubsection[{client\-R\-F\-B}]{\setlength{\rightskip}{0pt plus 5cm}rfb\-Client$\ast$ Client\-Connection\-R\-F\-B\-::client\-R\-F\-B\hspace{0.3cm}{\ttfamily [private]}}}\label{classClientConnectionRFB_a7e3efe49516da3950ca4a8c8084ba872}
+
+
+Definición en la línea 28 del archivo Client\-Connection\-R\-F\-B.\-h.
+
+
+
+Referenciado por clean\-Rfb(), Client\-Connection\-R\-F\-B(), event\-Loop(), ini\-Connection() y send\-Mouse\-Event().
+
+\hypertarget{classClientConnectionRFB_ace0de911ed81b46a190032fc9d0792e8}{\index{Client\-Connection\-R\-F\-B@{Client\-Connection\-R\-F\-B}!main\-Thread\-Id@{main\-Thread\-Id}}
+\index{main\-Thread\-Id@{main\-Thread\-Id}!ClientConnectionRFB@{Client\-Connection\-R\-F\-B}}
+\subsubsection[{main\-Thread\-Id}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-t Client\-Connection\-R\-F\-B\-::main\-Thread\-Id\hspace{0.3cm}{\ttfamily [private]}}}\label{classClientConnectionRFB_ace0de911ed81b46a190032fc9d0792e8}
+
+
+Definición en la línea 29 del archivo Client\-Connection\-R\-F\-B.\-h.
+
+
+
+Referenciado por ini\-Connection().
+
+\hypertarget{classClientConnectionRFB_a6abf99187b5b7f796903e60537bad442}{\index{Client\-Connection\-R\-F\-B@{Client\-Connection\-R\-F\-B}!stop\-\_\-connection@{stop\-\_\-connection}}
+\index{stop\-\_\-connection@{stop\-\_\-connection}!ClientConnectionRFB@{Client\-Connection\-R\-F\-B}}
+\subsubsection[{stop\-\_\-connection}]{\setlength{\rightskip}{0pt plus 5cm}bool Client\-Connection\-R\-F\-B\-::stop\-\_\-connection\hspace{0.3cm}{\ttfamily [private]}}}\label{classClientConnectionRFB_a6abf99187b5b7f796903e60537bad442}
+
+
+Definición en la línea 31 del archivo Client\-Connection\-R\-F\-B.\-h.
+
+
+
+Referenciado por Client\-Connection\-R\-F\-B(), event\-Loop(), ini\-Connection(), stop\-Connection() y $\sim$\-Client\-Connection\-R\-F\-B().
+
+\hypertarget{classClientConnectionRFB_abed37570b0fcc1acfae40cfca845c332}{\index{Client\-Connection\-R\-F\-B@{Client\-Connection\-R\-F\-B}!thread\-\_\-finish@{thread\-\_\-finish}}
+\index{thread\-\_\-finish@{thread\-\_\-finish}!ClientConnectionRFB@{Client\-Connection\-R\-F\-B}}
+\subsubsection[{thread\-\_\-finish}]{\setlength{\rightskip}{0pt plus 5cm}bool Client\-Connection\-R\-F\-B\-::thread\-\_\-finish\hspace{0.3cm}{\ttfamily [private]}}}\label{classClientConnectionRFB_abed37570b0fcc1acfae40cfca845c332}
+
+
+Definición en la línea 33 del archivo Client\-Connection\-R\-F\-B.\-h.
+
+
+
+Referenciado por Client\-Connection\-R\-F\-B(), event\-Loop() y $\sim$\-Client\-Connection\-R\-F\-B().
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\-:\begin{DoxyCompactItemize}
+\item 
+jni/src/model/comunication/\hyperlink{ClientConnectionRFB_8h}{Client\-Connection\-R\-F\-B.\-h}\item 
+jni/src/model/comunication/\hyperlink{ClientConnectionRFB_8cpp}{Client\-Connection\-R\-F\-B.\-cpp}\end{DoxyCompactItemize}

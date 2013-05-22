@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TFG Control remoto Linux</string>
+    <string name="menu_settings">Settings</string>
+    
+    
+    <!-- CONNECTIONS MESSAGES  -->
+    
+    <string name="message_ip">Insert your IP to connect: </string>
+    <string name="message_port">Insert PORT connect: </string>
+    <string name="message_user">User authentication(opcional) </string>
+    <string name="message_psw">PASSWORD authentication </string>
+    <string name="connect">Connect</string>
+    <string name="cancel">Cancel</string>
+    <string name="connection_text">Put the name of the connection</string>
+    <string name="open">Open connection</string>
+    <string name="help">Help</string>
+    <string name="new_connection">New Connection</string>
+    
+    <!-- CONTEXT MENU -->
+    
+    <string name="add_connection">New Connection</string>
+    <string name="delete_connection">Delete Connection</string>
+    <string name="edit_connection">Edit Connection</string>
+    <string name="save_connection">Save</string>
+    
+    <!-- IMAGE TEXT -->
+    
+    <string name="image_example">Image example</string>
+    
+    
+    <!-- USER TEXT -->
+    
+    <string name="Users">Connections</string>
+    <string name="emptyUsers"></string>
+    <string name="favorites">Favorites</string>
+    
+    <!-- INFO DIALOG -->
+    
+    <string name="DialogInfo">Info</string>
+    <string name="DialogSomethingEmpty">Some field is empty</string>
+    <string name="DialogTitleExit">Exit</string>
+    <string name="DialogQuestion">Are you sure?</string> 
+    <string name="RememberCheckBox">Not ask</string>  
+    
+    <!-- MENU OPTIONS DIALOG -->
+    
+    <string name="DialogTitle">Options</string>
+    <string name="DialogConnect">Connect</string>
+    <string name="DialogEdit">Edit</string>
+    <string name="DialogDelete">Delete</string>    
+    
+    
+    <!-- TEXT TAB -->
+    
+    <string name="recents">RECENTS</string>
+	<string name="favoritesTab">FAVORITES</string>
+	
+	<!-- TOAST -->
+    
+    <string name="invalidIp">Invalid IP</string>
+    <string name="invalidPort">Invalid PORT</string>
+    <string name="invalidName">Invalid Connection Name(in use)</string>
+    <string name="invalidUserOrPass">User Auth or Password is empty</string>
+    
+    <!-- MENU CANVAS OPTIONS DIALOG -->
+	
+	<string name="Keyboard">Keyboard</string> 
+	<string name="disconnect">Disconnect</string>
+	
+	<!-- DOWN MENU -->
+	<string name="options_down">Options</string>
+	<string name="howto">How to use</string>
+	<string name="about">About</string>
+	
+	<string name="center_image">Center Image</string>
+	
+	<!-- DIALOG CANVAS -->
+	<string name="server_dialog">Server</string>
+	<string name="server_not_found">Server not found</string>
+	<string name="server_interrupt">Server interrupt the connection</string>
+	
+	<!-- DIALOG SPECIAL KEYS -->
+	<string name="special_keys_title">Special keys</string>
+	<string name="function_keys_title">Function keys</string>
+	<string name="combo_keys_title">Combo keys</string>
+	
+
+</resources>
