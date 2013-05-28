@@ -237,6 +237,114 @@ bool ClientConnectionRFB::sendMouseEvent(int x,int y,MouseEvent event){
 	return ok;
 }
 bool ClientConnectionRFB::sendKeyEvent(int key){
-	SendKeyEvent(clientRFB,XK_A,true);
-	SendKeyEvent(clientRFB,XK_A,false);
+	rfbKeySym rfbKey = transformToRfbKey(key);
+	SendKeyEvent(clientRFB,rfbKey,true);
+	SendKeyEvent(clientRFB,rfbKey,false);
+}
+rfbKeySym ClientConnectionRFB::transformToRfbKey(int key){
+	 rfbKeySym rfbKey = 0;
+	 switch (key) {
+	        case 67: rfbKey = XK_BackSpace; break;
+	       // case SDLK_TAB: rfbKey = XK_Tab; break;
+	        //case SDLK_CLEAR: rfbKey = XK_Clear; break;
+	        //case SDLK_RETURN: rfbKey = XK_Return; break;
+	        //case SDLK_PAUSE: rfbKey = XK_Pause; break;
+	        //case SDLK_ESCAPE: rfbKey = XK_Escape; break;
+	        //case SDLK_SPACE: rfbKey = XK_space; break;
+	        //case SDLK_DELETE: rfbKey = XK_Delete; break;
+
+	        case 29: rfbKey = XK_a; break;
+	        case 30: rfbKey = XK_b; break;
+	        case 31: rfbKey = XK_c; break;
+	        case 32: rfbKey = XK_d; break;
+	        case 33: rfbKey = XK_e; break;
+	        case 34: rfbKey = XK_f; break;
+	        case 35: rfbKey = XK_g; break;
+	        case 36: rfbKey = XK_h; break;
+	        case 37: rfbKey = XK_i; break;
+	        case 38: rfbKey = XK_j; break;
+	        case 39: rfbKey = XK_k; break;
+	        case 40: rfbKey = XK_l; break;
+	        case 41: rfbKey = XK_m; break;
+	        case 42: rfbKey = XK_n; break;
+	        case 43: rfbKey = XK_o; break;
+	        case 44: rfbKey = XK_p; break;
+	        case 45: rfbKey = XK_q; break;
+	        case 46: rfbKey = XK_r; break;
+	        case 47: rfbKey = XK_s; break;
+	        case 48: rfbKey = XK_t; break;
+	        case 49: rfbKey = XK_u; break;
+	        case 50: rfbKey = XK_v; break;
+	        case 51: rfbKey = XK_w; break;
+	        case 52: rfbKey = XK_x; break;
+	        case 53: rfbKey = XK_y; break;
+	        case 54: rfbKey = XK_z ; break;
+
+	        case 7: rfbKey = XK_KP_0; break;
+	        case 8: rfbKey = XK_KP_1; break;
+	        case 9: rfbKey = XK_KP_2; break;
+	        case 10: rfbKey = XK_KP_3; break;
+	        case 11: rfbKey = XK_KP_4; break;
+	        //case 12: rfbKey = XK_KP_5; break;
+	        case 13: rfbKey = XK_KP_6; break;
+	        case 14: rfbKey = XK_KP_7; break;
+	        //case 12: rfbKey = XK_KP_8; break;
+	        case 16: rfbKey = XK_KP_9; break;
+	        case 55: rfbKey = XK_KP_Decimal; break;
+	        //case 12: rfbKey = XK_KP_Divide; break;
+	        //case SDLK_KP_MULTIPLY: rfbKey = XK_KP_Multiply; break;
+	       // case SDLK_KP_MINUS: rfbKey = XK_KP_Subtract; break;
+	        //case SDLK_KP_PLUS: rfbKey = XK_KP_Add; break;
+	        //case SDLK_KP_ENTER: rfbKey = XK_KP_Enter; break;
+	        //case SDLK_KP_EQUALS: rfbKey = XK_KP_Equal; break;
+	        //case SDLK_UP: rfbKey = XK_Up; break;
+	        //case SDLK_DOWN: rfbKey = XK_Down; break;
+	        //case SDLK_RIGHT: rfbKey = XK_Right; break;
+	        //case SDLK_LEFT: rfbKey = XK_Left; break;
+	       // case SDLK_INSERT: rfbKey = XK_Insert; break;
+	        //case SDLK_HOME: rfbKey = XK_Home; break;
+	        //case SDLK_END: rfbKey = XK_End; break;
+	        //case SDLK_PAGEUP: rfbKey = XK_Page_Up; break;
+	        //case SDLK_PAGEDOWN: rfbKey = XK_Page_Down; break;
+
+	        /*case SDLK_F1: rfbKey = XK_F1; break;
+	        case SDLK_F2: rfbKey = XK_F2; break;
+	        case SDLK_F3: rfbKey = XK_F3; break;
+	        case SDLK_F4: rfbKey = XK_F4; break;
+	        case SDLK_F5: rfbKey = XK_F5; break;
+	        case SDLK_F6: rfbKey = XK_F6; break;
+	        case SDLK_F7: rfbKey = XK_F7; break;
+	        case SDLK_F8: rfbKey = XK_F8; break;
+	        case SDLK_F9: rfbKey = XK_F9; break;
+	        case SDLK_F10: rfbKey = XK_F10; break;
+	        case SDLK_F11: rfbKey = XK_F11; break;
+	        case SDLK_F12: rfbKey = XK_F12; break;
+	        case SDLK_F13: rfbKey = XK_F13; break;
+	        case SDLK_F14: rfbKey = XK_F14; break;
+	        case SDLK_F15: rfbKey = XK_F15; break;*/
+
+	        /*case SDLK_NUMLOCK: rfbKey = XK_Num_Lock; break;
+	        case SDLK_CAPSLOCK: rfbKey = XK_Caps_Lock; break;
+	        case SDLK_SCROLLOCK: rfbKey = XK_Scroll_Lock; break;
+	        case SDLK_RSHIFT: rfbKey = XK_Shift_R; break;
+	        case SDLK_LSHIFT: rfbKey = XK_Shift_L; break;
+	        case SDLK_RCTRL: rfbKey = XK_Control_R; break;
+	        case SDLK_LCTRL: rfbKey = XK_Control_L; break;
+	        case SDLK_RALT: rfbKey = XK_Alt_R; break;
+	        case SDLK_LALT: rfbKey = XK_Alt_L; break;
+	        case SDLK_RMETA: rfbKey = XK_Meta_R; break;
+	        case SDLK_LMETA: rfbKey = XK_Meta_L; break;
+	        case SDLK_LSUPER: rfbKey = XK_Super_L; break;*/
+
+	        /*case SDLK_RSUPER: rfbKey = XK_Super_R; break;
+	        case SDLK_COMPOSE: rfbKey = XK_Compose; break;
+
+	        case SDLK_MODE: rfbKey = XK_Mode_switch; break;
+	        case SDLK_HELP: rfbKey = XK_Help; break;
+	        case SDLK_PRINT: rfbKey = XK_Print; break;
+	        case SDLK_SYSREQ: rfbKey = XK_Sys_Req; break;
+	        case SDLK_BREAK: rfbKey = XK_Break; break;*/
+	        default: break;
+	 }
+	 return rfbKey;
 }

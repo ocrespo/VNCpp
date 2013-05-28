@@ -49,6 +49,8 @@ private:
 	int buttonMask;
 
 	static void* eventLoop(void *This);
+
+	rfbKeySym transformToRfbKey(int key);
 public:
 	ClientConnectionRFB();
 	~ClientConnectionRFB();
