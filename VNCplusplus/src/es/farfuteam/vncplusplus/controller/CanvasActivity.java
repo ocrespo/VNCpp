@@ -232,9 +232,16 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	}
 	@Override
 	public boolean dispatchKeyEvent(KeyEvent event) {
-		if(event.getAction() == KeyEvent.ACTION_DOWN){
-		    vnc.sendKey(event.getKeyCode());
-		    Log.e(DEBUG_TAG,String.valueOf(event.getKeyCode()));
+		if(event.getAction() == KeyEvent.ACTION_DOWN || event.getAction() == KeyEvent.ACTION_MULTIPLE){
+			int keyunicode = event.getUnicodeChar(event.getMetaState() );
+		    char character = (char) keyunicode;
+	
+		    
+		    
+			vnc.sendKey(event.getKeyCode());
+		    
+		    
+		    Log.e(DEBUG_TAG,String.valueOf( event.getKeyCode()));
 		}
 	    return super.dispatchKeyEvent(event);
 	}
