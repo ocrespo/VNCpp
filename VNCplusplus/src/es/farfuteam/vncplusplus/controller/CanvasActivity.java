@@ -43,8 +43,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.Toast;
-
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 import es.farfuteam.vncplusplus.model.ObserverCanvas;
