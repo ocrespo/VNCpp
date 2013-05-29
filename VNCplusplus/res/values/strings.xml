@@ -82,6 +82,8 @@
 	<string name="server_interrupt">Server interrupt the connection</string>
 	
 	<!-- DIALOG SPECIAL KEYS -->
+	<string name="send_text_title">Send text</string>
+	<string name="send_text_here">Enter text to send here</string>
 	<string name="special_keys_title">Special keys</string>
 	<string name="function_keys_title">Function keys</string>
 	<string name="combo_keys_title">Combo keys</string>

@@ -49,14 +49,15 @@ public class SlideListFragment extends ListFragment {
 		//textos
 		final String keyboard = getString(R.string.Keyboard);
 		final String comboKeys = getString(R.string.combo_keys_title);
-		//final String specialKeys = getString(R.string.special_keys_title);
+		final String sendText = getString(R.string.send_text_title);
 		//final String functionsKeys = getString(R.string.function_keys_title);
 		final String centerImage = getString(R.string.center_image);
 		final String help = getString(R.string.help);
 		final String disconnect = getString(R.string.disconnect);
 
 			adapter.add(new SlideMenuItem(keyboard, R.drawable.keyboard_image));
-			adapter.add(new SlideMenuItem(comboKeys, R.drawable.ctrl_image));			
+			adapter.add(new SlideMenuItem(comboKeys, R.drawable.ctrl_image));
+			adapter.add(new SlideMenuItem(sendText, R.drawable.send_text_im));
 			adapter.add(new SlideMenuItem(centerImage, R.drawable.image_center));
 			adapter.add(new SlideMenuItem(help, R.drawable.helpsymbol));
 			adapter.add(new SlideMenuItem(disconnect, R.drawable.disconnect_image));
@@ -112,14 +113,18 @@ public class SlideListFragment extends ListFragment {
 			((CanvasActivity)getActivity()).showDialog(4);
 			break;
 		case 2:
+			//sendText
+			((CanvasActivity)getActivity()).showDialog(7);
+			break;
+		case 3:
 			//centrar imagen
 			((CanvasActivity)getActivity()).centerImageCanvas();
 			break;
-		case 3:
+		case 4:
 			//help
 			((CanvasActivity)getActivity()).showDialog(6);
 			break;
-		case 4:
+		case 5:
 			//exit?
 			((CanvasActivity)getActivity()).showDialog(2);
 			break;

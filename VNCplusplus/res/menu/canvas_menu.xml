@@ -5,6 +5,11 @@
         android:title="@string/Keyboard"
         android:icon="@drawable/keyboard_image"
         android:showAsAction="always" />
+   
+   <item android:id="@+id/send_text"
+        android:title="@string/send_text_title"
+        android:icon="@drawable/ic_action_overflow"
+        android:showAsAction="always" />
     
     <item
         android:id="@+id/ctrl_events"
