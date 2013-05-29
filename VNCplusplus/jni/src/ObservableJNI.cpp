@@ -27,8 +27,8 @@
  * @def CLASS_PATH
  * @brief Ruta java en el que se encuentra la clase.
  */
-#define CLASS_OBSERVABLE_PATH "es/farfuteam/vncplusplus/model/VncBridgeJNI"
-#define CLASS_BITMAP_PATH "es/farfuteam/vncplusplus/model/Screen"
+#define CLASS_OBSERVABLE_PATH "es/farfuteam/vncpp/model/VncBridgeJNI"
+#define CLASS_BITMAP_PATH "es/farfuteam/vncpp/model/Screen"
 
 
 /**
@@ -199,7 +199,7 @@ void ObservableJNI::getBitmapObject(){
 		//cogemos el id del atributo screen
 		if(DEBUG)
 			LOGE("Take screen_fieldID getBitmapObject");
-		jfieldID screen_fieldID = env->GetFieldID(observer_class,"screen","Les/farfuteam/vncplusplus/model/Screen;");
+		jfieldID screen_fieldID = env->GetFieldID(observer_class,"screen","Les/farfuteam/vncpp/model/Screen;");
 		//cogemos el objecto screen
 		if(DEBUG)
 			LOGE("Take aux_bitmap_object getBitmapObject");

@@ -18,7 +18,7 @@
 	You should have received a copy of the GNU General Public License
 	along with VNC++.  If not, see <http://www.gnu.org/licenses/>.
  */
-package es.farfuteam.vncplusplus.view;
+package es.farfuteam.vncpp.view;
 
 import java.util.ArrayList;
 
@@ -32,9 +32,9 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
-import es.farfuteam.vncplusplus.controller.ListFragmentTab;
-import es.farfuteam.vncplusplus.model.sql.Connection;
 import es.farfuteam.vncplusplus.controller.R;
+import es.farfuteam.vncpp.controller.ListFragmentTab;
+import es.farfuteam.vncpp.model.sql.Connection;
 
 public class Adapter extends BaseAdapter {	
 	

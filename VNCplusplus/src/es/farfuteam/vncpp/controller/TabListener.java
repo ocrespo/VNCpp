@@ -18,7 +18,7 @@
 	You should have received a copy of the GNU General Public License
 	along with VNC++.  If not, see <http://www.gnu.org/licenses/>.
  */
-package es.farfuteam.vncplusplus.controller;
+package es.farfuteam.vncpp.controller;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;

@@ -18,7 +18,7 @@
 	You should have received a copy of the GNU General Public License
 	along with VNC++.  If not, see <http://www.gnu.org/licenses/>.
  */
-package es.farfuteam.vncplusplus.controller;
+package es.farfuteam.vncpp.controller;
 
 
 import android.app.AlertDialog;
@@ -42,11 +42,11 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
-import es.farfuteam.vncplusplus.model.sql.Connection;
-import es.farfuteam.vncplusplus.model.sql.ConnectionSQLite;
-import es.farfuteam.vncplusplus.view.Adapter;
-import es.farfuteam.vncplusplus.view.DialogOptions.SuperListener;
 import es.farfuteam.vncplusplus.controller.R;
+import es.farfuteam.vncpp.model.sql.Connection;
+import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
+import es.farfuteam.vncpp.view.Adapter;
+import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
 
 
 

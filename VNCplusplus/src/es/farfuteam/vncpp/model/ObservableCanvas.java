@@ -18,11 +18,27 @@
 	You should have received a copy of the GNU General Public License
 	along with VNC++.  If not, see <http://www.gnu.org/licenses/>.
  */
-package es.farfuteam.vncplusplus.model;
+package es.farfuteam.vncpp.model;
 
-
-public interface ObserverJNI {
-	void updateFinishConnection();
-	void updateIniFrame(int width,int height,int bpp,int depth);
-	void updateReDraw(int x,int y,int width,int height);
+/**
+ * @author roni
+ *
+ */
+public class ObservableCanvas {
+	private ObserverCanvas observer;
+	public ObservableCanvas(){
+		
+	}
+	public void addObserver(ObserverCanvas observer){
+		this.observer = observer;
+	}
+	public void notifyIniFrame(int[] data,int offset,int x,int y,int width,int height,int realWidth,int realHeight){
+		observer.updateIniFrame(data,offset,x,y,width,height,realWidth,realHeight);
+	}
+	public void notifyRedraw(int x,int y,int width,int height){
+		observer.updateRedraw(x, y, width, height);
+	}
+	public void notifyFinish(){
+		observer.updateFinish();
+	}
 }

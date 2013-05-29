@@ -18,7 +18,7 @@
 	You should have received a copy of the GNU General Public License
 	along with VNC++.  If not, see <http://www.gnu.org/licenses/>.
  */
-package es.farfuteam.vncplusplus.controller;
+package es.farfuteam.vncpp.controller;
 
 import java.util.ArrayList;
 
@@ -31,12 +31,12 @@ import android.widget.ListView;
 
 import com.actionbarsherlock.app.SherlockListFragment;
 
-import es.farfuteam.vncplusplus.model.sql.Connection;
-import es.farfuteam.vncplusplus.model.sql.ConnectionSQLite;
-import es.farfuteam.vncplusplus.view.Adapter;
-import es.farfuteam.vncplusplus.view.DialogOptions;
-import es.farfuteam.vncplusplus.view.DialogOptions.SuperListener;
 import es.farfuteam.vncplusplus.controller.R;
+import es.farfuteam.vncpp.model.sql.Connection;
+import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
+import es.farfuteam.vncpp.view.Adapter;
+import es.farfuteam.vncpp.view.DialogOptions;
+import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
 /**
  * @Name        : ListFragmentTabFav.java
  * @author      : Oscar Crespo, Luis Valero, Gorka Jimeno

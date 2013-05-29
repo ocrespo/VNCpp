@@ -18,13 +18,14 @@
 	You should have received a copy of the GNU General Public License
 	along with VNC++.  If not, see <http://www.gnu.org/licenses/>.
  */
-package es.farfuteam.vncplusplus.exceptions;
+package es.farfuteam.vncpp.model;
 
-@SuppressWarnings("serial")
-public class ClientExceptions extends Exception {
-	
-	public ClientExceptions(String err){
-		super(err);
-	}
-
+/**
+ * @author roni
+ *
+ */
+public interface ObserverCanvas {
+	public void updateIniFrame(int[] data,int offset,int x,int y,int width,int height,int realWidth,int realHeight);
+	public void updateRedraw(int x,int y,int width,int height);
+	public void updateFinish();
 }

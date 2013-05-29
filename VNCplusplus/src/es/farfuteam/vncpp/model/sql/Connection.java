@@ -18,7 +18,7 @@
 	You should have received a copy of the GNU General Public License
 	along with VNC++.  If not, see <http://www.gnu.org/licenses/>.
  */
-package es.farfuteam.vncplusplus.model.sql;
+package es.farfuteam.vncpp.model.sql;
 
 public class Connection {
 	

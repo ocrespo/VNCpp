@@ -18,7 +18,7 @@
 	You should have received a copy of the GNU General Public License
 	along with VNC++.  If not, see <http://www.gnu.org/licenses/>.
  */
-package es.farfuteam.vncplusplus.controller;
+package es.farfuteam.vncpp.controller;
 
 import java.util.Vector;
 
@@ -45,13 +45,13 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
-import es.farfuteam.vncplusplus.model.ObserverCanvas;
-import es.farfuteam.vncplusplus.model.VncBridgeJNI;
-import es.farfuteam.vncplusplus.model.VncBridgeJNI.ConnectionError;
-import es.farfuteam.vncplusplus.model.VncBridgeJNI.MouseEvent;
-import es.farfuteam.vncplusplus.view.CanvasView;
-import es.farfuteam.vncplusplus.view.SlideListFragment;
 import es.farfuteam.vncplusplus.controller.R;
+import es.farfuteam.vncpp.model.ObserverCanvas;
+import es.farfuteam.vncpp.model.VncBridgeJNI;
+import es.farfuteam.vncpp.model.VncBridgeJNI.ConnectionError;
+import es.farfuteam.vncpp.model.VncBridgeJNI.MouseEvent;
+import es.farfuteam.vncpp.view.CanvasView;
+import es.farfuteam.vncpp.view.SlideListFragment;
 
 
 /**

@@ -18,7 +18,7 @@
 	You should have received a copy of the GNU General Public License
 	along with VNC++.  If not, see <http://www.gnu.org/licenses/>.
  */
-package es.farfuteam.vncplusplus.view;
+package es.farfuteam.vncpp.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;

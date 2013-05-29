@@ -19,7 +19,7 @@
 	along with VNC++.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package es.farfuteam.vncplusplus.model.sql;
+package es.farfuteam.vncpp.model.sql;
 
 import java.util.ArrayList;
 

@@ -18,10 +18,10 @@
 	You should have received a copy of the GNU General Public License
 	along with VNC++.  If not, see <http://www.gnu.org/licenses/>.
  */
-package es.farfuteam.vncplusplus.view;
+package es.farfuteam.vncpp.view;
 
-import es.farfuteam.vncplusplus.controller.ClientActivityTabs;
 import es.farfuteam.vncplusplus.controller.R;
+import es.farfuteam.vncpp.controller.ClientActivityTabs;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;

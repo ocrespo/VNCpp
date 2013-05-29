@@ -18,7 +18,7 @@
 	You should have received a copy of the GNU General Public License
 	along with VNC++.  If not, see <http://www.gnu.org/licenses/>.
  */
-package es.farfuteam.vncplusplus.controller;
+package es.farfuteam.vncpp.controller;
 
 
 
@@ -46,9 +46,9 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
 
-import es.farfuteam.vncplusplus.model.sql.Connection;
-import es.farfuteam.vncplusplus.model.sql.ConnectionSQLite;
 import es.farfuteam.vncplusplus.controller.R;
+import es.farfuteam.vncpp.model.sql.Connection;
+import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
 
 
 /**
