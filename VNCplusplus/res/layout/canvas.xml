@@ -4,12 +4,12 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
     
-	<es.farfuteam.vncplusplus.view.CanvasView
+	<es.farfuteam.vncpp.view.CanvasView
 	    android:id="@+id/vnc_canvas"
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
 	    android:layout_gravity="bottom|center"
 	    >
-	</es.farfuteam.vncplusplus.view.CanvasView>
+	</es.farfuteam.vncpp.view.CanvasView>
 
 </FrameLayout>
