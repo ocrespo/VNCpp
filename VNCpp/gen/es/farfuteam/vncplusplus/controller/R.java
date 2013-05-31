@@ -1060,12 +1060,13 @@ containing a value of this type.
         public static final int navigation_forward=0x7f020083;
         public static final int options_image=0x7f020084;
         public static final int save=0x7f020085;
-        public static final int shadow=0x7f020086;
-        public static final int star_emp=0x7f020087;
-        public static final int star_empty=0x7f020088;
-        public static final int star_ful=0x7f020089;
-        public static final int star_full=0x7f02008a;
-        public static final int tab_favorites=0x7f02008b;
+        public static final int send_text_im=0x7f020086;
+        public static final int shadow=0x7f020087;
+        public static final int star_emp=0x7f020088;
+        public static final int star_empty=0x7f020089;
+        public static final int star_ful=0x7f02008a;
+        public static final int star_full=0x7f02008b;
+        public static final int tab_favorites=0x7f02008c;
     }
     public static final class id {
         public static final int ConnectionName_inserted=0x7f04003d;
@@ -1076,8 +1077,8 @@ containing a value of this type.
         public static final int Spinner_colors=0x7f040046;
         public static final int User_Connect=0x7f040042;
         public static final int User_inserted=0x7f040043;
-        public static final int about=0x7f040062;
-        public static final int aboutf=0x7f040066;
+        public static final int about=0x7f040063;
+        public static final int aboutf=0x7f040067;
         public static final int abs__action_bar=0x7f040027;
         public static final int abs__action_bar_container=0x7f040026;
         public static final int abs__action_bar_subtitle=0x7f040016;
@@ -1118,25 +1119,25 @@ containing a value of this type.
         public static final int abs__title=0x7f040020;
         public static final int abs__titleDivider=0x7f040021;
         public static final int abs__up=0x7f040010;
-        public static final int addConnection=0x7f04006e;
-        public static final int add_connection=0x7f04006b;
-        public static final int blue=0x7f040064;
-        public static final int blue2=0x7f040065;
+        public static final int addConnection=0x7f04006f;
+        public static final int add_connection=0x7f04006c;
+        public static final int blue=0x7f040065;
+        public static final int blue2=0x7f040066;
         public static final int bottonAddyes=0x7f040039;
         public static final int buttonCancel=0x7f040048;
         public static final int buttonConnect=0x7f040047;
         public static final int buttonEdit=0x7f040052;
-        public static final int center_image=0x7f040067;
+        public static final int center_image=0x7f040068;
         public static final int checkConnect=0x7f040057;
         public static final int checkFav=0x7f040054;
         public static final int checkboxOut=0x7f04003b;
         public static final int configuracion=0x7f04005e;
-        public static final int configuration=0x7f04006f;
-        public static final int ctrl_events=0x7f040060;
-        public static final int delete_conection=0x7f04006c;
+        public static final int configuration=0x7f040070;
+        public static final int ctrl_events=0x7f040061;
+        public static final int delete_conection=0x7f04006d;
         public static final int descIP=0x7f040056;
         public static final int disableHome=0x7f04000e;
-        public static final int disconnect=0x7f040069;
+        public static final int disconnect=0x7f04006a;
         public static final int editIP_inserted=0x7f04004b;
         public static final int editPORT_inserted=0x7f04004d;
         public static final int editPSW_Connect=0x7f040050;
@@ -1146,14 +1147,14 @@ containing a value of this type.
         public static final int editTextViewPort=0x7f04004c;
         public static final int editUser_Connect=0x7f04004e;
         public static final int editUser_inserted=0x7f04004f;
-        public static final int edit_connection=0x7f04006d;
+        public static final int edit_connection=0x7f04006e;
         public static final int edit_query=0x7f04002c;
         public static final int empty=0x7f040058;
         public static final int favoritos=0x7f04005d;
         public static final int fullscreen=0x7f040003;
-        public static final int help_down=0x7f040068;
+        public static final int help_down=0x7f040069;
         public static final int homeAsUp=0x7f04000b;
-        public static final int howto=0x7f040061;
+        public static final int howto=0x7f040062;
         public static final int keyboard_down=0x7f04005f;
         public static final int left=0x7f040000;
         public static final int list=0x7f040038;
@@ -1162,12 +1163,13 @@ containing a value of this type.
         public static final int menu_frame=0x7f040059;
         public static final int nameConnection=0x7f040055;
         public static final int normal=0x7f040006;
-        public static final int red=0x7f040063;
+        public static final int red=0x7f040064;
         public static final int right=0x7f040001;
         public static final int row_icon=0x7f04005a;
         public static final int row_title=0x7f04005b;
-        public static final int save_connection=0x7f04006a;
+        public static final int save_connection=0x7f04006b;
         public static final int selected_view=0x7f040004;
+        public static final int send_text=0x7f040060;
         public static final int showCustom=0x7f04000d;
         public static final int showHome=0x7f04000a;
         public static final int showTitle=0x7f04000c;
@@ -1311,7 +1313,7 @@ containing a value of this type.
         public static final int app_name=0x7f090012;
         public static final int cancel=0x7f090019;
         public static final int center_image=0x7f09003a;
-        public static final int combo_keys_title=0x7f090040;
+        public static final int combo_keys_title=0x7f090042;
         public static final int connect=0x7f090018;
         public static final int connection_text=0x7f09001a;
         public static final int delete_connection=0x7f09001f;
@@ -1320,7 +1322,7 @@ containing a value of this type.
         public static final int emptyUsers=0x7f090024;
         public static final int favorites=0x7f090025;
         public static final int favoritesTab=0x7f090030;
-        public static final int function_keys_title=0x7f09003f;
+        public static final int function_keys_title=0x7f090041;
         public static final int help=0x7f09001c;
         public static final int help_message=0x7f090010;
         public static final int help_ok=0x7f090011;
@@ -1358,16 +1360,18 @@ containing a value of this type.
          */
         public static final int recents=0x7f09002f;
         public static final int save_connection=0x7f090021;
+        public static final int send_text_here=0x7f09003f;
+        /**  DIALOG SPECIAL KEYS 
+ DIALOG SPECIAL KEYS 
+         */
+        public static final int send_text_title=0x7f09003e;
         /**  DIALOG CANVAS 
  DIALOG CANVAS 
          */
         public static final int server_dialog=0x7f09003b;
         public static final int server_interrupt=0x7f09003d;
         public static final int server_not_found=0x7f09003c;
-        /**  DIALOG SPECIAL KEYS 
- DIALOG SPECIAL KEYS 
-         */
-        public static final int special_keys_title=0x7f09003e;
+        public static final int special_keys_title=0x7f090040;
     }
     public static final class style {
         /** 
