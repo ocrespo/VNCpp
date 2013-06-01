@@ -221,7 +221,7 @@ public class NewConnectionActivity extends FragmentActivity {
 		IP = IP_field.getText().toString();
 		
 		
-		if (!validateIPAddress(IP)){
+		if (IP.equals("") || !validateIPAddress(IP)){
 			final String invalidIp = getString(R.string.invalidIp);
 			Toast.makeText(this, invalidIp, Toast.LENGTH_SHORT).show();
 			return false;
@@ -230,7 +230,7 @@ public class NewConnectionActivity extends FragmentActivity {
 		//Comprobar validez Puerto
 		PORT = PORT_field.getText().toString();
 
-		if (!validPort(PORT)){
+		if (PORT.equals("") || !validPort(PORT)){
 			final String invalidPort = getString(R.string.invalidPort);
 			Toast.makeText(this, invalidPort, Toast.LENGTH_SHORT).show();
 			return false;
@@ -239,7 +239,7 @@ public class NewConnectionActivity extends FragmentActivity {
 		//Comprobar nombre de conexion no repetido
 		connectionName = ConnectionName_field.getText().toString();
 
-		if(!validNameConnection(connectionName)){
+		if(connectionName.equals("") || !validNameConnection(connectionName)){
 			final String invalidName = getString(R.string.invalidName);
 			Toast.makeText(this, invalidName, Toast.LENGTH_SHORT).show();
 			return false;
