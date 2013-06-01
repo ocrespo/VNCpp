@@ -32,6 +32,7 @@ using namespace std;
 
 #include <CommonType.h>
 
+
 /**
  * @class ClientConnectionRFB
  * @brief Clase encargada de gestionar la conexion con el servidor mediante rfb.

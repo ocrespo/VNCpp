@@ -87,9 +87,12 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	private Vector<String> specialKeys;
 	private Vector<String> functionKeys;
 	
+	
 	private SlidingMenu menu;
 	
 	private boolean waitDialog = false;
+	
+	ProgressDialog progressDialog;
 	
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
@@ -118,9 +121,9 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		//new Thread(vnc).start();
 		
 		if(error != ConnectionError.ALLOK){
-			//TODO Dialog server not found esto no salta, y probando con lo 
-			//del hilo de abajo tampoco, preguntar Óscar
+			waitDialog = true;
 			showDialog(1);
+			while(waitDialog);
 			vnc = null;
 			finish();
 		}
@@ -129,7 +132,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		
 		scaleGesture = new ScaleGestureDetector(this,gestureListener);
 		
-		final ProgressDialog progressDialog = new ProgressDialog(this);
+		progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Cargando CanvasView...");
         progressDialog.setMessage("Cargando imagen del servidor");
         progressDialog.show();
@@ -149,7 +152,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 					
 				}
 				//TODO donde finalizaria el progrees???
-				progressDialog.dismiss(); 
+				
 				canvas.endDrag();
 				
 			}
@@ -308,6 +311,9 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	public void updateRedraw(int x,int y,int width,int height) {
 		canvas.reDraw();
 		canvas.postInvalidate();
+		if (canvas.getRealWidth() == x+width && canvas.getRealHeight() == y+height){
+			progressDialog.dismiss(); 
+		}
 	}
 	
 	@Override
