@@ -94,6 +94,7 @@ ConnectionError ClientConnectionRFB::iniConnection(char* host,int port){
 	clientRFB->serverPort = port;
 	clientRFB->serverHost = host;
 
+
 	clientRFB->MallocFrameBuffer=HandlerRFB::iniFrameBuffer;
 	clientRFB->canHandleNewFBSize = TRUE;
 	clientRFB->GotFrameBufferUpdate=HandlerRFB::updateScreen;

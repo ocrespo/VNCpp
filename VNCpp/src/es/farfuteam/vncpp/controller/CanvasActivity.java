@@ -22,6 +22,7 @@ package es.farfuteam.vncpp.controller;
 
 import java.util.Vector;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -61,9 +62,11 @@ import es.farfuteam.vncpp.view.SlideListFragment;
 public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	
 	//etiqueta debug
-	public static final String DEBUG_TAG = "CanvasActivity";
+	private static final String DEBUG_TAG = "CanvasActivity";
 	
-	public static final int VELOCITY_MOD = 30;
+	private static final int VELOCITY_MOD = 30;
+	
+	private static final int timerConnection = 30000;
 
 	private VncBridgeJNI vnc;
 	private CanvasView canvas;
@@ -113,29 +116,26 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		menu = new SlidingMenu(this);
 		startSlideMenu();
 				
-		Bundle info = getIntent().getExtras();			
-		
-		vnc = new VncBridgeJNI();
-		vnc.addObserver(this);
-		ConnectionError error = vnc.startConnect(info.getString("ip"),Integer.parseInt(info.getString("port")));
-		//new Thread(vnc).start();
-		
-		if(error != ConnectionError.ALLOK){
-			waitDialog = true;
-			showDialog(1);
-			while(waitDialog);
-			vnc = null;
-			finish();
-		}
-		GestureListener gestureListener =  new GestureListener();
-		gesture = new GestureDetector(gestureListener);
-		
-		scaleGesture = new ScaleGestureDetector(this,gestureListener);
+		Bundle info = getIntent().getExtras();		
 		
 		progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Cargando CanvasView...");
         progressDialog.setMessage("Cargando imagen del servidor");
+        
+        
         progressDialog.show();
+        progressDialog.setCancelable(false);
+        
+        
+        runTimerConnection();
+        iniConnection(info.getString("ip"), info.getString("port"));
+		
+		
+		
+		GestureListener gestureListener =  new GestureListener();
+		gesture = new GestureDetector(gestureListener);
+		
+		scaleGesture = new ScaleGestureDetector(this,gestureListener);
 		
 		endScrollRun = new Runnable() {
 			
@@ -159,7 +159,91 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		};	
 		
 	}
-	
+	private void runTimerConnection(){
+		final Activity activityThis = this;
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				try {
+					Thread.sleep(timerConnection);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+
+				}
+				if(progressDialog.isShowing()){
+					waitDialog = true;
+					activityThis.runOnUiThread(new Runnable() {
+						
+						@Override
+						public void run() {
+							//TODO GORKA cambiar por dialogo de "Se ha excedido el tiempo de conexion"
+							showDialog(1);
+							
+						}
+					});
+					new Thread(new Runnable() {
+						
+						@Override
+						public void run() {
+							while(waitDialog);
+							vnc.finishVnc();
+							progressDialog.dismiss();
+							finishConnection();		
+						}
+					}).start();
+					
+				
+				}
+				
+			}
+		}).start();
+	}
+	private void iniConnection(final String host,final String port){
+		vnc = new VncBridgeJNI();
+		vnc.addObserver(this);
+		//ConnectionError error = vnc.startConnect(info.getString("ip"),Integer.parseInt(info.getString("port")));
+		//new Thread(vnc).start();
+		final Activity activityThis = this;
+		new Thread( new Runnable() {
+				
+			@Override
+			public void run() {
+				ConnectionError error = vnc.startConnect(host,Integer.parseInt(port));
+					
+				if(error != ConnectionError.ALLOK){
+					waitDialog = true;
+						
+					
+					activityThis.runOnUiThread(new Runnable() {
+						
+						@Override
+						public void run() {
+						
+							showDialog(1);
+							
+						}
+					});
+					//showDialog(1);
+					new Thread(new Runnable() {
+							
+						@Override
+						public void run() {
+							while(waitDialog);
+								
+								progressDialog.dismiss();
+								finishConnection();
+								
+							}
+					}).start();
+					/*while(waitDialog);
+					vnc = null;
+					finish();*/
+					return;
+				}
+			}
+		}).start();
+	}
 	private void startSlideMenu(){
         // configure the SlidingMenu
         //para modificar el margen de dips cambiar MARGIN_THRESHOLD en la 
@@ -592,6 +676,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	    {
 	        case 1:
 	            dialog = createServerNotFoundDialog();
+	            
 	            break;
 	        case 2:
 	            dialog = exitDialog();
@@ -668,10 +753,12 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		 
 	    builder.setTitle(info);
 	    builder.setMessage(body);
+	    builder.setCancelable(false);
 	    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 	        @Override
 			public void onClick(DialogInterface dialog, int which) {
 	            dialog.cancel();
+	            waitDialog = false;
 	        }
 
 	    });
@@ -707,6 +794,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		 
 	    builder.setTitle(info);
 	    builder.setMessage(body);
+	    builder.setCancelable(false);
 	    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 	        @Override
 			public void onClick(DialogInterface dialog, int which) {
