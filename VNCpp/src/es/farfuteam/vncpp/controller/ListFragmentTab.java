@@ -114,7 +114,7 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 			
 			
 			final CheckBox iconFav = (CheckBox) listView.findViewById(R.id.checkFav);
-			if (((Connection) o).getFav().equalsIgnoreCase("true")){
+			if (((Connection) o).isFav()){
 		    	iconFav.setButtonDrawable(R.drawable.star_ful);
 
 		    }

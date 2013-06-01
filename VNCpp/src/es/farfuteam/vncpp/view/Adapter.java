@@ -91,20 +91,16 @@ public class Adapter extends BaseAdapter {
 		         		    
 	        
 	       final CheckBox iconFav = (CheckBox)vi.findViewById(R.id.checkFav);
-	       iconFav.setTag(user);
-	       
-	       
-	       String fav = user.getFav();
-	       	       
+	       iconFav.setTag(user);    	       
 	       
 	       iconFav.setOnCheckedChangeListener(
 	          new CheckBox.OnCheckedChangeListener() {
 	              @Override
 				public void onCheckedChanged(CompoundButton buttonView,
 	                                                  boolean isChecked) {
-	                  if (isChecked) {
+	                  if (isChecked && !user.isFav()) {
 	                	  iconFav.setButtonDrawable(R.drawable.star_ful);
-	                	  user.setFav("true");
+	                	  user.setFav(true);
 	                	  
 	                	  ListFragmentTab l = ListFragmentTab.getInstance();
 	                	  //l.sendToFavorites(user);
@@ -113,7 +109,7 @@ public class Adapter extends BaseAdapter {
 	                  }
 	                  else {
 	                	  iconFav.setButtonDrawable(R.drawable.star_emp);
-	                	  user.setFav("false");
+	                	  user.setFav(false);
 	                	  
 	                	  ListFragmentTab l = ListFragmentTab.getInstance();
 	                	  l.refreshFavorites(user);
@@ -123,7 +119,7 @@ public class Adapter extends BaseAdapter {
 	              });
 	       
 	       //para mantener el estado cuando rota
-		    if (user.getFav().equalsIgnoreCase("true")){
+		    if (user.isFav()){
 		    	iconFav.setButtonDrawable(R.drawable.star_ful);
 		    }
 		    else{

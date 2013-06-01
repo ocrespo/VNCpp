@@ -253,7 +253,7 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 			        ((Connection) getO()).setUserAuth(user);
 			        //la pass viene ya encriptada
 			        ((Connection) getO()).setPsw(psw);
-			        ((Connection) getO()).setFav("false");
+			        ((Connection) getO()).setFav(false);
 			        ((Connection) getO()).setColorFormat(color);
 			        
 			        //User user = new User(name,ip,port,psw);
@@ -301,13 +301,13 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 			//User 
 			setO(cb.getTag());
 			
-			String fav = ((Connection) getO()).getFav();
+			boolean fav = ((Connection) getO()).isFav();
 			
-			if (fav.equalsIgnoreCase("true")){
-				((Connection) getO()).setFav("false");
+			if (fav){
+				((Connection) getO()).setFav(false);
 			}
 			else{
-				((Connection) getO()).setFav("true");
+				((Connection) getO()).setFav(true);
 			}
 			
 			 Toast.makeText(this, "A favoritos", Toast.LENGTH_SHORT).show();

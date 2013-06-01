@@ -27,7 +27,7 @@ public class Connection {
 	private String PORT;
 	private String UserAuth;
 	private String psw;
-	private String fav;
+	private boolean fav;
 	private String ColorFormat;
 	
 	
@@ -37,12 +37,12 @@ public class Connection {
 		PORT="5900";
 		UserAuth="";
 		psw="";
-		fav="false";
+		fav= false;
 		ColorFormat="24-bit color (4 bpp)";
 	}
 	
 	
-	public Connection(String name, String IP, String PORT, String UserAuth,String psw, String fav, String ColorFormat){
+	public Connection(String name, String IP, String PORT, String UserAuth,String psw, boolean fav, String ColorFormat){
 		this.setName(name);
 		this.setIP(IP);
 		this.setPORT(PORT);
@@ -90,11 +90,11 @@ public class Connection {
 		this.psw = psw;
 	}
 
-	public String getFav() {
+	public boolean isFav() {
 		return fav;
 	}
 
-	public void setFav(String fav) {
+	public void setFav(boolean fav) {
 		this.fav = fav;
 	}
 

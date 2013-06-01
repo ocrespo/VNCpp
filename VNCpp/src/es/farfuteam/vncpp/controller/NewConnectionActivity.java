@@ -344,7 +344,7 @@ public class NewConnectionActivity extends FragmentActivity {
 	        //se encripta password
 	        String md5 = md5(PSW);
 	        
-	        Connection c = new Connection(connectionName, IP, PORT, getUserAuth(), md5, "false", getColor_format());
+	        Connection c = new Connection(connectionName, IP, PORT, getUserAuth(), md5, false, getColor_format());
 	        
 	        //se anade el usuario a la base de datos
 	        ConnectionSQLite dataBase = ConnectionSQLite.getInstance(this);
