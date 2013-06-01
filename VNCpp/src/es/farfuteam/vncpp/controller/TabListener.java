@@ -20,22 +20,26 @@
  */
 package es.farfuteam.vncpp.controller;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.ListFragment;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.ActionBar.Tab;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
+import android.app.ActionBar.Tab;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
+import android.app.ListFragment;
 
-public class TabListener<T extends ListFragment> implements ActionBar.TabListener{
+
+import android.support.v4.app.FragmentActivity;
+
+
+
+
+public class TabListener<T extends ListFragment> implements android.app.ActionBar.TabListener{
 	  private Fragment mFragment;
-	  private final SherlockFragmentActivity mActivity;
+	  private final FragmentActivity mActivity;
 	  private final String mTag;
 	  private final Class<T> mClass;
 	  private FragmentTransaction mTransaction;
 
-	  public TabListener(SherlockFragmentActivity activity, String tag, Class<T> clz) {
+	  public TabListener(FragmentActivity activity, String tag, Class<T> clz) {
 	    mActivity = activity;
 	    mTag = tag;
 	    mClass = clz;
@@ -45,7 +49,7 @@ public class TabListener<T extends ListFragment> implements ActionBar.TabListene
 	  @Override
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
 	    // Check if the fragment is already initialized
-		  mFragment = mActivity.getSupportFragmentManager().findFragmentByTag(mTag);
+		  mFragment = mActivity.getFragmentManager().findFragmentByTag(mTag);
 		  mActivity.getSupportFragmentManager().findFragmentByTag(mTag);
 	    if (mFragment == null) {
 	      // If not, instantiate and add it to the activity
@@ -88,4 +92,6 @@ public class TabListener<T extends ListFragment> implements ActionBar.TabListene
 	public void setmTransaction(FragmentTransaction mTransaction) {
 		this.mTransaction = mTransaction;
 	}
-	}
+
+
+}

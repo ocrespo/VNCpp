@@ -20,16 +20,16 @@
  */
 package es.farfuteam.vncpp.view;
 
-import es.farfuteam.vncplusplus.controller.R;
-import es.farfuteam.vncpp.controller.ClientActivityTabs;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.Fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.widget.Toast;
+import es.farfuteam.vncpp.controller.ClientActivityTabs;
+import es.farfuteam.vncpp.controller.R;
 
 public class DialogOptions extends DialogFragment {
 	
@@ -102,7 +102,6 @@ public class DialogOptions extends DialogFragment {
 	    
 	   
 	}
-	
 	
 	
 }

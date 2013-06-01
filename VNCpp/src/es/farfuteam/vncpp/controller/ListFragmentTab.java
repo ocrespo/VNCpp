@@ -22,6 +22,7 @@ package es.farfuteam.vncpp.controller;
 
 import java.util.ArrayList;
 
+import android.app.ListFragment;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -30,17 +31,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ListView;
-
-import com.actionbarsherlock.app.SherlockListFragment;
-
-import es.farfuteam.vncplusplus.controller.R;
 import es.farfuteam.vncpp.model.sql.Connection;
 import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
 import es.farfuteam.vncpp.view.Adapter;
 import es.farfuteam.vncpp.view.DialogOptions;
 import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
 
-public class ListFragmentTab extends SherlockListFragment implements SuperListener{
+public class ListFragmentTab extends ListFragment implements SuperListener{
 	
 	
 	private static Object o;
@@ -86,7 +83,7 @@ public class ListFragmentTab extends SherlockListFragment implements SuperListen
 	    admin = ConnectionSQLite.getInstance(getActivity());
         //admin = new ConnectionSQLite(this.getActivity());
         SQLiteDatabase db = admin.getWritableDatabase();
-	    adapter = new Adapter(this,admin.getAllUsers());
+	    adapter = new Adapter(this.getActivity(),admin.getAllUsers());
 	    userList = admin.getAllUsers();
         setListAdapter(adapter);
 	   
@@ -100,7 +97,7 @@ public class ListFragmentTab extends SherlockListFragment implements SuperListen
 	    super.onStart();  
 
 	    admin = ConnectionSQLite.getInstance(getActivity());
-    	adapter = new Adapter(this,admin.getAllUsers());
+    	adapter = new Adapter(this.getActivity(),admin.getAllUsers());
         adapter.setList(admin.getAllUsers());
         setListAdapter(adapter);   
 

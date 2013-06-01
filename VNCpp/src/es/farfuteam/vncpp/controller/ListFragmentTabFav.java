@@ -22,16 +22,16 @@ package es.farfuteam.vncpp.controller;
 
 import java.util.ArrayList;
 
+import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.actionbarsherlock.app.SherlockListFragment;
-
-import es.farfuteam.vncplusplus.controller.R;
+import es.farfuteam.vncpp.controller.R;
 import es.farfuteam.vncpp.model.sql.Connection;
 import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
 import es.farfuteam.vncpp.view.Adapter;
@@ -45,7 +45,7 @@ import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
  * @Description : Class who control the ListFragment of favorites users
  *
  */
-public class ListFragmentTabFav extends SherlockListFragment implements SuperListener{
+public class ListFragmentTabFav extends ListFragment implements SuperListener{
 	
 	//variable donde se guarda el Objeto User al pulsarlo en la lista
 	private static Object o;
@@ -83,7 +83,7 @@ public class ListFragmentTabFav extends SherlockListFragment implements SuperLis
         admin = new ConnectionSQLite(this.getActivity());
         admin.getWritableDatabase();
         //adapter = new Adapter(this,admin.getAllUsers());
-        adapter = new Adapter(this,admin.getAllFavUsers());
+        adapter = new Adapter(this.getActivity(),admin.getAllFavUsers());
         setListAdapter(adapter);
 	   
 	    
@@ -100,7 +100,7 @@ public class ListFragmentTabFav extends SherlockListFragment implements SuperLis
 	    admin = ConnectionSQLite.getInstance(getActivity());
 
     	//admin = new ConnectionSQLite(this.getActivity());
-    	adapter = new Adapter(this,admin.getAllFavUsers());
+    	adapter = new Adapter(this.getActivity(),admin.getAllFavUsers());
         adapter.setList(admin.getAllFavUsers());
         setListAdapter(adapter);        	
       

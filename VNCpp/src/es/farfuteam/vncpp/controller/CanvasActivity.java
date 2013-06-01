@@ -43,9 +43,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
-import es.farfuteam.vncplusplus.controller.R;
 import es.farfuteam.vncpp.model.ObserverCanvas;
 import es.farfuteam.vncpp.model.VncBridgeJNI;
 import es.farfuteam.vncpp.model.VncBridgeJNI.ConnectionError;

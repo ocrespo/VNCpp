@@ -24,7 +24,6 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,8 +31,8 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
-import es.farfuteam.vncplusplus.controller.R;
 import es.farfuteam.vncpp.controller.ListFragmentTab;
+import es.farfuteam.vncpp.controller.R;
 import es.farfuteam.vncpp.model.sql.Connection;
 
 public class Adapter extends BaseAdapter {	
@@ -49,16 +48,17 @@ public class Adapter extends BaseAdapter {
 		setList(u);
 	}
 	
-	public Adapter(Fragment act,ArrayList<Connection> u){
+	/*public Adapter(Fragment act,ArrayList<Connection> u){
 		super();
 		activity = act.getActivity();
 		setList(u);
-	}
+	}*/
 
-	public Adapter(final Context applicationContext, final int elementUser,
+	/*public Adapter(final Context applicationContext, final int elementUser,
 			final ArrayList<Connection> allUsers) {
 		this.setList(allUsers);
-	}
+	}*/
+
 
 	@Override
 	public int getCount() {

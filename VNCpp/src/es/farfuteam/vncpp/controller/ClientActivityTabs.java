@@ -20,29 +20,25 @@
  */
 package es.farfuteam.vncpp.controller;
 
-
+import android.app.ActionBar;
+import android.app.ActionBar.Tab;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.Toast;
-
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.ActionBar.Tab;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-
-import es.farfuteam.vncplusplus.controller.R;
 import es.farfuteam.vncpp.model.sql.Connection;
 import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
 import es.farfuteam.vncpp.view.Adapter;
@@ -61,7 +57,7 @@ import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
  * @implements SuperListener
  */
 
-public class ClientActivityTabs extends SherlockFragmentActivity implements SuperListener{	
+public class ClientActivityTabs extends FragmentActivity implements SuperListener{	
 		
 	/** A string */
 	private static String ACTIVE_TAB = "activeTab";
@@ -92,7 +88,7 @@ public class ClientActivityTabs extends SherlockFragmentActivity implements Supe
 		   setContentView(R.layout.tab_host);
 		      
 	        
-	        final ActionBar actionBar = getSupportActionBar();
+	        final ActionBar actionBar = getActionBar();
 	        
 	        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE|ActionBar.DISPLAY_SHOW_HOME);
 	        
@@ -144,7 +140,7 @@ public class ClientActivityTabs extends SherlockFragmentActivity implements Supe
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-        MenuInflater inflater = getSupportMenuInflater();
+        MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.new_connection, menu);
 		return true;
 	}
@@ -192,7 +188,7 @@ public class ClientActivityTabs extends SherlockFragmentActivity implements Supe
 	  protected void onSaveInstanceState(Bundle outState) {
 	    // save active tab
 	    outState.putInt(ACTIVE_TAB,
-	            getSupportActionBar().getSelectedNavigationIndex());
+	            getActionBar().getSelectedNavigationIndex());
 	    super.onSaveInstanceState(outState);
 	  }
 	

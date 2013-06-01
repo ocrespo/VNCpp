@@ -25,14 +25,17 @@ package es.farfuteam.vncpp.controller;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -42,11 +45,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
-
-import es.farfuteam.vncplusplus.controller.R;
+import es.farfuteam.vncpp.controller.R;
 import es.farfuteam.vncpp.model.sql.Connection;
 import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
 
@@ -59,7 +58,7 @@ import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
  * @Description : Main class
  *
  */
-public class NewConnectionActivity extends SherlockFragmentActivity {
+public class NewConnectionActivity extends FragmentActivity {
 	
 	private EditText ConnectionName_field;
 	private EditText IP_field;
@@ -164,7 +163,7 @@ public class NewConnectionActivity extends SherlockFragmentActivity {
 		});
 		
 		//efectos del actionBar
-		final ActionBar actionBar = getSupportActionBar();
+		final ActionBar actionBar = getActionBar();
         
         actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE|ActionBar.DISPLAY_SHOW_HOME|ActionBar.DISPLAY_HOME_AS_UP);
         
@@ -203,9 +202,8 @@ public class NewConnectionActivity extends SherlockFragmentActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Sirve para volver a Tabs al pulsar en la actionBar
 	    switch (item.getItemId()) {
-	    	case android.R.id.home:
-	 			Intent intent= new Intent(this,ClientActivityTabs.class);			
-				startActivity(intent);	    		
+	    	case android.R.id.home:	 
+				finish();
 	    		return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
@@ -382,7 +380,8 @@ public class NewConnectionActivity extends SherlockFragmentActivity {
      }
      return "";
  
-    }	
+    }
+	
 	
 	
 	@Override

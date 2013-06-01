@@ -23,6 +23,7 @@ package es.farfuteam.vncpp.controller;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -36,11 +37,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockActivity;
-
-import es.farfuteam.vncplusplus.controller.R;
-
-public class EditionActivity extends SherlockActivity{
+public class EditionActivity extends Activity{
 
 
 	private EditText IP_field;
