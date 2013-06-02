@@ -40,6 +40,9 @@
     
     <string name="DialogInfo">Info</string>
     <string name="DialogSomethingEmpty">Some field is empty</string>
+    <string name="DialogNonConnectionInfo">Connection not available</string>
+    <string name="DialogNonConnection">Check your connection</string>
+    <string name="DialogInfo">Info</string>
     <string name="DialogTitleExit">Exit</string>
     <string name="DialogQuestion">Are you sure?</string> 
     <string name="RememberCheckBox">Not ask</string>  

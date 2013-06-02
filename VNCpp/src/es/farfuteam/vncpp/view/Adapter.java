@@ -47,17 +47,6 @@ public class Adapter extends BaseAdapter {
 		activity = act;
 		setList(u);
 	}
-	
-	/*public Adapter(Fragment act,ArrayList<Connection> u){
-		super();
-		activity = act.getActivity();
-		setList(u);
-	}*/
-
-	/*public Adapter(final Context applicationContext, final int elementUser,
-			final ArrayList<Connection> allUsers) {
-		this.setList(allUsers);
-	}*/
 
 
 	@Override
@@ -103,7 +92,6 @@ public class Adapter extends BaseAdapter {
 	                	  user.setFav(true);
 	                	  
 	                	  ListFragmentTab l = ListFragmentTab.getInstance();
-	                	  //l.sendToFavorites(user);
 	                	  l.refreshFavorites(user);
 	                	  
 	                  }

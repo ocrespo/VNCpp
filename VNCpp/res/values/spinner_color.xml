@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="color_array">
-        <item>24-bit color (4 bpp)</item>
-        <item>256 colors (1 bpp)</item>
-        <item>64 colors (1 bpp)</item>
-        <item>8 colors (1 bpp)</item>
-        <item>GreyScale (1 bpp)</item>
-        <item>Black and White (1 bpp)</item>
+        <item>extra-high</item>
+        <item>high</item>
+        <item>medium</item>
+        <item>low</item>
     </string-array>
 </resources>

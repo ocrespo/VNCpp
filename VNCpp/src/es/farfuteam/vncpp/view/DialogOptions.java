@@ -69,12 +69,8 @@ public class DialogOptions extends DialogFragment {
 	    builder.setItems(items, new DialogInterface.OnClickListener() {
 	        @Override
 			public void onClick(DialogInterface dialog, int item) {
-	        	
-	            Log.i("Dialogos", "Opción elegida: " + items[item]);
 	            
-	            if (items[item].equalsIgnoreCase(connect)){
-	            	Log.i("Dialogos", "Opción elegida:connect");
-	            	Toast.makeText(getActivity(), "Connecting people", Toast.LENGTH_SHORT).show();	
+	            if (items[item].equalsIgnoreCase(connect)){	
 	            	
 	            	((ClientActivityTabs)getActivity()).connect();
 	            	
@@ -91,7 +87,8 @@ public class DialogOptions extends DialogFragment {
 	            	
 	            }
 	            else{
-	            	Log.i("Dialogos", "Opción elegida INVALIDA");
+	            	//aqui no debería llegar nunca
+	            	Toast.makeText(getActivity(), "Invalid option", Toast.LENGTH_SHORT).show();
 	            }
 	            	            
 	            

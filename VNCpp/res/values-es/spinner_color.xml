@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="color_array">
-        <item>sda</item>
-        <item>2sad)</item>
-        <item>64 colors (1 bpp)</item>
-        <item>8 colors (1 bpp)</item>
-        <item>GreyScsdaale (1 bpp)</item>
-        <item>Black asdsadnd White (1 bpp)</item>
+        <item>extra alta</item>
+        <item>alta</item>
+        <item>media</item>
+        <item>baja</item>
     </string-array>
 </resources>

@@ -21,12 +21,15 @@
 package es.farfuteam.vncpp.controller;
 
 import android.app.ActionBar;
+import android.app.Dialog;
 import android.app.ActionBar.Tab;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -373,10 +376,23 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 			canvasActivity.putExtra("psw", psw);
 			canvasActivity.putExtra("color", color);
 			
-			startActivity(canvasActivity);
 			
-			//se finaliza activity
-			//finish();
+			//Aquí veo el tipo de conexión, para usar un tipo de compresión de imagen u otro
+			if (checkConnectivity()){
+					
+					//TODO Oscar -> se pasa a la canvasActivity true->wifi, false->3g
+					canvasActivity.putExtra("wifi", isWifiConnectivityType());
+					
+					startActivity(canvasActivity);
+					
+
+			}
+			else{
+				//dialogo alerta No conexion habilitada
+				showDialog(1);
+			}
+			
+
 			
 		}		
 		
@@ -450,7 +466,75 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 		
 		}//onKeyDown 
 
+		
+		
+		private boolean checkConnectivity()
+	    {
+	        boolean enabled = true;
+	 
+	        ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+	        NetworkInfo info = connectivityManager.getActiveNetworkInfo();
+	         
+	        if ((info == null || !info.isConnected() || !info.isAvailable()))
+	        {
+	            enabled = false;
+	        }
+	        return enabled;        
+	    }
+		
+		//devuelve true si es conexion wifi, false en caso contrario
+		private boolean isWifiConnectivityType(){
+			ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+	        NetworkInfo info = connectivityManager.getActiveNetworkInfo();
+	        
+	        String connectionType = info.getTypeName();
+	        
+	        if (connectionType.equalsIgnoreCase("wifi")){
+	        	return true;
+	        }
+	        else{
+	        	//3g u otro tipo
+	        	return false;
+	        }
+	        	
+		}
+		
+		@Override
+		protected Dialog onCreateDialog(int id) {
+		    Dialog dialog = null;
+		 
+		    switch(id)
+		    {
+		        case 1:
+		        	dialog = createNonConnectionDialog();
+		        	break;
+		        default:
+		            dialog = createNonConnectionDialog();
+		            break;
+		    }
+		 
+		    return dialog;
+		}
+		
+		
+		private Dialog createNonConnectionDialog() {
+		    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		    
+		    String info = getString(R.string.DialogNonConnectionInfo);
+			String someEmpty = getString(R.string.DialogNonConnection);
+			 
+		    builder.setTitle(info);
+		    builder.setMessage(someEmpty);
+		    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+		        @Override
+				public void onClick(DialogInterface dialog, int which) {
+		            dialog.cancel();
+		        }
 
+		    });
+		 
+		    return builder.create();
+		}
 			
 	
   }

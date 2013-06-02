@@ -40,6 +40,8 @@
     
     <string name="DialogInfo">Información</string>
     <string name="DialogSomethingEmpty">Hay algún campo de la conexión sin rellenar</string>
+    <string name="DialogNonConnectionInfo">Conexión no disponible</string>
+    <string name="DialogNonConnection">Habilite su conexión a la red</string>
     <string name="DialogTitleExit">Salir</string>
     <string name="DialogQuestion">¿Estás seguro?</string>
     <string name="RememberCheckBox">No volver a preguntar</string>
