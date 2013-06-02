@@ -82,6 +82,8 @@
 	<string name="server_dialog">Servidor</string>
 	<string name="server_not_found">Servidor no encontrado</string>
 	<string name="server_interrupt">Conexión interrumpida por el servidor</string>
+	<string name="time_info">El servidor no responde</string>
+	<string name="time_exceeded">Tiempo de conexión excedido</string>
 	
 		<!-- DIALOG SPECIAL KEYS -->
 	<string name="send_text_title">Enviar texto</string>

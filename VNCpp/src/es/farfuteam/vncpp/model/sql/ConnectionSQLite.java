@@ -39,10 +39,10 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
  
     // Database Name
-    private static final String DATABASE_NAME = "DBUsers";
+    private static final String DATABASE_NAME = "DBConnections";
  
     // Contacts table name
-    private static final String TABLE_USERS = "Users";
+    private static final String TABLE_CONNECTIONS = "Connections";
  
     // Contacts Table Columns names
     private static final String KEY_NAME = "NameConnection";
@@ -77,7 +77,7 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         
-        String CREATE_USERS_TABLE = "CREATE TABLE " + TABLE_USERS + "("
+        String CREATE_USERS_TABLE = "CREATE TABLE " + TABLE_CONNECTIONS + "("
                 + KEY_NAME + " TEXT PRIMARY KEY," + KEY_IP + " TEXT,"
                 + KEY_PORT + " TEXT," + KEY_PSW + " TEXT," 
                 + KEY_FAV + " TEXT," + KEY_COLOR + " TEXT" +")";
@@ -92,7 +92,7 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int versionAnterior, int versionNueva) {
         //Se elimina la versión anterior de la tabla,aunque quizas
     	//hubiese que salvar datos anteriores, pero de momento no interesa
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CONNECTIONS);
         
       //Se crea la nueva versión de la tabla
         onCreate(db);        
@@ -119,7 +119,7 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
         values.put(KEY_COLOR, u.getColorFormat());
         
         // Inserting Row
-        db.insert(TABLE_USERS, null, values);
+        db.insert(TABLE_CONNECTIONS, null, values);
         
         db.close();
 
@@ -134,7 +134,7 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
 
           SQLiteDatabase db = this.getReadableDatabase();
           
-          Cursor cursor = db.query(TABLE_USERS, new String[] { KEY_NAME,
+          Cursor cursor = db.query(TABLE_CONNECTIONS, new String[] { KEY_NAME,
                   KEY_IP, KEY_PORT, KEY_PSW, KEY_FAV, KEY_COLOR }, KEY_NAME + "=?",
                   new String[] { String.valueOf(nameID) }, null, null, null, null);
           if (cursor != null)
@@ -167,7 +167,7 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
       public ArrayList<Connection> getAllUsers() {
           ArrayList<Connection> userList = new ArrayList<Connection>();
           // Select All Query
-          String selectQuery = "SELECT  * FROM " + TABLE_USERS;
+          String selectQuery = "SELECT  * FROM " + TABLE_CONNECTIONS;
    
           SQLiteDatabase db = this.getWritableDatabase();
           Cursor cursor = db.rawQuery(selectQuery, null);
@@ -189,7 +189,6 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
                   userList.add(user);
               } while (cursor.moveToNext());
           }
-          //cursor.close();
           
           db.close();
           
@@ -205,7 +204,7 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
       public ArrayList<Connection> getAllFavUsers() {
           ArrayList<Connection> userList = new ArrayList<Connection>();
           // Select All Query
-          String selectQuery = "SELECT  * FROM " + TABLE_USERS;
+          String selectQuery = "SELECT  * FROM " + TABLE_CONNECTIONS;
    
           SQLiteDatabase db = this.getWritableDatabase();
           Cursor cursor = db.rawQuery(selectQuery, null);
@@ -252,7 +251,7 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
           values.put(KEY_COLOR, user.getColorFormat());
             
           // updating row 
-          db.update(TABLE_USERS, values, KEY_NAME + " = ?",
+          db.update(TABLE_CONNECTIONS, values, KEY_NAME + " = ?",
           new String[] { String.valueOf(user.getName()) });
          
           db.close();
@@ -265,7 +264,7 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
        */
       public void deleteUser(Connection user) {
           SQLiteDatabase db = this.getWritableDatabase();
-          db.delete(TABLE_USERS, KEY_NAME + " = ?",
+          db.delete(TABLE_CONNECTIONS, KEY_NAME + " = ?",
                   new String[] { String.valueOf(user.getName()) });
           
           db.close();
@@ -277,7 +276,7 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
        * @return num_usuarios
        */
       public int getUsersCount() {
-          String countQuery = "SELECT  * FROM " + TABLE_USERS;
+          String countQuery = "SELECT  * FROM " + TABLE_CONNECTIONS;
           SQLiteDatabase db = this.getReadableDatabase();
           Cursor cursor = db.rawQuery(countQuery, null);
           cursor.close(); 
@@ -296,7 +295,7 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
       public boolean searchNameConnection(String name){
     	  
           // Select All Connections
-          String selectQuery = "SELECT  * FROM " + TABLE_USERS;
+          String selectQuery = "SELECT  * FROM " + TABLE_CONNECTIONS;
    
           SQLiteDatabase db = this.getWritableDatabase();
           Cursor cursor = db.rawQuery(selectQuery, null);
