@@ -188,7 +188,6 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 						public void run() {
 							while(waitDialog);
 							vnc.finishVnc();
-							progressDialog.dismiss();
 							finishConnection();		
 						}
 					}).start();
@@ -230,8 +229,6 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 						@Override
 						public void run() {
 							while(waitDialog);
-								
-								progressDialog.dismiss();
 								finishConnection();
 								
 							}
@@ -409,6 +406,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	public void updateFinish() {
 		//Dialog servidor interrumpida conexion
 		waitDialog = true;
+
 		this.runOnUiThread(new Runnable() {
 			
 			@Override
@@ -430,6 +428,9 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	}
 	
 	private void finishConnection(){
+		if(progressDialog.isShowing()){
+			progressDialog.dismiss();
+		}
 		vnc = null;
 		finish();
 	}
@@ -930,6 +931,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	public void centerImageCanvas(){
 		//TODO Oscar centra imagen
 	}
+	
 
 	
 		

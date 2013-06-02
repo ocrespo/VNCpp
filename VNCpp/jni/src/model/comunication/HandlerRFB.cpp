@@ -23,6 +23,9 @@
 
 #include <model/screen/ClientScreen.h>
 
+#include <CommonType.h>
+#include <android/log.h>
+
 ClientScreen* HandlerRFB::screen = NULL;
 
 HandlerRFB::HandlerRFB() {
@@ -52,6 +55,9 @@ rfbBool HandlerRFB::iniFrameBuffer(rfbClient* client) {
 
 
 	return true;
+}
+char* HandlerRFB::getPass(rfbClient* client){
+	return "1234";
 }
 void HandlerRFB::updateScreen(rfbClient *client,int x,int y,int w,int h){
 	screen->updateScreen(client->frameBuffer,x,y,w,h);

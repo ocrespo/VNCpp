@@ -41,6 +41,8 @@ public:
 
 	static void finishConnection();
 	static void finishClient();
+
+	static char* getPass(rfbClient* client);
 };
 
 #endif /* HANDLERRFB_H_ */

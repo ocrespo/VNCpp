@@ -94,6 +94,10 @@ ConnectionError ClientConnectionRFB::iniConnection(char* host,int port){
 	clientRFB->serverPort = port;
 	clientRFB->serverHost = host;
 
+	clientRFB->programName = "VNC++";
+
+	//clientRFB->FinishedFrameBufferUpdate
+	clientRFB->GetPassword = HandlerRFB::getPass;
 
 	clientRFB->MallocFrameBuffer=HandlerRFB::iniFrameBuffer;
 	clientRFB->canHandleNewFBSize = TRUE;
