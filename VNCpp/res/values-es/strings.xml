@@ -82,10 +82,11 @@
 	<string name="server_interrupt">Conexión interrumpida por el servidor</string>
 	
 		<!-- DIALOG SPECIAL KEYS -->
-	<string name="send_text_title">Envía texto</string>
+	<string name="send_text_title">Enviar texto</string>
 	<string name="send_text_here">Introduzca texto a enviar</string>
 	<string name="special_keys_title">Teclas especiales</string>
 	<string name="function_keys_title">Teclas función</string>
 	<string name="combo_keys_title">Combo teclas</string>
+	<string name="hide_mouse">Ocultar cursor</string>
 
 </resources>

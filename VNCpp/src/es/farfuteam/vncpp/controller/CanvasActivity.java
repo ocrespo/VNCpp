@@ -930,9 +930,16 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	//publica porque se llama desde el fragment lateral
 	public void centerImageCanvas(){
 		//TODO Oscar centra imagen
+		Log.i("tag", "en image center");
+		menu.toggle();
 	}
 	
-
+	//publica porque se llama desde el fragment lateral
+	public void hideMouse(){
+		//TODO Oscar ocultar raton
+		Log.i("tag", "en mouse hide");
+		menu.toggle();
+	}
 	
 		
 }
