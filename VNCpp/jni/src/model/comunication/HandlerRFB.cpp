@@ -57,7 +57,7 @@ rfbBool HandlerRFB::iniFrameBuffer(rfbClient* client) {
 	return true;
 }
 char* HandlerRFB::getPass(rfbClient* client){
-	return "1234";
+	return strdup("1234");
 }
 void HandlerRFB::updateScreen(rfbClient *client,int x,int y,int w,int h){
 	screen->updateScreen(client->frameBuffer,x,y,w,h);
