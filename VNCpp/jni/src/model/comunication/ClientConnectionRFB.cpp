@@ -98,6 +98,10 @@ ConnectionError ClientConnectionRFB::iniConnection(char* host,int port){
 
 	//clientRFB->FinishedFrameBufferUpdate
 	clientRFB->GetPassword = HandlerRFB::getPass;
+	/*clientRFB->appData.qualityLevel = 7;
+	clientRFB->appData.compressLevel = 5;
+	clientRFB->appData.useRemoteCursor = true;
+	clientRFB->appData.useBGR233 = true;*/
 
 	clientRFB->MallocFrameBuffer=HandlerRFB::iniFrameBuffer;
 	clientRFB->canHandleNewFBSize = TRUE;
