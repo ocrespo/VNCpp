@@ -220,7 +220,6 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 	        intent.putExtra("Name", ((Connection) getO()).getName());
 	        intent.putExtra("IP", ((Connection) getO()).getIP());
 	        intent.putExtra("PORT", ((Connection) getO()).getPORT());
-	        intent.putExtra("User", ((Connection) getO()).getUserAuth());
 	        intent.putExtra("PSW", ((Connection) getO()).getPsw());
 	        //el color no me hace falta
 	        //1234 es el codigo que servira para su identificacion en onActivityResult
@@ -244,7 +243,6 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 			    	 
 			         String ip=data.getStringExtra("newIP");
 			         String port=data.getStringExtra("newPORT");
-			         String user=data.getStringExtra("newUser");
 			         String psw=data.getStringExtra("newPSW");
 			         String color=data.getStringExtra("newColor");
 			         
@@ -253,13 +251,11 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 			        //seteo valores nuevos
 			        ((Connection) getO()).setIP(ip);
 			        ((Connection) getO()).setPORT(port);
-			        ((Connection) getO()).setUserAuth(user);
 			        //la pass viene ya encriptada
 			        ((Connection) getO()).setPsw(psw);
 			        ((Connection) getO()).setFav(false);
 			        ((Connection) getO()).setColorFormat(color);
 			        
-			        //User user = new User(name,ip,port,psw);
 			        admin.updateUser((Connection) getO());        
         			        
 			         
@@ -313,7 +309,6 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 				((Connection) getO()).setFav(true);
 			}
 			
-			 Toast.makeText(this, "A favoritos", Toast.LENGTH_SHORT).show();
 		}
 
 		/**
@@ -366,13 +361,11 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 
 	        String ip = ((Connection) getO()).getIP();
 	        String port = ((Connection) getO()).getPORT();
-	        String user = ((Connection) getO()).getUserAuth();
 	        String psw = ((Connection) getO()).getPsw();
 	        String color = ((Connection) getO()).getColorFormat();
 			
 	        canvasActivity.putExtra("ip", ip );
 			canvasActivity.putExtra("port", port);
-			canvasActivity.putExtra("user", user);
 			canvasActivity.putExtra("psw", psw);
 			canvasActivity.putExtra("color", color);
 			
@@ -381,10 +374,8 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 			if (checkConnectivity()){
 					
 					//TODO Oscar -> se pasa a la canvasActivity true->wifi, false->3g
-					canvasActivity.putExtra("wifi", isWifiConnectivityType());
-					
-					startActivity(canvasActivity);
-					
+					canvasActivity.putExtra("wifi", isWifiConnectivityType());					
+					startActivity(canvasActivity);					
 
 			}
 			else{

@@ -48,7 +48,6 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
     private static final String KEY_NAME = "NameConnection";
     private static final String KEY_IP = "ip";
     private static final String KEY_PORT = "port";
-    private static final String KEY_USER = "userAuth";
     private static final String KEY_PSW = "psw";
     private static final String KEY_FAV = "fav";
     private static final String KEY_COLOR = "colorFormat";
@@ -80,7 +79,7 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
         
         String CREATE_USERS_TABLE = "CREATE TABLE " + TABLE_USERS + "("
                 + KEY_NAME + " TEXT PRIMARY KEY," + KEY_IP + " TEXT,"
-                + KEY_PORT + " TEXT," + KEY_USER + " TEXT," + KEY_PSW + " TEXT," 
+                + KEY_PORT + " TEXT," + KEY_PSW + " TEXT," 
                 + KEY_FAV + " TEXT," + KEY_COLOR + " TEXT" +")";
         
         db.execSQL(CREATE_USERS_TABLE);        
@@ -115,9 +114,8 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
         values.put(KEY_NAME, u.getName());
         values.put(KEY_IP, u.getIP());
         values.put(KEY_PORT, u.getPORT());
-        values.put(KEY_USER, u.getUserAuth());
         values.put(KEY_PSW, u.getPsw());
-        values.put(KEY_FAV, "false");//se crea sin ser favorito
+        values.put(KEY_FAV, u.isFav());//se crea sin ser favorito
         values.put(KEY_COLOR, u.getColorFormat());
         
         // Inserting Row
@@ -137,17 +135,16 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
           SQLiteDatabase db = this.getReadableDatabase();
           
           Cursor cursor = db.query(TABLE_USERS, new String[] { KEY_NAME,
-                  KEY_IP, KEY_PORT, KEY_USER, KEY_PSW, KEY_FAV, KEY_COLOR }, KEY_NAME + "=?",
+                  KEY_IP, KEY_PORT, KEY_PSW, KEY_FAV, KEY_COLOR }, KEY_NAME + "=?",
                   new String[] { String.valueOf(nameID) }, null, null, null, null);
           if (cursor != null)
               cursor.moveToFirst();
           
-          boolean favs = getBooleanFav(cursor.getInt(5));
+          boolean favs = getBooleanFav(cursor.getInt(4));
           
           Connection u = new Connection(cursor.getString(0),
-                  cursor.getString(1), cursor.getString(2),cursor.getString(3),cursor.getString(4),
-                  favs,cursor.getString(6));
-          //cursor.close();
+                  cursor.getString(1), cursor.getString(2),cursor.getString(3),
+                  favs,cursor.getString(5));
 
           db.close();
 
@@ -179,16 +176,15 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
           boolean favs;
           if (cursor.moveToFirst()) {
               do {
-            	  favs = getBooleanFav(cursor.getInt(5));
+            	  favs = getBooleanFav(cursor.getInt(4));
             	  
                   Connection user = new Connection();
                   user.setName(cursor.getString(0));
                   user.setIP(cursor.getString(1));
                   user.setPORT(cursor.getString(2));
-                  user.setUserAuth(cursor.getString(3));
-                  user.setPsw(cursor.getString(4));
+                  user.setPsw(cursor.getString(3));
                   user.setFav(favs);
-                  user.setColorFormat(cursor.getString(6));
+                  user.setColorFormat(cursor.getString(5));
                   // Adding users to list
                   userList.add(user);
               } while (cursor.moveToNext());
@@ -217,23 +213,21 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
           if (cursor.moveToFirst()) {
               do {
             	  
-            	  favs = getBooleanFav(cursor.getInt(5));
+            	  favs = getBooleanFav(cursor.getInt(4));
             	  
                   Connection user = new Connection();
                   user.setName(cursor.getString(0));
                   user.setIP(cursor.getString(1));
                   user.setPORT(cursor.getString(2));
-                  user.setUserAuth(cursor.getString(3));
-                  user.setPsw(cursor.getString(4));
+                  user.setPsw(cursor.getString(3));
                   user.setFav(favs);
-                  user.setColorFormat(cursor.getString(6));
+                  user.setColorFormat(cursor.getString(5));
                   // Adding users to list if is favorite
                   if (user.isFav())
                 	  userList.add(user);
               
               } while (cursor.moveToNext());
           }
-          //cursor.close();
           
           db.close();
           
@@ -253,7 +247,6 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
           ContentValues values = new ContentValues();
           values.put(KEY_IP, user.getIP());
           values.put(KEY_PORT, user.getPORT());
-          values.put(KEY_USER, user.getUserAuth());
           values.put(KEY_PSW, user.getPsw());
           values.put(KEY_FAV, user.isFav());
           values.put(KEY_COLOR, user.getColorFormat());

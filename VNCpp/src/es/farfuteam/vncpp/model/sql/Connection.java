@@ -25,7 +25,6 @@ public class Connection {
 	private String name;
 	private String IP;
 	private String PORT;
-	private String UserAuth;
 	private String psw;
 	private boolean fav;
 	private String ColorFormat;
@@ -35,18 +34,16 @@ public class Connection {
 		name="default";
 		IP="192.168.1.1";
 		PORT="5900";
-		UserAuth="";
 		psw="";
 		fav= false;
 		ColorFormat="24-bit color (4 bpp)";
 	}
 	
 	
-	public Connection(String name, String IP, String PORT, String UserAuth,String psw, boolean fav, String ColorFormat){
+	public Connection(String name, String IP, String PORT,String psw, boolean fav, String ColorFormat){
 		this.setName(name);
 		this.setIP(IP);
 		this.setPORT(PORT);
-		this.setUserAuth(UserAuth);
 		this.setPsw(psw);
 		this.setFav(fav);
 		this.setColorFormat(ColorFormat);
@@ -96,16 +93,6 @@ public class Connection {
 
 	public void setFav(boolean fav) {
 		this.fav = fav;
-	}
-
-
-	public String getUserAuth() {
-		return UserAuth;
-	}
-
-
-	public void setUserAuth(String userAuth) {
-		UserAuth = userAuth;
 	}
 
 

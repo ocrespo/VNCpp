@@ -42,12 +42,10 @@ public class EditionActivity extends Activity{
 
 	private EditText IP_field;
 	private EditText PORT_field;
-	private EditText User_field;
 	private EditText PSW_field;
 	
 	private String IP;
 	private String PORT;
-	private String User;
 	private String PSW;
 	private Spinner Spinner_colors;
 	private String color_format;
@@ -62,15 +60,13 @@ public class EditionActivity extends Activity{
 		
 		PORT_field = (EditText) findViewById(R.id.editPORT_inserted);
 		
-		User_field = (EditText) findViewById(R.id.editUser_inserted);
-		
 		PSW_field = (EditText) findViewById(R.id.editPSW_inserted);
 		
 		Bundle bundle=getIntent().getExtras();
 		String name = bundle.getString("Name");
 	      String ip = bundle.getString("IP");	      
 	      String port = bundle.getString("PORT");
-	      String user = bundle.getString("User");
+	      String psw = bundle.getString("PSW");
 
 		TextView text = (TextView) findViewById(R.id.editTextViewName);
 		text.setText("Modifica conexión "+name);
@@ -78,8 +74,12 @@ public class EditionActivity extends Activity{
 		//Muestro datos anteriores a la ediccion
 		IP_field.setText(ip);
 		PORT_field.setText(port);
-		User_field.setText(user);
-		PSW_field.setText("****");	
+		if (!psw.equals("")){
+			PSW_field.setText("****");
+		}
+		else{
+			PSW_field.setText("");
+		}
 		
 		//desplegable seleccion de colores
 		
@@ -124,8 +124,11 @@ public class EditionActivity extends Activity{
 		        	 Intent returnIntent = new Intent();
 		        	 returnIntent.putExtra("newIP",IP_field.getText().toString());
 		        	 returnIntent.putExtra("newPORT",PORT_field.getText().toString());
-		        	 returnIntent.putExtra("newUser",User_field.getText().toString());
-		        	 String md5 = md5(PSW_field.getText().toString());
+		        	 String psw = PSW_field.getText().toString();
+		        	 String md5="";
+		        	 if (!psw.equals("")){
+		        		 md5 = md5(psw);
+		        	 }
 		        	 returnIntent.putExtra("newPSW",md5);
 		        	 returnIntent.putExtra("newColor", color_format);
 		        	 setResult(RESULT_OK,returnIntent);     

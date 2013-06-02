@@ -65,7 +65,6 @@
     <string name="invalidIp">Invalid IP</string>
     <string name="invalidPort">Invalid PORT</string>
     <string name="invalidName">Invalid Connection Name(in use)</string>
-    <string name="invalidUserOrPass">User Auth or Password is empty</string>
     
     <!-- MENU CANVAS OPTIONS DIALOG -->
 	
@@ -83,6 +82,8 @@
 	<string name="server_dialog">Server</string>
 	<string name="server_not_found">Server not found</string>
 	<string name="server_interrupt">Server interrupt the connection</string>
+	<string name="time_info">Server not responding</string>
+	<string name="time_exceeded">Time connection exceeded</string>
 	
 	<!-- DIALOG SPECIAL KEYS -->
 	<string name="send_text_title">Send text</string>

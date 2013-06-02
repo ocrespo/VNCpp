@@ -46,21 +46,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:paddingLeft="3dip"
-                         />
-                
-                <TextView
-                        android:id="@+id/editUser_Connect"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/message_user"
-                        android:paddingLeft="3dip"
-                        />
-                <EditText android:id="@+id/editUser_inserted"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="3dip"                        
-                         />
-                
+                         />             
                 
                 <TextView
                         android:id="@+id/editPSW_Connect"

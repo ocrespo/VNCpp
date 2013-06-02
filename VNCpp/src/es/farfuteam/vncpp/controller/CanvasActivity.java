@@ -130,7 +130,8 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
         runTimerConnection();
         iniConnection(info.getString("ip"), info.getString("port"));
 		
-		
+		//TODO en info tienes la psw,color,wifi(true o false)...las sacas con los get
+        boolean wifi = info.getBoolean("wifi");
 		
 		GestureListener gestureListener =  new GestureListener();
 		gesture = new GestureDetector(gestureListener);
@@ -146,12 +147,11 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						// Auto-generated catch block
 	
 					}
 					
 				}
-				//TODO donde finalizaria el progrees???
 				
 				canvas.endDrag();
 				
@@ -168,7 +168,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 				try {
 					Thread.sleep(timerConnection);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
+					// Auto-generated catch block
 
 				}
 				if(progressDialog.isShowing()){
@@ -177,8 +177,8 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 						
 						@Override
 						public void run() {
-							//TODO GORKA cambiar por dialogo de "Se ha excedido el tiempo de conexion"
-							showDialog(1);
+							//Ddialogo "Se ha excedido el tiempo de conexion"
+							showDialog(8);
 							
 						}
 					});
@@ -706,6 +706,10 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	        	dialog = sendTextDialog();
 	        	menu.toggle();
 	        	break;
+	        	
+	        case 8:
+	        	dialog = timeExceededDialog();
+	        	break;
 	    }
 	 
 	    return dialog;
@@ -792,6 +796,27 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	    
 	    String info = getString(R.string.server_dialog);
 		String body = getString(R.string.server_interrupt);
+		 
+	    builder.setTitle(info);
+	    builder.setMessage(body);
+	    builder.setCancelable(false);
+	    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	        @Override
+			public void onClick(DialogInterface dialog, int which) {
+	            dialog.cancel();
+	            waitDialog = false;
+	        }
+
+	    });
+	    
+	    return builder.create();
+	}
+	
+	private Dialog timeExceededDialog() {
+	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+	    
+	    String info = getString(R.string.time_info);
+		String body = getString(R.string.time_exceeded);
 		 
 	    builder.setTitle(info);
 	    builder.setMessage(body);

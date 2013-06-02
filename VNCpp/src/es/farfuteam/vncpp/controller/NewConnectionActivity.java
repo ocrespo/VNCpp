@@ -66,14 +66,12 @@ public class NewConnectionActivity extends FragmentActivity {
 	private EditText ConnectionName_field;
 	private EditText IP_field;
 	private EditText PORT_field;
-	private EditText User_field;
 	private EditText PSW_field;
 	
 	private String connectionName;
 	private String IP;
 	private String PORT;
 	private String PSW;
-	private String UserAuth;
 	private String PSWAuth;
 	
 	private Spinner Spinner_colors;
@@ -92,8 +90,6 @@ public class NewConnectionActivity extends FragmentActivity {
 		IP_field=(EditText)findViewById(R.id.IP_inserted);
 		
 		PORT_field = (EditText) findViewById(R.id.PORT_inserted);
-		
-		User_field = (EditText) findViewById(R.id.User_inserted);
 		
 		PSW_field = (EditText)findViewById(R.id.PSW_inserted);			
 		
@@ -124,7 +120,7 @@ public class NewConnectionActivity extends FragmentActivity {
 		        }
 		 
 		        public void onNothingSelected(AdapterView<?> parent) {
-		        	//por defecto se selecciona la posicion 0, 24-bit color(extra-high
+		        	//por defecto se selecciona la posicion 0, 24-bit color(extra-high)
 		        	setColor_format(colors[0]);
 		        }
 		});
@@ -179,7 +175,6 @@ public class NewConnectionActivity extends FragmentActivity {
 		
 		canvasActivity.putExtra("ip", getIP());
 		canvasActivity.putExtra("port", getPORT());
-		canvasActivity.putExtra("user", getUserAuth());
 		canvasActivity.putExtra("psw", getPSWAuth());
 		canvasActivity.putExtra("color", getColor_format());
 		
@@ -295,29 +290,8 @@ public class NewConnectionActivity extends FragmentActivity {
 			return false;
 		}
 		
-		//Si campo usuario o contraseña ..., ambos tienen que estar escritos
-		
-		setUserAuth(User_field.getText().toString());
-		
 		setPSWAuth(PSW_field.getText().toString());
-		Log.i("tag",getPSWAuth());
-		
-		if (getUserAuth() == null || getUserAuth().isEmpty()){
-			if (!getPSWAuth().isEmpty()){
-				final String invalidUserOrPass = getString(R.string.invalidUserOrPass);
-				Toast.makeText(this, invalidUserOrPass, Toast.LENGTH_SHORT).show();
-				return false;
-			}
-		}
-		else{
-			if (!getPSWAuth().isEmpty()){
-				final String invalidUserOrPass = getString(R.string.invalidUserOrPass);
-				Toast.makeText(this, invalidUserOrPass, Toast.LENGTH_SHORT).show();
-				return false;
-			}
-
-		}
-		
+				
 		return true;
 
 	}
@@ -388,13 +362,15 @@ public class NewConnectionActivity extends FragmentActivity {
 	        connectionName = ConnectionName_field.getText().toString();
 	        IP = IP_field.getText().toString();
 	        PORT = PORT_field.getText().toString();
-	        setUserAuth(User_field.getText().toString());
 	        PSW = PSW_field.getText().toString();
 	        
-	        //se encripta password
-	        String md5 = md5(PSW);
+	        String md5 ="";
+	        //se encripta password si no es vacia
+	        if (!PSW.equals("")){		        
+		        md5 = md5(PSW);
+	        }
 	        
-	        Connection c = new Connection(connectionName, IP, PORT, getUserAuth(), md5, false, getColor_format());
+	        Connection c = new Connection(connectionName, IP, PORT, md5, false, getColor_format());
 	        
 	        //se anade el usuario a la base de datos
 	        ConnectionSQLite dataBase = ConnectionSQLite.getInstance(this);
@@ -577,14 +553,6 @@ public class NewConnectionActivity extends FragmentActivity {
 
 	public void setColor_format(String color_format) {
 		this.color_format = color_format;
-	}
-
-	public String getUserAuth() {
-		return UserAuth;
-	}
-
-	public void setUserAuth(String userAuth) {
-		UserAuth = userAuth;
 	}
 
 	public String getPSWAuth() {
