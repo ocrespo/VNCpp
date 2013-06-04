@@ -1,10 +1,19 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <style name="MyTheme" parent="android:style/Theme.Holo.Light">
-        <item name="android:actionMenuTextColor">@color/green</item>
+        <!--  <item name="android:actionMenuTextColor">@color/green</item>
+        <item name="android:windowContentOverlay">@android:drawable/ab_solid_shadow_holo</item>-->
+    	<item name="android:actionBarStyle">@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse</item>
+    	
+    
+    	
     </style>
+    
+    
     
     <style name="MyThemeCanvas" parent="android:style/Theme.Holo.Light">
         <item name="android:actionMenuTextColor">@color/green</item>
     	<item name="android:background">@color/black</item>
     </style>
+    
+   
 </resources>
