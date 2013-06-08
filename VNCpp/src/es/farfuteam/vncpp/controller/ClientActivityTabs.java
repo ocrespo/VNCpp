@@ -70,8 +70,6 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 	
 	private Adapter adapter;
 	
-	//private Fragment mFragment;
-	
 	//recuerda si sacar o no la ventana de pregunta de salida,
 	//que se guarda en el properties
 	private boolean rememberExit; /**< Remember whether or not to show the exit dialog  */
@@ -105,7 +103,7 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 	                  .setTabListener(new TabListener<ListFragmentTab>(
 	                   this, "tab1", ListFragmentTab.class));
 	        actionBar.addTab(tab1);
-	        
+
 
 	        Tab tab2 = actionBar.newTab()
 	               .setText(favorites)

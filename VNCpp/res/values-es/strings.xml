@@ -32,7 +32,7 @@
     
     <!-- USER TEXT -->
     
-    <string name="Users">Conexiones</string>
+    <string name="connections">Conexiones</string>
     <string name="emptyUsers"></string>
     <string name="favorites">Favoritos</string>
     

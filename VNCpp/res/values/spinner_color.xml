@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="color_array">
-        <item>extra-high</item>
-        <item>high</item>
-        <item>medium</item>
-        <item>low</item>
+        <item>Super-high</item>
+        <item>High</item>
+        <item>Medium</item>
+        <item>Low</item>
     </string-array>
 </resources>

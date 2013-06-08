@@ -17,5 +17,8 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>  
     
+    <style name="colorTextTab">
+	    <item name="android:textColor">@android:color/white</item>
+	</style> 
 
 </resources>

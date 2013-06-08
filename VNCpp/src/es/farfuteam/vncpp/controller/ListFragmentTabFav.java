@@ -82,7 +82,6 @@ public class ListFragmentTabFav extends ListFragment implements SuperListener{
 	    // Se vincula Adaptador
         admin = new ConnectionSQLite(this.getActivity());
         admin.getWritableDatabase();
-        //adapter = new Adapter(this,admin.getAllUsers());
         adapter = new Adapter(this.getActivity(),admin.getAllFavUsers());
         setListAdapter(adapter);
 	   
@@ -98,8 +97,7 @@ public class ListFragmentTabFav extends ListFragment implements SuperListener{
 		
 	    super.onStart();       	    
 	    admin = ConnectionSQLite.getInstance(getActivity());
-
-    	//admin = new ConnectionSQLite(this.getActivity());
+	    userList = admin.getAllFavUsers();
     	adapter = new Adapter(this.getActivity(),admin.getAllFavUsers());
         adapter.setList(admin.getAllFavUsers());
         setListAdapter(adapter);        	
@@ -122,16 +120,6 @@ public class ListFragmentTabFav extends ListFragment implements SuperListener{
 		
 		}
 	    
-	    /**
-
-		public void deleting(){
-			
-			admin.getWritableDatabase();
-			admin.deleteUser((Connection) getO());
-	        adapter.setList(admin.getAllFavUsers());
-	        setListAdapter(adapter);	        	        
-	        
-		}*/
 
 		@Override
 		public void deleteUser() {
@@ -157,12 +145,6 @@ public class ListFragmentTabFav extends ListFragment implements SuperListener{
 	        intent.putExtra("PORT", ((Connection) getO()).getPORT());
 	        intent.putExtra("PSW", ((Connection) getO()).getPsw());
 
-	       /* Bundle b = new Bundle();
-	        b.putString("Name", ((Connection) getO()).getName());
-	        b.putString("IP", ((Connection) getO()).getIP());
-	        b.putString("PORT", ((Connection) getO()).getPORT());
-	        b.putString("PSW", ((Connection) getO()).getPsw());
-	        //startActivityForResult(intent, 0);*/
 	        startActivity(intent);
 	        
 		}

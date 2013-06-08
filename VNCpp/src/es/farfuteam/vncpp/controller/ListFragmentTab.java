@@ -75,16 +75,14 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 		this.container = container;
 		this.savedInstanceState = savedInstanceState;
 		
-		userList = new ArrayList<Connection>();
+		setUserList(new ArrayList<Connection>());
 	    // Inflate the layout for this fragment
 	    view = inflater.inflate(R.layout.list_users, container, false);
 
 	    // Se vincula Adaptador
 	    admin = ConnectionSQLite.getInstance(getActivity());
-        //admin = new ConnectionSQLite(this.getActivity());
-        SQLiteDatabase db = admin.getWritableDatabase();
 	    adapter = new Adapter(this.getActivity(),admin.getAllUsers());
-	    userList = admin.getAllUsers();
+	    setUserList(admin.getAllUsers());
         setListAdapter(adapter);
 	   
 	    
@@ -96,6 +94,7 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 	public void onStart() {
 	    super.onStart();  
 
+	    userList = admin.getAllUsers();
 	    admin = ConnectionSQLite.getInstance(getActivity());
     	adapter = new Adapter(this.getActivity(),admin.getAllUsers());
         adapter.setList(admin.getAllUsers());
@@ -130,21 +129,11 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 		
 		}
 	    
-	    /*
-		private void deleting(){
-			//UsersSQLite admin = new UsersSQLite(this);
-	        SQLiteDatabase db = admin.getWritableDatabase();
-	        Toast.makeText(this.getSherlockActivity().getBaseContext(), "User deleted", Toast.LENGTH_SHORT).show();
-	        admin.deleteUser((Connection) getO());
-	        adapter.setList(admin.getAllUsers());
-	        setListAdapter(adapter);	        	        
-	        
-		}*/
+
 
 		@Override
 		public void deleteUser() {
 			
-	        SQLiteDatabase db = admin.getWritableDatabase();
 	        admin.deleteUser((Connection) getO());
 	        adapter.setList(admin.getAllUsers());
 	        setListAdapter(adapter);
@@ -155,12 +144,9 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 		@Override
 		public void editingUser() {
 			
-			//ConnectionSQLite admin = new ConnectionSQLite(this.getActivity());
 			admin = ConnectionSQLite.getInstance(getActivity());
-			SQLiteDatabase db = admin.getWritableDatabase();
 			
-	        Intent intent = new Intent (this.getActivity(),EditionActivity.class);
-	        
+	        Intent intent = new Intent (this.getActivity(),EditionActivity.class);	        
 	        intent.putExtra("Name", ((Connection) getO()).getName());
 	        intent.putExtra("IP", ((Connection) getO()).getIP());
 	        intent.putExtra("PORT", ((Connection) getO()).getPORT());
@@ -190,6 +176,14 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 
 		public static void setO(Object o) {
 			ListFragmentTab.o = o;
+		}
+
+		public ArrayList<Connection> getUserList() {
+			return userList;
+		}
+
+		public void setUserList(ArrayList<Connection> userList) {
+			this.userList = userList;
 		}
 
 

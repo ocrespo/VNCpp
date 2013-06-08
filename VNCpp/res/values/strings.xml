@@ -30,9 +30,9 @@
     <string name="image_example">Image example</string>
     
     
-    <!-- USER TEXT -->
+    <!-- Cabeceras de Action Bar -->
     
-    <string name="Users">Connections</string>
+    <string name="connections">Connections</string>
     <string name="emptyUsers"></string>
     <string name="favorites">Favorites</string>
     

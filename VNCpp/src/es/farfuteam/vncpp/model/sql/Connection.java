@@ -36,7 +36,7 @@ public class Connection {
 		PORT="5900";
 		psw="";
 		fav= false;
-		ColorFormat="24-bit color (4 bpp)";
+		//ColorFormat="24-bit color (4 bpp)";
 	}
 	
 	
