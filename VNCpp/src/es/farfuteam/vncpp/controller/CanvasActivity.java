@@ -59,6 +59,7 @@ import es.farfuteam.vncpp.view.SlideListFragment;
  * @author roni
  *
  */
+
 public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	
 	//etiqueta debug
