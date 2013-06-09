@@ -49,8 +49,6 @@ public:
 
 	static void setPass(char *aux_pass);
 	static char* getPass(rfbClient* client);
-
-	static void finishUpdate(rfbClient* client);
 };
 
 #endif /* HANDLERRFB_H_ */

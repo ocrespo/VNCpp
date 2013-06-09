@@ -74,6 +74,3 @@ void HandlerRFB::finishClient(){
 	screen->finishByClient();
 }
 
-void HandlerRFB::finishUpdate(rfbClient* client){
-	LOGE("FIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIN\n");
-}

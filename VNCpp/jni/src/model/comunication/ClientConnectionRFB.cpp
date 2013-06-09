@@ -98,7 +98,6 @@ ConnectionError ClientConnectionRFB::iniConnection(char* host,int port,char* pas
 
 	HandlerRFB::setPass(pass);
 
-	clientRFB->FinishedFrameBufferUpdate = HandlerRFB::finishUpdate;
 	clientRFB->GetPassword = HandlerRFB::getPass;
 
 	clientRFB->appData.qualityLevel = picture_quality;
