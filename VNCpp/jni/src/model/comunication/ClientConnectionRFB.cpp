@@ -367,10 +367,10 @@ rfbKeySym ClientConnectionRFB::transformToRfbKey(int key){
 	        case 68: rfbKey = XK_grave; break;//` //PROBAR
 	        case 69: rfbKey = XK_minus; break;//-
 	        case 169: rfbKey = XK_underscore; break;//_
-	        case 171: rfbKey = XK_bracketleft; break;//{
-	        case 172: rfbKey = XK_bracketright; break;//}
+	        case 171: rfbKey = XK_braceleft; break;//{
+	        case 172: rfbKey = XK_braceright; break;//}
 	        case 173: rfbKey = XK_bar; break;//|
-	        case 71: rfbKey = XK_braceleft; break;//[
+	        case 71: rfbKey = XK_bracketleft; break;//[
 	        case 72: rfbKey = XK_bracketright; break;//]
 	        case 155: rfbKey = XK_less; break;//<
 	        case 156: rfbKey = XK_greater; break;//>
