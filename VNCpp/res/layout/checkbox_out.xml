@@ -4,9 +4,18 @@
 
     <CheckBox
         android:id="@+id/checkboxOut"
-        style="?android:attr/textAppearanceMedium"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp" />
+        android:layout_margin="15dp"
+        android:text="@string/RememberCheckBox"
+        android:onClick="aqui" />
+
+     <CheckBox
+         android:id="@+id/checkboxHideMouse"
+         android:layout_width="fill_parent"
+         android:layout_height="118dp"
+         android:layout_margin="15dp"
+         android:text="@string/hide_mouse" 
+         android:onClick="aqui2" />
 
 </FrameLayout>

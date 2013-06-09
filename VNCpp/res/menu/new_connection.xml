@@ -7,13 +7,16 @@
         android:showAsAction="always" />
     
     <item
-        android:id="@+id/configuration"
+        android:id="@+id/configurationMenu"
         android:icon="@drawable/ic_action_overflow"
         android:showAsAction="always"
-        android:title="configuration" >
+        android:title="configurationMenu" >
     
     	<!-- "file" submenu -->
         <menu>
+            <item android:id="@+id/configuration"
+                  android:title="@string/configuration"
+                  android:icon="@drawable/howto_image" />
             <item android:id="@+id/howto"
                   android:title="@string/howto"
                   android:icon="@drawable/howto_image" />

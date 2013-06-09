@@ -970,11 +970,5 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		menu.toggle();
 	}
 	
-	//publica porque se llama desde el fragment lateral
-	public void hideMouse(){
-		//TODO BORRAR
-		menu.toggle();
-	}
-	
 		
 }

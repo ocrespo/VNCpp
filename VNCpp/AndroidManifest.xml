@@ -50,7 +50,9 @@
             android:name="es.farfuteam.vncpp.controller.ListFragmentTab">           
         </activity>
         
-      
+        <activity 
+            android:name="es.farfuteam.vncpp.view.ConfigurationMenu">           
+        </activity>   
 
 
         <activity 

@@ -45,6 +45,7 @@ import android.widget.Toast;
 import es.farfuteam.vncpp.model.sql.Connection;
 import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
 import es.farfuteam.vncpp.view.Adapter;
+import es.farfuteam.vncpp.view.ConfigurationMenu;
 import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
 
 
@@ -61,6 +62,8 @@ import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
  */
 
 public class ClientActivityTabs extends FragmentActivity implements SuperListener{	
+	
+	public static final String PREFS_NAME="PreferencesFile";
 		
 	/** A string */
 	private static String ACTIVE_TAB = "activeTab";
@@ -72,8 +75,9 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 	
 	//recuerda si sacar o no la ventana de pregunta de salida,
 	//que se guarda en el properties
-	private boolean rememberExit; /**< Remember whether or not to show the exit dialog  */
-	private SharedPreferences prefs;/**< The preferences from the preferences file */
+	//private boolean rememberExit; /**< Remember whether or not to show the exit dialog  */
+	//private boolean hideCursor;
+	//private SharedPreferences prefs;/**< The preferences from the preferences file */
 
 	/**
 	 * @brief This is the onCreate method
@@ -116,11 +120,13 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 	        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 	        
 	        //accedemos a fichero preferencias
-	        prefs = getSharedPreferences("PreferencesFile",Context.MODE_PRIVATE);
+	        /*setPrefs(getSharedPreferences("PreferencesFile",Context.MODE_PRIVATE));
 	        
 	        //false es el valor por defecto si no se encuentra la etiqueta exit
-	        rememberExit = prefs.getBoolean("exit", false);
-	        
+	        setRememberExit(getPrefs().getBoolean("exit", false));
+	        setHideCursor(getPrefs().getBoolean("hidecursor", false));*/
+	        //SharedPreferences pref = getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE);
+	        //ConfigurationMenu.getInstance().setPrefs(pref);
 	        
 	        // Orientation Change Occurred
 	        if(savedInstanceState!=null){
@@ -162,11 +168,15 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 	        	return true;
 	        	
 	        case R.id.configuration:
-	        	Log.i("tag","estamos en configuration");
+	 			Intent iConf= new Intent(this,ConfigurationMenu.class);
+				startActivity(iConf);
+				//configurationDialog();
+				//ConfigurationMenu.getInstance().configurationDialog();
 	        	return true;
 	        	
 	        case R.id.howto:
 	        	//TODO funcion texto Luis como usar
+	        	Log.i("tag","estamos en howto");
 	        	return true;
 	        	
 	        case R.id.about:
@@ -333,9 +343,7 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 		 */
 		@Override
 		public void deleteUser() {			
-			
-			deleting();
-			
+			deleting();			
 		}
 
 		/**
@@ -344,8 +352,7 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 		 */
 		@Override
 		public void editingUser() {
-			edit();
-			
+			edit();			
 		}
 
 		/**
@@ -401,7 +408,7 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 		  if (keyCode == KeyEvent.KEYCODE_BACK) {
 			  
 			//si en las preferencias esta a true, se sale sin preguntar
-			if (rememberExit) finish();
+			if (ConfigurationMenu.getInstance().isRememberExit()) finish();
 			
 			else{
 				
@@ -413,9 +420,10 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 				    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 	
 				        // Save to shared preferences
-				    	SharedPreferences.Editor editor = prefs.edit();
+				    	/*SharedPreferences.Editor editor = getPrefs().edit();
 				    	editor.putBoolean("exit", true);
-				    	editor.commit();
+				    	editor.commit();*/
+				    	ConfigurationMenu.getInstance().setRememberExit(true);
 				    	
 				    }
 				});
@@ -524,7 +532,39 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 		 
 		    return builder.create();
 		}
-			
+		
+		
+		
+		
+		
+		
+		
+		/*
+		public boolean isRememberExit() {
+			return rememberExit;
+		}
+
+		public void setRememberExit(boolean rememberExit) {
+			//this.rememberExit = rememberExit;
+			ConfigurationMenu.getInstance().setRememberExit(rememberExit);
+		}
+
+		public SharedPreferences getPrefs() {
+			return prefs;
+		}
+
+		public void setPrefs(SharedPreferences prefs) {
+			this.prefs = prefs;
+		}
+
+		public boolean isHideCursor() {
+			return hideCursor;
+		}
+
+		public void setHideCursor(boolean hideCursor) {
+			this.hideCursor = hideCursor;
+		}
+		*/	
 	
   }
 

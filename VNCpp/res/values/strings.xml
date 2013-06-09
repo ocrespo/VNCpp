@@ -45,7 +45,7 @@
     <string name="DialogInfo">Info</string>
     <string name="DialogTitleExit">Exit</string>
     <string name="DialogQuestion">Are you sure?</string> 
-    <string name="RememberCheckBox">Not ask</string>  
+    <string name="RememberCheckBox">Not ask again</string>  
     
     <!-- MENU OPTIONS DIALOG -->
     
@@ -73,6 +73,7 @@
 	
 	<!-- DOWN MENU -->
 	<string name="options_down">Options</string>
+	<string name="configuration">Configuration</string>
 	<string name="howto">How to use</string>
 	<string name="about">About</string>
 	

@@ -9,7 +9,6 @@
     
     <string name="message_ip">Inserta la IP: </string>
     <string name="message_port">Inserta puerto de conexión: </string>
-    <string name="message_user">Autenticar usuario(opcional) </string>
     <string name="message_psw">Contraseña(opcional)</string>
     <string name="connect">Conectar</string>
     <string name="cancel">Cancelar</string>
@@ -25,10 +24,6 @@
     <string name="delete_connection">Eliminar conexión</string>
     <string name="edit_connection">Editar conexión</string>
     <string name="save_connection">Guardar</string>
-    
-    <!-- IMAGE TEXT -->
-    
-    <string name="image_example">Imagen ejemplo</string>
     
     <!-- USER TEXT -->
     
@@ -73,6 +68,7 @@
 	
 		<!-- DOWN MENU -->
 	<string name="options_down">Opciones</string>
+	<string name="configuration">Configuración</string>
 	<string name="howto">Cómo usar</string>
 	<string name="about">Acerca de</string>
 	
