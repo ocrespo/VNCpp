@@ -98,7 +98,9 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	
 	private boolean waitDialog = false;
 	
-	ProgressDialog progressDialog;
+	private ProgressDialog progressDialog;
+	
+	private int modKeyCount = 0;
 	
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
@@ -319,14 +321,23 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	}
 	@Override
 	public boolean dispatchKeyEvent(KeyEvent event) {
-		if(event.getAction() == KeyEvent.ACTION_DOWN || event.getAction() == KeyEvent.ACTION_MULTIPLE){
+		if(event.getAction() == KeyEvent.ACTION_DOWN || event.getAction() == KeyEvent.ACTION_UP|| event.getAction() == KeyEvent.ACTION_MULTIPLE){
 			int keyunicode = event.getUnicodeChar(event.getMetaState() );
 		    char character = (char) keyunicode;
-	
-		    
-		    
-			vnc.sendKey(event.getKeyCode());
-		    
+		    int key = event.getKeyCode();
+		    if(key == 59){
+		    	if(modKeyCount == 0){
+		    		modKeyCount = 100;
+		    	}
+		    	else{
+		    		modKeyCount = 0;
+		    	}
+		    }
+		    else{
+		    	boolean down = event.getAction() == KeyEvent.ACTION_DOWN;
+		    	vnc.sendKey(modKeyCount+key,down);
+		    	
+		    }
 		    
 		    Log.e(DEBUG_TAG,String.valueOf( event.getKeyCode()));
 		}
@@ -341,7 +352,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	
 	@Override
 	public boolean onTouchEvent(MotionEvent event){
-		
+	
 		super.onTouchEvent(event);
 		
 		scaleGesture.onTouchEvent(event);

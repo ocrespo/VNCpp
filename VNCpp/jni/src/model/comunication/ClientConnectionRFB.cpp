@@ -103,7 +103,7 @@ ConnectionError ClientConnectionRFB::iniConnection(char* host,int port,char* pas
 	clientRFB->appData.qualityLevel = picture_quality;
 	clientRFB->appData.compressLevel = compress;
 	//clientRFB->appData.useRemoteCursor = true;
-
+	//clientRFB->appData.useRemoteCursor = false;
 
 	clientRFB->MallocFrameBuffer=HandlerRFB::iniFrameBuffer;
 	clientRFB->canHandleNewFBSize = TRUE;
@@ -256,14 +256,20 @@ bool ClientConnectionRFB::sendMouseEvent(int x,int y,MouseEvent event){
 
 	return ok;
 }
-bool ClientConnectionRFB::sendKeyEvent(int key){
+bool ClientConnectionRFB::sendKeyEvent(int key,bool down){
 	rfbKeySym rfbKey = transformToRfbKey(key);
-	SendKeyEvent(clientRFB,rfbKey,true);
-	SendKeyEvent(clientRFB,rfbKey,false);
+	if(rfbKey != 0){
+		SendKeyEvent(clientRFB,rfbKey,down);
+	}
+
+
 }
 rfbKeySym ClientConnectionRFB::transformToRfbKey(int key){
 	 rfbKeySym rfbKey = 0;
+
 	 switch (key) {
+	 	 	case 66: rfbKey = XK_KP_Enter; break;
+	        case 62: rfbKey = XK_space; break;
 	        case 67: rfbKey = XK_BackSpace; break;
 	       // case SDLK_TAB: rfbKey = XK_Tab; break;
 	        //case SDLK_CLEAR: rfbKey = XK_Clear; break;
@@ -300,17 +306,81 @@ rfbKeySym ClientConnectionRFB::transformToRfbKey(int key){
 	        case 53: rfbKey = XK_y; break;
 	        case 54: rfbKey = XK_z ; break;
 
-	        case 7: rfbKey = XK_KP_0; break;
-	        case 8: rfbKey = XK_KP_1; break;
-	        case 9: rfbKey = XK_KP_2; break;
-	        case 10: rfbKey = XK_KP_3; break;
-	        case 11: rfbKey = XK_KP_4; break;
-	        //case 12: rfbKey = XK_KP_5; break;
-	        case 13: rfbKey = XK_KP_6; break;
-	        case 14: rfbKey = XK_KP_7; break;
-	        //case 12: rfbKey = XK_KP_8; break;
-	        case 16: rfbKey = XK_KP_9; break;
-	        case 55: rfbKey = XK_KP_Decimal; break;
+	        case 129: rfbKey = XK_A; break;
+			case 130: rfbKey = XK_B; break;
+			case 131: rfbKey = XK_C; break;
+			case 132: rfbKey = XK_D; break;
+			case 133: rfbKey = XK_E; break;
+			case 134: rfbKey = XK_F; break;
+			case 135: rfbKey = XK_G; break;
+			case 136: rfbKey = XK_H; break;
+			case 137: rfbKey = XK_I; break;
+			case 138: rfbKey = XK_J; break;
+			case 139: rfbKey = XK_K; break;
+			case 140: rfbKey = XK_L; break;
+			case 141: rfbKey = XK_M; break;
+			case 142: rfbKey = XK_N; break;
+			case 143: rfbKey = XK_O; break;
+			case 144: rfbKey = XK_P; break;
+			case 145: rfbKey = XK_Q; break;
+			case 146: rfbKey = XK_R; break;
+			case 147: rfbKey = XK_S; break;
+			case 148: rfbKey = XK_T; break;
+			case 149: rfbKey = XK_U; break;
+			case 150: rfbKey = XK_V; break;
+			case 151: rfbKey = XK_W; break;
+			case 152: rfbKey = XK_X; break;
+			case 153: rfbKey = XK_Y; break;
+			case 154: rfbKey = XK_Z ; break;
+
+	        case 7: rfbKey = XK_0; break;
+	        case 8: rfbKey = XK_1; break;
+	        case 9: rfbKey = XK_2; break;
+	        case 10: rfbKey = XK_3; break;
+	        case 11: rfbKey = XK_4; break;
+	        case 12: rfbKey = XK_5; break;
+	        case 13: rfbKey = XK_6; break;
+	        case 14: rfbKey = XK_7; break;
+	        case 15: rfbKey = XK_8; break;
+	        case 16: rfbKey = XK_9; break;
+
+	        // Acento XK_acute
+	        //simbolos
+	        case 108: rfbKey = XK_exclam; break;//exclamacion
+	        case 109: rfbKey = XK_at; break;//arroba
+	        case 110: rfbKey = XK_numbersign; break;//#
+	        case 111: rfbKey = XK_dollar; break;//dolar
+	        case 112: rfbKey = XK_percent; break;//porcentaje
+	        case 113: rfbKey = XK_dead_circumflex; break;//^
+	        case 114: rfbKey = XK_ampersand; break;//&
+	        case 115: rfbKey = XK_asterisk; break;//asterisco
+	        case 116: rfbKey = XK_parenleft; break;//(
+	        case 107: rfbKey = XK_parenright; break;//)
+	        case 76: rfbKey = XK_slash; break;// /
+	        case 174: rfbKey = XK_colon; break;//:
+	        case 74: rfbKey = XK_semicolon; break;// ;
+	        case 70: rfbKey = XK_equal; break;// =
+	        case 170: rfbKey = XK_plus; break; // +
+	        case 176: rfbKey = XK_question; break;//?
+	        case 56: rfbKey = XK_KP_Decimal; break;// .
+	        case 55: rfbKey = XK_comma; break;//,
+	        case 68: rfbKey = XK_grave; break;//` //PROBAR
+	        case 69: rfbKey = XK_minus; break;//-
+	        case 169: rfbKey = XK_underscore; break;//_
+	        case 171: rfbKey = XK_braceleft; break;//{
+	        case 172: rfbKey = XK_braceright; break;//}
+	        case 173: rfbKey = XK_bar; break;//|
+	        case 71: rfbKey = XK_bracketleft; break;//[
+	        case 72: rfbKey = XK_bracketright; break;//]
+	        case 155: rfbKey = XK_less; break;//<
+	        case 156: rfbKey = XK_greater; break;//>
+	        case 175: rfbKey = XK_quotedbl; break;//"
+	        case 73: rfbKey = XK_backslash; break;// contra barra
+	        case 168: rfbKey = XK_dead_tilde; break;//,
+
+
+
+	        //>> << ¿ ¡ º ...
 	        //case 12: rfbKey = XK_KP_Divide; break;
 	        //case SDLK_KP_MULTIPLY: rfbKey = XK_KP_Multiply; break;
 	       // case SDLK_KP_MINUS: rfbKey = XK_KP_Subtract; break;
@@ -342,7 +412,7 @@ rfbKeySym ClientConnectionRFB::transformToRfbKey(int key){
 	        case SDLK_F13: rfbKey = XK_F13; break;
 	        case SDLK_F14: rfbKey = XK_F14; break;
 	        case SDLK_F15: rfbKey = XK_F15; break;*/
-
+	        case 59: rfbKey = XK_Shift_Lock; break;
 	        /*case SDLK_NUMLOCK: rfbKey = XK_Num_Lock; break;
 	        case SDLK_CAPSLOCK: rfbKey = XK_Caps_Lock; break;
 	        case SDLK_SCROLLOCK: rfbKey = XK_Scroll_Lock; break;

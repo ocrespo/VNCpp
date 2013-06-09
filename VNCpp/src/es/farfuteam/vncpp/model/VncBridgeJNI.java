@@ -43,7 +43,7 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 	private native void iniJNI();
 	private native void rfbLoop();
 	private native boolean mouseEvent(int x,int y,int event);
-	private native boolean keyEvent(int key);
+	private native boolean keyEvent(int key,boolean down);
 	
 	private Runnable createScreen;
 
@@ -171,7 +171,7 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 		}
 		mouseEvent(x, y, aux_event);
 	}
-	public void sendKey(int key){
-		keyEvent(key);
+	public void sendKey(int key,boolean down){
+		keyEvent(key,down);
 	}
 }
