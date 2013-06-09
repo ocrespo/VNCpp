@@ -94,5 +94,10 @@
 	<string name="combo_keys_title">Combo keys</string>
 	<string name="hide_mouse">Hide mouse</string>
 	
+	<!-- TOGGLE MESSAGE -->
+	<string name="rememberyes">Ask on exit</string>
+	<string name="rememberno">No ask on exit</string>
+	<string name="hideyes">Hide mouse cursor</string>
+	<string name="hideno">No hide</string>
 
 </resources>

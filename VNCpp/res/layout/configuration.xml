@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-    <CheckBox android:id="@+id/checkbox_remember"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/RememberCheckBox"
-        android:onClick="onCheckboxClicked"/>
-    <CheckBox android:id="@+id/checkbox_hidemouse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hide_mouse"
-        android:onClick="onCheckboxClicked"/>
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+	<ToggleButton 
+	    android:id="@+id/checkbox_remember"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:textOn="@string/rememberyes"
+	    android:textOff="@string/rememberno"
+	    android:onClick="onToggleClicked"/>
+	<ToggleButton 
+	    android:id="@+id/checkbox_hidemouse"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:textOn="@string/hideyes"
+	    android:textOff="@string/hideno"
+	    android:onClick="onToggleClicked"/>
+
 </LinearLayout>

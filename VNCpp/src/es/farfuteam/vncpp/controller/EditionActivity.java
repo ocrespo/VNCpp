@@ -20,10 +20,12 @@
  */
 package es.farfuteam.vncpp.controller;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -131,6 +133,13 @@ public class EditionActivity extends Activity{
 	         }
 		});
 		
+		
+		//efectos del actionBar
+		final ActionBar actionBar = getActionBar();
+        
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE|ActionBar.DISPLAY_SHOW_HOME|ActionBar.DISPLAY_HOME_AS_UP);
+		
+		
 	}
 	
 	
@@ -221,6 +230,16 @@ public class EditionActivity extends Activity{
 	  return super.onKeyDown(keyCode, event);
 	} 
 
-	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Sirve para volver atrás al pulsar en la actionBar
+	    switch (item.getItemId()) {
+	    	case android.R.id.home:	 
+				finish();
+	    		return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
 	
 }

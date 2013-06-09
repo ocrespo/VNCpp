@@ -46,6 +46,7 @@ import es.farfuteam.vncpp.model.sql.Connection;
 import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
 import es.farfuteam.vncpp.view.Adapter;
 import es.farfuteam.vncpp.view.ConfigurationMenu;
+import es.farfuteam.vncpp.view.ConfigurationMenu2;
 import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
 
 
@@ -125,8 +126,8 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 	        //false es el valor por defecto si no se encuentra la etiqueta exit
 	        setRememberExit(getPrefs().getBoolean("exit", false));
 	        setHideCursor(getPrefs().getBoolean("hidecursor", false));*/
-	        //SharedPreferences pref = getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE);
-	        //ConfigurationMenu.getInstance().setPrefs(pref);
+	        //SharedPreferences pref = getSharedPreferences("PreferencesFile",Context.MODE_PRIVATE);
+	        //ConfigurationMenu2.getInstance().setPrefs(pref);
 	        
 	        // Orientation Change Occurred
 	        if(savedInstanceState!=null){
@@ -171,7 +172,7 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 	 			Intent iConf= new Intent(this,ConfigurationMenu.class);
 				startActivity(iConf);
 				//configurationDialog();
-				//ConfigurationMenu.getInstance().configurationDialog();
+				//ConfigurationMenu.getInstance();
 	        	return true;
 	        	
 	        case R.id.howto:

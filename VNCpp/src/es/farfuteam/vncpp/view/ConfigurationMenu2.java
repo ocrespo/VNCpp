@@ -1,6 +1,5 @@
 package es.farfuteam.vncpp.view;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -8,12 +7,11 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.ToggleButton;
+import android.widget.CheckBox;
 import es.farfuteam.vncpp.controller.R;
 
-public class ConfigurationMenu extends Activity{
+public class ConfigurationMenu2 extends Activity{
 	
 	public static final String PREFS_NAME="PreferencesFile";
 	
@@ -21,44 +19,24 @@ public class ConfigurationMenu extends Activity{
 	private boolean hideMouse;
 	private SharedPreferences prefs;
 	
-	private static ConfigurationMenu instance = null;
+	private static ConfigurationMenu2 instance = null;
 	
-	public static ConfigurationMenu getInstance() {
+	public ConfigurationMenu2(){
+		//setRememberExit(getPrefs().getBoolean("exit", false));
+	}
+	
+	public static ConfigurationMenu2 getInstance() {
 	      
 		if(instance == null) {
-	         instance = new ConfigurationMenu();
+	         instance = new ConfigurationMenu2();
 	    }
 	    return instance;
 	}
 	
-	
+	/*
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.configuration);
-		
-		
-		View checkBoxOut = View.inflate(this, R.layout.configuration, null);
-		ToggleButton checkBox = (ToggleButton) checkBoxOut.findViewById(R.id.checkbox_remember);
-
-		
-		ToggleButton checkBoxHide = (ToggleButton) checkBoxOut.findViewById(R.id.checkbox_hidemouse);
-		
-		final String decision = getString(R.string.RememberCheckBox);
-		
-		checkBox.setText(decision);
-		
-		final String hide = getString(R.string.hide_mouse);
-		
-		checkBoxHide.setText(hide);
-		
-		
-		
-		//final String title = getString(R.string.configuration);
-		
-		
-		
-		
 		
         //accedemos a fichero preferencias
         setPrefs(getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE));
@@ -66,20 +44,26 @@ public class ConfigurationMenu extends Activity{
         //false es el valor por defecto si no se encuentra la etiqueta exit
         setRememberExit(getPrefs().getBoolean("exit", false));
         setHideMouse(getPrefs().getBoolean("hidecursor", false));
+        Log.i("tag","en oncreate conf");
         
-        //configurationDialog();
+        configurationDialog();
         
         //finish();
-        
-		//efectos del actionBar
-		final ActionBar actionBar = getActionBar();
-        
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE|ActionBar.DISPLAY_SHOW_HOME|ActionBar.DISPLAY_HOME_AS_UP);
 	
+	}*/
+	
+	private void init(){
+        //false es el valor por defecto si no se encuentra la etiqueta exit
+        setRememberExit(getPrefs().getBoolean("exit", false));
+        setHideMouse(getPrefs().getBoolean("hidecursor", false));
+        //Log.i("tag","en oncreate conf");
 	}
-		
-	/*
+	
+	
+	
 	public void configurationDialog() {
+		
+		//init();
 		
 		View checkBoxOut = View.inflate(this, R.layout.configuration, null);
 		CheckBox checkBox = (CheckBox) checkBoxOut.findViewById(R.id.checkbox_remember);
@@ -118,13 +102,13 @@ public class ConfigurationMenu extends Activity{
 	      .show();
 		
 	}
-	*/
+	
 	
 	
 	//menu llamado al haber evento sobre el checkbox de la activity
-			public void onToggleClicked(View view) {
+			public void onCheckboxClicked(View view) {
 		 
-				boolean checked = ((ToggleButton) view).isChecked();
+				boolean checked = ((CheckBox) view).isChecked();
 			    // Check which checkbox was clicked
 			    switch(view.getId()) {
 			        case R.id.checkbox_remember:
@@ -159,18 +143,6 @@ public class ConfigurationMenu extends Activity{
 			    }
 			}
 	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-	    // Sirve para volver atrás al pulsar en la actionBar
-	    switch (item.getItemId()) {
-	    	case android.R.id.home:	 
-				finish();
-	    		return true;
-	        default:
-	            return super.onOptionsItemSelected(item);
-	    }
-	}
-
 
 	public boolean isRememberExit() {
 		return rememberExit;
