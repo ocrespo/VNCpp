@@ -733,6 +733,11 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	        case 8:
 	        	dialog = timeExceededDialog();
 	        	break;
+	        	
+	        	//TODO llamada a la peticion de contraseña server showDialog(9) 
+	        case 9:
+	        	dialog = passwordNeededDialog();
+	        	break;
 	    }
 	 
 	    return dialog;
@@ -765,6 +770,40 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	        	 String srt = input.getEditableText().toString();
 	        	 Log.d("texto enviado", srt);
 	        	// TODO Enviar texto Oscar
+	        	 //Toast.makeText(this.,srt,Toast.LENGTH_LONG).show();
+	        }
+
+	    });
+	 
+	    return builder.create();
+	}
+	
+	private Dialog passwordNeededDialog() {
+		
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+	    
+	    String info = getString(R.string.password_title);
+		String body = getString(R.string.password_dialog);
+		 
+	    builder.setTitle(info);
+	    builder.setMessage(body);
+        // Set an EditText view to get user password 
+        final EditText input = new EditText(this);
+        builder.setView(input);
+        
+	    builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+      	  public void onClick(DialogInterface dialog, int whichButton) {
+      		  dialog.cancel();
+      	  }
+	    });
+	    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	        @Override
+			public void onClick(DialogInterface dialog, int which) {
+	        	//You will get as string input data in this variable.
+	        	 // here we convert the input to a string and show in a toast.
+	        	 String srt = input.getEditableText().toString();
+	        	 Log.d("texto enviado", srt);
+	        	// TODO Enviar password Oscar
 	        	 //Toast.makeText(this.,srt,Toast.LENGTH_LONG).show();
 	        }
 

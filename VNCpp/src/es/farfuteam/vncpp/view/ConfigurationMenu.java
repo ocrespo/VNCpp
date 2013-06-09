@@ -77,48 +77,6 @@ public class ConfigurationMenu extends Activity{
         actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE|ActionBar.DISPLAY_SHOW_HOME|ActionBar.DISPLAY_HOME_AS_UP);
 	
 	}
-		
-	/*
-	public void configurationDialog() {
-		
-		View checkBoxOut = View.inflate(this, R.layout.configuration, null);
-		CheckBox checkBox = (CheckBox) checkBoxOut.findViewById(R.id.checkbox_remember);
-
-		
-		CheckBox checkBoxHide = (CheckBox) checkBoxOut.findViewById(R.id.checkbox_hidemouse);
-		
-		final String decision = getString(R.string.RememberCheckBox);
-		
-		checkBox.setText(decision);
-		
-		final String hide = getString(R.string.hide_mouse);
-		
-		checkBoxHide.setText(hide);
-		
-		
-		
-		final String title = getString(R.string.configuration);
-		//final String question = getString(R.string.DialogQuestion);
-		//final String r = getString(R.string.hide_mouse);
-	   
-	    new AlertDialog.Builder(this)
-	      .setIcon(android.R.drawable.ic_dialog_alert)
-	      .setTitle(title)
-	      //.setMessage(question)
-	      .setView(checkBoxOut)
-	      //.setView(checkBoxHide)
-	      .setNegativeButton(android.R.string.cancel, null)//sin listener
-	      .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {//un listener que al pulsar, cierre la aplicacion
-	        @Override
-	        public void onClick(DialogInterface dialog, int which){
-	          //Salir
-	          finish();
-	        }
-	      })
-	      .show();
-		
-	}
-	*/
 	
 	
 	//menu llamado al haber evento sobre el checkbox de la activity
@@ -133,12 +91,14 @@ public class ConfigurationMenu extends Activity{
 					    	editor.putBoolean("exit", true);
 					    	editor.commit();
 					    	setRememberExit(true);
+					    	Log.i("tag","chekeadoRemember" + isRememberExit());
 			            }
 			            else{
 					    	SharedPreferences.Editor editor = prefs.edit();
 					    	editor.putBoolean("exit", false);
 					    	editor.commit();
 					    	setRememberExit(false);
+					    	Log.i("tag","DESSSchekeadoRemember");
 			            }
 			            break;
 			        case R.id.checkbox_hidemouse:

@@ -88,5 +88,13 @@
 	<string name="function_keys_title">Teclas función</string>
 	<string name="combo_keys_title">Combo teclas</string>
 	<string name="hide_mouse">Ocultar cursor</string>
+	<string name="password_title">Contraseña necesaria</string>
+	<string name="password_dialog">El servidor necesita una contraseña para conectar</string>
+	
+		<!-- TOGGLE MESSAGE -->
+	<string name="rememberyes">Preguntar al salir</string>
+	<string name="rememberno">No preguntar al salir</string>
+	<string name="hideyes">Esconder cursor del ratón</string>
+	<string name="hideno">No esconder ratón</string>
 
 </resources>

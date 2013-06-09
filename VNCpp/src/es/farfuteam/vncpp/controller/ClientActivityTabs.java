@@ -407,9 +407,13 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 		public boolean onKeyDown(int keyCode, KeyEvent event) {
 		   
 		  if (keyCode == KeyEvent.KEYCODE_BACK) {
-			  
+			  //ConfigurationMenu.getInstance().setRememberExit(true);
+			  Log.i("tag","averr "+ConfigurationMenu.getInstance().isRememberExit());
 			//si en las preferencias esta a true, se sale sin preguntar
-			if (ConfigurationMenu.getInstance().isRememberExit()) finish();
+			if (ConfigurationMenu.getInstance().isRememberExit()){
+				
+				finish();
+			}
 			
 			else{
 				
