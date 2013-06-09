@@ -77,8 +77,8 @@ void Vnc::addObserver(jobject observer,JNIEnv *env){
 bool Vnc::sendMouseEvent(int x,int y,MouseEvent event){
 	return rfb->sendMouseEvent(x,y,event);
 }
-bool Vnc::sendKeyEvent(int key){
-	return rfb->sendKeyEvent(key);
+bool Vnc::sendKeyEvent(int key,bool down){
+	return rfb->sendKeyEvent(key,down);
 }
 void Vnc::hideMouse(bool hide){
 	if(hide){

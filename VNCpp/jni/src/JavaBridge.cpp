@@ -37,7 +37,7 @@ extern "C" {
 	JNIEXPORT void JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_finish(JNIEnv* env,jobject javaThis);
 	JNIEXPORT void JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_iniJNI(JNIEnv* env,jobject javaThis);
 	JNIEXPORT jboolean JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_mouseEvent(JNIEnv* env,jobject javaThis,int x,int y,int event);
-	JNIEXPORT jboolean JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_keyEvent(JNIEnv* env,jobject javaThis,int key);
+	JNIEXPORT jboolean JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_keyEvent(JNIEnv* env,jobject javaThis,int key,jboolean down);
 	JNIEXPORT void JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_hideMouse(JNIEnv* env,jobject javaThis,jboolean hide);
 };
 
@@ -83,8 +83,8 @@ JNIEXPORT void JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_finish(JNIEnv*
 JNIEXPORT jboolean JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_mouseEvent(JNIEnv* env,jobject javaThis,int x,int y,int event){
 	return vnc->sendMouseEvent(x,y,static_cast<MouseEvent>(event));
 }
-JNIEXPORT jboolean JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_keyEvent(JNIEnv* env,jobject javaThis,int key){
-	return vnc->sendKeyEvent(key);
+JNIEXPORT jboolean JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_keyEvent(JNIEnv* env,jobject javaThis,int key,jboolean down){
+	return vnc->sendKeyEvent(key,(bool)down);
 }
 JNIEXPORT void JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_hideMouse(JNIEnv* env,jobject javaThis,jboolean hide){
 	vnc->hideMouse((bool)hide);

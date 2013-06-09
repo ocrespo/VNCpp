@@ -52,7 +52,7 @@ public:
 	//void rfbLoop(JNIEnv* env);
 
 	bool sendMouseEvent(int x,int y,MouseEvent event);
-	bool sendKeyEvent(int key);
+	bool sendKeyEvent(int key,bool down);
 
 	void hideMouse(bool hide);
 };
