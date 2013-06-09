@@ -32,7 +32,7 @@ using namespace std;
 Vnc *vnc;///< Referencia al objecto Vnc
 
 extern "C" {
-	JNIEXPORT jint JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_iniConnect(JNIEnv* env,jobject javaThis,jstring host_java,jint port_java);
+	JNIEXPORT jint JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_iniConnect(JNIEnv* env,jobject javaThis,jstring host_java,jint port_java,jstring pass_java,jint quality_java,jint conpress_java);
 	JNIEXPORT void JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_closeConnection(JNIEnv* env,jobject javaThis);
 	JNIEXPORT void JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_finish(JNIEnv* env,jobject javaThis);
 	JNIEXPORT void JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_iniJNI(JNIEnv* env,jobject javaThis);
@@ -45,15 +45,22 @@ JNIEXPORT void JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_iniJNI(JNIEnv*
 	vnc = new Vnc();
 	vnc->addObserver(javaThis,env);
 }
-JNIEXPORT jint JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_iniConnect(JNIEnv* env,jobject javaThis,jstring host_java,jint port_java){
+JNIEXPORT jint JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_iniConnect(JNIEnv* env,jobject javaThis,jstring host_java,jint port_java,jstring pass_java,jint quality_java,jint conpress_java){
 
 	int port;
 	char* host;
+	char* pass;
+	int quality;
+	int compress;
 
 	const char* aux_host = env->GetStringUTFChars(host_java,0);
+	const char* aux_pass= env->GetStringUTFChars(pass_java,0);
 	port = port_java;
 
-	ConnectionError error = vnc->iniConnection((char*)aux_host,port);
+	quality = quality_java;
+	compress = conpress_java;
+
+	ConnectionError error = vnc->iniConnection((char*)aux_host,port,pass,quality,compress);
 
 
 	if(DEBUG)

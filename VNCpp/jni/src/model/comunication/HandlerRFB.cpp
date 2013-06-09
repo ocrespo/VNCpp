@@ -27,6 +27,7 @@
 #include <android/log.h>
 
 ClientScreen* HandlerRFB::screen = NULL;
+char* HandlerRFB::pass = NULL;
 
 HandlerRFB::HandlerRFB() {
 	// TODO Auto-generated constructor stub
@@ -56,9 +57,13 @@ rfbBool HandlerRFB::iniFrameBuffer(rfbClient* client) {
 
 	return true;
 }
-char* HandlerRFB::getPass(rfbClient* client){
-	return strdup("1234");
+void HandlerRFB::setPass(char *aux_pass){
+	pass = aux_pass;
 }
+char* HandlerRFB::getPass(rfbClient* client){
+	return strdup(pass);
+}
+
 void HandlerRFB::updateScreen(rfbClient *client,int x,int y,int w,int h){
 	screen->updateScreen(client->frameBuffer,x,y,w,h);
 }
@@ -67,4 +72,8 @@ void HandlerRFB::finishConnection(){
 }
 void HandlerRFB::finishClient(){
 	screen->finishByClient();
+}
+
+void HandlerRFB::finishUpdate(rfbClient* client){
+	LOGE("FIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIN\n");
 }

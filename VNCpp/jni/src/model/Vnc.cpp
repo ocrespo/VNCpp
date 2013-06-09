@@ -51,8 +51,8 @@ Vnc::~Vnc() {
  * @param port el puerto mediante el que se realiza la conexion
  * @return devuelve si la conexion tuvo exito, mediante el enum ConnectionError
  */
-ConnectionError Vnc::iniConnection(char *host,int port){
-	ConnectionError error = rfb->iniConnection(host,port);
+ConnectionError Vnc::iniConnection(char *host,int port,char *pass,int quality,int compress){
+	ConnectionError error = rfb->iniConnection(host,port,pass,quality,compress);
 	if(DEBUG)
 		LOGE("Return inicio de conexion");
 	return error;
@@ -71,6 +71,7 @@ void Vnc::closeConnection(){
  */
 void Vnc::addObserver(jobject observer,JNIEnv *env){
 	screen->addObserver(observer,env);
+
 }
 bool Vnc::sendMouseEvent(int x,int y,MouseEvent event){
 	return rfb->sendMouseEvent(x,y,event);

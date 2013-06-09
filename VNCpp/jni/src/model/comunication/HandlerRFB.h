@@ -24,12 +24,17 @@
 
 #include <rfb/rfbclient.h>
 
+#include <ObservableJNI.h>
+
 using namespace std;
 
 class ClientScreen;
 class HandlerRFB {
 private:
 	static ClientScreen *screen;
+
+	static char* pass;
+
 public:
 	HandlerRFB();
 	virtual ~HandlerRFB();
@@ -42,7 +47,10 @@ public:
 	static void finishConnection();
 	static void finishClient();
 
+	static void setPass(char *aux_pass);
 	static char* getPass(rfbClient* client);
+
+	static void finishUpdate(rfbClient* client);
 };
 
 #endif /* HANDLERRFB_H_ */

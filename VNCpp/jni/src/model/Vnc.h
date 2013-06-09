@@ -45,7 +45,7 @@ public:
 	Vnc();
 	virtual ~Vnc();
 
-	ConnectionError iniConnection(char* host,int port);
+	ConnectionError iniConnection(char* host,int port,char *pass,int quality,int compress);
 	void closeConnection();
 
 	void addObserver(jobject observer,JNIEnv *env);

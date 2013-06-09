@@ -84,7 +84,7 @@ ClientConnectionRFB::~ClientConnectionRFB() {
  * @param port Puerto por el que se realizara la conexion.
  * @return devuelve si la conexion tuvo exito, mediante el enum ConnectionError.
  */
-ConnectionError ClientConnectionRFB::iniConnection(char* host,int port){
+ConnectionError ClientConnectionRFB::iniConnection(char* host,int port,char* pass,int picture_quality,int compress){
 	if(DEBUG)
 		LOGE("JNI Iniciando conexion");
 
@@ -96,12 +96,15 @@ ConnectionError ClientConnectionRFB::iniConnection(char* host,int port){
 
 	clientRFB->programName = "VNC++";
 
-	//clientRFB->FinishedFrameBufferUpdate
+	HandlerRFB::setPass(pass);
+
+	clientRFB->FinishedFrameBufferUpdate = HandlerRFB::finishUpdate;
 	clientRFB->GetPassword = HandlerRFB::getPass;
-	/*clientRFB->appData.qualityLevel = 7;
-	clientRFB->appData.compressLevel = 5;
-	clientRFB->appData.useRemoteCursor = true;
-	clientRFB->appData.useBGR233 = true;*/
+
+	clientRFB->appData.qualityLevel = picture_quality;
+	clientRFB->appData.compressLevel = compress;
+	//clientRFB->appData.useRemoteCursor = true;
+
 
 	clientRFB->MallocFrameBuffer=HandlerRFB::iniFrameBuffer;
 	clientRFB->canHandleNewFBSize = TRUE;
@@ -235,6 +238,12 @@ void* ClientConnectionRFB::eventLoop(void *This){
  */
 void ClientConnectionRFB::stopConnection(){
 	stop_connection = true;
+}
+void ClientConnectionRFB::hideMouse(){
+	clientRFB->appData.useRemoteCursor = true;
+}
+void ClientConnectionRFB::showMouse(){
+	clientRFB->appData.useRemoteCursor = false;
 }
 bool ClientConnectionRFB::sendMouseEvent(int x,int y,MouseEvent event){
 	bool ok;
