@@ -129,10 +129,11 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
         
         
         runTimerConnection();
-        iniConnection(info.getString("ip"), info.getString("port"));
+        boolean wifi = info.getBoolean("wifi");
+        iniConnection(info.getString("ip"), info.getString("port"),info.getString("psw"),info.getString("color"),info.getBoolean("wifi"));
 		
 		//TODO en info tienes la psw,color,wifi(true o false)...las sacas con los get
-        boolean wifi = info.getBoolean("wifi");
+        
 		
 		GestureListener gestureListener =  new GestureListener();
 		gesture = new GestureDetector(gestureListener);
@@ -199,7 +200,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			}
 		}).start();
 	}
-	private void iniConnection(final String host,final String port){
+	private void iniConnection(final String host,final String port,final String pass, final String quality,final Boolean compress){
 		vnc = new VncBridgeJNI();
 		vnc.addObserver(this);
 		//ConnectionError error = vnc.startConnect(info.getString("ip"),Integer.parseInt(info.getString("port")));
@@ -209,7 +210,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 				
 			@Override
 			public void run() {
-				ConnectionError error = vnc.startConnect(host,Integer.parseInt(port));
+				ConnectionError error = vnc.startConnect(host,Integer.parseInt(port),pass,Integer.parseInt(quality),compress);
 					
 				if(error != ConnectionError.ALLOK){
 					waitDialog = true;
