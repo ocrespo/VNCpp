@@ -506,6 +506,13 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		return true;
 	}
 	
+	private void centerImage(){
+		realX = 0;
+		realY = 0;
+		canvas.scrollTo(0,0);
+		scaleFactor = 1;
+		canvas.setScale(scaleFactor,0,0);
+	}
 
 	private class GestureListener implements OnScaleGestureListener,OnGestureListener{
 		private float x;
@@ -956,8 +963,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	
 	//publica porque se llama desde el fragment lateral
 	public void centerImageCanvas(){
-		//TODO Oscar centra imagen
-		Log.i("tag", "en image center");
+		centerImage();
 		menu.toggle();
 	}
 	
