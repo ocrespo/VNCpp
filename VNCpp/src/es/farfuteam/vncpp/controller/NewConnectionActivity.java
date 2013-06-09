@@ -20,11 +20,6 @@
  */
 package es.farfuteam.vncpp.controller;
 
-
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -36,7 +31,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -364,13 +358,7 @@ public class NewConnectionActivity extends FragmentActivity {
 	        PORT = PORT_field.getText().toString();
 	        PSW = PSW_field.getText().toString();
 	        
-	        String md5 ="";
-	        //se encripta password si no es vacia
-	        if (!PSW.equals("")){		        
-		        md5 = md5(PSW);
-	        }
-	        
-	        Connection c = new Connection(connectionName, IP, PORT, md5, false, getColor_format());
+	        Connection c = new Connection(connectionName, IP, PORT, PSW, false, getColor_format());
 	        
 	        //se anade el usuario a la base de datos
 	        ConnectionSQLite dataBase = ConnectionSQLite.getInstance(this);
@@ -385,30 +373,7 @@ public class NewConnectionActivity extends FragmentActivity {
 			showDialog(1);
 		}
 	}
-	
-	
-	
-	private static String md5(String s) { try {
-        
-        // Create MD5 Hash
-        MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
-        digest.update(s.getBytes());
-        byte messageDigest[] = digest.digest();
- 
-         // Create Hex String
-         StringBuffer hexString = new StringBuffer();
-         for (int i=0; i<messageDigest.length; i++)
-             hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
-        return hexString.toString();
- 
-     } catch (NoSuchAlgorithmException e) {
-         e.printStackTrace();
-     }
-     return "";
- 
-    }
-	
-	
+		
 	
 	@Override
 	protected Dialog onCreateDialog(int id) {
