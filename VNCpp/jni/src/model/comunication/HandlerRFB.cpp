@@ -58,10 +58,15 @@ rfbBool HandlerRFB::iniFrameBuffer(rfbClient* client) {
 	return true;
 }
 void HandlerRFB::setPass(char *aux_pass){
-	pass = (char*)malloc(250*sizeof(char));
-	pass = strcpy(pass,aux_pass);
+	if(aux_pass != NULL){
+		pass = (char*)malloc(250*sizeof(char));
+		pass = strcpy(pass,aux_pass);
+	}
 }
 char* HandlerRFB::getPass(rfbClient* client){
+	if(pass == NULL){
+		return strdup("");
+	}
 	return strdup(pass);
 }
 
