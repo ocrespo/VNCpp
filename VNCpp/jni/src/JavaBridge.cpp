@@ -48,8 +48,6 @@ JNIEXPORT void JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_iniJNI(JNIEnv*
 JNIEXPORT jint JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_iniConnect(JNIEnv* env,jobject javaThis,jstring host_java,jint port_java,jstring pass_java,jint quality_java,jint conpress_java){
 
 	int port;
-	char* host;
-	char* pass;
 	int quality;
 	int compress;
 
@@ -57,10 +55,11 @@ JNIEXPORT jint JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_iniConnect(JNI
 	const char* aux_pass= env->GetStringUTFChars(pass_java,0);
 	port = port_java;
 
+
 	quality = quality_java;
 	compress = conpress_java;
 
-	ConnectionError error = vnc->iniConnection((char*)aux_host,port,pass,quality,compress);
+	ConnectionError error = vnc->iniConnection((char*)aux_host,port,(char*)aux_pass,quality,compress);
 
 
 	if(DEBUG)

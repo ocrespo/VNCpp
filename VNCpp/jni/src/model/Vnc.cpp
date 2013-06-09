@@ -42,6 +42,7 @@ Vnc::~Vnc() {
 	if(DEBUG){
 		LOGE("Limpiando vnc");
 	}
+	HandlerRFB::freePass();
 	delete rfb;
 	delete screen;
 }
