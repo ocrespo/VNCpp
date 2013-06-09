@@ -24,8 +24,7 @@
     	</LinearLayout>
        
        <TextView android:id="@+id/nameConnection"
-        android:layout_toRightOf="@+id/checkFav"
-        android:layout_width="wrap_content"
+   	    android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
     	android:layout_centerHorizontal="true"
