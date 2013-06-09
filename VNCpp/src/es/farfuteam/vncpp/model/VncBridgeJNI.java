@@ -174,6 +174,4 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 	public void sendKey(int key){
 		keyEvent(key);
 	}
-		
-	
 }

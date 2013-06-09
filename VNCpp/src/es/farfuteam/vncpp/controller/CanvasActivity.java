@@ -68,6 +68,8 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	private static final int VELOCITY_MOD = 30;
 	
 	private static final int timerConnection = 30000;
+	
+	private static final int timerScroll = 500;
 
 	private VncBridgeJNI vnc;
 	private CanvasView canvas;
@@ -147,7 +149,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 				while(drag || oneLoopMore){
 					oneLoopMore = false;
 					try {
-						Thread.sleep(1000);
+						Thread.sleep(timerScroll);
 					} catch (InterruptedException e) {
 						// Auto-generated catch block
 	
@@ -215,7 +217,6 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 				if(error != ConnectionError.ALLOK){
 					waitDialog = true;
 						
-					
 					activityThis.runOnUiThread(new Runnable() {
 						
 						@Override
@@ -393,9 +394,11 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	@Override
 	public void updateRedraw(int x,int y,int width,int height) {
 		canvas.reDraw();
-		canvas.postInvalidate();
-		if (canvas.getRealWidth() == x+width && canvas.getRealHeight() == y+height){
+		if(!progressDialog.isShowing())
+			canvas.postInvalidate();
+		if(progressDialog.isShowing() && canvas.getRealWidth() == x+width && canvas.getRealHeight() == y+height){
 			progressDialog.dismiss(); 
+			canvas.postInvalidate();
 		}
 	}
 	
@@ -969,8 +972,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	
 	//publica porque se llama desde el fragment lateral
 	public void hideMouse(){
-		//TODO Oscar ocultar raton
-		Log.i("tag", "en mouse hide");
+		//TODO BORRAR
 		menu.toggle();
 	}
 	
