@@ -53,6 +53,8 @@ public:
 
 	bool sendMouseEvent(int x,int y,MouseEvent event);
 	bool sendKeyEvent(int key);
+
+	void hideMouse(bool hide);
 };
 
 #endif /* VNC_H_ */

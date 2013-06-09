@@ -80,4 +80,11 @@ bool Vnc::sendMouseEvent(int x,int y,MouseEvent event){
 bool Vnc::sendKeyEvent(int key){
 	return rfb->sendKeyEvent(key);
 }
-
+void Vnc::hideMouse(bool hide){
+	if(hide){
+		rfb->hideMouse();
+	}
+	else{
+		rfb->showMouse();
+	}
+}
