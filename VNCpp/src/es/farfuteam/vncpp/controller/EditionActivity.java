@@ -20,9 +20,6 @@
  */
 package es.farfuteam.vncpp.controller;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -125,11 +122,7 @@ public class EditionActivity extends Activity{
 		        	 returnIntent.putExtra("newIP",IP_field.getText().toString());
 		        	 returnIntent.putExtra("newPORT",PORT_field.getText().toString());
 		        	 String psw = PSW_field.getText().toString();
-		        	 String md5="";
-		        	 if (!psw.equals("")){
-		        		 md5 = md5(psw);
-		        	 }
-		        	 returnIntent.putExtra("newPSW",md5);
+		        	 returnIntent.putExtra("newPSW",psw);
 		        	 returnIntent.putExtra("newColor", color_format);
 		        	 setResult(RESULT_OK,returnIntent);     
 		        	 finish();
@@ -212,29 +205,6 @@ public class EditionActivity extends Activity{
 		
 		return true;
 	}
-	
-	
-	private static String md5(String s) { 
-		
-	 try {
-        
-        // Create MD5 Hash
-        MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
-        digest.update(s.getBytes());
-        byte messageDigest[] = digest.digest();
- 
-         // Create Hex String
-         StringBuffer hexString = new StringBuffer();
-         for (int i=0; i<messageDigest.length; i++)
-             hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
-        return hexString.toString();
- 
-     } catch (NoSuchAlgorithmException e) {
-         e.printStackTrace();
-     }
-     return "";
- 
-    }
 	
 	
 	@Override
