@@ -118,11 +118,13 @@ ConnectionError ClientConnectionRFB::iniConnection(char* host,int port,char* pas
 
 	if(!rfbInitClient(clientRFB,0,NULL)){
 		error_connect = NoServerFound;
-		LOGE("No server found");
+		if(DEBUG)
+			LOGE("No server found");
 		clientRFB = NULL;
 	}
 	else if( !clientRFB->frameBuffer){
-		LOGE("No Frame Found");
+		if(DEBUG)
+			LOGE("No Frame Found");
 		error_connect = NoFrameFound;
 		cleanRfb();
 
@@ -137,7 +139,8 @@ ConnectionError ClientConnectionRFB::iniConnection(char* host,int port,char* pas
 
 	error_thread = pthread_create(&mainThreadId,NULL,eventLoop,this);
 	if(error_thread){
-		LOGE("Error create thread");
+		if(DEBUG)
+			LOGE("Error create thread");
 		error_connect = errorCreateThread;
 	}
 

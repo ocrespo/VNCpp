@@ -25,7 +25,7 @@
  * @def DEBUG
  * @brief Indica si se esta en modo debug para mostrar los logs o no.
  */
-#define DEBUG 1
+#define DEBUG 0
 
 /**
  * @def LOG_TAG
