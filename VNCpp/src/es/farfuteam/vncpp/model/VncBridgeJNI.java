@@ -70,9 +70,10 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 		
 	}
 
-	public ConnectionError startConnect(String host,int port,String pass,int quality,boolean wifi){
+	public ConnectionError startConnect(String host,int port,String pass,String quality,boolean wifi){
 
 		iniJNI();
+		
 		
 		int compress;
 		if(wifi){
@@ -81,8 +82,23 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 		else{
 			compress = 5;
 		}
+		
+		int aux_quality;
+		if(quality.equals("Super-alta")){
+			aux_quality = 9;
+		}
+		else if(quality.equals("Alta")){
+			aux_quality = 7;
+		}
+		else if(quality.equals("Media")){
+			aux_quality = 5;
+		}
+		else{
+			aux_quality = 2;
+		}
+		
 
-		int int_error = iniConnect(host, port,pass,quality,compress);
+		int int_error = iniConnect(host, port,pass,aux_quality,compress);
 		ConnectionError error= ConnectionError.values()[int_error];
 		
 		if(error != ConnectionError.ALLOK){

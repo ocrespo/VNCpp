@@ -129,7 +129,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
         
         
         runTimerConnection();
-        boolean wifi = info.getBoolean("wifi");
+        
         iniConnection(info.getString("ip"), info.getString("port"),info.getString("psw"),info.getString("color"),info.getBoolean("wifi"));
 		
 		//TODO en info tienes la psw,color,wifi(true o false)...las sacas con los get
@@ -210,7 +210,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 				
 			@Override
 			public void run() {
-				ConnectionError error = vnc.startConnect(host,Integer.parseInt(port),pass,Integer.parseInt(quality),compress);
+				ConnectionError error = vnc.startConnect(host,Integer.parseInt(port),pass,quality,compress);
 					
 				if(error != ConnectionError.ALLOK){
 					waitDialog = true;
