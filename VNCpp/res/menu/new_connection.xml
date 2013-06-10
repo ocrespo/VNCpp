@@ -16,7 +16,7 @@
         <menu>
             <item android:id="@+id/configuration"
                   android:title="@string/configuration"
-                  android:icon="@drawable/howto_image" />
+                  android:icon="@drawable/icon_configuration" />
             <item android:id="@+id/howto"
                   android:title="@string/howto"
                   android:icon="@drawable/howto_image" />
