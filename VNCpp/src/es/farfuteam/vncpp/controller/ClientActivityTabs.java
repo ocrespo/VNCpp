@@ -27,7 +27,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -42,11 +41,11 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.Toast;
+import es.farfuteam.vncpp.controller.NewConnectionActivity.QualityArray;
 import es.farfuteam.vncpp.model.sql.Connection;
 import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
 import es.farfuteam.vncpp.view.Adapter;
 import es.farfuteam.vncpp.view.ConfigurationMenu;
-import es.farfuteam.vncpp.view.ConfigurationMenu2;
 import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
 
 
@@ -134,7 +133,10 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 	            int currentTabIndex = savedInstanceState.getInt("tab_index");
 	            actionBar.setSelectedNavigationItem(currentTabIndex);
 	        }
-	        	        
+	        
+	        //nombre en la activity bar
+	        final String title = getString(R.string.connections);
+	        setTitle(title);
 			       
 	}
 	
@@ -253,17 +255,16 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 			         String ip=data.getStringExtra("newIP");
 			         String port=data.getStringExtra("newPORT");
 			         String psw=data.getStringExtra("newPSW");
-			         String color=data.getStringExtra("newColor");
+			         int color=data.getIntExtra("newColor",0);
 			         
 			         ConnectionSQLite admin = ConnectionSQLite.getInstance(this);
 			         
 			        //seteo valores nuevos
 			        ((Connection) getO()).setIP(ip);
 			        ((Connection) getO()).setPORT(port);
-			        //la pass viene ya encriptada
 			        ((Connection) getO()).setPsw(psw);
 			        ((Connection) getO()).setFav(false);
-			        ((Connection) getO()).setColorFormat(color);
+			        ((Connection) getO()).setColorFormat(QualityArray.values()[color]);
 			        
 			        admin.updateUser((Connection) getO());        
         			        
@@ -368,7 +369,7 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 	        String ip = ((Connection) getO()).getIP();
 	        String port = ((Connection) getO()).getPORT();
 	        String psw = ((Connection) getO()).getPsw();
-	        String color = ((Connection) getO()).getColorFormat();
+	        QualityArray color = ((Connection) getO()).getColorFormat();
 			
 	        canvasActivity.putExtra("ip", ip );
 			canvasActivity.putExtra("port", port);

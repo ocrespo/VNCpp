@@ -20,6 +20,8 @@
  */
 package es.farfuteam.vncpp.model.sql;
 
+import es.farfuteam.vncpp.controller.NewConnectionActivity.QualityArray;
+
 public class Connection {
 	
 	private String name;
@@ -27,7 +29,7 @@ public class Connection {
 	private String PORT;
 	private String psw;
 	private boolean fav;
-	private String ColorFormat;
+	private QualityArray ColorFormat;
 	
 	
 	public Connection(){
@@ -40,7 +42,7 @@ public class Connection {
 	}
 	
 	
-	public Connection(String name, String IP, String PORT,String psw, boolean fav, String ColorFormat){
+	public Connection(String name, String IP, String PORT,String psw, boolean fav, QualityArray ColorFormat){
 		this.setName(name);
 		this.setIP(IP);
 		this.setPORT(PORT);
@@ -96,12 +98,12 @@ public class Connection {
 	}
 
 
-	public String getColorFormat() {
+	public QualityArray getColorFormat() {
 		return ColorFormat;
 	}
 
 
-	public void setColorFormat(String colorFormat) {
+	public void setColorFormat(QualityArray colorFormat) {
 		ColorFormat = colorFormat;
 	}
 	

@@ -92,14 +92,13 @@
 	<string name="special_keys_title">Special keys</string>
 	<string name="function_keys_title">Function keys</string>
 	<string name="combo_keys_title">Combo keys</string>
-	<string name="hide_mouse">Hide mouse</string>
 	<string name="password_title">Password needed</string>
 	<string name="password_dialog">The server need a password to connect</string>
 	
-	<!-- TOGGLE MESSAGE -->
-	<string name="rememberyes">Ask on exit</string>
-	<string name="rememberno">No ask on exit</string>
-	<string name="hideyes">Hide mouse cursor</string>
-	<string name="hideno">No hide</string>
+	<!-- SWITCH MESSAGE -->
+	<string name="hide_mouse">Hide mouse</string>
+	<string name="remember_exit">Remember exit</string>
+	<string name="yes">Yes</string>
+	<string name="no">No</string>
 
 </resources>

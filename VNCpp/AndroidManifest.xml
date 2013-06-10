@@ -25,7 +25,7 @@
         
         <activity
             android:name="es.farfuteam.vncpp.controller.ClientActivityTabs"
-            android:label="@string/connections" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

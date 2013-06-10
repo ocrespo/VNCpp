@@ -70,6 +70,9 @@ import es.farfuteam.vncpp.view.SlideListFragment;
 
 public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	
+	public enum EnumDialogs{createServerNotFoundDialog,exitDialog ,serverInterruptConexionDialog,
+							comboEventsDialog};
+	//TODO dialogsEnum
 	//etiqueta debug
 	private static final String DEBUG_TAG = "CanvasActivity";
 	

@@ -31,6 +31,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -57,6 +58,8 @@ import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
  */
 public class NewConnectionActivity extends FragmentActivity {
 	
+	public enum QualityArray{SuperHigh,High,Medium,Low};
+	
 	private EditText ConnectionName_field;
 	private EditText IP_field;
 	private EditText PORT_field;
@@ -70,7 +73,9 @@ public class NewConnectionActivity extends FragmentActivity {
 	
 	private Spinner Spinner_colors;
 	//formato de color seleccionado
-	private String color_format;
+	private QualityArray color_format;
+	
+	
 
    
 	@Override
@@ -103,19 +108,22 @@ public class NewConnectionActivity extends FragmentActivity {
 		Spinner_colors.setAdapter(adapter);
 		
 		final String[] colors = getResources().getStringArray(R.array.color_array);
-		
+		Log.i("tag",colors[0]);
+		Log.i("tag",colors[1]);
+		Log.i("tag",colors[2]);
 		
 		Spinner_colors.setOnItemSelectedListener(
 		        new AdapterView.OnItemSelectedListener() {
 		        public void onItemSelected(AdapterView<?> parent,
 		            android.view.View v, int position, long id) {
 		                
-		                setColor_format(colors[position]);
+		                //setColor_format(colors[position]);
+		                setColor_format(getPosEnumQuality(position));
 		        }
 		 
 		        public void onNothingSelected(AdapterView<?> parent) {
 		        	//por defecto se selecciona la posicion 0, 24-bit color(extra-high)
-		        	setColor_format(colors[0]);
+		        	setColor_format(QualityArray.SuperHigh);
 		        }
 		});
 		
@@ -162,6 +170,24 @@ public class NewConnectionActivity extends FragmentActivity {
         
 	}
 	
+	private QualityArray getPosEnumQuality(int pos){
+		
+		switch (pos) {
+		
+			case 0:
+				return QualityArray.SuperHigh;
+			case 1:
+				return QualityArray.High;
+			case 2:
+				return QualityArray.Medium;
+			case 3:
+				return QualityArray.Low;
+			default:
+				break;
+		
+		}
+		return null;
+	}
 	
 	private void iniCanvasActivity(){
 		
@@ -512,11 +538,11 @@ public class NewConnectionActivity extends FragmentActivity {
 		PORT = pORT;
 	}
 
-	public String getColor_format() {
+	public QualityArray getColor_format() {
 		return color_format;
 	}
 
-	public void setColor_format(String color_format) {
+	public void setColor_format(QualityArray color_format) {
 		this.color_format = color_format;
 	}
 

@@ -47,7 +47,7 @@ public class EditionActivity extends Activity{
 	private String PORT;
 	private String PSW;
 	private Spinner Spinner_colors;
-	private String color_format;
+	private int color_format;
 
 
 	@Override
@@ -66,6 +66,7 @@ public class EditionActivity extends Activity{
 	      String ip = bundle.getString("IP");	      
 	      String port = bundle.getString("PORT");
 	      String psw = bundle.getString("PSW");
+
 
 		TextView text = (TextView) findViewById(R.id.editTextViewName);
 		text.setText("Modifica conexión "+name);
@@ -103,12 +104,12 @@ public class EditionActivity extends Activity{
 				        public void onItemSelected(AdapterView<?> parent,
 				            android.view.View v, int position, long id) {
 				                
-				                color_format = colors[position];
+				                color_format = position;
 				        }
 				 
 				        public void onNothingSelected(AdapterView<?> parent) {
 				        	//por defecto se selecciona la posicion 0, 24-bit color
-				        	color_format = colors[0];
+				        	color_format = 0;
 				        }
 				});
 		
