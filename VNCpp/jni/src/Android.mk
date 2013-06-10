@@ -99,9 +99,6 @@ LOCAL_MODULE:= vncclient
 LOCAL_SRC_FILES:= $(LIB_PATH)/libvncclient.a 
 LOCAL_EXPORT_C_INCLUDES := \
 	  	$(INCLUDE_PATH)\
-		$(INCLUDE_PATH)/libvncclient \
-		$(INCLUDE_PATH)/common \
-		#$(INCLUDE_PATH)/lib #$(INCLUDE_PATH)/SDL
 LOCAL_SHARED_LIBRARIES := 
 include $(PREBUILT_STATIC_LIBRARY)
 
@@ -109,13 +106,7 @@ include $(PREBUILT_STATIC_LIBRARY)
 #############################FILE SRC########################################################
 #############################################################################################
 
-#include $(CLEAR_VARS)
-#LOCAL_LDLIBS := 
-#LOCAL_MODULE:= ClientConnectionRFB 
-#LOCAL_SRC_FILES:= nativesrc/comunication/ClientConnectionRFB.h nativesrc/comunication/ClientConnectionRFB.cpp
-#LOCAL_EXPORT_C_INCLUDES := 
-#LOCAL_SHARED_LIBRARIES := 
-#include $(BUILD_SHARED_LIBRARY)
+
 
 include $(CLEAR_VARS)
 
