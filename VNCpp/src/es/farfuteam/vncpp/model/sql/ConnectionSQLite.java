@@ -23,6 +23,8 @@ package es.farfuteam.vncpp.model.sql;
 
 import java.util.ArrayList;
 
+import es.farfuteam.vncpp.controller.NewConnectionActivity.QualityArray;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -116,7 +118,7 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
         values.put(KEY_PORT, u.getPORT());
         values.put(KEY_PSW, u.getPsw());
         values.put(KEY_FAV, u.isFav());//se crea sin ser favorito
-        values.put(KEY_COLOR, u.getColorFormat());
+        values.put(KEY_COLOR, u.getColorFormat().toString());
         
         // Inserting Row
         db.insert(TABLE_CONNECTIONS, null, values);
@@ -142,15 +144,26 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
           
           boolean favs = getBooleanFav(cursor.getInt(4));
           
+          QualityArray q = getQuality(cursor.getString(5));
+          
           Connection u = new Connection(cursor.getString(0),
                   cursor.getString(1), cursor.getString(2),cursor.getString(3),
-                  favs,cursor.getString(5));
+                  favs,q);
 
           db.close();
 
           return u;
 
       }
+      
+      private QualityArray getQuality(String quality){
+    	QualityArray q;
+    	//TODO COSA
+    	
+		return null;
+    	  
+      }
+      
       private boolean getBooleanFav(int value){
     	 if(value == 1){
     		 return true;
@@ -184,7 +197,8 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
                   user.setPORT(cursor.getString(2));
                   user.setPsw(cursor.getString(3));
                   user.setFav(favs);
-                  user.setColorFormat(cursor.getString(5));
+                  //TODO
+                  //user.setColorFormat(cursor.getString(5));
                   // Adding users to list
                   userList.add(user);
               } while (cursor.moveToNext());
@@ -220,7 +234,8 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
                   user.setPORT(cursor.getString(2));
                   user.setPsw(cursor.getString(3));
                   user.setFav(favs);
-                  user.setColorFormat(cursor.getString(5));
+                  //TODO
+                  //user.setColorFormat(cursor.getString(5));
                   // Adding users to list if is favorite
                   if (user.isFav())
                 	  userList.add(user);
@@ -248,7 +263,8 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
           values.put(KEY_PORT, user.getPORT());
           values.put(KEY_PSW, user.getPsw());
           values.put(KEY_FAV, user.isFav());
-          values.put(KEY_COLOR, user.getColorFormat());
+          //TODO
+          //values.put(KEY_COLOR, user.getColorFormat());
             
           // updating row 
           db.update(TABLE_CONNECTIONS, values, KEY_NAME + " = ?",
