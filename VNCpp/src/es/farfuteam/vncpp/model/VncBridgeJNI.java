@@ -37,7 +37,7 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 	public enum ConnectionError{ALLOK,NoServerFound ,NoFrameFound,errorCreateThread};
 	public enum MouseEvent{Click ,RightClick};
 	
-	private native int iniConnect(String host,int port,String pass,int quality,int compress);
+	private native int iniConnect(String host,int port,String pass,int quality,int compress,boolean hideMouse);
 	private native void closeConnection();
 	private native void finish();
 	private native void iniJNI();
@@ -70,7 +70,7 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 		
 	}
 
-	public ConnectionError startConnect(String host,int port,String pass,String quality,boolean wifi){
+	public ConnectionError startConnect(String host,int port,String pass,String quality,boolean wifi,boolean hideMouse){
 
 		iniJNI();
 		
@@ -98,7 +98,7 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 		}
 		
 
-		int int_error = iniConnect(host, port,pass,aux_quality,compress);
+		int int_error = iniConnect(host, port,pass,aux_quality,compress,hideMouse);
 		ConnectionError error= ConnectionError.values()[int_error];
 		
 		if(error != ConnectionError.ALLOK){

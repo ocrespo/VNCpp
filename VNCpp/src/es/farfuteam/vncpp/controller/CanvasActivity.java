@@ -214,7 +214,8 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 				
 			@Override
 			public void run() {
-				ConnectionError error = vnc.startConnect(host,Integer.parseInt(port),pass,quality,compress);
+				//TODO Coger hideMouse
+				ConnectionError error = vnc.startConnect(host,Integer.parseInt(port),pass,quality,compress,true);
 					
 				if(error != ConnectionError.ALLOK){
 					waitDialog = true;
