@@ -365,7 +365,7 @@ public class NewConnectionActivity extends FragmentActivity {
 	        dataBase.newUser(c);
 	        	        
 	        //a formar canvas
-	        iniCanvasActivity();
+	        //iniCanvasActivity();
 
 		}
 		else{

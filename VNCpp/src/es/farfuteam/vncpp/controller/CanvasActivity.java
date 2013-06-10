@@ -29,9 +29,11 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.MotionEventCompat;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
@@ -40,10 +42,16 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.ScaleGestureDetector.OnScaleGestureListener;
+import android.view.View;
+import android.view.View.MeasureSpec;
+import android.view.ViewGroup.LayoutParams;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.Scroller;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
@@ -102,9 +110,14 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	
 	private int modKeyCount = 0;
 	
+	private InputMethodManager inputMgr ;
+	
+	private boolean showKeyboard = false;
+	
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
+	
 	}
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -116,6 +129,12 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		
 		setContentView(R.layout.canvas);
 		canvas = (CanvasView)findViewById(R.id.vnc_canvas);		
+		
+		DisplayMetrics displayMetrics = new DisplayMetrics();
+		
+		
+		canvas.measure(MeasureSpec.makeMeasureSpec((displayMetrics.widthPixels), MeasureSpec.AT_MOST),MeasureSpec.makeMeasureSpec(displayMetrics.heightPixels, MeasureSpec.AT_MOST));
+		
 		
 		//setBehindContentView(R.layout.activity_main);
 		menu = new SlidingMenu(this);
@@ -138,6 +157,8 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		
 		//TODO en info tienes la psw,color,wifi(true o false)...las sacas con los get
         
+        inputMgr = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+     
 		
 		GestureListener gestureListener =  new GestureListener();
 		gesture = new GestureDetector(gestureListener);
@@ -163,6 +184,18 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 				
 			}
 		};	
+		/*final View activityRootView = findViewById(R.id.aa);
+		activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+			
+			@Override
+			public void onGlobalLayout() {
+				int a = activityRootView.getRootView().getWidth();
+				int b = activityRootView.getWidth();
+				int c =0; t
+				c++;			
+			}
+		} );*/
+
 		
 	}
 	private void runTimerConnection(){
@@ -315,6 +348,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		else if(keyCode == KeyEvent.KEYCODE_MENU){
 			Log.i("tag","en menu del canvas");
 			menu.showMenu();
+			
 			//this.openOptionsMenu();
 		}
 		return true;
@@ -439,8 +473,10 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	
 	//publica porque necesito llamarla desde el fragment slide lateral
 	public void showKeyboard(){
-		InputMethodManager inputMgr = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputMgr.toggleSoftInput(0, 0);
+		//showKeyboard = !showKeyboard;
+        //inputMgr.toggleSoftInput(0, 0);
+        inputMgr.toggleSoftInputFromWindow(canvas.getApplicationWindowToken(), InputMethodManager.SHOW_FORCED, 0);
+        
         menu.toggle();
 	}
 	
@@ -461,6 +497,10 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		float moveY =0;
 		boolean allOkX= true;
 		boolean allOkY= true;
+		int offSetKeyboard =0;
+		
+		/*if(showKeyboard)
+			offSetKeyboard = canvas.getHeight()/2;*/
 		
 		float width = canvas.getWidth() / scaleFactor ;
 		float height = canvas.getHeight() / scaleFactor ;
@@ -469,7 +509,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			moveX = 0;
 			allOkX = false;
 		}
-		if( (realY+height >= canvas.getRealHeight() && distanceY>0) || (realY == 0 && distanceY < 0)|| (canvas.getHeight()/scaleFactor > canvas.getRealHeight() ) ){
+		if( (realY+height >= canvas.getRealHeight()+offSetKeyboard && distanceY>0) || (realY == 0 && distanceY < 0)|| (canvas.getHeight()/scaleFactor > canvas.getRealHeight() ) ){
 			moveY = 0;
 			allOkY = false;
 		}
@@ -486,12 +526,16 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			}
 		}
 		if(allOkY){
-			if(realY+height+distanceY > canvas.getRealHeight() || realY+distanceY < 0){
+			
+			if(inputMgr.isAcceptingText()){
+				//offSetKeyboard = canvas.getRealHeight()/2;
+			}
+			if(realY+height+distanceY > canvas.getRealHeight()+offSetKeyboard || realY+distanceY < 0){
 				if(distanceY < 0){
 					moveY = -realY ;
 				}
 				else{
-					moveY = canvas.getRealHeight() - (realY + height);
+					moveY =( canvas.getRealHeight()+offSetKeyboard) - (realY + height);
 				}
 				allOkY = false;
 			}
