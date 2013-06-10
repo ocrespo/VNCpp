@@ -64,9 +64,9 @@ import es.farfuteam.vncpp.view.SlideListFragment;
  */
 
 public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
-	
+
 	public enum EnumDialogs{createServerNotFoundDialog,exitDialog ,serverInterruptConexionDialog,
-							comboEventsDialog};
+							comboEventsDialog,functionKeysDialog,openHelpDialog,timeExceededDialog,passwordNeededDialog};
 	//TODO dialogsEnum
 	//etiqueta debug
 	private static final String DEBUG_TAG = "CanvasActivity";
@@ -218,7 +218,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 						@Override
 						public void run() {
 							//Ddialogo "Se ha excedido el tiempo de conexion"
-							showDialog(8);
+							showDialog(EnumDialogs.timeExceededDialog.ordinal());
 							
 						}
 					});
@@ -259,7 +259,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 						@Override
 						public void run() {
 						
-							showDialog(1);
+							showDialog(EnumDialogs.createServerNotFoundDialog.ordinal());
 							
 						}
 					});
@@ -320,16 +320,9 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			return true;
 			
 		case R.id.ctrl_events:
-			showDialog(4);
+			showDialog(EnumDialogs.comboEventsDialog.ordinal());
 			return true;
-			
-		case R.id.send_text:
-			showDialog(7);
-			return true;
-			
-		case R.id.center_image:
-			showDialog(5);
-			return true;
+			//TODO POR SI GORKA ES RETRASADO MENTAL
 			
 		case R.id.help_down:
 			return true;
@@ -343,7 +336,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		if(keyCode == KeyEvent.KEYCODE_BACK){
 			if(vnc != null){
 				//Dialog pregunta salir
-				showDialog(2);
+				showDialog(EnumDialogs.exitDialog.ordinal());
 			}
 		}
 		else if(keyCode == KeyEvent.KEYCODE_MENU){
@@ -464,7 +457,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			@Override
 			public void run() {
 			
-				showDialog(3);
+				showDialog(EnumDialogs.serverInterruptConexionDialog.ordinal());
 				
 			}
 		});
@@ -744,44 +737,40 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	 
 	    switch(id)
 	    {
-	        case 1:
+	        case 0:
 	            dialog = createServerNotFoundDialog();
 	            
 	            break;
-	        case 2:
+	        case 1:
 	            dialog = exitDialog();
 	            break;
 	            
-	        case 3:
+	        case 2:
 	        	dialog = serverInterruptConexionDialog();
 	        	break;
 	        	
-	        case 4:
+	        case 3:
 	        	dialog = comboEventsDialog();
 	        	menu.toggle();
 	        	break;
 	        	
-	        case 5:
+	        case 4:
 	        	dialog = functionKeysDialog();
 	        	menu.toggle();
 	        	break;
 	        	
-	        case 6:	
+	        case 5:	
 	        	dialog = openHelpDialog();
 	        	menu.toggle();
 	        	break;
+
 	        	
-	        case 7:
-	        	dialog = sendTextDialog();
-	        	menu.toggle();
-	        	break;
-	        	
-	        case 8:
+	        case 6:
 	        	dialog = timeExceededDialog();
 	        	break;
 	        	
 	        	//TODO llamada a la peticion de contraseña server showDialog(9) 
-	        case 9:
+	        case 7:
 	        	dialog = passwordNeededDialog();
 	        	break;
 	    }
@@ -971,7 +960,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					//muestra function keys
-					showDialog(5);					
+					showDialog(EnumDialogs.functionKeysDialog.ordinal());					
 				}
 			})
 	    // Set the action buttons
@@ -1027,7 +1016,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	               public void onClick(DialogInterface dialog, int id) {
 	                   //TODO evento con la tecla function escogida
 	            	   //se vuelve a mostrar el dialog del comboKeys
-	            	   showDialog(4);
+	            	   showDialog(EnumDialogs.comboEventsDialog.ordinal());
 	               }
 	           })
 	           .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
