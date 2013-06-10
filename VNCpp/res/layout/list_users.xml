@@ -7,7 +7,6 @@
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
        android:gravity="center"
-       android:layout_margin="10px"
        android:textSize="10pt"/>
 
 	<FrameLayout
@@ -22,11 +21,6 @@
               android:drawSelectorOnTop="false" 
               android:listSelector="@drawable/list_selector" />    
 
-       <TextView
-              android:id="@+id/empty"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:text="@string/emptyUsers" />
 
 	</FrameLayout>
 

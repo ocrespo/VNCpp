@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,7 +88,7 @@ public class Adapter extends BaseAdapter {
 	              @Override
 				public void onCheckedChanged(CompoundButton buttonView,
 	                                                  boolean isChecked) {
-	                  if (isChecked && !user.isFav()) {
+	                  if (isChecked){// && !user.isFav()) {
 	                	  iconFav.setButtonDrawable(R.drawable.star_ful);
 	                	  user.setFav(true);
 	                	  
@@ -109,6 +110,7 @@ public class Adapter extends BaseAdapter {
 	       //para mantener el estado cuando rota
 		    if (user.isFav()){
 		    	iconFav.setButtonDrawable(R.drawable.star_ful);
+		    	iconFav.setChecked(true);
 		    }
 		    else{
 		    	iconFav.setButtonDrawable(R.drawable.star_emp);
@@ -126,6 +128,7 @@ public class Adapter extends BaseAdapter {
 		    return vi;
 		
 	}	
+		
 	
     public void deleteRow(Connection row) {
         

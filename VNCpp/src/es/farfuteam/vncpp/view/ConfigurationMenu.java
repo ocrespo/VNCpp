@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Switch;
 import android.widget.ToggleButton;
 import es.farfuteam.vncpp.controller.R;
 
@@ -39,10 +40,10 @@ public class ConfigurationMenu extends Activity{
 		
 		
 		View checkBoxOut = View.inflate(this, R.layout.configuration, null);
-		ToggleButton checkBox = (ToggleButton) checkBoxOut.findViewById(R.id.checkbox_remember);
+		Switch checkBox = (Switch) checkBoxOut.findViewById(R.id.checkbox_remember);
 
 		
-		ToggleButton checkBoxHide = (ToggleButton) checkBoxOut.findViewById(R.id.checkbox_hidemouse);
+		Switch checkBoxHide = (Switch) checkBoxOut.findViewById(R.id.checkbox_hidemouse);
 		
 		final String decision = getString(R.string.RememberCheckBox);
 		
@@ -82,7 +83,7 @@ public class ConfigurationMenu extends Activity{
 	//menu llamado al haber evento sobre el checkbox de la activity
 			public void onToggleClicked(View view) {
 		 
-				boolean checked = ((ToggleButton) view).isChecked();
+				boolean checked = ((Switch) view).isChecked();
 			    // Check which checkbox was clicked
 			    switch(view.getId()) {
 			        case R.id.checkbox_remember:
