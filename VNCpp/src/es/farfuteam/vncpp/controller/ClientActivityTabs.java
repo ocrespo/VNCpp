@@ -45,7 +45,6 @@ import es.farfuteam.vncpp.controller.NewConnectionActivity.QualityArray;
 import es.farfuteam.vncpp.model.sql.Connection;
 import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
 import es.farfuteam.vncpp.view.Adapter;
-import es.farfuteam.vncpp.view.ConfigurationMenu;
 import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
 
 
@@ -120,13 +119,10 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 	        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 	        
 	        //accedemos a fichero preferencias
-	        /*setPrefs(getSharedPreferences("PreferencesFile",Context.MODE_PRIVATE));
+	        (Configuration.getInstance()).setPrefs( getSharedPreferences("PreferencesFile",Context.MODE_PRIVATE));
+	       
 	        
-	        //false es el valor por defecto si no se encuentra la etiqueta exit
-	        setRememberExit(getPrefs().getBoolean("exit", false));
-	        setHideCursor(getPrefs().getBoolean("hidecursor", false));*/
-	        //SharedPreferences pref = getSharedPreferences("PreferencesFile",Context.MODE_PRIVATE);
-	        //ConfigurationMenu2.getInstance().setPrefs(pref);
+	        (Configuration.getInstance()).readPrefs();
 	        
 	        // Orientation Change Occurred
 	        if(savedInstanceState!=null){
@@ -408,10 +404,10 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 		public boolean onKeyDown(int keyCode, KeyEvent event) {
 		   
 		  if (keyCode == KeyEvent.KEYCODE_BACK) {
-			  //ConfigurationMenu.getInstance().setRememberExit(true);
-			  Log.i("tag","averr "+ConfigurationMenu.getInstance().isRememberExit());
+			  //(ConfigurationMenu.getInstance()).setRememberExit(true);
+			  Log.i("tag","averr "+(Configuration.getInstance()).isRememberExit());
 			//si en las preferencias esta a true, se sale sin preguntar
-			if (ConfigurationMenu.getInstance().isRememberExit()){
+			if ((Configuration.getInstance()).isRememberExit()){
 				
 				finish();
 			}
@@ -429,7 +425,7 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 				    	/*SharedPreferences.Editor editor = getPrefs().edit();
 				    	editor.putBoolean("exit", true);
 				    	editor.commit();*/
-				    	ConfigurationMenu.getInstance().setRememberExit(true);
+				    	(Configuration.getInstance()).setRememberExit(true);
 				    	
 				    }
 				});
