@@ -84,7 +84,7 @@ ClientConnectionRFB::~ClientConnectionRFB() {
  * @param port Puerto por el que se realizara la conexion.
  * @return devuelve si la conexion tuvo exito, mediante el enum ConnectionError.
  */
-ConnectionError ClientConnectionRFB::iniConnection(char* host,int port,char* pass,int picture_quality,int compress){
+ConnectionError ClientConnectionRFB::iniConnection(char* host,int port,char* pass,int picture_quality,int compress,bool hide_mouse){
 	if(DEBUG)
 		LOGE("JNI Iniciando conexion");
 
@@ -102,7 +102,7 @@ ConnectionError ClientConnectionRFB::iniConnection(char* host,int port,char* pas
 
 	clientRFB->appData.qualityLevel = picture_quality;
 	clientRFB->appData.compressLevel = compress;
-	//clientRFB->appData.useRemoteCursor = true;
+	clientRFB->appData.useRemoteCursor = hide_mouse;
 	//clientRFB->appData.useRemoteCursor = false;
 
 	clientRFB->MallocFrameBuffer=HandlerRFB::iniFrameBuffer;
@@ -240,12 +240,6 @@ void* ClientConnectionRFB::eventLoop(void *This){
  */
 void ClientConnectionRFB::stopConnection(){
 	stop_connection = true;
-}
-void ClientConnectionRFB::hideMouse(){
-	clientRFB->appData.useRemoteCursor = true;
-}
-void ClientConnectionRFB::showMouse(){
-	clientRFB->appData.useRemoteCursor = false;
 }
 bool ClientConnectionRFB::sendMouseEvent(int x,int y,MouseEvent event){
 	bool ok;

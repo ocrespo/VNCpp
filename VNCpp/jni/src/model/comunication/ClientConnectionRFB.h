@@ -56,7 +56,7 @@ public:
 	ClientConnectionRFB();
 	~ClientConnectionRFB();
 
-	ConnectionError iniConnection(char* host,int port,char* pass,int picture_quality,int compress);
+	ConnectionError iniConnection(char* host,int port,char* pass,int picture_quality,int compress,bool hide_mouse);
 	void cleanRfb();
 
 	bool sendMouseEvent(int x,int y,MouseEvent event);
@@ -64,8 +64,6 @@ public:
 
 	void stopConnection();
 
-	void hideMouse();
-	void showMouse();
 };
 
 #endif /* CLIENTCONNECTIONRFB_H_ */

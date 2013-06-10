@@ -52,8 +52,8 @@ Vnc::~Vnc() {
  * @param port el puerto mediante el que se realiza la conexion
  * @return devuelve si la conexion tuvo exito, mediante el enum ConnectionError
  */
-ConnectionError Vnc::iniConnection(char *host,int port,char *pass,int quality,int compress){
-	ConnectionError error = rfb->iniConnection(host,port,pass,quality,compress);
+ConnectionError Vnc::iniConnection(char *host,int port,char *pass,int quality,int compress,bool hide_mouse){
+	ConnectionError error = rfb->iniConnection(host,port,pass,quality,compress,hide_mouse);
 	if(DEBUG)
 		LOGE("Return inicio de conexion");
 	return error;
@@ -80,11 +80,4 @@ bool Vnc::sendMouseEvent(int x,int y,MouseEvent event){
 bool Vnc::sendKeyEvent(int key,bool down){
 	return rfb->sendKeyEvent(key,down);
 }
-void Vnc::hideMouse(bool hide){
-	if(hide){
-		rfb->hideMouse();
-	}
-	else{
-		rfb->showMouse();
-	}
-}
+

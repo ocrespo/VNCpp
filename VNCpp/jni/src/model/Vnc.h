@@ -45,7 +45,7 @@ public:
 	Vnc();
 	virtual ~Vnc();
 
-	ConnectionError iniConnection(char* host,int port,char *pass,int quality,int compress);
+	ConnectionError iniConnection(char* host,int port,char *pass,int quality,int compress,bool hide_mouse);
 	void closeConnection();
 
 	void addObserver(jobject observer,JNIEnv *env);
@@ -54,7 +54,6 @@ public:
 	bool sendMouseEvent(int x,int y,MouseEvent event);
 	bool sendKeyEvent(int key,bool down);
 
-	void hideMouse(bool hide);
 };
 
 #endif /* VNC_H_ */
