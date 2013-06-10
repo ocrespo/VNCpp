@@ -374,7 +374,7 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 	        canvasActivity.putExtra("ip", ip );
 			canvasActivity.putExtra("port", port);
 			canvasActivity.putExtra("psw", psw);
-			canvasActivity.putExtra("color", color);
+			canvasActivity.putExtra("color", color.toString());
 			
 			
 			//Aquí veo el tipo de conexión, para usar un tipo de compresión de imagen u otro

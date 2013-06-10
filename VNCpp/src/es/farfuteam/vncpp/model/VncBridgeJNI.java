@@ -20,6 +20,7 @@
  */
 package es.farfuteam.vncpp.model;
 
+import es.farfuteam.vncpp.controller.NewConnectionActivity.QualityArray;
 import android.os.Debug;
 import android.util.Log;
 
@@ -70,7 +71,7 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 		
 	}
 
-	public ConnectionError startConnect(String host,int port,String pass,String quality,boolean wifi,boolean hideMouse){
+	public ConnectionError startConnect(String host,int port,String pass,QualityArray quality,boolean wifi,boolean hideMouse){
 
 		iniJNI();
 		
@@ -84,13 +85,13 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 		}
 		
 		int aux_quality;
-		if(quality.equals("Super-alta")){
+		if(quality == QualityArray.SuperHigh){
 			aux_quality = 9;
 		}
-		else if(quality.equals("Alta")){
+		else if(quality  == QualityArray.High){
 			aux_quality = 7;
 		}
-		else if(quality.equals("Media")){
+		else if(quality == QualityArray.Medium){
 			aux_quality = 5;
 		}
 		else{

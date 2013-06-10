@@ -29,7 +29,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
-import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.MotionEventCompat;
@@ -42,19 +41,15 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.ScaleGestureDetector.OnScaleGestureListener;
-import android.view.View;
 import android.view.View.MeasureSpec;
-import android.view.ViewGroup.LayoutParams;
-import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.Scroller;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
+import es.farfuteam.vncpp.controller.NewConnectionActivity.QualityArray;
 import es.farfuteam.vncpp.model.ObserverCanvas;
 import es.farfuteam.vncpp.model.VncBridgeJNI;
 import es.farfuteam.vncpp.model.VncBridgeJNI.ConnectionError;
@@ -146,7 +141,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		Bundle info = getIntent().getExtras();		
 		
 		progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Cargando CanvasView...");
+        progressDialog.setTitle("Cargando...");
         progressDialog.setMessage("Cargando imagen del servidor");
         
         
@@ -156,7 +151,10 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
         
         runTimerConnection();
         
-        iniConnection(info.getString("ip"), info.getString("port"),info.getString("psw"),info.getString("color"),info.getBoolean("wifi"));
+        String aux_quality = info.getString("color");
+        QualityArray quality = QualityArray.valueOf(aux_quality);
+        
+        iniConnection(info.getString("ip"), info.getString("port"),info.getString("psw"),quality,info.getBoolean("wifi"));
 		
 		//TODO en info tienes la psw,color,wifi(true o false)...las sacas con los get
         
@@ -240,7 +238,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			}
 		}).start();
 	}
-	private void iniConnection(final String host,final String port,final String pass, final String quality,final Boolean compress){
+	private void iniConnection(final String host,final String port,final String pass, final QualityArray quality,final Boolean compress){
 		vnc = new VncBridgeJNI();
 		vnc.addObserver(this);
 		//ConnectionError error = vnc.startConnect(info.getString("ip"),Integer.parseInt(info.getString("port")));
