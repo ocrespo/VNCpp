@@ -78,6 +78,8 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	private static final int timerConnection = 30000;
 	
 	private static final int timerScroll = 500;
+	
+	private static final int adjustKeys = 17;
 
 	private VncBridgeJNI vnc;
 	private CanvasView canvas;
@@ -99,7 +101,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	private boolean oneLoopMore = false;
 	
 	private Vector<EnumSpecialKey> specialKeys;
-	private Vector<String> functionKeys;
+	private Vector<Integer> keys;
 	
 	
 	private SlidingMenu menu;
@@ -926,7 +928,11 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 					break;
 				
 				}
- 		   Log.e(DEBUG_TAG, s.toString()+" "+ String.valueOf(down));
+ 	   }
+	}
+	private void sendKeys(boolean down){
+		for(int s : keys){
+			vnc.sendKey(s+adjustKeys,down);
  	   }
 	}
 	private Dialog comboEventsDialog() {
@@ -973,7 +979,10 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	               @Override
 	               public void onClick(DialogInterface dialog, int id) {
 	            	   sendSpecialKeys(true);
+	            	   sendKeys(true);
 	            	   Collections.reverse(specialKeys);
+	            	   Collections.reverse(keys);
+	            	   sendKeys(false);
 	            	   sendSpecialKeys(false); 
 	            	   
 	            	   specialKeys = null;
@@ -995,9 +1004,9 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	private Dialog functionKeysDialog() {		   
 
 	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-	   functionKeys = new Vector<String>();  // Where we track the selected items
+	   keys = new Vector<Integer>();  // Where we track the selected items
 	    
-	    final String[] arrayFunctionKey = getResources().getStringArray(R.array.function_keys_array);
+	   // final String[] arrayFunctionKey = getResources().getStringArray(R.array.function_keys_array);
 	     
 	    	    
 	    // Set the dialog title
@@ -1011,10 +1020,10 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	                       boolean isChecked) {
 	                   if (isChecked) {
 	                       // If the user checked the item, add it to the selected items
-	                	   functionKeys.add(arrayFunctionKey[which]);
-	                   } else if (functionKeys.contains(which)) {
+	                	   keys.add(which);
+	                   } else if (keys.contains(Integer.valueOf(which))) {
 	                       // Else, if the item is already in the array, remove it 
-	                	   functionKeys.remove(Integer.valueOf(which));
+	                	   keys.remove(Integer.valueOf(which));
 	                   }
 	               }
 	           }) 
@@ -1031,7 +1040,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	               @Override
 	               public void onClick(DialogInterface dialog, int id) {
 	                   //functionKeys se vacía
-	            	   functionKeys.clear();
+	            	   keys.clear();
 	               }
 	           });
 	    

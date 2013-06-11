@@ -83,8 +83,6 @@ public class Adapter extends BaseAdapter {
 	       final CheckBox iconFav = (CheckBox)vi.findViewById(R.id.checkFav);
 	       iconFav.setTag(user);    	       
 	       
-	       final Adapter thisAdap = this;
-	       
 	       iconFav.setOnCheckedChangeListener(
 	          new CheckBox.OnCheckedChangeListener() {
 	            @Override
