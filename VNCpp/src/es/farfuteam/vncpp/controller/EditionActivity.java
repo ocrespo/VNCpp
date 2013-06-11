@@ -73,7 +73,10 @@ public class EditionActivity extends Activity{
 
 
 		TextView text = (TextView) findViewById(R.id.editTextViewName);
-		text.setText("Modifica conexión "+name);
+		
+		final String modify = getString(R.string.modify_connectiontext);
+		
+		text.setText(modify +" "+name);
 		
 		//Muestro datos anteriores a la ediccion
 		IP_field.setText(ip);

@@ -17,6 +17,7 @@
     <string name="open">Open connection</string>
     <string name="help">Help</string>
     <string name="new_connection">New Connection</string>
+    <string name="modify_connectiontext">Modify connection</string>
     
     <!-- CONTEXT MENU -->
     
@@ -45,7 +46,9 @@
     <string name="DialogInfo">Info</string>
     <string name="DialogTitleExit">Exit</string>
     <string name="DialogQuestion">Are you sure?</string> 
-    <string name="RememberCheckBox">Not ask again</string>  
+    <string name="RememberCheckBox">Not ask again</string> 
+    <string name="loadingtext">Loading...</string> 
+    <string name="loadingbodytext">Loading image from the server</string>
     
     <!-- MENU OPTIONS DIALOG -->
     
