@@ -69,6 +69,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	public enum EnumDialogs{createServerNotFoundDialog,exitDialog ,serverInterruptConexionDialog,
 							comboEventsDialog,functionKeysDialog,openHelpDialog,timeExceededDialog,passwordNeededDialog};
 
+	public enum EnumSpecialKey{ctrl,alt,supr,shift,meta};
 	//etiqueta debug
 	private static final String DEBUG_TAG = "CanvasActivity";
 	
@@ -97,7 +98,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	private boolean zoom = false;
 	private boolean oneLoopMore = false;
 	
-	private Vector<String> specialKeys;
+	private Vector<EnumSpecialKey> specialKeys;
 	private Vector<String> functionKeys;
 	
 	
@@ -773,7 +774,6 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	        	dialog = timeExceededDialog();
 	        	break;
 	        	
-	        	//TODO llamada a la peticion de contraseña server showDialog(9) 
 	        case 7:
 	        	dialog = passwordNeededDialog();
 	        	break;
@@ -902,14 +902,35 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	    
 	    return builder.create();
 	}
-	
+	private void sendSpeacialKeys(boolean down){
+		for(EnumSpecialKey s : specialKeys){
+ 		   switch (s) {
+				case ctrl:
+					vnc.sendKey(1, down);
+					break;
+				case alt:
+					vnc.sendKey(3, down);
+					break;
+				case supr:
+					vnc.sendKey(4, down);
+					break;
+				case shift:
+					vnc.sendKey(2, down);
+					break;
+				case meta:
+					vnc.sendKey(6, down);
+					break;
+				
+				}
+ 	   }
+	}
 	private Dialog comboEventsDialog() {
 	   
-		specialKeys = new Vector<String>();  // Where we track the selected items
+		specialKeys = new Vector<EnumSpecialKey>();  // Where we track the selected items
 	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
 	    
-	    final String[] arraySpecialsKeys = getResources().getStringArray(R.array.keys_array);
-	    
+	    //final String[] arraySpecialsKeys = getResources().getStringArray(R.array.keys_array);
+	
 	    // Set the dialog title
 	    builder.setTitle(R.string.combo_keys_title)
 	    // Specify the list array, the items to be selected by default (null for none),
@@ -921,7 +942,8 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	                       boolean isChecked) {
 	                   if (isChecked) {
 	                       // If the user checked the item, add it to the selected items
-	                	   specialKeys.add(arraySpecialsKeys[which]);
+	                	   EnumSpecialKey aux = EnumSpecialKey.values()[which];
+	                	   specialKeys.add(aux);
 	                   } else if (specialKeys.contains(which)) {
 	                       // Else, if the item is already in the array, remove it 
 	                	   specialKeys.remove(Integer.valueOf(which));
@@ -940,8 +962,8 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	           .setPositiveButton("OK", new DialogInterface.OnClickListener() {
 	               @Override
 	               public void onClick(DialogInterface dialog, int id) {
-	                   //TODO evento al seleccionar ctrl,alt...
-	            	   //las teclas elegidas estan el el vector specialKeys
+	            	   sendSpeacialKeys(true);
+	            	   sendSpeacialKeys(false); 
 	               }
 	           })
 	           .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
@@ -960,7 +982,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	private Dialog functionKeysDialog() {		   
 
 	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-	    functionKeys = new Vector<String>();  // Where we track the selected items
+	   functionKeys = new Vector<String>();  // Where we track the selected items
 	    
 	    final String[] arrayFunctionKey = getResources().getStringArray(R.array.function_keys_array);
 	     
