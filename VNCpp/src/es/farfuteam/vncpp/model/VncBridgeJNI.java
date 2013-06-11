@@ -20,9 +20,9 @@
  */
 package es.farfuteam.vncpp.model;
 
-import es.farfuteam.vncpp.controller.NewConnectionActivity.QualityArray;
 import android.os.Debug;
 import android.util.Log;
+import es.farfuteam.vncpp.controller.NewConnectionActivity.QualityArray;
 
 
 
@@ -183,5 +183,10 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 	}
 	public void sendKey(int key,boolean down){
 		keyEvent(key,down);
+	}
+	@Override
+	public String updateAskPass() {
+		return notifyPass();
+		
 	}
 }

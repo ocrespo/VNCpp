@@ -110,7 +110,9 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	
 	private InputMethodManager inputMgr ;
 	
-	private boolean showKeyboard = false;
+	//private boolean showKeyboard = false;
+	
+	private String pass;
 	
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
@@ -448,7 +450,24 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		while(waitDialog);
 		finishConnection();
 	}
-	
+	@Override
+	public String updatePass() {
+		waitDialog = true;
+		this.runOnUiThread(new Runnable() {
+			
+			@Override
+			public void run() {
+				showDialog(EnumDialogs.passwordNeededDialog.ordinal());
+				
+			}
+		});
+			
+		while(waitDialog);
+		String aux_pass = pass;
+		pass = null;
+		return aux_pass;
+		//TODO
+	}
 	//publica porque necesito llamarla desde el fragment slide lateral
 	public void showKeyboard(){
 		//showKeyboard = !showKeyboard;
@@ -786,12 +805,10 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 	        @Override
 			public void onClick(DialogInterface dialog, int which) {
-	        	//You will get as string input data in this variable.
-	        	 // here we convert the input to a string and show in a toast.
-	        	 String srt = input.getEditableText().toString();
-	        	 Log.d("texto enviado", srt);
-	        	// TODO Enviar password Oscar
-	        	 //Toast.makeText(this.,srt,Toast.LENGTH_LONG).show();
+	        	
+	        	String str = input.getEditableText().toString();
+	        	pass = str;
+	        	waitDialog = false;
 	        }
 
 	    });
@@ -1006,6 +1023,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		centerImage();
 		menu.toggle();
 	}
+
 	
 		
 }

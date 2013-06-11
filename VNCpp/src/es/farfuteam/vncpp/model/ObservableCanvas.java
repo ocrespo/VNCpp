@@ -41,4 +41,7 @@ public class ObservableCanvas {
 	public void notifyFinish(){
 		observer.updateFinish();
 	}
+	public String notifyPass(){
+		return observer.updatePass();
+	}
 }
