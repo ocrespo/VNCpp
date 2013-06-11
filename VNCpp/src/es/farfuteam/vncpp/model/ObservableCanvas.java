@@ -35,8 +35,8 @@ public class ObservableCanvas {
 	public void notifyIniFrame(int[] data,int offset,int x,int y,int width,int height,int realWidth,int realHeight){
 		observer.updateIniFrame(data,offset,x,y,width,height,realWidth,realHeight);
 	}
-	public void notifyRedraw(int x,int y,int width,int height){
-		observer.updateRedraw(x, y, width, height);
+	public void notifyRedraw(){
+		observer.updateRedraw();
 	}
 	public void notifyFinish(){
 		observer.updateFinish();

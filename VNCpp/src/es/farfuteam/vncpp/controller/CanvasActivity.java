@@ -29,7 +29,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
-import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.MotionEventCompat;
@@ -42,19 +41,15 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.ScaleGestureDetector.OnScaleGestureListener;
-import android.view.View;
 import android.view.View.MeasureSpec;
-import android.view.ViewGroup.LayoutParams;
-import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.Scroller;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
+import es.farfuteam.vncpp.controller.NewConnectionActivity.QualityArray;
 import es.farfuteam.vncpp.model.ObserverCanvas;
 import es.farfuteam.vncpp.model.VncBridgeJNI;
 import es.farfuteam.vncpp.model.VncBridgeJNI.ConnectionError;
@@ -69,10 +64,10 @@ import es.farfuteam.vncpp.view.SlideListFragment;
  */
 
 public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
-	
+
 	public enum EnumDialogs{createServerNotFoundDialog,exitDialog ,serverInterruptConexionDialog,
-							comboEventsDialog};
-	//TODO dialogsEnum
+							comboEventsDialog,functionKeysDialog,openHelpDialog,timeExceededDialog,passwordNeededDialog};
+
 	//etiqueta debug
 	private static final String DEBUG_TAG = "CanvasActivity";
 	
@@ -146,8 +141,9 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		Bundle info = getIntent().getExtras();		
 		
 		progressDialog = new ProgressDialog(this);
-		//TODO hacer string con conecation
-        progressDialog.setTitle("Cargando CanvasView...");
+		//TODO cambiar por string
+        progressDialog.setTitle("Cargando...");
+
         progressDialog.setMessage("Cargando imagen del servidor");
         
         
@@ -157,9 +153,10 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
         
         runTimerConnection();
         
-        iniConnection(info.getString("ip"), info.getString("port"),info.getString("psw"),info.getString("color"),info.getBoolean("wifi"));
-		
-		//TODO en info tienes la psw,color,wifi(true o false)...las sacas con los get
+        String aux_quality = info.getString("color");
+        QualityArray quality = QualityArray.valueOf(aux_quality);
+        
+        iniConnection(info.getString("ip"), info.getString("port"),info.getString("psw"),quality,info.getBoolean("wifi"));
         
         inputMgr = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
      
@@ -221,7 +218,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 						@Override
 						public void run() {
 							//Ddialogo "Se ha excedido el tiempo de conexion"
-							showDialog(8);
+							showDialog(EnumDialogs.timeExceededDialog.ordinal());
 							
 						}
 					});
@@ -241,7 +238,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			}
 		}).start();
 	}
-	private void iniConnection(final String host,final String port,final String pass, final String quality,final Boolean compress){
+	private void iniConnection(final String host,final String port,final String pass, final QualityArray quality,final Boolean compress){
 		vnc = new VncBridgeJNI();
 		vnc.addObserver(this);
 		//ConnectionError error = vnc.startConnect(info.getString("ip"),Integer.parseInt(info.getString("port")));
@@ -251,8 +248,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 				
 			@Override
 			public void run() {
-				//TODO Coger hideMouse
-				ConnectionError error = vnc.startConnect(host,Integer.parseInt(port),pass,quality,compress,true);
+				ConnectionError error = vnc.startConnect(host,Integer.parseInt(port),pass,quality,compress,(es.farfuteam.vncpp.controller.Configuration.getInstance()).isHideMouse());
 					
 				if(error != ConnectionError.ALLOK){
 					waitDialog = true;
@@ -262,7 +258,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 						@Override
 						public void run() {
 						
-							showDialog(1);
+							showDialog(EnumDialogs.createServerNotFoundDialog.ordinal());
 							
 						}
 					});
@@ -323,16 +319,9 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			return true;
 			
 		case R.id.ctrl_events:
-			showDialog(4);
+			showDialog(EnumDialogs.comboEventsDialog.ordinal());
 			return true;
-			
-		case R.id.send_text:
-			showDialog(7);
-			return true;
-			
-		case R.id.center_image:
-			showDialog(5);
-			return true;
+			//TODO POR SI GORKA ES RETRASADO MENTAL
 			
 		case R.id.help_down:
 			return true;
@@ -346,7 +335,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		if(keyCode == KeyEvent.KEYCODE_BACK){
 			if(vnc != null){
 				//Dialog pregunta salir
-				showDialog(2);
+				showDialog(EnumDialogs.exitDialog.ordinal());
 			}
 		}
 		else if(keyCode == KeyEvent.KEYCODE_MENU){
@@ -442,14 +431,16 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		return true;
 	}
 	@Override
-	public void updateRedraw(int x,int y,int width,int height) {
+	public void updateRedraw() {
 		canvas.reDraw();
-		if(!progressDialog.isShowing())
-			canvas.postInvalidate();
-		if(progressDialog.isShowing() && canvas.getRealWidth() == x+width && canvas.getRealHeight() == y+height){
+		if(progressDialog.isShowing())
+			progressDialog.dismiss();
+			
+		canvas.postInvalidate();
+		/*if(progressDialog.isShowing() && canvas.getRealWidth() == x+width && canvas.getRealHeight() == y+height){
 			progressDialog.dismiss(); 
 			canvas.postInvalidate();
-		}
+		}*/
 	}
 	
 	@Override
@@ -467,7 +458,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			@Override
 			public void run() {
 			
-				showDialog(3);
+				showDialog(EnumDialogs.serverInterruptConexionDialog.ordinal());
 				
 			}
 		});
@@ -747,44 +738,40 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	 
 	    switch(id)
 	    {
-	        case 1:
+	        case 0:
 	            dialog = createServerNotFoundDialog();
 	            
 	            break;
-	        case 2:
+	        case 1:
 	            dialog = exitDialog();
 	            break;
 	            
-	        case 3:
+	        case 2:
 	        	dialog = serverInterruptConexionDialog();
 	        	break;
 	        	
-	        case 4:
+	        case 3:
 	        	dialog = comboEventsDialog();
 	        	menu.toggle();
 	        	break;
 	        	
-	        case 5:
+	        case 4:
 	        	dialog = functionKeysDialog();
 	        	menu.toggle();
 	        	break;
 	        	
-	        case 6:	
+	        case 5:	
 	        	dialog = openHelpDialog();
 	        	menu.toggle();
 	        	break;
+
 	        	
-	        case 7:
-	        	dialog = sendTextDialog();
-	        	menu.toggle();
-	        	break;
-	        	
-	        case 8:
+	        case 6:
 	        	dialog = timeExceededDialog();
 	        	break;
 	        	
 	        	//TODO llamada a la peticion de contraseña server showDialog(9) 
-	        case 9:
+	        case 7:
 	        	dialog = passwordNeededDialog();
 	        	break;
 	    }
@@ -793,39 +780,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	}
 	
 	
-	private Dialog sendTextDialog() {
-		
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-	    
-	    String info = getString(R.string.send_text_title);
-		String body = getString(R.string.send_text_here);
-		 
-	    builder.setTitle(info);
-	    builder.setMessage(body);
-        // Set an EditText view to get user input 
-        final EditText input = new EditText(this);
-        builder.setView(input);
-        
-	    builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-      	  public void onClick(DialogInterface dialog, int whichButton) {
-      		  dialog.cancel();
-      	  }
-	    });
-	    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-	        @Override
-			public void onClick(DialogInterface dialog, int which) {
-	        	//You will get as string input data in this variable.
-	        	 // here we convert the input to a string and show in a toast.
-	        	 String srt = input.getEditableText().toString();
-	        	 Log.d("texto enviado", srt);
-	        	// TODO Enviar texto Oscar
-	        	 //Toast.makeText(this.,srt,Toast.LENGTH_LONG).show();
-	        }
-
-	    });
-	 
-	    return builder.create();
-	}
+	
 	
 	private Dialog passwordNeededDialog() {
 		
@@ -974,7 +929,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					//muestra function keys
-					showDialog(5);					
+					showDialog(EnumDialogs.functionKeysDialog.ordinal());					
 				}
 			})
 	    // Set the action buttons
@@ -1030,7 +985,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	               public void onClick(DialogInterface dialog, int id) {
 	                   //TODO evento con la tecla function escogida
 	            	   //se vuelve a mostrar el dialog del comboKeys
-	            	   showDialog(4);
+	            	   showDialog(EnumDialogs.comboEventsDialog.ordinal());
 	               }
 	           })
 	           .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {

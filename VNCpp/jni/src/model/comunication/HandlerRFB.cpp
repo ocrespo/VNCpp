@@ -81,10 +81,14 @@ char* HandlerRFB::getPass(rfbClient* client){
 void HandlerRFB::updateScreen(rfbClient *client,int x,int y,int w,int h){
 	screen->updateScreen(client->frameBuffer,x,y,w,h);
 }
+void HandlerRFB::finishUpdate(rfbClient *client){
+	screen->notifyReDraw();
+}
 void HandlerRFB::finishConnection(){
 	screen->notifyFinishConnection();
 }
 void HandlerRFB::finishClient(){
 	screen->finishByClient();
 }
+
 

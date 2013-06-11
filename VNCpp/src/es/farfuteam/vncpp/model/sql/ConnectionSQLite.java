@@ -143,12 +143,12 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
               cursor.moveToFirst();
           
           boolean favs = getBooleanFav(cursor.getInt(4));
-          
-          QualityArray q = getQuality(cursor.getString(5));
+          String aux_quality = cursor.getString(5);
+          QualityArray quality = QualityArray.valueOf(aux_quality);
           
           Connection u = new Connection(cursor.getString(0),
                   cursor.getString(1), cursor.getString(2),cursor.getString(3),
-                  favs,q);
+                  favs,quality);
 
           db.close();
 
@@ -156,13 +156,13 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
 
       }
       
-      private QualityArray getQuality(String quality){
+      /*private QualityArray getQuality(String quality){
     	QualityArray q;
-    	//TODO COSA
+    	QualityArray.
     	
 		return null;
     	  
-      }
+      }*/
       
       private boolean getBooleanFav(int value){
     	 if(value == 1){
@@ -197,8 +197,10 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
                   user.setPORT(cursor.getString(2));
                   user.setPsw(cursor.getString(3));
                   user.setFav(favs);
-                  //TODO
-                  //user.setColorFormat(cursor.getString(5));
+                  
+                  String aux_quality = cursor.getString(5);
+                  QualityArray quality = QualityArray.valueOf(aux_quality);
+                  user.setColorFormat(quality);
                   // Adding users to list
                   userList.add(user);
               } while (cursor.moveToNext());
@@ -234,8 +236,9 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
                   user.setPORT(cursor.getString(2));
                   user.setPsw(cursor.getString(3));
                   user.setFav(favs);
-                  //TODO
-                  //user.setColorFormat(cursor.getString(5));
+                  String aux_quality = cursor.getString(5);
+                  QualityArray quality = QualityArray.valueOf(aux_quality);
+                  user.setColorFormat(quality);
                   // Adding users to list if is favorite
                   if (user.isFav())
                 	  userList.add(user);
@@ -263,8 +266,10 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
           values.put(KEY_PORT, user.getPORT());
           values.put(KEY_PSW, user.getPsw());
           values.put(KEY_FAV, user.isFav());
-          //TODO
-          //values.put(KEY_COLOR, user.getColorFormat());
+         
+          QualityArray quality = user.getColorFormat();
+          
+          values.put(KEY_COLOR, quality.toString());
             
           // updating row 
           db.update(TABLE_CONNECTIONS, values, KEY_NAME + " = ?",

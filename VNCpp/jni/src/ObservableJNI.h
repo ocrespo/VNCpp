@@ -58,7 +58,7 @@ public:
 
 
 	void notifyIniFrame(int width,int height,int bpp,int depth);
-	void notifyReDraw(int x,int y,int width,int height);
+	void notifyReDraw();
 	void notifyFinishConnection();
 	void finishByClient();
 

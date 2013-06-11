@@ -43,6 +43,7 @@ public:
 
 	static rfbBool iniFrameBuffer(rfbClient* client_screen);
 	static void updateScreen(rfbClient *client,int x,int y,int w,int h);
+	static void finishUpdate(rfbClient *client);
 
 	static void finishConnection();
 	static void finishClient();
@@ -50,6 +51,8 @@ public:
 	static void setPass(char *aux_pass);
 	static char* getPass(rfbClient* client);
 	static void freePass();
+
+
 };
 
 #endif /* HANDLERRFB_H_ */

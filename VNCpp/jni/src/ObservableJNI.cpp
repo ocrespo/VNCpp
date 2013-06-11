@@ -130,7 +130,7 @@ void ObservableJNI::notifyIniFrame(int width,int height,int bpp,int depth){
 	//vm->DetachCurrentThread();
 }
 
-void ObservableJNI::notifyReDraw(int x,int y,int width,int height){
+void ObservableJNI::notifyReDraw(){
 	if(DEBUG)
 		LOGE("Take method reDraw");
 
@@ -138,12 +138,12 @@ void ObservableJNI::notifyReDraw(int x,int y,int width,int height){
 	//env->MonitorEnter(observer_object);
 	observer_class  = env->GetObjectClass(this->observer_object);
 
-	jmethodID updateScreen = env->GetMethodID(observer_class,"updateReDraw","(IIII)V");
+	jmethodID updateScreen = env->GetMethodID(observer_class,"updateReDraw","()V");
 
 	if(DEBUG)
 		LOGE("Launch method reDraw");
 
-	env->CallVoidMethod(observer_object,updateScreen,x,y,width,height);
+	env->CallVoidMethod(observer_object,updateScreen);
 
 	if(DEBUG)
 		LOGE("Finish launch method reDraw");

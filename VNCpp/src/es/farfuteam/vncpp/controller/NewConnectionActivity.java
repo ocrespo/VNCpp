@@ -196,7 +196,7 @@ public class NewConnectionActivity extends FragmentActivity {
 		canvasActivity.putExtra("ip", getIP());
 		canvasActivity.putExtra("port", getPORT());
 		canvasActivity.putExtra("psw", getPSWAuth());
-		canvasActivity.putExtra("color", getColor_format());
+		canvasActivity.putExtra("color", getColor_format().toString());
 		
 		//Aquí veo el tipo de conexión, para usar un tipo de compresión de imagen u otro
 		if (checkConnectivity()){
