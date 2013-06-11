@@ -24,5 +24,5 @@ package es.farfuteam.vncpp.model;
 public interface ObserverJNI {
 	void updateFinishConnection();
 	void updateIniFrame(int width,int height,int bpp,int depth);
-	void updateReDraw(int x,int y,int width,int height);
+	void updateReDraw();
 }

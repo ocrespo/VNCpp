@@ -432,14 +432,16 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		return true;
 	}
 	@Override
-	public void updateRedraw(int x,int y,int width,int height) {
+	public void updateRedraw() {
 		canvas.reDraw();
-		if(!progressDialog.isShowing())
-			canvas.postInvalidate();
-		if(progressDialog.isShowing() && canvas.getRealWidth() == x+width && canvas.getRealHeight() == y+height){
+		if(progressDialog.isShowing())
+			progressDialog.dismiss();
+			
+		canvas.postInvalidate();
+		/*if(progressDialog.isShowing() && canvas.getRealWidth() == x+width && canvas.getRealHeight() == y+height){
 			progressDialog.dismiss(); 
 			canvas.postInvalidate();
-		}
+		}*/
 	}
 	
 	@Override

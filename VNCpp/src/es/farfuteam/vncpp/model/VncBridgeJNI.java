@@ -157,9 +157,9 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 		
 	}
 	@Override
-	public void updateReDraw(int x,int y,int width,int height) {
+	public void updateReDraw() {
 		
-		notifyRedraw(x, y, width, height);
+		notifyRedraw();
 	}
 	
 	public void sendMouseEvent(int x,int y,MouseEvent event){
