@@ -165,6 +165,7 @@ void  ClientScreen::updateScreen(uint8_t *frameBuffer,const int x,const int y,co
 	if(DEBUG)
 		LOGE("JNI notify reDraw");
 	setArrayElements(info);
-	notifyReDraw(x,y,w,h);
+	//notifyReDraw();
 
 }
+

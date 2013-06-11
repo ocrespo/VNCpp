@@ -108,6 +108,7 @@ ConnectionError ClientConnectionRFB::iniConnection(char* host,int port,char* pas
 	clientRFB->MallocFrameBuffer=HandlerRFB::iniFrameBuffer;
 	clientRFB->canHandleNewFBSize = TRUE;
 	clientRFB->GotFrameBufferUpdate=HandlerRFB::updateScreen;
+	clientRFB->FinishedFrameBufferUpdate= HandlerRFB::finishUpdate;
 	//clientRFB->HandleKeyboardLedState=kbd_leds;
 	//clientRFB->HandleTextChat=text_chat;
 	//clientRFB->GotXCutText = got_selection;
