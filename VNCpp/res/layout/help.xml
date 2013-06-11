@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+<ScrollView android:id="@+id/ScrollViewHelp"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+   android:padding="6dip"
+    >
+    <TextView  
+        android:id="@+id/help_page_intro"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:text="@string/help_page_intro"
+        android:padding="2dip"
+        android:layout_weight="1"
+           />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="4dip">
+
+    <TextView  
+           android:layout_width="wrap_content" 
+           android:layout_height="wrap_content" 
+           android:text="@string/help_text_section1"
+        android:padding="8dip"
+        android:layout_weight="1"
+           />
+    </LinearLayout>
+
+   <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <TextView  
+           android:layout_width="wrap_content" 
+           android:layout_height="wrap_content" 
+           android:text="@string/help_text_section2"
+        android:padding="8dip"
+        android:layout_weight="1"
+           />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <Button android:id="@+id/help_button3"
+        android:layout_weight="1"
+        android:layout_width="180dip"
+        android:layout_height="wrap_content"
+            android:onClick="onClickHelp"
+            android:text="@string/help_title_section3"
+            android:drawableTop="@drawable/ic_launcher"/>
+        <TextView  
+           android:layout_width="wrap_content" 
+           android:layout_height="wrap_content" 
+           android:text="@string/help_text_section3"
+        android:padding="8dip"
+        android:layout_weight="1"
+           />
+    </LinearLayout>
+
+
+</LinearLayout>
+</ScrollView>
+
+</LinearLayout>

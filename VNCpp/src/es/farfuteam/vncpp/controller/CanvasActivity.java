@@ -154,7 +154,19 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
         progressDialog.setTitle(load);
 
         progressDialog.setMessage(loadImage);
+        final String cancel = getString(R.string.cancel);
         
+        //progressDialog.setCancelable(true);
+        progressDialog.setButton(cancel, new DialogInterface.OnClickListener() 
+        {
+            public void onClick(DialogInterface dialog, int which) 
+            {
+                // Use either finish() or return() to either close the activity or just the dialog
+            	//TODO es el boton cancel del progress
+                return;
+            }
+           });
+
         
         progressDialog.show();
         progressDialog.setCancelable(false);
@@ -477,8 +489,6 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	}
 	//publica porque necesito llamarla desde el fragment slide lateral
 	public void showKeyboard(){
-		//showKeyboard = !showKeyboard;
-        //inputMgr.toggleSoftInput(0, 0);
         inputMgr.toggleSoftInputFromWindow(canvas.getApplicationWindowToken(), InputMethodManager.SHOW_FORCED, 0);
         
         menu.toggle();

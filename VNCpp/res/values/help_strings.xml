@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="no_help_available">
+      There is no help available at this time.
+    </string>
+
+    <string name="help_page_intro">For information on the different parts of this app, touch one of the images below.</string>
+    <string name="help_page_intro_html">
+    <![CDATA[
+      For information on the different parts of this app, touch one of the images below:
+       ]]>
+    </string>
+
+    <string name="help_title_section1">Topics</string>
+    <string name="help_text_section1">
+     Each help topic has a full page of information. 
+     Long topics can be scrolled.
+    </string>
+    <string name="topic_section1">
+    <![CDATA[
+      <p>
+        If you have an app that you want to add Help to, this demo app shows one way you can do that.
+        All you need are two activities: one for the main Help screen and the other to display the Help 
+        text of a selected topic.
+        </p>
+      <p>Each of the help topics has a full page of help text.
+        The help text is defined in xml files in the resource folders of the application.
+        If you use CDATA in the xml definitions, you can define paragraphs and text in bold and italics.
+        Links are also supported.
+       </p>
+      <p>
+        Long topics can be scrolled. Try this one in both portrait and landscape orientation.
+        You will probably have to scroll the text in landscape.
+       </p>
+      <p>
+        If you want all the details about how this app was constructed,
+        touch this link to open a web browser:
+        <a href="http://blahti.wordpress.com">blahti blog</a>.
+        </p>
+      <p><b>Return to the previous screen by touching the Back button.</b>
+        </p>
+      ]]>
+    </string>
+
+    <string name="help_title_section2">Html Text</string>
+    <string name="help_text_section2">
+     Learn how to display simple forms of Html in a text view.
+     Paragraphs, bold, italics, and links are supported.
+    </string>
+    <string name="topic_section2">
+    <![CDATA[
+      <p>
+        You can display simple forms of Html in a text view.
+        You use the Html class and its fromHtml static method.
+        See
+        <a href="http://developer.android.com/reference/android/text/Html.html">Html on Android Developers</a>.
+      </p>
+      <p> 
+        As shown here, paragraphs are supported,
+        as are <b>bold text</b> and <i>italics</i>.
+        The preceding paragraph has a link in it.
+      </p>
+      <p><b>Return to the previous screen by touching the Back button.</b>
+        </p>
+       ]]>
+    </string>
+
+
+    <string name="help_title_section3">Links</string>
+    <string name="help_text_section3">
+      You can define links in the help text strings.
+      To get them to work, you have to do some extra set up in the code.
+    </string>
+    <string name="topic_section3">
+    <![CDATA[
+      <p> 
+      You can define links in the help text strings.
+      To get them to work, you have to do some extra set up in the code.
+      </p>
+      <p> 
+        To understand how to do this, study
+        <a href="http://developer.android.com/reference/android/text/method/LinkMovementMethod.html">
+          LinkMovementMethod</a> and how it is used with a TextView.
+      </p>
+      <p><b>Return to the previous screen by touching the Back button.</b>
+        </p>
+       ]]>
+    </string>
+
+
+</resources>
