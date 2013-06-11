@@ -799,12 +799,14 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	    builder.setMessage(body);
         // Set an EditText view to get user password 
         final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         builder.setView(input);
         
 	    builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
       	  public void onClick(DialogInterface dialog, int whichButton) {
       		  dialog.cancel();
+      		  pass = "";
+      		  waitDialog = false;
       	  }
 	    });
 	    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
