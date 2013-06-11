@@ -37,6 +37,7 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 	
 	public enum ConnectionError{ALLOK,NoServerFound ,NoFrameFound,errorCreateThread};
 	public enum MouseEvent{Click ,RightClick};
+
 	
 	private native int iniConnect(String host,int port,String pass,int quality,int compress,boolean hideMouse);
 	private native void closeConnection();
@@ -45,6 +46,14 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 	private native void rfbLoop();
 	private native boolean mouseEvent(int x,int y,int event);
 	private native boolean keyEvent(int key,boolean down);
+	
+	private static int sQuality=9;
+	private static int hQuality=7;
+	private static int mQuality=5;
+	private static int lQuality=2;
+	
+	private static int wifiCompress= 3;
+	private static int gCompress = 5;
 	
 	private Runnable createScreen;
 
@@ -78,24 +87,24 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 		
 		int compress;
 		if(wifi){
-			compress = 3;
+			compress = wifiCompress;
 		}
 		else{
-			compress = 5;
+			compress = gCompress;
 		}
 		
 		int aux_quality;
 		if(quality == QualityArray.SuperHigh){
-			aux_quality = 9;
+			aux_quality = sQuality;
 		}
 		else if(quality  == QualityArray.High){
-			aux_quality = 7;
+			aux_quality = hQuality;
 		}
 		else if(quality == QualityArray.Medium){
-			aux_quality = 5;
+			aux_quality = mQuality;
 		}
 		else{
-			aux_quality = 2;
+			aux_quality = lQuality;
 		}
 		
 

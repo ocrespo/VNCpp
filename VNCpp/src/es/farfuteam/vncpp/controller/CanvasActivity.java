@@ -67,7 +67,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 
 	public enum EnumDialogs{createServerNotFoundDialog,exitDialog ,serverInterruptConexionDialog,
 							comboEventsDialog,functionKeysDialog,openHelpDialog,timeExceededDialog,passwordNeededDialog};
-	//TODO dialogsEnum
+
 	//etiqueta debug
 	private static final String DEBUG_TAG = "CanvasActivity";
 	
@@ -155,8 +155,6 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
         QualityArray quality = QualityArray.valueOf(aux_quality);
         
         iniConnection(info.getString("ip"), info.getString("port"),info.getString("psw"),quality,info.getBoolean("wifi"));
-		
-		//TODO en info tienes la psw,color,wifi(true o false)...las sacas con los get
         
         inputMgr = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
      
@@ -248,8 +246,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 				
 			@Override
 			public void run() {
-				//TODO Coger hideMouse
-				ConnectionError error = vnc.startConnect(host,Integer.parseInt(port),pass,quality,compress,true);
+				ConnectionError error = vnc.startConnect(host,Integer.parseInt(port),pass,quality,compress,(es.farfuteam.vncpp.controller.Configuration.getInstance()).isHideMouse());
 					
 				if(error != ConnectionError.ALLOK){
 					waitDialog = true;
