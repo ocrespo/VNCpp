@@ -20,6 +20,7 @@
  */
 package es.farfuteam.vncpp.controller;
 
+import es.farfuteam.vncpp.controller.NewConnectionActivity.QualityArray;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -68,7 +69,7 @@ public class EditionActivity extends Activity{
 	      String psw = bundle.getString("PSW");
 	      String color = bundle.getString("quality");
 	      
-	      
+	      final int pos = QualityArray.valueOf(color).ordinal();
 
 
 		TextView text = (TextView) findViewById(R.id.editTextViewName);
@@ -99,8 +100,10 @@ public class EditionActivity extends Activity{
 				 
 				Spinner_colors.setAdapter(adapter);
 				
-				final String[] colors = getResources().getStringArray(R.array.color_array);
+				//final String[] colors = getResources().getStringArray(R.array.color_array);
 				
+				//seteo conexion anterior
+				Spinner_colors.setSelection(pos);
 				
 				Spinner_colors.setOnItemSelectedListener(
 				        new AdapterView.OnItemSelectedListener() {
@@ -112,7 +115,7 @@ public class EditionActivity extends Activity{
 				 
 				        public void onNothingSelected(AdapterView<?> parent) {
 				        	//por defecto se selecciona la posicion 0, 24-bit color
-				        	color_format = 0;
+				        	color_format = pos;
 				        }
 				});
 		

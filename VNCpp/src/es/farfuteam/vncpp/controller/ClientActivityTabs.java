@@ -228,7 +228,7 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 	        intent.putExtra("IP", ((Connection) getO()).getIP());
 	        intent.putExtra("PORT", ((Connection) getO()).getPORT());
 	        intent.putExtra("PSW", ((Connection) getO()).getPsw());
-	        intent.putExtra("quality", ((Connection) getO()).getColorFormat());
+	        intent.putExtra("quality", ((Connection) getO()).getColorFormat().toString());
 	        //1234 es el codigo que servira para su identificacion en onActivityResult
 	        startActivityForResult(intent, 1234);	        
 			

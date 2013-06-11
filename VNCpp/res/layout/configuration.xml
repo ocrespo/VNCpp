@@ -12,14 +12,14 @@
 	    android:orientation="vertical">
 	    
 	<TextView
-    android:id="@+id/address_label"
+    android:id="@+id/titlegeneral"
     style="?android:attr/listSeparatorTextViewStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="Address"/>
+    android:text="@string/titlegeneral" />
 		<Switch 
 		    android:id="@+id/checkbox_remember"
-		    android:layout_width="wrap_content"
+		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
 		    android:layout_gravity="center"
 		    android:layout_marginTop="15dp"
@@ -29,21 +29,22 @@
 		    android:onClick="onToggleClicked" />
 		
 	<TextView
-    android:id="@+id/address_label2"
+    android:id="@+id/titlecontrol"
     style="?android:attr/listSeparatorTextViewStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="Address2"/>
-		<Switch 
-		    android:id="@+id/checkbox_hidemouse"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_gravity="center"
-		    android:layout_marginTop="25dp"
-		    android:text="@string/hide_mouse"
-		    android:textOn="@string/yes"
-		    android:textOff="@string/no"
-		    android:onClick="onToggleClicked"/>
+    android:text="@string/titlecontrol" />
+
+	<Switch
+	    android:id="@+id/checkbox_hidemouse"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="25dp"
+	    android:onClick="onToggleClicked"
+	    android:text="@string/hide_mouse"
+	    android:textOff="@string/no"
+	    android:textOn="@string/yes"
+	    android:layout_gravity="center" />
 	
 	</LinearLayout>
 </ScrollView> 

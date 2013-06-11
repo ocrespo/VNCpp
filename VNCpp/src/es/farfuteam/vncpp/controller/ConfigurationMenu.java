@@ -1,6 +1,5 @@
 package es.farfuteam.vncpp.controller;
 
-import android.R.bool;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
@@ -18,23 +17,15 @@ public class ConfigurationMenu extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.configuration);
 		
+	
+		Switch checkBox = (Switch) findViewById(R.id.checkbox_remember);
 		
-		View checkBoxOut = View.inflate(this, R.layout.configuration, null);
-		Switch checkBox = (Switch) checkBoxOut.findViewById(R.id.checkbox_remember);
-
+		Switch checkBoxHide = (Switch) findViewById(R.id.checkbox_hidemouse);
 		
-		Switch checkBoxHide = (Switch) checkBoxOut.findViewById(R.id.checkbox_hidemouse);
 		
-		boolean putas = checkBox.isChecked();
+		checkBox.setChecked((Configuration.getInstance()).isRememberExit());
 		
-		//checkBox.setChecked((Configuration.getInstance()).isRememberExit());
-		checkBox.setChecked(true);
-		
-
-		putas = checkBox.isChecked();
-		//checkBoxHide.setChecked((Configuration.getInstance()).isHideMouse());
-		checkBoxHide.setChecked(false);
-
+		checkBoxHide.setChecked((Configuration.getInstance()).isHideMouse());
 		
 		
 		

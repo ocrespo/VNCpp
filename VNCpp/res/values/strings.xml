@@ -94,6 +94,8 @@
 	<string name="password_dialog">The server need a password to connect</string>
 	
 	<!-- SWITCH MESSAGE -->
+	<string name="titlegeneral">General</string>
+	<string name="titlecontrol">Control</string>
 	<string name="hide_mouse">Hide mouse</string>
 	<string name="remember_exit">Remember exit</string>
 	<string name="yes">Yes</string>

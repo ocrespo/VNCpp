@@ -89,6 +89,8 @@
 	<string name="password_dialog">El servidor necesita una contraseña para conectar</string>
 	
 		<!-- TOGGLE MESSAGE -->
+	<string name="titlegeneral">General</string>
+	<string name="titlecontrol">Control</string>
 	<string name="hide_mouse">Ocultar cursor</string>
 	<string name="remember_exit">Recordar salida</string>
 	<string name="yes">Sí</string>
