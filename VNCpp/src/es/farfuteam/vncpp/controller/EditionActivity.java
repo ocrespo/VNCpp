@@ -49,6 +49,7 @@ public class EditionActivity extends Activity{
 	private String PSW;
 	private Spinner Spinner_colors;
 	private int color_format;
+	private boolean fav;
 
 
 	@Override
@@ -68,6 +69,7 @@ public class EditionActivity extends Activity{
 	      String port = bundle.getString("PORT");
 	      String psw = bundle.getString("PSW");
 	      String color = bundle.getString("quality");
+	      fav = bundle.getBoolean("fav");
 	      
 	      final int pos = QualityArray.valueOf(color).ordinal();
 
@@ -122,6 +124,7 @@ public class EditionActivity extends Activity{
 				        }
 				});
 		
+		//boton editar y evento
 		Button botonEdit = (Button) findViewById(R.id.buttonEdit);
 		botonEdit.setOnClickListener(new OnClickListener() {
 	
@@ -136,6 +139,7 @@ public class EditionActivity extends Activity{
 		        	 String psw = PSW_field.getText().toString();
 		        	 returnIntent.putExtra("newPSW",psw);
 		        	 returnIntent.putExtra("newColor", color_format);
+		        	 returnIntent.putExtra("fav", fav);
 		        	 setResult(RESULT_OK,returnIntent);     
 		        	 finish();
 	        	 }
@@ -143,6 +147,16 @@ public class EditionActivity extends Activity{
 	         }
 		});
 		
+		Button botonCancel = (Button) findViewById(R.id.buttonCancelEdit);
+		botonCancel.setOnClickListener(new OnClickListener() {
+	
+	         @Override
+	         public void onClick(View v) {
+	        	 
+	        	 finish();
+	        	 	
+	         }
+		});
 		
 		//efectos del actionBar
 		final ActionBar actionBar = getActionBar();

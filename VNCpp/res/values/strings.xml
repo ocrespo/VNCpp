@@ -91,7 +91,7 @@
 	
 	<!-- DIALOG SPECIAL KEYS -->
 	<string name="special_keys_title">Special keys</string>
-	<string name="function_keys_title">Function keys</string>
+	<string name="function_keys_title">Keys</string>
 	<string name="combo_keys_title">Combo keys</string>
 	<string name="password_title">Password needed</string>
 	<string name="password_dialog">The server need a password to connect</string>

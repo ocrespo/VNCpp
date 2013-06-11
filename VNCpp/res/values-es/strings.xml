@@ -85,7 +85,7 @@
 	
 		<!-- DIALOG SPECIAL KEYS -->
 	<string name="special_keys_title">Teclas especiales</string>
-	<string name="function_keys_title">Teclas función</string>
+	<string name="function_keys_title">Teclas</string>
 	<string name="combo_keys_title">Combo teclas</string>
 	<string name="password_title">Contraseña necesaria</string>
 	<string name="password_dialog">El servidor necesita una contraseña para conectar</string>

@@ -77,7 +77,7 @@ public class DialogOptions extends DialogFragment {
 	            }	            
 	            else if (items[item].equalsIgnoreCase(edit)){
 	         
-	            	((ClientActivityTabs)getActivity()).edit();
+	            	((ClientActivityTabs)getActivity()).editingUser();
 	            	
 	            }
 	            else if (items[item].equalsIgnoreCase(delete)){	            	

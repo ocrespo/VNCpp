@@ -229,6 +229,7 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 	        intent.putExtra("PORT", ((Connection) getO()).getPORT());
 	        intent.putExtra("PSW", ((Connection) getO()).getPsw());
 	        intent.putExtra("quality", ((Connection) getO()).getColorFormat().toString());
+	        intent.putExtra("fav", ((Connection) getO()).isFav());
 	        //1234 es el codigo que servira para su identificacion en onActivityResult
 	        startActivityForResult(intent, 1234);	        
 			
@@ -252,6 +253,7 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 			         String port=data.getStringExtra("newPORT");
 			         String psw=data.getStringExtra("newPSW");
 			         int color=data.getIntExtra("newColor",0);
+			         boolean fav = data.getBooleanExtra("fav", false);
 			         
 			         ConnectionSQLite admin = ConnectionSQLite.getInstance(this);
 			         
@@ -259,18 +261,14 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 			        ((Connection) getO()).setIP(ip);
 			        ((Connection) getO()).setPORT(port);
 			        ((Connection) getO()).setPsw(psw);
-			        //TODO
-			        // ((Connection) getO()).setFav(false);
+			        ((Connection) getO()).setFav(fav);
 			        ((Connection) getO()).setColorFormat(QualityArray.values()[color]);
 			        
 			        admin.updateUser((Connection) getO());        
         			        
 			         
 			     }
-			     if (resultCode == RESULT_CANCELED) {    
-			         //Write your code on no result return
-			    	 Toast.makeText(this, "No connection edition", Toast.LENGTH_SHORT).show();
-			     }
+
 			  }
 			  
 			  

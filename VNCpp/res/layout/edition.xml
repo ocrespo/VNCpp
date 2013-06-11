@@ -81,7 +81,12 @@
                     android:layout_height="fill_parent"
                     android:text="@string/edit_connection"
                     />
-             
+            <Button
+                    android:id="@+id/buttonCancelEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="@string/cancel"
+                    />
              
              </LinearLayout>                           
                           
