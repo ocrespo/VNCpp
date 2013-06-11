@@ -144,10 +144,13 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		Bundle info = getIntent().getExtras();		
 		
 		progressDialog = new ProgressDialog(this);
+		
+		final String load = getString(R.string.loadingtext);
+		final String loadImage = getString(R.string.loadingbodytext);
 		//TODO cambiar por string
-        progressDialog.setTitle("Cargando...");
+        progressDialog.setTitle(load);
 
-        progressDialog.setMessage("Cargando imagen del servidor");
+        progressDialog.setMessage(loadImage);
         
         
         progressDialog.show();

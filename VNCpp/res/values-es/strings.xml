@@ -16,7 +16,7 @@
     <string name="open">Abrir conexión</string>
     <string name="help">Ayuda</string>
     <string name="new_connection">Nueva conexión</string>
-    
+    <string name="modify_connectiontext">Modifica conexión</string>    
     
     <!-- CONTEXT MENU -->
     
@@ -40,6 +40,8 @@
     <string name="DialogTitleExit">Salir</string>
     <string name="DialogQuestion">¿Estás seguro?</string>
     <string name="RememberCheckBox">No volver a preguntar</string>
+    <string name="loadingtext">Cargando...</string> 
+    <string name="loadingbodytext">Cargando imagen del servidor</string>
     
     
         <!-- MENU OPTIONS DIALOG -->
