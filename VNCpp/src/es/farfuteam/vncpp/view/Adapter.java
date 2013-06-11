@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
+import android.content.DialogInterface.OnClickListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,9 +83,11 @@ public class Adapter extends BaseAdapter {
 	       final CheckBox iconFav = (CheckBox)vi.findViewById(R.id.checkFav);
 	       iconFav.setTag(user);    	       
 	       
+	       final Adapter thisAdap = this;
+	       
 	       iconFav.setOnCheckedChangeListener(
 	          new CheckBox.OnCheckedChangeListener() {
-	              @Override
+	            @Override
 				public void onCheckedChanged(CompoundButton buttonView,
 	                                                  boolean isChecked) {
 	                  if (isChecked){// && !user.isFav()) {
@@ -94,7 +96,7 @@ public class Adapter extends BaseAdapter {
 	                	  
 	                	  ListFragmentTab l = ListFragmentTab.getInstance();
 	                	  l.refreshFavorites(user);
-	                	  
+	                	 
 	                  }
 	                  else {
 	                	  iconFav.setButtonDrawable(R.drawable.star_emp);
@@ -104,8 +106,9 @@ public class Adapter extends BaseAdapter {
 	                	  l.refreshFavorites(user);
 	                	  
 	                  }
-	                  }
-	              });
+	                  
+	              }
+	          });
 	       
 	       //para mantener el estado cuando rota
 		    if (user.isFav()){

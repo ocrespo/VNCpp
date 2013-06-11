@@ -259,7 +259,8 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 			        ((Connection) getO()).setIP(ip);
 			        ((Connection) getO()).setPORT(port);
 			        ((Connection) getO()).setPsw(psw);
-			        ((Connection) getO()).setFav(false);
+			        //TODO
+			        // ((Connection) getO()).setFav(false);
 			        ((Connection) getO()).setColorFormat(QualityArray.values()[color]);
 			        
 			        admin.updateUser((Connection) getO());        
