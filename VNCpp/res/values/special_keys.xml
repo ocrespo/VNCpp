@@ -4,6 +4,7 @@
         <item>ctrl</item>
         <item>alt</item>
         <item>supr</item>
+        <item>shift</item>
         <item>meta(windows)</item>
     </string-array>
 </resources>

@@ -148,7 +148,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		
 		final String load = getString(R.string.loadingtext);
 		final String loadImage = getString(R.string.loadingbodytext);
-		//TODO cambiar por string
+
         progressDialog.setTitle(load);
 
         progressDialog.setMessage(loadImage);
@@ -758,8 +758,9 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	        	break;
 	        	
 	        case 3:
-	        	dialog = comboEventsDialog();
 	        	menu.toggle();
+	        	dialog = comboEventsDialog();
+	        	
 	        	break;
 	        	
 	        case 4:
