@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
- <string name="help_title">AJUDAAA</string>
+ <string name="help_title">AYUDA</string>
  <string name="help_message">\n
-  A completar por Luis.\n
-  esta vez in spanish.\n
-  Zoom: slice on the SeekBar on bottom.\n
+  Hay un menú de ayuda\n
+  extenso en el desplegable\n
+  dentro de la actividad principal.\n
  </string>
  <string name="help_ok">OK</string>
 </resources>

@@ -19,12 +19,6 @@ public class HelpActivity extends Activity {
 	{
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.help);
-	
-	    TextView textView = (TextView) findViewById (R.id.help_page_intro);
-	    if (textView != null) {
-	       textView.setMovementMethod (LinkMovementMethod.getInstance());
-	       textView.setText (Html.fromHtml (getString (R.string.help_page_intro_html)));
-	    }
 	    
 		//efectos del actionBar
 		final ActionBar actionBar = getActionBar();

@@ -1,110 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="help_page_intro">Página de ayuda de VNC++</string>
+    <string name="help_page_intro">Página de ayuda de VNC++\n</string>
 
-    <string name="help_title_section1">Manejo principal</string>
-    <string name="help_text_section1">
+    <string name="title_section1">Manejo principal</string>
+    <string name="text_section1">
      Para crear una nueva conexión pulse el icono "+" en la barra superior de Acción.
      Una vez dentro, es necesario especificar la IP del servidor, así como un nombre de
-     identificación de la conexión.
-     El puerto por defecto es ek 5900, pudiendose cambiar.
-     Contraseña opcional, sino se desea, deje el campo en blanco.
-     El desplegable de calidades sirve para indicar la calidad de imagen.
-    </string>
-    <string name="paragraph_section1">
-    <![CDATA[
-      <p>
-        If you have an app that you want to add Help to, this demo app shows one way you can do that.
-        All you need are two activities: one for the main Help screen and the other to display the Help 
-        text of a selected topic.
-        </p>
-      <p>Each of the help topics has a full page of help text.
-        The help text is defined in xml files in the resource folders of the application.
-        If you use CDATA in the xml definitions, you can define paragraphs and text in bold and italics.
-        Links are also supported.
-       </p>
-      <p>
-        Long topics can be scrolled. Try this one in both portrait and landscape orientation.
-        You will probably have to scroll the text in landscape.
-       </p>
-      <p>
-        If you want all the details about how this app was constructed,
-        touch this link to open a web browser:
-        <a href="http://blahti.wordpress.com">blahti blog</a>.
-        </p>
-      <p><b>Return to the previous screen by touching the Back button.</b>
-        </p>
-      ]]>
+     identificación de la conexión.\n
+	 El puerto por defecto es ek 5900, pudiendose cambiar.\n	
+     Contraseña opcional, sino se desea, deje el campo en blanco.\n
+     El desplegable de calidades sirve para indicar la calidad de imagen.\n
     </string>
 
-    <string name="help_title_section2">Desplegable de opciones</string>
-    <string name="help_text_section2">
+    <string name="title_section2">Desplegable de opciones</string>
+    <string name="text_section2">
 	La opción de Configuración permite, a través de dos swiths de selección, marcar
     si se recuerda o no la opción de recordar ventana de salida, así como ocultar el
-    cursor o no.
-    </string>
-    <string name="topic_section2">
-    <![CDATA[
-      <p>
-        You can display simple forms of Html in a text view.
-        You use the Html class and its fromHtml static method.
-        See
-        <a href="http://developer.android.com/reference/android/text/Html.html">Html on Android Developers</a>.
-      </p>
-      <p> 
-        As shown here, paragraphs are supported,
-        as are <b>bold text</b> and <i>italics</i>.
-        The preceding paragraph has a link in it.
-      </p>
-      <p><b>Return to the previous screen by touching the Back button.</b>
-        </p>
-       ]]>
+    cursor o no.\n
     </string>
 
-
-    <string name="help_title_section3">Control de pestañas</string>
-    <string name="help_text_section3">
-		Puede cambiar de pestaña, pulsando sobre las etiquetas RECIENTES o FAVORITOS.
+    <string name="title_section3">Control de pestañas</string>
+    <string name="text_section3">
+		Puede cambiar de pestaña, pulsando sobre las etiquetas RECIENTES o FAVORITOS.\n
     </string>
     
 	<string name="title_section4">Añadir a favoritos</string>
 	<string name="text_section4">
 		Para añadir a favoritos, únicamente hay que clicar sobre el icono con forma de estrella,
-		de esta forma puede acceder como conexíon reciente o desde la pestaña favoritos.
+		de esta forma puede acceder como conexíon reciente o desde la pestaña favoritos.\n
 		
 		Para quitar esa conexión de favoritos, se pulsa de nuevo el icono marcado, quitandose de
-		la sección favoritos.
+		la sección favoritos.\n
     </string>
     
 		<string name="title_section5">Opciones de conexión</string>
 	<string name="text_section5">
 		Al pulsar sobre una conexión de la lista, se presenta un menú de opciones. Desde ahí se
 		puede conectar, mostrar la información de la conexión, editar y eliminar dicha conexión.
-		También se puede conectar pulsando el icono de la derecha con forma de flecha.
+		También se puede conectar pulsando el icono de la derecha con forma de flecha.\n
     </string>
     
 			<string name="title_section6">Una vez conectado</string>
 	<string name="text_section6">
 		Una vez cargada la imagen se puede acceder al menú de opciones, tanto desde el botón 
 		físico del terminal, como ARRASTRANDO desde la IZQUIERDA DE LA PANTALLA para sacar
-		el menú lateral. Una vez ahí se puede mostrar teclado, mandar teclas, centrar imagen
-		y desconectar.
+		el menú lateral. \nUna vez ahí se puede mostrar teclado, mandar teclas, centrar imagen
+		y desconectar.\n
     </string>
     
 	<string name="title_section7">Menú lateral</string>
 	<string name="text_section7">
 		Una vez cargada la imagen se puede acceder al menú de opciones, tanto desde el botón 
 		físico del terminal, como ARRASTRANDO desde la IZQUIERDA DE LA PANTALLA para sacar
-		el menú lateral. Una vez ahí se puede mostrar teclado, mandar teclas, centrar imagen
-		y desconectar.
+		el menú lateral.\nUna vez ahí se puede mostrar teclado, mandar teclas, centrar imagen
+		y desconectar.\n
     </string>
     
 	<string name="title_section8">Envío de teclas especiales</string>
 	<string name="text_section8">
 		Para mandar eventos ctrl,alt,supr,shift, basta con seleccionar la tecla Combo teclas,
-		y en dialog seleccionar las teclas que se quieran enviar. Las teclas función y el resto
-		de letras, se pueden seleccionar desde el botón central "Teclas"
+		y en dialog seleccionar las teclas que se quieran enviar. \nLas teclas función y el resto
+		de letras, se pueden seleccionar desde el botón central "Teclas".\n
     </string>
 
 </resources>

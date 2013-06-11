@@ -12,66 +12,150 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:layout_weight="1"
-   android:padding="6dip"
     >
     <TextView  
         android:id="@+id/help_page_intro"
-        android:layout_width="match_parent" 
+        android:layout_width="fill_parent" 
         android:layout_height="wrap_content" 
         android:text="@string/help_page_intro"
         android:padding="2dip"
         android:layout_weight="1"
+        style="?android:attr/listSeparatorTextViewStyle"
            />
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:padding="4dip">
+        android:layout_height="wrap_content" >
 
     <TextView  
-           android:layout_width="wrap_content" 
+           android:layout_width="fill_parent" 
            android:layout_height="wrap_content" 
-           android:text="@string/help_text_section1"
-        android:padding="8dip"
-        android:layout_weight="1"
+           android:text="@string/title_section1"
+        style="?android:attr/listSeparatorTextViewStyle"
+           />
+    <TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/text_section1"
            />
     </LinearLayout>
 
    <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-        <TextView  
-           android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" >
+	<TextView  
+           android:layout_width="fill_parent" 
            android:layout_height="wrap_content" 
-           android:text="@string/help_text_section2"
-        android:padding="8dip"
-        android:layout_weight="1"
+           android:text="@string/title_section2"
+        	style="?android:attr/listSeparatorTextViewStyle"
+           />
+        <TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/text_section2"
            />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <Button android:id="@+id/help_button3"
-        android:layout_weight="1"
-        android:layout_width="180dip"
-        android:layout_height="wrap_content"
-            android:onClick="onClickHelp"
-            android:text="@string/help_title_section3"
-            android:drawableTop="@drawable/ic_launcher"/>
-        <TextView  
-           android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" >
+	<TextView  
+           android:layout_width="fill_parent" 
            android:layout_height="wrap_content" 
-           android:text="@string/help_text_section3"
-        android:padding="8dip"
-        android:layout_weight="1"
+           android:text="@string/title_section3"
+        	style="?android:attr/listSeparatorTextViewStyle"
+           />
+        <TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/text_section3"
+           />
+    </LinearLayout>
+    
+        <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+	<TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/title_section4"
+        	style="?android:attr/listSeparatorTextViewStyle"
+           />
+        <TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/text_section4"
+           />
+    </LinearLayout>
+    
+            <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+	<TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/title_section5"
+        	style="?android:attr/listSeparatorTextViewStyle"
+           />
+        <TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/text_section5"
+           />
+    </LinearLayout>
+    
+                <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+	<TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/title_section6"
+        	style="?android:attr/listSeparatorTextViewStyle"
+           />
+        <TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/text_section6"
+           />
+    </LinearLayout>
+    
+                    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+	<TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/title_section7"
+        	style="?android:attr/listSeparatorTextViewStyle"
+           />
+        <TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/text_section7"
+           />
+    </LinearLayout>
+    
+                        <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+	<TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/title_section8"
+        	style="?android:attr/listSeparatorTextViewStyle"
+           />
+        <TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/text_section8"
            />
     </LinearLayout>
 
