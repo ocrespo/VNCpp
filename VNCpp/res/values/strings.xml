@@ -9,7 +9,6 @@
     
     <string name="message_ip">Insert your IP to connect: </string>
     <string name="message_port">Insert PORT connect: </string>
-    <string name="message_user">User authentication(opcional) </string>
     <string name="message_psw">PASSWORD authentication </string>
     <string name="connect">Connect</string>
     <string name="cancel">Cancel</string>
@@ -54,6 +53,7 @@
     
     <string name="DialogTitle">Options</string>
     <string name="DialogConnect">Connect</string>
+    <string name="DialogInfo">Info</string>
     <string name="DialogEdit">Edit</string>
     <string name="DialogDelete">Delete</string>    
     
@@ -103,5 +103,10 @@
 	<string name="remember_exit">Remember exit</string>
 	<string name="yes">Yes</string>
 	<string name="no">No</string>
+	
+	<!-- INFO DIALOGS -->
+	<string name="port">Port</string>
+	<string name="Quality">Quality</string>
+	<string name="connection">Connection: </string>
 
 </resources>

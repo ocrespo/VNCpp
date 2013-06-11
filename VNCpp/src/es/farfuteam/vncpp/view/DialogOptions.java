@@ -52,11 +52,13 @@ public class DialogOptions extends DialogFragment {
 		
 		//menu de opciones
 		final String connect = getString(R.string.DialogConnect);
+		final String info =getString(R.string.DialogInfo);
 		final String edit = getString(R.string.DialogEdit);
 		final String delete = getString(R.string.DialogDelete);
+		 
 		
 		
-	    final String[] items = { connect, edit, delete };
+	    final String[] items = { connect, info, edit, delete };
 		 
 	    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 	    
@@ -74,7 +76,12 @@ public class DialogOptions extends DialogFragment {
 	            	
 	            	((ClientActivityTabs)getActivity()).connect();
 	            	
-	            }	            
+	            }
+	            else if (items[item].equalsIgnoreCase(info)){
+	   	         
+	            	((ClientActivityTabs)getActivity()).showInfoDialog();
+	            	
+	            }
 	            else if (items[item].equalsIgnoreCase(edit)){
 	         
 	            	((ClientActivityTabs)getActivity()).editingUser();

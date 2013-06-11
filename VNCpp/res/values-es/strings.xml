@@ -48,6 +48,7 @@
     
     <string name="DialogTitle">Opciones</string>
     <string name="DialogConnect">Conectar</string>
+    <string name="DialogInfo">Info</string>
     <string name="DialogEdit">Editar</string>
     <string name="DialogDelete">Eliminar</string> 
     
@@ -97,5 +98,10 @@
 	<string name="remember_exit">Recordar salida</string>
 	<string name="yes">Sí</string>
 	<string name="no">No</string>
+	
+		<!-- INFO DIALOGS -->
+	<string name="port">Puerto</string>
+	<string name="Quality">Calidad</string>
+	<string name="connection">Conexión: </string>
 
 </resources>

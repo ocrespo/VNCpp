@@ -62,6 +62,8 @@ import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
 
 public class ClientActivityTabs extends FragmentActivity implements SuperListener{	
 	
+	public enum InfoDialogs{infoDialog,createNonConnectionDialog};
+	
 	public static final String PREFS_NAME="PreferencesFile";
 		
 	/** A string */
@@ -382,12 +384,27 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 			}
 			else{
 				//dialogo alerta No conexion habilitada
-				showDialog(1);
+				showDialog(InfoDialogs.createNonConnectionDialog.ordinal());
 			}
 			
 
 			
-		}		
+		}	
+		
+		
+		public void showInfoDialog() {
+
+			
+	        /*String ip = ((Connection) getO()).getIP();
+	        String port = ((Connection) getO()).getPORT();
+	        QualityArray color = ((Connection) getO()).getColorFormat();*/
+			//TODO AQUI
+
+				showDialog(InfoDialogs.infoDialog.ordinal());
+			
+
+			
+		}
 		
 		/**
 		 * @brief Handles the onKeyDown event
@@ -503,12 +520,13 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 		 
 		    switch(id)
 		    {
+		    	case 0:
+		    		dialog = infoDialog();
+		    		break;
 		        case 1:
 		        	dialog = createNonConnectionDialog();
 		        	break;
-		        default:
-		            dialog = createNonConnectionDialog();
-		            break;
+
 		    }
 		 
 		    return dialog;
@@ -534,38 +552,34 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 		    return builder.create();
 		}
 		
-		
-		
-		
-		
-		
-		
-		/*
-		public boolean isRememberExit() {
-			return rememberExit;
-		}
+		private Dialog infoDialog() {
+			
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			
+			final String portText = getString(R.string.port);
+			final String qualityText = getString(R.string.Quality);
+			final String connectionText = getString(R.string.connection);
+		    
+		    String name = ((Connection) getO()).getName();		    
+	        String ip = ((Connection) getO()).getIP();
+	        String port = ((Connection) getO()).getPORT();
+	        QualityArray color = ((Connection) getO()).getColorFormat();
+	        
+	        builder.setMessage("IP: "+ip+"\n"+portText+": "+port+"\n"+qualityText+": "+color);
+			 
+		    builder.setTitle(connectionText +" "+name);
+		    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+		        @Override
+				public void onClick(DialogInterface dialog, int which) {
+		            dialog.cancel();
+		        }
 
-		public void setRememberExit(boolean rememberExit) {
-			//this.rememberExit = rememberExit;
-			ConfigurationMenu.getInstance().setRememberExit(rememberExit);
+		    });
+		 
+		    return builder.create();
+		    
 		}
-
-		public SharedPreferences getPrefs() {
-			return prefs;
-		}
-
-		public void setPrefs(SharedPreferences prefs) {
-			this.prefs = prefs;
-		}
-
-		public boolean isHideCursor() {
-			return hideCursor;
-		}
-
-		public void setHideCursor(boolean hideCursor) {
-			this.hideCursor = hideCursor;
-		}
-		*/	
+		
 	
   }
 
