@@ -32,6 +32,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.MotionEventCompat;
+import android.text.InputType;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -795,6 +796,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	    builder.setMessage(body);
         // Set an EditText view to get user password 
         final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
         builder.setView(input);
         
 	    builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
