@@ -21,6 +21,7 @@
 package es.farfuteam.vncpp.controller;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.ActionBar.Tab;
 import android.app.AlertDialog;
@@ -62,7 +63,7 @@ import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
 
 public class ClientActivityTabs extends FragmentActivity implements SuperListener{	
 	
-	public enum InfoDialogs{infoDialog,createNonConnectionDialog};
+	public enum InfoDialogs{infoDialog,createNonConnectionDialog,exitDialog};
 	
 	public static final String PREFS_NAME="PreferencesFile";
 		
@@ -429,44 +430,11 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 			
 			else{
 				
-				View checkBoxOut = View.inflate(this, R.layout.checkbox_out, null);
-				CheckBox checkBox = (CheckBox) checkBoxOut.findViewById(R.id.checkboxOut);
-				checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-	
-				    @Override
-				    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-	
-				        // Save to shared preferences
-				    	/*SharedPreferences.Editor editor = getPrefs().edit();
-				    	editor.putBoolean("exit", true);
-				    	editor.commit();*/
-				    	(Configuration.getInstance()).setRememberExit(true);
-				    	buttonView.setChecked(false);
-				    }
-				});
+				
 
-				final String decision = getString(R.string.RememberCheckBox);
 				
-				checkBox.setText(decision);
 				
-				final String titleExit = getString(R.string.DialogTitleExit);
-				final String question = getString(R.string.DialogQuestion);
-				
-			   
-			    new AlertDialog.Builder(this)
-			      .setIcon(android.R.drawable.ic_dialog_alert)
-			      .setTitle(titleExit)
-			      .setMessage(question)
-			      .setView(checkBoxOut)
-			      .setNegativeButton(android.R.string.cancel, null)//sin listener
-			      .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {//un listener que al pulsar, cierre la aplicacion
-			        @Override
-			        public void onClick(DialogInterface dialog, int which){
-			          //Salir
-			          finish();
-			        }
-			      })
-			      .show();
+				showDialog(InfoDialogs.exitDialog.ordinal());
 			    
 			}
 
@@ -525,13 +493,61 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 		        case 1:
 		        	dialog = createNonConnectionDialog();
 		        	break;
-
+		        case 2:
+		        	dialog = createExitDialog();
+		        	break;
 		    }
 		 
 		    return dialog;
 		}
 		
-		
+		private Dialog createExitDialog(){
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			
+			View checkBoxOut = View.inflate(this, R.layout.checkbox_out, null);
+			final CheckBox checkBox = (CheckBox) checkBoxOut.findViewById(R.id.checkboxOut);
+			/*checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+			    @Override
+			    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+			        // Save to shared preferences
+			    	/*SharedPreferences.Editor editor = getPrefs().edit();
+			    	editor.putBoolean("exit", true);
+			    	editor.commit();*/
+			    	//(Configuration.getInstance()).setRememberExit(true);
+			   
+			   /* }
+			});*/
+			final String decision = getString(R.string.RememberCheckBox);
+			
+			checkBox.setText(decision);
+			
+			final String titleExit = getString(R.string.DialogTitleExit);
+			final String question = getString(R.string.DialogQuestion);
+			final Activity actThis = this;
+		    builder.setIcon(android.R.drawable.ic_dialog_alert);
+		    builder.setTitle(titleExit);
+		    builder.setMessage(question);
+		    builder.setView(checkBoxOut);
+		    builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					actThis.removeDialog(InfoDialogs.exitDialog.ordinal());
+					
+				}
+		      });
+		    builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {//un listener que al pulsar, cierre la aplicacion
+		        @Override
+		        public void onClick(DialogInterface dialog, int which){
+		          //Salir
+		        (Configuration.getInstance()).setRememberExit(checkBox.isChecked());
+		          finish();
+		        }
+		      });
+		    return builder.create();
+		}
 		private Dialog createNonConnectionDialog() {
 		    AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		    

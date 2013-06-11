@@ -767,7 +767,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	        	
 	        case 4:
 	        	dialog = functionKeysDialog();
-	        	menu.toggle();
+	        	
 	        	break;
 	        	
 	        case 5:	
@@ -943,6 +943,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	    //final String[] arraySpecialsKeys = getResources().getStringArray(R.array.keys_array);
 	
 	    // Set the dialog title
+	    final Activity actThis = this;
 	    builder.setTitle(R.string.combo_keys_title)
 	    // Specify the list array, the items to be selected by default (null for none),
 	    // and the listener through which to receive callbacks when items are selected
@@ -985,6 +986,8 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	            	   sendKeys(false);
 	            	   sendSpecialKeys(false); 
 	            	   
+	            	   actThis.removeDialog(EnumDialogs.comboEventsDialog.ordinal());
+	            	   actThis.removeDialog(EnumDialogs.functionKeysDialog.ordinal());
 	            	   specialKeys = null;
 	               }
 	           })
@@ -992,7 +995,11 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	               @Override
 	               public void onClick(DialogInterface dialog, int id) {
 	                   //se vacia el vector
+	            	   actThis.removeDialog(EnumDialogs.comboEventsDialog.ordinal());
+	            	   actThis.removeDialog(EnumDialogs.functionKeysDialog.ordinal());
 	            	   specialKeys = null;
+	            	   
+	            	   //dialog.cancel();
 	               }
 	           });
 	    
@@ -1003,12 +1010,11 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	
 	private Dialog functionKeysDialog() {		   
 
-	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+	   AlertDialog.Builder builder = new AlertDialog.Builder(this);
 	   keys = new Vector<Integer>();  // Where we track the selected items
 	    
 	   // final String[] arrayFunctionKey = getResources().getStringArray(R.array.function_keys_array);
-	     
-	    	    
+	   final Activity actThis = this;
 	    // Set the dialog title
 	    builder.setTitle(R.string.function_keys_title)
 	    // Specify the list array, the items to be selected by default (null for none),
@@ -1040,7 +1046,10 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	               @Override
 	               public void onClick(DialogInterface dialog, int id) {
 	                   //functionKeys se vacía
-	            	   keys.clear();
+	            	   showDialog(EnumDialogs.comboEventsDialog.ordinal());
+	            	   actThis.removeDialog(EnumDialogs.functionKeysDialog.ordinal());
+	            	   keys = null;
+	            	   
 	               }
 	           });
 	    
