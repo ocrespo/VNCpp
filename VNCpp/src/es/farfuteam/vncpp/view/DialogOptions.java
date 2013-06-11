@@ -28,7 +28,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
-import es.farfuteam.vncpp.controller.ClientActivityTabs;
+import es.farfuteam.vncpp.controller.ActivityTabs;
 import es.farfuteam.vncpp.controller.R;
 
 public class DialogOptions extends DialogFragment {
@@ -74,17 +74,17 @@ public class DialogOptions extends DialogFragment {
 	            
 	            if (items[item].equalsIgnoreCase(connect)){	
 	            	
-	            	((ClientActivityTabs)getActivity()).connect();
+	            	((ActivityTabs)getActivity()).connect();
 	            	
 	            }
 	            else if (items[item].equalsIgnoreCase(info)){
 	   	         
-	            	((ClientActivityTabs)getActivity()).showInfoDialog();
+	            	((ActivityTabs)getActivity()).showInfoDialog();
 	            	
 	            }
 	            else if (items[item].equalsIgnoreCase(edit)){
 	         
-	            	((ClientActivityTabs)getActivity()).editingUser();
+	            	((ActivityTabs)getActivity()).editingUser();
 	            	
 	            }
 	            else if (items[item].equalsIgnoreCase(delete)){	            	

@@ -112,7 +112,7 @@ public class ListFragmentTabFav extends ListFragment implements SuperListener{
 			super.onListItemClick(listView, view, position, id);			
 			setO(getListAdapter().getItem(position));			
 			
-			((ClientActivityTabs)getActivity()).setO(getO());
+			((ActivityTabs)getActivity()).setO(getO());
 			
 			//SuperListener parentFragment;
 			DialogOptions dialog1 = DialogOptions.newInstance((SuperListener) this);

@@ -24,12 +24,10 @@ import java.util.ArrayList;
 
 import android.app.ListFragment;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.ListView;
 import es.farfuteam.vncpp.model.sql.Connection;
 import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
@@ -121,7 +119,7 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 		    	iconFav.setButtonDrawable(R.drawable.star_emp);
 		    }	*/		
 			
-			((ClientActivityTabs)getActivity()).setO(getO());			
+			((ActivityTabs)getActivity()).setO(getO());			
 			
 			//SuperListener parentFragment;
 			DialogOptions dialog1 = DialogOptions.newInstance((SuperListener) this);

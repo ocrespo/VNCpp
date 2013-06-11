@@ -61,7 +61,7 @@ import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
  * @implements SuperListener
  */
 
-public class ClientActivityTabs extends FragmentActivity implements SuperListener{	
+public class ActivityTabs extends FragmentActivity implements SuperListener{	
 	
 	public enum InfoDialogs{infoDialog,createNonConnectionDialog,exitDialog};
 	
