@@ -67,8 +67,7 @@ public:
 	jint* getArrayElements();
 	void setArrayElements(jint *info);
 
-
-
+	char* notifyAskPass();
 
 };
 

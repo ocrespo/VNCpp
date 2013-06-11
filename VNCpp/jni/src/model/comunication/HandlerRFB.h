@@ -29,7 +29,8 @@
 using namespace std;
 
 class ClientScreen;
-class HandlerRFB {
+class ObservableJNI;
+class HandlerRFB{
 private:
 	static ClientScreen *screen;
 

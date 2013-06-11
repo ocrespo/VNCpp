@@ -80,4 +80,3 @@ bool Vnc::sendMouseEvent(int x,int y,MouseEvent event){
 bool Vnc::sendKeyEvent(int key,bool down){
 	return rfb->sendKeyEvent(key,down);
 }
-

@@ -258,3 +258,18 @@ void ObservableJNI::setArrayElements(jint *info){
 
 	//env = NULL;
 }
+char* ObservableJNI::notifyAskPass(){
+	getEnviroment();
+	observer_class  = env->GetObjectClass(this->observer_object);
+	jmethodID updateAskPass = env->GetMethodID(observer_class,"updateAskPass","()Ljava/lang/String;");
+
+	jstring aux_pass = (jstring)env->CallObjectMethod(observer_object,updateAskPass);
+
+	if(DEBUG)
+		LOGE("Finish launch method reDraw");
+
+	 env->DeleteLocalRef(observer_class);
+
+	const char* pass = env->GetStringUTFChars(aux_pass,0);
+	return (char*)pass;
+}

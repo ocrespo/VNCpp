@@ -72,8 +72,10 @@ void HandlerRFB::freePass(){
 	}
 }
 char* HandlerRFB::getPass(rfbClient* client){
-	if(pass == NULL){
-		return strdup("");
+	LOGE("pass");
+	if(pass == NULL || strcmp(pass,"") == 0){
+		char* aux_pass =screen->notifyAskPass();
+		setPass(aux_pass);
 	}
 	return strdup(pass);
 }
