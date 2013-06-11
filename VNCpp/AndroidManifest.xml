@@ -24,7 +24,7 @@
         android:theme="@style/MyTheme" android:logo="@drawable/logo_vncpp" android:hardwareAccelerated="true">
         
         <activity
-            android:name="es.farfuteam.vncpp.controller.ClientActivityTabs"
+            android:name="es.farfuteam.vncpp.controller.ActivityTabs"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
