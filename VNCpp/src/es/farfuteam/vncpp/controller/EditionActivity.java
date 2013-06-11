@@ -66,6 +66,9 @@ public class EditionActivity extends Activity{
 	      String ip = bundle.getString("IP");	      
 	      String port = bundle.getString("PORT");
 	      String psw = bundle.getString("PSW");
+	      String color = bundle.getString("quality");
+	      
+	      
 
 
 		TextView text = (TextView) findViewById(R.id.editTextViewName);
