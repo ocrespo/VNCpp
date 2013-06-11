@@ -65,7 +65,13 @@
                         android:inputType="textPassword"
                          /> 
                          
-                
+               <TextView
+                        android:id="@+id/Quality_text"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"                        
+                        android:text="@string/Quality"
+                        android:paddingLeft="3dip"
+                        />
                 <Spinner android:id="@+id/Spinner_colors"
 					    android:layout_width="match_parent"
 					    android:layout_height="wrap_content" />  

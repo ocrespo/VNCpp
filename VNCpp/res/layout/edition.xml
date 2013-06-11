@@ -61,6 +61,14 @@
                         android:paddingLeft="3dip"
                         android:inputType="textPassword"
                          /> 
+                 <TextView
+                        android:id="@+id/editQuality_Connect"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Quality"
+                        android:paddingLeft="3dip"
+                        />         
+                
                          
                 <Spinner android:id="@+id/Spinner_colors"
 					    android:layout_width="match_parent"
@@ -71,9 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="3dip"
-                android:paddingRight="3dip"
-                android:paddingTop="5dip" 
+				android:gravity="center" 
                 >
              <Button
                     android:id="@+id/buttonEdit"

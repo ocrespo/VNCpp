@@ -106,7 +106,7 @@
 	
 	<!-- INFO DIALOGS -->
 	<string name="port">Port</string>
-	<string name="Quality">Quality</string>
+	<string name="Quality">Image quality</string>
 	<string name="connection">Connection: </string>
 
 </resources>

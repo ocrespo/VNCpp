@@ -65,6 +65,7 @@ public class NewConnectionActivity extends FragmentActivity {
 	private EditText PORT_field;
 	private EditText PSW_field;
 	
+	
 	private String connectionName;
 	private String IP;
 	private String PORT;
@@ -73,8 +74,7 @@ public class NewConnectionActivity extends FragmentActivity {
 	
 	private Spinner Spinner_colors;
 	//formato de color seleccionado
-	private QualityArray color_format;
-	
+	private QualityArray color_format;	
 	
 
    
@@ -107,10 +107,7 @@ public class NewConnectionActivity extends FragmentActivity {
 		 
 		Spinner_colors.setAdapter(adapter);
 		
-		final String[] colors = getResources().getStringArray(R.array.color_array);
-		Log.i("tag",colors[0]);
-		Log.i("tag",colors[1]);
-		Log.i("tag",colors[2]);
+		//final String[] colors = getResources().getStringArray(R.array.color_array);
 		
 		Spinner_colors.setOnItemSelectedListener(
 		        new AdapterView.OnItemSelectedListener() {

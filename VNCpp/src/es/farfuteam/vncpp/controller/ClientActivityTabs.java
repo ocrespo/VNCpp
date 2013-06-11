@@ -420,8 +420,7 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 		public boolean onKeyDown(int keyCode, KeyEvent event) {
 		   
 		  if (keyCode == KeyEvent.KEYCODE_BACK) {
-			  //(ConfigurationMenu.getInstance()).setRememberExit(true);
-			  Log.i("tag","averr "+(Configuration.getInstance()).isRememberExit());
+
 			//si en las preferencias esta a true, se sale sin preguntar
 			if ((Configuration.getInstance()).isRememberExit()){
 				
@@ -430,7 +429,7 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 			
 			else{
 				
-					View checkBoxOut = View.inflate(this, R.layout.checkbox_out, null);
+				View checkBoxOut = View.inflate(this, R.layout.checkbox_out, null);
 				CheckBox checkBox = (CheckBox) checkBoxOut.findViewById(R.id.checkboxOut);
 				checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 	
@@ -442,10 +441,10 @@ public class ClientActivityTabs extends FragmentActivity implements SuperListene
 				    	editor.putBoolean("exit", true);
 				    	editor.commit();*/
 				    	(Configuration.getInstance()).setRememberExit(true);
-				    	
+				    	buttonView.setChecked(false);
 				    }
 				});
-				
+
 				final String decision = getString(R.string.RememberCheckBox);
 				
 				checkBox.setText(decision);
