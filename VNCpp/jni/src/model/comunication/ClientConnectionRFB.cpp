@@ -280,6 +280,21 @@ rfbKeySym ClientConnectionRFB::transformToRfbKey(int key){
 	        //case SDLK_SPACE: rfbKey = XK_space; break;
 	        //case SDLK_DELETE: rfbKey = XK_Delete; break;
 
+	        case 17: rfbKey = XK_F1; break;
+			case 18: rfbKey = XK_F2; break;
+			case 19: rfbKey = XK_F3; break;
+			case 20: rfbKey = XK_F4; break;
+			case 21: rfbKey = XK_F5; break;
+			case 22: rfbKey = XK_F6; break;
+			case 23: rfbKey = XK_F7; break;
+			case 24: rfbKey = XK_F8; break;
+			case 25: rfbKey = XK_F9; break;
+			case 26: rfbKey = XK_F10; break;
+			case 27: rfbKey = XK_F11; break;
+			case 28: rfbKey = XK_F12; break;
+
+
+
 	        case 29: rfbKey = XK_a; break;
 	        case 30: rfbKey = XK_b; break;
 	        case 31: rfbKey = XK_c; break;
