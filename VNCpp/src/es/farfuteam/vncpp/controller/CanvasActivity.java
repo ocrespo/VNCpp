@@ -941,9 +941,11 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
  	   }
 	}
 	private void sendKeys(boolean down){
-		for(int s : keys){
-			vnc.sendKey(s+adjustKeys,down);
- 	   }
+		if(keys != null){
+			for(int s : keys){
+				vnc.sendKey(s+adjustKeys,down);
+	 	   }
+		}
 	}
 	private Dialog comboEventsDialog() {
 	   
@@ -992,7 +994,8 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	            	   sendSpecialKeys(true);
 	            	   sendKeys(true);
 	            	   Collections.reverse(specialKeys);
-	            	   Collections.reverse(keys);
+	            	   if(keys != null)
+	            		   Collections.reverse(keys);
 	            	   sendKeys(false);
 	            	   sendSpecialKeys(false); 
 	            	   

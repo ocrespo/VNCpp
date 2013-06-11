@@ -92,12 +92,19 @@
 		y desconectar.
     </string>
     
-	<string name="title_section7">Envío de teclas especiales</string>
+	<string name="title_section7">Menú lateral</string>
 	<string name="text_section7">
 		Una vez cargada la imagen se puede acceder al menú de opciones, tanto desde el botón 
 		físico del terminal, como ARRASTRANDO desde la IZQUIERDA DE LA PANTALLA para sacar
 		el menú lateral. Una vez ahí se puede mostrar teclado, mandar teclas, centrar imagen
 		y desconectar.
+    </string>
+    
+	<string name="title_section8">Envío de teclas especiales</string>
+	<string name="text_section8">
+		Para mandar eventos ctrl,alt,supr,shift, basta con seleccionar la tecla Combo teclas,
+		y en dialog seleccionar las teclas que se quieran enviar. Las teclas función y el resto
+		de letras, se pueden seleccionar desde el botón central "Teclas"
     </string>
 
 </resources>
