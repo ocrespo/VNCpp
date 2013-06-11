@@ -311,24 +311,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	}
 	*/
 	
-	@Override
-	public boolean onMenuItemSelected(int featureId, MenuItem item) {
-		switch(item.getItemId()) {
-		case R.id.keyboard_down:			
-			showKeyboard();
-			return true;
-			
-		case R.id.ctrl_events:
-			showDialog(EnumDialogs.comboEventsDialog.ordinal());
-			return true;
-			//TODO POR SI GORKA ES RETRASADO MENTAL
-			
-		case R.id.help_down:
-			return true;
-			
-		}
-		return super.onMenuItemSelected(featureId, item);
-	}
+	
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent evt){
 		super.onKeyDown(keyCode, evt);
