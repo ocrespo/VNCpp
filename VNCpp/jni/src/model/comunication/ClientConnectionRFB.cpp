@@ -266,6 +266,12 @@ rfbKeySym ClientConnectionRFB::transformToRfbKey(int key){
 	 	 	case 66: rfbKey = XK_KP_Enter; break;
 	        case 62: rfbKey = XK_space; break;
 	        case 67: rfbKey = XK_BackSpace; break;
+	        case 1:	 rfbKey = XK_Control_L; break;//control
+	        case 2:	 rfbKey = XK_Shift_L; break;//shift
+	        case 3:	 rfbKey = XK_Alt_L; break;//alt
+	        case 4:	 rfbKey = XK_Delete; break;//supr
+	        case 5:	 rfbKey = XK_Meta_L; break;//meta
+
 	       // case SDLK_TAB: rfbKey = XK_Tab; break;
 	        //case SDLK_CLEAR: rfbKey = XK_Clear; break;
 	        //case SDLK_RETURN: rfbKey = XK_Return; break;
@@ -407,7 +413,7 @@ rfbKeySym ClientConnectionRFB::transformToRfbKey(int key){
 	        case SDLK_F13: rfbKey = XK_F13; break;
 	        case SDLK_F14: rfbKey = XK_F14; break;
 	        case SDLK_F15: rfbKey = XK_F15; break;*/
-	        case 59: rfbKey = XK_Shift_Lock; break;
+	        //case 59: rfbKey = XK_Shift_Lock; break;
 	        /*case SDLK_NUMLOCK: rfbKey = XK_Num_Lock; break;
 	        case SDLK_CAPSLOCK: rfbKey = XK_Caps_Lock; break;
 	        case SDLK_SCROLLOCK: rfbKey = XK_Scroll_Lock; break;

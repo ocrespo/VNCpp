@@ -20,6 +20,7 @@
  */
 package es.farfuteam.vncpp.controller;
 
+import java.util.Collections;
 import java.util.Vector;
 
 import android.app.Activity;
@@ -38,7 +39,6 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.KeyEvent;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.ScaleGestureDetector.OnScaleGestureListener;
@@ -906,7 +906,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	    
 	    return builder.create();
 	}
-	private void sendSpeacialKeys(boolean down){
+	private void sendSpecialKeys(boolean down){
 		for(EnumSpecialKey s : specialKeys){
  		   switch (s) {
 				case ctrl:
@@ -926,6 +926,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 					break;
 				
 				}
+ 		   Log.e(DEBUG_TAG, s.toString()+" "+ String.valueOf(down));
  	   }
 	}
 	private Dialog comboEventsDialog() {
@@ -944,13 +945,18 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	               @Override
 	               public void onClick(DialogInterface dialog, int which,
 	                       boolean isChecked) {
+	            	   EnumSpecialKey aux = EnumSpecialKey.values()[which];;
 	                   if (isChecked) {
 	                       // If the user checked the item, add it to the selected items
-	                	   EnumSpecialKey aux = EnumSpecialKey.values()[which];
-	                	   specialKeys.add(aux);
+	                	   if(aux == EnumSpecialKey.ctrl || aux == EnumSpecialKey.alt){
+	                		   specialKeys.add(0, aux);
+	                	   }
+	                	   else{
+	                		   specialKeys.add(aux);
+	                	   }
 	                   } else if (specialKeys.contains(which)) {
-	                       // Else, if the item is already in the array, remove it 
-	                	   specialKeys.remove(Integer.valueOf(which));
+	                       // Else, if the item is already in the array, remove it
+	                	   specialKeys.remove(aux);
 	                   }
 	               }
 	           })
@@ -959,22 +965,25 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					//muestra function keys
-					showDialog(EnumDialogs.functionKeysDialog.ordinal());					
+					showDialog(EnumDialogs.functionKeysDialog.ordinal());
 				}
 			})
 	    // Set the action buttons
 	           .setPositiveButton("OK", new DialogInterface.OnClickListener() {
 	               @Override
 	               public void onClick(DialogInterface dialog, int id) {
-	            	   sendSpeacialKeys(true);
-	            	   sendSpeacialKeys(false); 
+	            	   sendSpecialKeys(true);
+	            	   Collections.reverse(specialKeys);
+	            	   sendSpecialKeys(false); 
+	            	   
+	            	   specialKeys = null;
 	               }
 	           })
 	           .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
 	               @Override
 	               public void onClick(DialogInterface dialog, int id) {
 	                   //se vacia el vector
-	            	   specialKeys.clear();
+	            	   specialKeys = null;
 	               }
 	           });
 	    
