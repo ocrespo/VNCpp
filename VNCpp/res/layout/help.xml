@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+<ScrollView android:id="@+id/ScrollViewHelp"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    >
+    <TextView  
+        android:id="@+id/help_page_intro"
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content" 
+        android:text="@string/help_page_intro"
+        android:padding="2dip"
+        android:layout_weight="1"
+        style="?android:attr/listSeparatorTextViewStyle"
+           />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+    <TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/title_section1"
+        style="?android:attr/listSeparatorTextViewStyle"
+           />
+    <TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/text_section1"
+           />
+    </LinearLayout>
+
+   <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+	<TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/title_section2"
+        	style="?android:attr/listSeparatorTextViewStyle"
+           />
+        <TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/text_section2"
+           />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+	<TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/title_section3"
+        	style="?android:attr/listSeparatorTextViewStyle"
+           />
+        <TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/text_section3"
+           />
+    </LinearLayout>
+    
+        <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+	<TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/title_section4"
+        	style="?android:attr/listSeparatorTextViewStyle"
+           />
+        <TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/text_section4"
+           />
+    </LinearLayout>
+    
+            <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+	<TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/title_section5"
+        	style="?android:attr/listSeparatorTextViewStyle"
+           />
+        <TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/text_section5"
+           />
+    </LinearLayout>
+    
+                <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+	<TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/title_section6"
+        	style="?android:attr/listSeparatorTextViewStyle"
+           />
+        <TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/text_section6"
+           />
+    </LinearLayout>
+    
+                    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+	<TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/title_section7"
+        	style="?android:attr/listSeparatorTextViewStyle"
+           />
+        <TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/text_section7"
+           />
+    </LinearLayout>
+    
+                        <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+	<TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/title_section8"
+        	style="?android:attr/listSeparatorTextViewStyle"
+           />
+        <TextView  
+           android:layout_width="fill_parent" 
+           android:layout_height="wrap_content" 
+           android:text="@string/text_section8"
+           />
+    </LinearLayout>
+
+
+</LinearLayout>
+</ScrollView>
+
+</LinearLayout>

@@ -177,8 +177,8 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 	        	return true;
 	        	
 	        case R.id.howto:
-	        	//TODO funcion texto Luis como usar
-	        	Log.i("tag","estamos en howto");
+	 			Intent ihelp= new Intent(this,HelpActivity.class);
+				startActivity(ihelp);
 	        	return true;
 	        	
 	        case R.id.about:

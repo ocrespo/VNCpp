@@ -2,9 +2,9 @@
 <resources>
  <string name="help_title">Help!</string>
  <string name="help_message">\n
-  Help message.\n
-  Completed by Luis.\n
-  Under construction.\n
+  There is a extended help menu\n
+  at the main activity.\n
+  Show it\n
  </string>
  <string name="help_ok">OK</string>
 </resources>
