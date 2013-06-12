@@ -3,11 +3,16 @@
  <string name="about_title">Acerca de</string>
  <string name="about_message">\n
   VNC++ 2013 Licencia GPLv3\n
-  Autores:\n Óscar Crespo\n
-  		   Gorka Jimeno\n
-  		   Luis Valero\n
+  Autores:\n 
+  Óscar Crespo\n
+  Gorka Jimeno\n
+  Luis Valero\n
   Repositorio GitHub:\n
   \0\0	https://github.com/ocrespo/VNCpp \n
+  \n
+  Logo licenciado bajo Creative Commons by ShareAlike.\n
+  Autor:
+  Sergio Barrasa
   \n
   Basado en LibVNCServer:\n
   \0\0	http://libvncserver.sourceforge.net \n
