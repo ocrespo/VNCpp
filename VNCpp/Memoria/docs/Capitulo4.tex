@@ -412,8 +412,33 @@ Adapter es una clase configurar cada elemento de la lista de conexiones y la lis
 
 Las clases ListFragmentTab y ListFragmentTabFav (Ver Figura 4.3) son las encargadas de gestionar las listas de conexiones y conexiones favoritas respectivamente.\\
 
-CanvasActivity\\
+La clase SlideListFragment (Ver Figura 4.4) se encarga de construir el menú lateral y es llamada desde CanvasActivity.\\
+
+CanvasActivity (Ver Figura 4.4) es la encargada de capturar todos los eventos que se produzcan en el cliente, mostrar la imagen del escritorio y comunicarse con la parte nativa. Para dibujar la imagen se apolla en la clase CanvasView (Ver Figura 4.4). Para Comunicarse con la parte nativa se apolla en VncBridgeJNI (Ver imagen 4.5). La comunicación entre el VncBridgeJNI y el Canvas Activity se realiza demiante el patrón observer (Ver figura 4.4 y 4.5).\\
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=1]{Canvas.pdf}
+\end{center}
+\caption{Diagrama Canvas}
+\end{figure}
+
+VncBridgeJNI es la clase que proporcina los métedos para comunicarse con la parte nativa. Es capaz de llamar a funciones nativas tales como iniConnect, mouseEvent, keyEvent, etc, de esta manera se estable la comunicación de Java a C/C++. Estas funciones están implementadas en C/C++ (Ver subsección 4.2.2). Las notificaciones llegan desde el código nativo a través de la interfaz ObserverJNI.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=1]{Model.pdf}
+\end{center}
+\caption{Diagrama Modelo}
+\end{figure}
 
 \subsection{Parte escrita en C/C++}
 
+Ahora vamos a describir el código escrito en C/C++. La clase Java VncBridgeJNI realiza las llamadas a la parte nativa a través de las funciones implementadas en el fichero JavaBridge.cpp. Este fichero no se muestra en el diagrama de clases puesto que no es una clase, aún así, su única función es hacer las llamadas propias a la clase Vnc, en otras palabras actua como puente entre Java y C++.
 
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=1]{Connection.pdf}
+\end{center}
+\caption{Diagrama Conexión}
+\end{figure}
