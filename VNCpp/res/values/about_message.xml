@@ -3,12 +3,17 @@
  <string name="about_title">About</string>
  <string name="about_message">\n
   VNC++ 2013 License GPLv3\n
-  Authors: Óscar Crespo\n
-  		   Gorka Jimeno\n
-  		   Luis Valero\n
+  Authors:\n
+  Óscar Crespo\n
+  Gorka Jimeno\n
+  Luis Valero\n
   GitHub repository:\n
   \0\0	https://github.com/ocrespo/VNCpp \n
   \n  	
+  Logo license Creative Commons by ShareAlike.\n
+  Author:
+  Sergio Barrasa
+  \n
   It is based on LibVNCServer:\n
   \0\0 http://libvncserver.sourceforge.net \n
   and using SlidingMenu \n
