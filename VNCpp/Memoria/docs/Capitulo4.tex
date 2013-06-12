@@ -377,12 +377,24 @@ Esta sección se centra en la explicación de los diagramas UML y en la explicac
 
 Primero describiremos las Activities principales del programa. ActivityTabs es la Activity principal del programa. Esta Activity es la encargada de llamar tanto a las Activities de configuración, creación y edición de conexión, como a la Activity encargada de comunicarse establecer y atender la conexión.\\
 
+NewConnectionActivity es la encargada de crear una nueva conexión. Es llamada desde ActivityTabs. Una vez rellenados los campos se comprueba que sean correctos, se guardan en la base de datos y se realiza la conexión llamando a CanvasActivity.\\
+
+EditionActivity es la encargada de modificar los datos de una conexión. También es llamada desde ActivityTabs y una vez rellenados los campos comprueba que sean correctos y guarda la nueva conexion en la base de datos.\\
+
+ConfigurationMenu crea el menú de configuraciones. Como las clases anteriores es también llamada desde ActivityTabs. Si el usuario cambia alguna configuración, ConfigurationMenu llama al singleton de Configuration y le pasa los valores que se hayan modificado.\\
+
+Configuration es un singleton que se encarga de acceder al fichero de preferencias. ActivityTabs en el método onCreate llama a esta clase para que se instancie y cargue los datos de este fichero. Luego Configuration podrá ser llamado desde ConfigurationMenu si el usurio decide cambiar algo en la configuración de la aplicación.\\
+
 \begin{figure}[h]
 \begin{center}
-\includegraphics[scale=0.7]{Main.png}
+\includegraphics[scale=1]{Main.pdf}
 \end{center}
 \caption{Diagrama principal}
 \end{figure}
+
+Adapter es una clase configurar cada elemento de la lista de conexiones y la lista de favoritos. Las dos clases encargadas de la construcción estas listas son ListFragmentTab y ListFragmentTabFav, ambas se apollan en la clase Adapter para construirse.\\
+
+CanvasActivity\\
 
 \subsection{Parte escrita en C/C++}
 
