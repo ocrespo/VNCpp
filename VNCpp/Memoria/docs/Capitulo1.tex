@@ -1,0 +1,58 @@
+
+El desarrollo de las redes de telecomunicaciones ha permitido que poco a poco el control remoto de un ordenador pase de meras terminales de texto a los escritorios remotos de hoy en día. La tecnología de escritorio remoto permite la centralización de aplicaciones que normalmente se ejecutarían en el entorno de usuario. Gracias a esta tecnología el entorno de usuario (cliente) se convierte en una simple terminal de entrada/salida. Todos los eventos de pulsación de teclas y movimientos del ratón se transmiten desde el cliente a un servidor donde la aplicación los procesa como si se tratasen de eventos locales. La imagen de la pantalla se devuelve al cliente y de esta manera se puede controlar desde el terminal cliente la máquina donde se encuentra la aplicación servidor.\\
+
+Este proyecto se centra únicamente en la realización de una aplicación cliente para Android. De tal manera que la aplicación servidor queda fuera del dominio de este proyecto. Aunque más adelante se profundizará en cuales son los objetivos concretos de este proyecto, conviene aclarar que el objetivo era desarrollar un cliente VNC para Android, que utilizará el NDK y que fuera de software libre, ya que en la actualidad no existe ninguno que cumpla estos dos requisitos.\\
+
+Existen diferentes protocolos de comunicación entre la aplicación cliente y la aplicación servidor. Este proyecto se ha desarrollado utilizando el protocolo de comunicación Remote Frame Buffer (RFB), utilizado por todos los clientes y servidores VNC. De esta manera la aplicación será compatible con cualquier servidor VNC instalado en cualquier terminal.\\
+
+Antes de profundizar más en como se han afrontado los objetivos del proyecto conviene establecer ciertos conocimientos básicos relativos al dominio de estas aplicaciones. Comenzaremos explicando algunos conceptos que se han utilizado antes, tales como VNC, RFB, Android, etc.\\
+
+\section{Conceptos}
+
+\subsection{Escritorio remoto}
+
+Un escritorio remoto es una tecnología que permite a un usuario controlar desde un terminal gráfico (cliente) otro terminal gráfico (servidor). X-Window fue el primer escritorio remoto desarrollado por el Massachusetts Institute of Technology (MIT) en la década de los ochenta.\\
+
+\subsection{VNC}
+
+VNC son las siglas en inglés de Virtual Network Computing. Es un sistema de escritorio remoto que utiliza el protocolo Remote Frame Buffer (RFB) para controlar remotamente otra máquina. Está basado en una arquitectura cliente-servidor, donde la máquina con la aplicación cliente es la que controla a la máquina con la aplicación servidor. VNC transmite los eventos de ratón y teclado desde el cliente al servidor y éste devuelve las actualizaciones de pantalla en la otra dirección a través de una red de comunicaciones.\\
+
+VNC es independiente del sistema operativo, es decir, un cliente VNC ejecutado en una máquina Windows podría controlar un servidor ejecutado en una máquina Linux. En definitiva, se podría controlar cualquier sistema operativo desde cualquier sistema operativo siempre que ambos sean compatibles con VNC.\\
+
+\subsection{RFB}
+
+RFB son las siglas en inglés de Remote Frame Buffer. Es un protocolo de comunicación para el acceso remoto a interfaces gráficas de usuario. Como trabaja a nivel de framebuffer es aplicable a todos los sistemas de ventanas (X11, Windows, Macintosh). RFB es el protocolo usado en VNC.\\
+
+\subsection{Android}
+
+Android es un sistema operativo basado en Linux, diseñado principalmente para Smartphnes y Tablets. Inicialmente fue desarrollado por Android Inc, pero finalmente Google lo compró en 2005. Fue presentado en 2007 junto con la fundación Open Handset Alliance y el primer móvil con sistema operativo Android salió al mercado en 2008.\\
+
+La mayoría del código de Android esta liberado bajo una licencia Apache, licencia libre y de código abierto. No obstante no esta liberado completamente por lo tanto no se puede decir que Android sea un sistema operativo libre. Uno de sus puntos fuertes es la facilidad para desarrollar aplicaciones gracias a las herramientas que proporciona Google. Estas aplicaciones normalmente estan escritas en Java y se desarrollan utilizando el Android SDK, pero también se pueden construir aplicaciones escritas en C/C++ usando el Android NDK.\\
+
+\subsection{Android SDK}
+
+SDK son las siglas en inglés de Software Development Kit. El SDK proporcina las APIs y herramientas de desarrollo necesarias para construir, testear y depurar aplicaciones para Android.\\
+
+\subsection{Android NDK}
+
+NDK son las siglas en inglés de Native Development Kit. El NDK es un conjunto de herramientas que permiten desarrollar parte de la aplicación para Android con lenguajes de código nativo como C o C++.\\
+
+\subsection{JNI}
+
+\subsection{Tight}
+
+\subsection{MD5}
+
+MD5 son las siglas en inglés de Message-Digest Algorithm 5. Es un algoritmo de reducción criptográfico diseñado por el profesor Ronald Rivest del Instituto Tecnológico de Massachusetts. Es un algoritmo que para esta aplicación se ha considerado suficiente ya que es una codificación de 128 bits y todavía sigue en uso en muchos sistemas de codificación. Se descartaron sistemas más robustos como SHA-1 o SHA-2 por considerarlos demasiado pesados para una encriptación de este tipo.
+
+\subsection{Free Software}
+
+\subsection{GPL}
+
+\section{Motivaciones}
+
+La motivación principal para la realización de este proyecto era el desarrollo de algo nuevo, algo que no se hubiera hecho. Así, junto con nuestro interés por el desarrollo de aplicaciones Android usando código nativo, nos dimos cuenta de que no existía ninguna aplicación de escritorio remoto que usase esta tecnología.\\
+
+\section{Objetivos}
+
+Los objectivos de este proyecto son principalmente dos, el desarrollo de una aplicación de escritorio remoto para Android usando el NDK y que dicha aplicación en su totalidad sea software libre.
