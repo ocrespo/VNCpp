@@ -1,4 +1,8 @@
+En este capítulo se describe la construcción de la aplicación. Primero se expondrán las especificaciones de requisitos tanto externos, como funcionales. Después en el siguiente apartado se explicarán los diagramas UML del código, junto con explicaciones de todo el flujo del programa.\\
+
 \section {Especificaci\'on de requisitos}
+
+En esta sección se exponen todos los requisitos de la aplicación.\\
 
 \subsection {Interfaces externos}
 
@@ -22,7 +26,7 @@ En esta sección se indican los requisitos externos a la aplicación.\\ \\
 \end{itemize}
 \subsection {Funciones}
 
-Los siguientes requisitos funcionales definen las acciones que deben tener lugar en el software, aceptando y precesando las entradas y procesando y generando las salidas.\\
+Los siguientes requisitos funcionales definen las acciones que deben tener lugar en el software, aceptando, procesando las entradas y procesando, generando las salidas.\\
 
 \textbf{Crear conexión:}
 \begin{itemize}
@@ -367,11 +371,19 @@ Los siguientes requisitos funcionales definen las acciones que deben tener lugar
 
 \section {Diagramas de clases}
 
+Esta sección se centra en la explicación de los diagramas UML y en la explicación del funcionamiento del código. La sección se divide en otras dos subsecciones, una para explicar la parte escrita en Java y otra para explicar la parte escrita en C/C++.\\
 
+\subsection{Parte escrita en Java}
 
-\begin{figure}[h] %[h] para here [b] para bottom [t] para top
+Primero describiremos las Activities principales del programa. ActivityTabs es la Activity principal del programa. Esta Activity es la encargada de llamar tanto a las Activities de configuración, creación y edición de conexión, como a la Activity encargada de comunicarse establecer y atender la conexión.\\
+
+\begin{figure}[h]
 \begin{center}
-\includegraphics[height= 11 cm , width=16 cm]{Main.png}
+\includegraphics[scale=0.55]{Main.png}
 \end{center}
 \caption{Diagrama principal}
 \end{figure}
+
+\subsection{Parte escrita en C/C++}
+
+
