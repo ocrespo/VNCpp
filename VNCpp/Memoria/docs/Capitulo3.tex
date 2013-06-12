@@ -12,9 +12,9 @@ La librería soporta cualquier codificación de imagen usada por un servidor VNC
 
 Ambas codificaciones utilizar la librería zlib para comprimir los datos de los píxeles en el envío, pero Tight, a diferencia, hace un proceso previo de tratamiento de imagen, de tal forma que el posterior envío de datos sea más ligero.\\
 
-Tight hace un tratamiento de la imagen mediante la librería LibJPEG o, en caso de poderse, LibJPEG-Turbo, siendo esta última una versión avanzada de la primero, de tal forma, que esta preparada para el uso de procesadores vectoriales y su consecuente ganancia de rendimiento.\\
+Tight hace un tratamiento de la imagen mediante la librería LibJPEG o, en caso de poderse, LibJPEG-Turbo, siendo esta última una versión avanzada de la primera, de tal forma, que está preparada para el uso de procesadores vectoriales y su consecuente ganancia de rendimiento.\\
 
-Así pues, Tight es un codificación preparada para entornos de red pobres, teniendo un consumo de red bajo, además, en el envío de regiones de la imagen, algo que VNC está constantemente realizando, tiene un rendimiento superior en torno a 4 veces más rápido. Sin embargo, Tight puedo tener pérdidas en la calidad de la imagen.\\
+Así pues, Tight es un codificación preparada para entornos de red pobres, teniendo un consumo de red bajo. Además, en el envío de regiones de la imagen, algo que VNC está constantemente realizando, tiene un rendimiento superior en torno a 4 veces más rápido. Sin embargo, Tight puedo tener pérdidas en la calidad de la imagen.\\
 
 ZRLE aún siendo una codificación preparada para conexiones lentas, es inferior en este punto, sin embargo, al no hacer un tratamiento previo de la imagen no tiene pérdidas en la misma.\\
 
@@ -31,12 +31,12 @@ Para el uso de esta librería en Android fue necesaria la compilación de otras 
 \item Libjpeg.\\
 \end{itemize}
 
-Entre las diferentes opciones de compilación que ofrece LibVNCServer, ésta fue compilada con todas ellas, esto es, con LibJPEG necesaria para un óptima codificación de los datos de la imagen, y con GNUTLS para poder encriptar los datos mediante SSL.
+Entre las diferentes opciones de compilación que ofrece LibVNCServer, ésta fue compilada con todas ellas, esto es, con LibJPEG necesaria para una óptima codificación de los datos de la imagen, y con GNUTLS para poder encriptar los datos mediante SSL.
 
 \subsection{SlidingMenu}
 
 SlidingMenu es una librería de código abierto de Android, distribuida bajo la licencia Apache versión 2.0, desarrollada por Jeremy Feinstein. Según se cita en el repositorio del autor es una librería que “permite a los desarrolladores crear fácilmente aplicaciones con menús como los que se hizo popular en Google+, YouTube y aplicaciones de Facebook móvil”.
-SlidingMenu se utiliza actualmente en muchas otras aplicaciones Android. Aquí está una lista de algunas de ellas:\\
+SlidingMenu se utiliza actualmente en muchas otras aplicaciones Android, como pueden ser: \\
 
 \begin{itemize}
 \item Foursquare.
@@ -44,33 +44,14 @@ SlidingMenu se utiliza actualmente en muchas otras aplicaciones Android. Aquí e
 \item Evernote Food.
 \item Plume.
 \item VLC for Android.
-\item ESPN ScoreCenter.
-\item MLS MatchDay.
-\item 9GAG.
-\item Wunderlist 2.
-\item The Verge.
-\item MTG Familiar.
-\item Mantano Reader.
-\item Falcon Pro (BETA).
-\item MW3 Barracks.\\
+\item Mantano Reader.\\
 \end{itemize}
 
 Todas estas aplicaciones marcan el diseño y entorno de uso presente y futuro en Android, y éste nuevo menú es el que se está implantando, ya que el menú desplegable clásico dejará de tener validez en los nuevos terminales móviles. Aparte es fácil de integrar en proyectos Android ya existentes.\\
 
-Hay tres posibles formas de integración:
-
-\begin{itemize}
-\item \textbf{1.} Uso dentro de una actividad construyendo mediante código:\\
-$(new SlidingMenu (contexto Contexto)) y luego llamar SlidingMenu\\.attachToActivity (Actividad, SlidingMenu\\.SLIDING_WINDOW |SlidingMenu.SLIDING_CONTENT)$
-\item \textbf{2.} Hacer que cierta actividad extienda de SlidingMenu.
-\item \textbf{3.} Se puede usar directamente en diseños xml.
-\end{itemize}
-
-La integración en este caso, se ha decidido seguir el primer método, por la facilidad de cohesión con código ya existente.\\
-
 A la hora de usar esta librería, se han modificado una serie de parámetros que se consideran útiles para la aplicación.\\
 
-El menú se despliega desde la izquierda dentro del dispositivo móvil cuando ya se controla la imagen que provee cierto servidor. El margen izquierdo sobre el que se produce el evento de despliegue se tuvo que reducir, ya que quitaba opciones de manejo sobre la imagen en el borde más izquierdo del terminal. Para realizar este cambio fue necesario modificar una constante que marcaba el margen, en la clase CustomViewBehind de ésta librería, concretamente reducir el valor de dips: \\
+El menú se despliega desde la izquierda dentro del dispositivo móvil cuando ya se controla la imagen que provee cierto servidor. El margen izquierdo sobre el que se produce el evento de despliegue se tuvo que reducir, ya que quitaba opciones de manejo sobre la imagen en el borde más izquierdo del terminal. Para realizar este cambio fue necesario modificar una constante que marcaba el margen, en la clase CustomViewBehind de ésta librería, concretamente reducir el valor de dips. \\
 
 La librería permite también la personalización a la hora de realizar el desplegado, manejando el grado de visibilidad y sombreado según el nivel de despliegue, así como los márgenes laterales que deja el menú una vez extendido.\\
 
@@ -87,12 +68,12 @@ En este proyecto se da uso a esta tecnología para guardar las conexiones creada
 \item \textbf{NameConnection:} campo en el que se almacena el nombre de la conexión, que sirve como identificador único a la hora de modificar y realizar consultas.
 \item \textbf{IP:} almacena la IP de la conexión establecida.
 \item \textbf{Port:} puerto de la conexión (por defecto 5900).
-\item \textbf{Psw:} almacena la contraseña si el usuario ha optado por esta opción (por defecto la contraseña es vacía). Por razones de seguridad, la contraseña se almacena tras aplicar un algoritmo de reducción criptográfico de tipo MD5.
+\item \textbf{Psw:} almacena la contraseña si el usuario ha optado por esta opción( por defecto la contraseña es vacía). Por razones técnicas ha sido necesario almacenarla sin ningún tipo de encriptación, ya que es necesario comparar con la clave del servidor. En una versión anterior, usábamos una reducción criptográfica de tipo MD5, pero al no poder comparar la clave del servidor con esta codificación, fue necesario quitarla, y almacenar en plano. Ésta opción no nos convencía, pero era la única forma de pasar la clave al servidor.
 \item \textbf{Fav:} indica si la conexión es de tipo favorito o no. En la base de datos las variables de tipo booleanas (true/false) se almacenan como 0 (false) ó 1 (true). Según el valor de este campo, la conexión deberá aparecer en la pestañas de favoritos o no.
 \item \textbf{ColorFormat:} almacena la calidad de color establecida en la conexión. Las opciones son:
 
 \begin{itemize}
-\item \textbf{1.} extra-alta.
+\item \textbf{1.} super-alta.
 \item \textbf{2.} alta.
 \item \textbf{3.} media.
 \item \textbf{4.} baja.
@@ -103,9 +84,9 @@ En este proyecto se da uso a esta tecnología para guardar las conexiones creada
 
 \section{Aplicación}
 \subsection{JNI-NDK}
-NDK, Native Development Kit, de Android es el SDK (Software Development Kit) mediante el cual se pueden desarrollar aplicaciones nativas para Android, esto es, aplicaciones escritas en C/C++ y compiladas a través de GCC.\\
+NDK, Native Development Kit, de Android es el SDK (Software Development Kit) mediante el cual se pueden desarrollar aplicaciones nativas para Android, ésto es, aplicaciones escritas en C/C++ y compiladas a través de GCC.\\
 
-Por otro lado JNI (Java Native Interface), es una interfaz proporcionada por el NDK para la interacción de la parte Java con C/C++. Aunque si bien Android no usa Java, si no Dalvik, a efectos prácticos es equivalente.\\
+Por otro lado JNI (Java Native Interface), es una interfaz proporcionada por el NDK para la interacción de la parte Java con C/C++. Aunque si bien Android no usa Java, sino Dalvik, a efectos prácticos es equivalente.\\
 
 El proyecto se desarrolla en dos partes. Por un lado la parte (poner referencias) Java, que es la delegada de la interfaz gráfica, GUI (Graphics User Interface), y por otra la parte nativa, desarrollada en C++ y encargada de la conexión, así como tratamiento de píxeles.\\
 
@@ -116,7 +97,7 @@ Por un lado encontramos el hilo perteneciente a la GUI de Android, el cual se en
 En este punto la aplicación se encuentra bajo unas limitaciones importantes:
 \begin{itemize}
 \item \textbf{El uso de memoria:} La memoria que es capaz de reservar y manejar C/C++ dentro de la máquina virtual de Dalvik (JVM) es limitado, es decir, si la parte nativa quisiese crear un vector de grandes dimensiones en Java no podría y para ello tendría que cambiar de hilo y situarse en Java.
-\item \textbf{Rendimiento:} Las invocaciones de funciones de la parte nativa a Java no gozan de una gran velocidad, por ello si la parte nativa quisiese actualizar un gran densidad de información, la forma de actuar sería acceder, mediante JNI, directamente a los datos de la JVM y modificarlo, sin que Java intervenga.\\
+\item \textbf{Rendimiento:} Las invocaciones de funciones de la parte nativa a Java no gozan de una gran velocidad, por ello si la parte nativa quisiese actualizar una gran densidad de información, la forma de actuar sería acceder, mediante JNI, directamente a los datos de la JVM y modificarlo, sin que Java intervenga.\\
 
 También encontramos el problema de una velocidad dispar en la ejecución, es decir, la parte nativa se ejecuta a una velocidad, y sin embargo, la parte Java a otra, siendo ésta última significativamente inferior. Por ello la parte nativa debe esperar a que Java haya realizado sus procesos antes de proseguir.
 
