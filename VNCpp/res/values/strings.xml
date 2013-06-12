@@ -88,6 +88,8 @@
 	<string name="server_interrupt">Server interrupt the connection</string>
 	<string name="time_info">Server not responding</string>
 	<string name="time_exceeded">Time connection exceeded</string>
+	<string name="memory_info">Out of memory</string>
+	<string name="memory_exceeded">Phone memory is full</string>
 	
 	<!-- DIALOG SPECIAL KEYS -->
 	<string name="special_keys_title">Special keys</string>

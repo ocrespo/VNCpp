@@ -83,6 +83,8 @@
 	<string name="server_interrupt">Conexión interrumpida por el servidor</string>
 	<string name="time_info">El servidor no responde</string>
 	<string name="time_exceeded">Tiempo de conexión excedido</string>
+	<string name="memory_info">Sin memoria</string>
+	<string name="memory_exceeded">La memoria del móvil está llena</string>
 	
 		<!-- DIALOG SPECIAL KEYS -->
 	<string name="special_keys_title">Teclas especiales</string>
