@@ -32,6 +32,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -41,6 +44,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.TextView;
 import android.widget.Toast;
 import es.farfuteam.vncpp.controller.NewConnectionActivity.QualityArray;
 import es.farfuteam.vncpp.model.sql.Connection;
@@ -63,7 +67,7 @@ import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
 
 public class ActivityTabs extends FragmentActivity implements SuperListener{	
 	
-	public enum InfoDialogs{infoDialog,createNonConnectionDialog,exitDialog};
+	public enum InfoDialogs{infoDialog,createNonConnectionDialog,exitDialog,aboutDialog};
 	
 	public static final String PREFS_NAME="PreferencesFile";
 		
@@ -172,8 +176,6 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 	        case R.id.configuration:
 	 			Intent iConf= new Intent(this,ConfigurationMenu.class);
 				startActivity(iConf);
-				//configurationDialog();
-				//ConfigurationMenu.getInstance();
 	        	return true;
 	        	
 	        case R.id.howto:
@@ -183,7 +185,7 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 	        	
 	        case R.id.about:
 	        	//TODO funcion texto Luis acerca de
-	        	Log.i("tag","en about");
+	        	showDialog(InfoDialogs.aboutDialog.ordinal());
 	        	return true;
 	        	
 	        default:
@@ -394,17 +396,7 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 		
 		
 		public void showInfoDialog() {
-
-			
-	        /*String ip = ((Connection) getO()).getIP();
-	        String port = ((Connection) getO()).getPORT();
-	        QualityArray color = ((Connection) getO()).getColorFormat();*/
-			//TODO AQUI
-
-				showDialog(InfoDialogs.infoDialog.ordinal());
-			
-
-			
+				showDialog(InfoDialogs.infoDialog.ordinal());			
 		}
 		
 		/**
@@ -428,11 +420,7 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 				finish();
 			}
 			
-			else{
-				
-				
-
-				
+			else{				
 				
 				showDialog(InfoDialogs.exitDialog.ordinal());
 			    
@@ -496,6 +484,9 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 		        case 2:
 		        	dialog = createExitDialog();
 		        	break;
+		        case 3:
+		        	dialog = createAboutDialog();
+		        	break;
 		    }
 		 
 		    return dialog;
@@ -506,19 +497,7 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 			
 			View checkBoxOut = View.inflate(this, R.layout.checkbox_out, null);
 			final CheckBox checkBox = (CheckBox) checkBoxOut.findViewById(R.id.checkboxOut);
-			/*checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
-			    @Override
-			    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-			        // Save to shared preferences
-			    	/*SharedPreferences.Editor editor = getPrefs().edit();
-			    	editor.putBoolean("exit", true);
-			    	editor.commit();*/
-			    	//(Configuration.getInstance()).setRememberExit(true);
-			   
-			   /* }
-			});*/
 			final String decision = getString(R.string.RememberCheckBox);
 			
 			checkBox.setText(decision);
@@ -594,6 +573,32 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 		    return builder.create();
 		    
 		}
+		
+		private Dialog createAboutDialog()
+		 {
+			//necesario para poder clicar en los links
+			final TextView message = new TextView(this);
+			final SpannableString s = 
+		               new SpannableString(this.getText(R.string.about_message));
+		  Linkify.addLinks(s, Linkify.WEB_URLS);
+		  message.setText(s);
+		  message.setMovementMethod(LinkMovementMethod.getInstance());
+		  
+		  return new AlertDialog.Builder(this)
+		  .setTitle(R.string.about_title)
+		  .setView(message)
+		  .setPositiveButton(R.string.about_ok,
+		   new DialogInterface.OnClickListener() {
+		    
+		    @Override
+		    public void onClick(DialogInterface dialog, int which) {
+		     // Auto-generated method stub
+		     
+		    }
+		   }
+		    )
+		  .show();
+		 }
 		
 	
   }

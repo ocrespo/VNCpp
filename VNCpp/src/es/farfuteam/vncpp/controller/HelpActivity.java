@@ -3,11 +3,8 @@ package es.farfuteam.vncpp.controller;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.method.LinkMovementMethod;
 import android.view.KeyEvent;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 
 
