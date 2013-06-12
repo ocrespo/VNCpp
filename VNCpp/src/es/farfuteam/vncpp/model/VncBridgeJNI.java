@@ -72,7 +72,11 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 			
 			@Override
 			public void run() {
-				screen.createData();
+				try{
+					screen.createData();
+				}catch (OutOfMemoryError e) {
+					notifyOutOfMemory();
+				}
 				
 			}
 		};
@@ -157,12 +161,15 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 	@Override
 	public void updateIniFrame(int width, int height, int bpp, int depth) {
 		screen = new Screen(width, height, bpp);
+		
 		iniBitmapData = new Thread(createScreen);
 		iniBitmapData.start();
-		
 		while(iniBitmapData.isAlive());
 		
 		notifyIniFrame(screen.getData(),0,0,0,width,height,screen.getWidth(),screen.getHeight());
+		
+		
+		
 		
 	}
 	@Override

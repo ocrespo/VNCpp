@@ -67,7 +67,8 @@ import es.farfuteam.vncpp.view.SlideListFragment;
 public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 
 	public enum EnumDialogs{createServerNotFoundDialog,exitDialog ,serverInterruptConexionDialog,
-							comboEventsDialog,functionKeysDialog,openHelpDialog,timeExceededDialog,passwordNeededDialog};
+							comboEventsDialog,functionKeysDialog,openHelpDialog,timeExceededDialog,passwordNeededDialog,
+							outOfMemoryDialog};
 
 	public enum EnumSpecialKey{ctrl,alt,supr,shift,meta};
 	//etiqueta debug
@@ -118,6 +119,8 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	
 	private String pass;
 	
+	private boolean connect = false;
+	
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
@@ -162,8 +165,9 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
             public void onClick(DialogInterface dialog, int which) 
             {
                 // Use either finish() or return() to either close the activity or just the dialog
-            	//TODO es el boton cancel del progress
-                return;
+            	vnc.finishVnc();
+				finishConnection();
+                
             }
            });
 
@@ -232,13 +236,15 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 					// Auto-generated catch block
 
 				}
-				if(progressDialog.isShowing()){
+				if(!connect && progressDialog.isShowing()){
 					waitDialog = true;
+					
 					activityThis.runOnUiThread(new Runnable() {
 						
 						@Override
 						public void run() {
 							//Ddialogo "Se ha excedido el tiempo de conexion"
+							progressDialog.dismiss();
 							showDialog(EnumDialogs.timeExceededDialog.ordinal());
 							
 						}
@@ -289,14 +295,17 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 						@Override
 						public void run() {
 							while(waitDialog);
-								finishConnection();
+							finishConnection();
 								
-							}
+						}
 					}).start();
 					/*while(waitDialog);
 					vnc = null;
 					finish();*/
 					return;
+				}
+				else{
+					connect = true;
 				}
 			}
 		}).start();
@@ -456,7 +465,9 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	public void updateFinish() {
 		//Dialog servidor interrumpida conexion
 		waitDialog = true;
-
+		if(progressDialog.isShowing()){
+			progressDialog.dismiss();
+		}
 		this.runOnUiThread(new Runnable() {
 			
 			@Override
@@ -485,8 +496,26 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		String aux_pass = pass;
 		pass = null;
 		return aux_pass;
-		//TODO
 	}
+	@Override
+	public void updateOutOfMemory() {
+		
+		waitDialog = true;
+		progressDialog.dismiss();
+		this.runOnUiThread(new Runnable() {
+			
+			@Override
+			public void run() {
+			
+				showDialog(EnumDialogs.outOfMemoryDialog.ordinal());
+			}
+		});
+		while(waitDialog);
+		vnc.finishVnc();
+		finishConnection();
+		
+	}
+
 	//publica porque necesito llamarla desde el fragment slide lateral
 	public void showKeyboard(){
         inputMgr.toggleSoftInputFromWindow(canvas.getApplicationWindowToken(), InputMethodManager.SHOW_FORCED, 0);
@@ -793,6 +822,9 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	        case 7:
 	        	dialog = passwordNeededDialog();
 	        	break;
+	        case 8:
+	        	dialog = outOfMemoryDialog();
+	        	break;
 	    }
 	 
 	    return dialog;
@@ -889,7 +921,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 	        @Override
 			public void onClick(DialogInterface dialog, int which) {
-	            dialog.cancel();
+	            dialog.dismiss();
 	            waitDialog = false;
 	        }
 
@@ -910,7 +942,27 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 	        @Override
 			public void onClick(DialogInterface dialog, int which) {
-	            dialog.cancel();
+	            dialog.dismiss();
+	            waitDialog = false;
+	        }
+
+	    });
+	    
+	    return builder.create();
+	}
+	private Dialog outOfMemoryDialog() {
+	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+	    
+	    String info = getString(R.string.memory_info);
+		String body = getString(R.string.memory_exceeded);
+		 
+	    builder.setTitle(info);
+	    builder.setMessage(body);
+	    builder.setCancelable(false);
+	    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	        @Override
+			public void onClick(DialogInterface dialog, int which) {
+	            dialog.dismiss();
 	            waitDialog = false;
 	        }
 
@@ -1002,6 +1054,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	            	   actThis.removeDialog(EnumDialogs.comboEventsDialog.ordinal());
 	            	   actThis.removeDialog(EnumDialogs.functionKeysDialog.ordinal());
 	            	   specialKeys = null;
+	            	   keys = null;
 	               }
 	           })
 	           .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
@@ -1011,7 +1064,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	            	   actThis.removeDialog(EnumDialogs.comboEventsDialog.ordinal());
 	            	   actThis.removeDialog(EnumDialogs.functionKeysDialog.ordinal());
 	            	   specialKeys = null;
-	            	   
+	            	   keys = null;
 	            	   //dialog.cancel();
 	               }
 	           });
@@ -1024,7 +1077,8 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	private Dialog functionKeysDialog() {		   
 
 	   AlertDialog.Builder builder = new AlertDialog.Builder(this);
-	   keys = new Vector<Integer>();  // Where we track the selected items
+	   if(keys == null)
+		   keys = new Vector<Integer>();  // Where we track the selected items
 	    
 	   // final String[] arrayFunctionKey = getResources().getStringArray(R.array.function_keys_array);
 	   final Activity actThis = this;
@@ -1061,7 +1115,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	                   //functionKeys se vacía
 	            	   showDialog(EnumDialogs.comboEventsDialog.ordinal());
 	            	   actThis.removeDialog(EnumDialogs.functionKeysDialog.ordinal());
-	            	   keys = null;
+	            	  
 	            	   
 	               }
 	           });
@@ -1093,7 +1147,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		centerImage();
 		menu.toggle();
 	}
-
+	
 	
 		
 }
