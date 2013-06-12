@@ -29,4 +29,5 @@ public interface ObserverCanvas {
 	public void updateRedraw();
 	public void updateFinish();
 	public String updatePass();
+	public void updateOutOfMemory();
 }

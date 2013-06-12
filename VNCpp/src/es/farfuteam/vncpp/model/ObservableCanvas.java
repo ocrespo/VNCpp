@@ -44,4 +44,7 @@ public class ObservableCanvas {
 	public String notifyPass(){
 		return observer.updatePass();
 	}
+	public void notifyOutOfMemory(){
+		observer.updateOutOfMemory();
+	}
 }
