@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <string name="about_title">About</string>
+ <string name="about_message">\n
+  VNC++ 2013 License GPLv3\n
+  Authors: Óscar Crespo\n
+  		   Gorka Jimeno\n
+  		   Luis Valero\n
+  GitHub repository:\n
+  \0\0	https://github.com/ocrespo/VNCpp \n
+  \n  	
+  It is based on LibVNCServer:\n
+  \0\0 http://libvncserver.sourceforge.net \n
+  and using SlidingMenu \n
+  \0\0 https://github.com/jfeinstein10/SlidingMenu \n
+ </string>
+ <string name="about_ok">OK</string>
+</resources>
