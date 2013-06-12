@@ -1,8 +1,8 @@
-En este capítulo se describe la construcción de la aplicación. Primero se expondrán las especificaciones de requisitos tanto externos, como funcionales. Después en el siguiente apartado se explicarán los diagramas UML del código, junto con explicaciones de todo el flujo del programa.\\
+En este capítulo se describe la construcción de la aplicación. Primero se expondrán las especificaciones de requisitos tanto externos, como funcionales. Después en el siguiente apartado se explicarán los diagramas UML del código, junto con explicaciones de todo el flujo del programa.
 
 \section {Especificaci\'on de requisitos}
 
-En esta sección se exponen todos los requisitos de la aplicación.\\
+En esta sección se exponen todos los requisitos de la aplicación.
 
 \subsection {Interfaces externos}
 
@@ -371,28 +371,46 @@ Los siguientes requisitos funcionales definen las acciones que deben tener lugar
 
 \section {Diagramas de clases}
 
-Esta sección se centra en la explicación de los diagramas UML y en la explicación del funcionamiento del código. La sección se divide en otras dos subsecciones, una para explicar la parte escrita en Java y otra para explicar la parte escrita en C/C++.\\
+Esta sección se centra en la explicación de los diagramas UML y en la explicación del funcionamiento del código. La sección se divide en otras dos subsecciones, una para explicar la parte escrita en Java y otra para explicar la parte escrita en C/C++.
 
 \subsection{Parte escrita en Java}
 
-Primero describiremos las Activities principales del programa. ActivityTabs es la Activity principal del programa. Esta Activity es la encargada de llamar tanto a las Activities de configuración, creación y edición de conexión, como a la Activity encargada de comunicarse establecer y atender la conexión.\\
+Primero describiremos las Activities principales del programa. ActivityTabs (Ver Figura 4.2) es la Activity principal del programa. Esta Activity es la encargada de llamar tanto a las Activities de configuración, creación y edición de conexión, como a la Activity encargada de comunicarse establecer y atender la conexión.\\
 
-NewConnectionActivity es la encargada de crear una nueva conexión. Es llamada desde ActivityTabs. Una vez rellenados los campos se comprueba que sean correctos, se guardan en la base de datos y se realiza la conexión llamando a CanvasActivity.\\
+NewConnectionActivity (Ver Figura 4.2) es la encargada de crear una nueva conexión. Es llamada desde ActivityTabs. Una vez rellenados los campos se comprueba que sean correctos, se guardan en la base de datos y se realiza la conexión llamando a CanvasActivity.\\
 
-EditionActivity es la encargada de modificar los datos de una conexión. También es llamada desde ActivityTabs y una vez rellenados los campos comprueba que sean correctos y guarda la nueva conexion en la base de datos.\\
+EditionActivity (Ver Figura 4.2) es la encargada de modificar los datos de una conexión. También es llamada desde ActivityTabs y una vez rellenados los campos comprueba que sean correctos y guarda la nueva conexion en la base de datos.
 
-ConfigurationMenu crea el menú de configuraciones. Como las clases anteriores es también llamada desde ActivityTabs. Si el usuario cambia alguna configuración, ConfigurationMenu llama al singleton de Configuration y le pasa los valores que se hayan modificado.\\
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=1]{BBDD.pdf}
+\end{center}
+\caption{Diagrama Base de Datos}
+\end{figure}
 
-Configuration es un singleton que se encarga de acceder al fichero de preferencias. ActivityTabs en el método onCreate llama a esta clase para que se instancie y cargue los datos de este fichero. Luego Configuration podrá ser llamado desde ConfigurationMenu si el usurio decide cambiar algo en la configuración de la aplicación.\\
+La clase encargada de acceder a la base de datos (SQLite) es ConnectionSQLite (Ver Figura 4.1). Esta es llamada desde diferentes Activities como NewConnectionActivity y EditionActivity. La clase Connection se utiliza como clase transfer con la información de una conexión.\\
+
+ConfigurationMenu crea el menú de configuraciones. Como las clases anteriores es también llamada desde ActivityTabs. Si el usuario cambia alguna configuración, ConfigurationMenu llama al singleton de Configuration y le pasa los valores que se hayan modificado.
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[scale=1]{Main.pdf}
 \end{center}
-\caption{Diagrama principal}
+\caption{Diagrama Activity Principal}
 \end{figure}
 
-Adapter es una clase configurar cada elemento de la lista de conexiones y la lista de favoritos. Las dos clases encargadas de la construcción estas listas son ListFragmentTab y ListFragmentTabFav, ambas se apollan en la clase Adapter para construirse.\\
+Configuration es un singleton que se encarga de acceder al fichero de preferencias. ActivityTabs en el método onCreate llama a esta clase para que se instancie y cargue los datos de este fichero. Luego Configuration podrá ser llamado desde ConfigurationMenu si el usurio decide cambiar algo en la configuración de la aplicación.\\
+
+Adapter es una clase configurar cada elemento de la lista de conexiones y la lista de favoritos.\\
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=1]{Listas.pdf}
+\end{center}
+\caption{Diagrama Listas de Conexiones}
+\end{figure}
+
+Las clases ListFragmentTab y ListFragmentTabFav (Ver Figura 4.3) son las encargadas de gestionar las listas de conexiones y conexiones favoritas respectivamente.\\
 
 CanvasActivity\\
 
