@@ -46,6 +46,8 @@ import es.farfuteam.vncpp.controller.NewConnectionActivity.QualityArray;
 import es.farfuteam.vncpp.model.sql.Connection;
 import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
 import es.farfuteam.vncpp.view.Adapter;
+import es.farfuteam.vncpp.view.ListFragmentTab;
+import es.farfuteam.vncpp.view.ListFragmentTabFav;
 import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
 
 

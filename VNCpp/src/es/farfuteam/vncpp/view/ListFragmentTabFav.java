@@ -18,7 +18,7 @@
 	You should have received a copy of the GNU General Public License
 	along with VNC++.  If not, see <http://www.gnu.org/licenses/>.
  */
-package es.farfuteam.vncpp.controller;
+package es.farfuteam.vncpp.view;
 
 import java.util.ArrayList;
 
@@ -29,15 +29,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import es.farfuteam.vncpp.controller.ActivityTabs;
+import es.farfuteam.vncpp.controller.EditionActivity;
+import es.farfuteam.vncpp.controller.R;
 import es.farfuteam.vncpp.model.sql.Connection;
 import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
-import es.farfuteam.vncpp.view.Adapter;
-import es.farfuteam.vncpp.view.DialogOptions;
 import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
-
-public class ListFragmentTab extends ListFragment implements SuperListener{
+/**
+ * @Name        : ListFragmentTabFav.java
+ * @author      : Oscar Crespo, Luis Valero, Gorka Jimeno
+ * @Version     :
+ * @Copyright   : GPLv3
+ * @Description : Class who control the ListFragment of favorites users
+ *
+ */
+public class ListFragmentTabFav extends ListFragment implements SuperListener{
 	
-	
+	//variable donde se guarda el Objeto User al pulsarlo en la lista
 	private static Object o;
 	
 	private static Adapter adapter;
@@ -45,71 +53,54 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 	private static ConnectionSQLite admin;
 	private View view;
 	
-	private LayoutInflater inflater;
-	private ViewGroup container;
-	private Bundle savedInstanceState;
-	
 	   
-	public ListFragmentTab() {
+	public ListFragmentTabFav() {
 
 	}
-	 
+
 	
 	@Override
 	  public View onCreateView(LayoutInflater inflater, 
 	                 ViewGroup container, Bundle savedInstanceState) {
-		
-		this.inflater = inflater;
-		this.container = container;
-		this.savedInstanceState = savedInstanceState;
 		
 		setUserList(new ArrayList<Connection>());
 	    // Inflate the layout for this fragment
 	    view = inflater.inflate(R.layout.list_users, container, false);
 
 	    // Se vincula Adaptador
-	    admin = ConnectionSQLite.getInstance(getActivity());
-	    adapter = new Adapter(this.getActivity(),admin.getAllUsers());
-	    setUserList(admin.getAllUsers());
+        admin = new ConnectionSQLite(this.getActivity());
+        admin.getWritableDatabase();
+        adapter = new Adapter(this.getActivity(),admin.getAllFavUsers());
         setListAdapter(adapter);
 	   
 	    
 	    return view;
 	  }
 	
-	
+	/**
+	 * 
+	 */
 	@Override
 	public void onStart() {
-	    super.onStart();  
-
-	    userList = admin.getAllUsers();
+		
+	    super.onStart();       	    
 	    admin = ConnectionSQLite.getInstance(getActivity());
-    	adapter = new Adapter(this.getActivity(),admin.getAllUsers());
-        adapter.setList(admin.getAllUsers());
-        setListAdapter(adapter);   
-
+	    userList = admin.getAllFavUsers();
+    	adapter = new Adapter(this.getActivity(),admin.getAllFavUsers());
+        adapter.setList(admin.getAllFavUsers());
+        setListAdapter(adapter);        	
+      
+	    
 	}
 	    
 	  
 	    @Override
-		public void onListItemClick(ListView listView, View view, int position, long id) {
-	    	
+		public void onListItemClick(ListView listView, View view, int position, long id) {	    	
 
-			super.onListItemClick(listView, view, position, id);
+			super.onListItemClick(listView, view, position, id);			
+			setO(getListAdapter().getItem(position));			
 			
-			setO(getListAdapter().getItem(position));
-			
-			
-			/*final CheckBox iconFav = (CheckBox) listView.findViewById(R.id.checkFav);
-			if (((Connection) o).isFav()){
-		    	iconFav.setButtonDrawable(R.drawable.star_ful);
-
-		    }
-		    else{
-		    	iconFav.setButtonDrawable(R.drawable.star_emp);
-		    }	*/		
-			
-			((ActivityTabs)getActivity()).setO(getO());			
+			((ActivityTabs)getActivity()).setO(getO());
 			
 			//SuperListener parentFragment;
 			DialogOptions dialog1 = DialogOptions.newInstance((SuperListener) this);
@@ -118,12 +109,12 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 		}
 	    
 
-
 		@Override
 		public void deleteUser() {
 			
+	        admin.getWritableDatabase();
 	        admin.deleteUser((Connection) getO());
-	        adapter.setList(admin.getAllUsers());
+	        adapter.setList(admin.getAllFavUsers());
 	        setListAdapter(adapter);
 			
 		}
@@ -132,9 +123,11 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 		@Override
 		public void editingUser() {
 			
-			admin = ConnectionSQLite.getInstance(getActivity());
-			
-	        Intent intent = new Intent (this.getActivity(),EditionActivity.class);	        
+			ConnectionSQLite admin = new ConnectionSQLite(this.getActivity());
+	        admin.getWritableDatabase();
+		
+	        Intent intent = new Intent (this.getActivity(),EditionActivity.class);
+	        
 	        intent.putExtra("Name", ((Connection) getO()).getName());
 	        intent.putExtra("IP", ((Connection) getO()).getIP());
 	        intent.putExtra("PORT", ((Connection) getO()).getPORT());
@@ -143,29 +136,26 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 	        startActivity(intent);
 	        
 		}
-			
 
 		/**
-		 * 
-		 * @param user
-		 */
-		public void refreshFavorites(Connection user) {
-			admin.updateUser(user);
-			
-		}
-
-		/**
-		 * 
-		 * @return
+		 * Return the Object User down at the list
+		 * \return
 		 */
 		public static Object getO() {
 			return o;
 		}
-
+		
+		/**
+		 * Set the User 
+		 * \param o
+		 */
 		public static void setO(Object o) {
-			ListFragmentTab.o = o;
+			ListFragmentTabFav.o = o;
 		}
-
+		/**
+		 * 
+		 * @return
+		 */
 		public ArrayList<Connection> getUserList() {
 			return userList;
 		}
@@ -173,8 +163,6 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 		public void setUserList(ArrayList<Connection> userList) {
 			this.userList = userList;
 		}
-
-
 	
 	    
 	  	  
