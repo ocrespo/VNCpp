@@ -9,7 +9,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:padding="10dp"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/logo_vncpp" />
 
     <TextView
         android:id="@+id/row_title"
