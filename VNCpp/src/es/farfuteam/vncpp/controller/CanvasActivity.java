@@ -374,7 +374,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		    		modKeyCount = 0;
 		    	}
 		    }
-		    else{
+		    else if(key >= 7){
 		    	boolean down = event.getAction() == KeyEvent.ACTION_DOWN;
 		    	vnc.sendKey(modKeyCount+key,down);
 		    	
