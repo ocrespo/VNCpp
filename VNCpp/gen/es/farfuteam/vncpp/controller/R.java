@@ -9,9 +9,9 @@ package es.farfuteam.vncpp.controller;
 
 public final class R {
     public static final class array {
-        public static final int color_array=0x7f080002;
-        public static final int function_keys_array=0x7f080000;
-        public static final int keys_array=0x7f080001;
+        public static final int color_array=0x7f090002;
+        public static final int function_keys_array=0x7f090000;
+        public static final int keys_array=0x7f090001;
     }
     public static final class attr {
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -127,17 +127,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int viewBehind=0x7f010002;
     }
     public static final class color {
-        public static final int black=0x7f050001;
-        public static final int green=0x7f050003;
-        public static final int grey=0x7f050002;
-        public static final int olive=0x7f050004;
-        public static final int white=0x7f050000;
+        public static final int black=0x7f060001;
+        public static final int green=0x7f060003;
+        public static final int grey=0x7f060002;
+        public static final int olive=0x7f060004;
+        public static final int white=0x7f060000;
     }
     public static final class dimen {
-        public static final int list_padding=0x7f060001;
-        public static final int shadow_width=0x7f060002;
-        public static final int slidingmenu_offset=0x7f060000;
-        public static final int slidingmenu_width=0x7f060003;
+        public static final int list_padding=0x7f070001;
+        public static final int shadow_width=0x7f070002;
+        public static final int slidingmenu_offset=0x7f070000;
+        public static final int slidingmenu_width=0x7f070003;
     }
     public static final class drawable {
         public static final int about_image=0x7f020000;
@@ -151,18 +151,16 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int helpsymbol=0x7f020008;
         public static final int howto_image=0x7f020009;
         public static final int ic_action_overflow=0x7f02000a;
-        public static final int ic_launcher=0x7f02000b;
-        public static final int icon_configuration=0x7f02000c;
-        public static final int image_center=0x7f02000d;
-        public static final int keyboard_image=0x7f02000e;
-        public static final int list_selector=0x7f02000f;
-        public static final int logo_vncpp=0x7f020010;
-        public static final int mouse_image=0x7f020011;
-        public static final int send_text_im=0x7f020012;
-        public static final int shadow=0x7f020013;
-        public static final int star_emp=0x7f020014;
-        public static final int star_ful=0x7f020015;
-        public static final int tab_favorites=0x7f020016;
+        public static final int icon_configuration=0x7f02000b;
+        public static final int image_center=0x7f02000c;
+        public static final int keyboard_image=0x7f02000d;
+        public static final int list_selector=0x7f02000e;
+        public static final int logo_vncpp=0x7f02000f;
+        public static final int mouse_image=0x7f020010;
+        public static final int shadow=0x7f020011;
+        public static final int star_emp=0x7f020012;
+        public static final int star_ful=0x7f020013;
+        public static final int tab_favorites=0x7f020014;
     }
     public static final class id {
         public static final int ConnectionName_inserted=0x7f04000c;
@@ -170,62 +168,57 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int PORT_inserted=0x7f040010;
         public static final int PSW_Connect=0x7f040011;
         public static final int PSW_inserted=0x7f040012;
-        public static final int Spinner_colors=0x7f040013;
-        public static final int about=0x7f04002b;
-        public static final int aboutf=0x7f04002f;
-        public static final int addConnection=0x7f040037;
-        public static final int add_connection=0x7f040034;
-        public static final int address_label=0x7f040007;
-        public static final int address_label2=0x7f040009;
-        public static final int blue=0x7f04002d;
-        public static final int blue2=0x7f04002e;
-        public static final int buttonCancel=0x7f040015;
-        public static final int buttonConnect=0x7f040014;
-        public static final int buttonEdit=0x7f04001d;
-        public static final int center_image=0x7f040030;
-        public static final int checkConnect=0x7f040022;
-        public static final int checkFav=0x7f04001f;
+        public static final int Quality_text=0x7f040013;
+        public static final int ScrollViewHelp=0x7f040026;
+        public static final int Spinner_colors=0x7f040014;
+        public static final int about=0x7f040034;
+        public static final int addConnection=0x7f040030;
+        public static final int add_connection=0x7f04002d;
+        public static final int buttonCancel=0x7f040016;
+        public static final int buttonCancelEdit=0x7f040020;
+        public static final int buttonConnect=0x7f040015;
+        public static final int buttonEdit=0x7f04001f;
+        public static final int checkConnect=0x7f040025;
+        public static final int checkFav=0x7f040022;
         public static final int checkboxOut=0x7f040006;
         public static final int checkbox_hidemouse=0x7f04000a;
         public static final int checkbox_remember=0x7f040008;
-        public static final int configuration=0x7f040039;
-        public static final int configurationMenu=0x7f040038;
-        public static final int ctrl_events=0x7f040029;
-        public static final int delete_conection=0x7f040035;
-        public static final int descIP=0x7f040021;
-        public static final int disconnect=0x7f040032;
-        public static final int editIP_inserted=0x7f040018;
-        public static final int editPORT_inserted=0x7f04001a;
-        public static final int editPSW_Connect=0x7f04001b;
-        public static final int editPSW_inserted=0x7f04001c;
-        public static final int editTextViewIP=0x7f040017;
-        public static final int editTextViewName=0x7f040016;
-        public static final int editTextViewPort=0x7f040019;
-        public static final int edit_connection=0x7f040036;
+        public static final int configuration=0x7f040032;
+        public static final int configurationMenu=0x7f040031;
+        public static final int delete_conection=0x7f04002e;
+        public static final int descIP=0x7f040024;
+        public static final int editIP_inserted=0x7f040019;
+        public static final int editPORT_inserted=0x7f04001b;
+        public static final int editPSW_Connect=0x7f04001c;
+        public static final int editPSW_inserted=0x7f04001d;
+        public static final int editQuality_Connect=0x7f04001e;
+        public static final int editTextViewIP=0x7f040018;
+        public static final int editTextViewName=0x7f040017;
+        public static final int editTextViewPort=0x7f04001a;
+        public static final int edit_connection=0x7f04002f;
         public static final int fullscreen=0x7f040003;
-        public static final int help_down=0x7f040031;
-        public static final int howto=0x7f04002a;
-        public static final int keyboard_down=0x7f040027;
+        public static final int help_page_intro=0x7f040027;
+        public static final int howto=0x7f040033;
         public static final int left=0x7f040000;
         public static final int margin=0x7f040002;
-        public static final int menu_frame=0x7f040023;
-        public static final int nameConnection=0x7f040020;
-        public static final int red=0x7f04002c;
+        public static final int menu_frame=0x7f040028;
+        public static final int nameConnection=0x7f040023;
         public static final int right=0x7f040001;
-        public static final int row_icon=0x7f040024;
-        public static final int row_title=0x7f040025;
-        public static final int save_connection=0x7f040033;
+        public static final int row_icon=0x7f040029;
+        public static final int row_title=0x7f04002a;
+        public static final int save_connection=0x7f04002c;
         public static final int selected_view=0x7f040004;
-        public static final int send_text=0x7f040028;
-        public static final int slidingmenumain=0x7f040026;
+        public static final int slidingmenumain=0x7f04002b;
         public static final int textViewConnection_name=0x7f04000b;
         public static final int textViewIP=0x7f04000d;
         public static final int textViewPort=0x7f04000f;
-        public static final int thumbnail=0x7f04001e;
+        public static final int thumbnail=0x7f040021;
+        public static final int titlecontrol=0x7f040009;
+        public static final int titlegeneral=0x7f040007;
         public static final int vnc_canvas=0x7f040005;
     }
     public static final class integer {
-        public static final int num_cols=0x7f070000;
+        public static final int num_cols=0x7f080000;
     }
     public static final class layout {
         public static final int canvas=0x7f030000;
@@ -234,127 +227,150 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int connection_window=0x7f030003;
         public static final int edition=0x7f030004;
         public static final int element_user=0x7f030005;
-        public static final int list_slide=0x7f030006;
-        public static final int list_users=0x7f030007;
-        public static final int menu_frame=0x7f030008;
-        public static final int row_slide=0x7f030009;
-        public static final int slidingmenumain=0x7f03000a;
-        public static final int tab_host=0x7f03000b;
+        public static final int help=0x7f030006;
+        public static final int list_slide=0x7f030007;
+        public static final int list_users=0x7f030008;
+        public static final int menu_frame=0x7f030009;
+        public static final int row_slide=0x7f03000a;
+        public static final int slidingmenumain=0x7f03000b;
+        public static final int tab_host=0x7f03000c;
     }
     public static final class menu {
-        public static final int canvas_menu=0x7f0b0000;
-        public static final int context_menu=0x7f0b0001;
-        public static final int new_connection=0x7f0b0002;
+        public static final int context_menu=0x7f0b0000;
+        public static final int new_connection=0x7f0b0001;
     }
     public static final class string {
-        public static final int DialogConnect=0x7f09001f;
-        public static final int DialogDelete=0x7f090021;
-        public static final int DialogEdit=0x7f090020;
+        public static final int DialogConnect=0x7f050035;
+        public static final int DialogDelete=0x7f050037;
+        public static final int DialogEdit=0x7f050036;
         /**  INFO DIALOG 
  INFO DIALOG 
          */
-        public static final int DialogInfo=0x7f090017;
-        public static final int DialogNonConnection=0x7f09001a;
-        public static final int DialogNonConnectionInfo=0x7f090019;
-        public static final int DialogQuestion=0x7f09001c;
-        public static final int DialogSomethingEmpty=0x7f090018;
+        public static final int DialogInfo=0x7f05002b;
+        public static final int DialogNonConnection=0x7f05002e;
+        public static final int DialogNonConnectionInfo=0x7f05002d;
+        public static final int DialogQuestion=0x7f050030;
+        public static final int DialogSomethingEmpty=0x7f05002c;
         /**  MENU OPTIONS DIALOG 
  MENU OPTIONS DIALOG 
          */
-        public static final int DialogTitle=0x7f09001e;
-        public static final int DialogTitleExit=0x7f09001b;
+        public static final int DialogTitle=0x7f050034;
+        public static final int DialogTitleExit=0x7f05002f;
         /**  MENU CANVAS OPTIONS DIALOG 
  MENU CANVAS OPTIONS DIALOG 
- MENU CANVAS OPTIONS DIALOG 
          */
-        public static final int Keyboard=0x7f090027;
-        public static final int RememberCheckBox=0x7f09001d;
-        /**  USER TEXT 
-         */
-        public static final int Users=0x7f09003e;
-        public static final int about=0x7f09002c;
+        public static final int Keyboard=0x7f05003d;
+        public static final int Quality=0x7f050057;
+        public static final int RememberCheckBox=0x7f050031;
+        public static final int about=0x7f050042;
+        public static final int about_message=0x7f050001;
+        public static final int about_ok=0x7f050002;
+        public static final int about_title=0x7f050000;
         /**  CONTEXT MENU 
  CONTEXT MENU 
- CONTEXT MENU 
          */
-        public static final int add_connection=0x7f09000f;
-        public static final int app_name=0x7f090003;
-        public static final int cancel=0x7f09000a;
-        public static final int center_image=0x7f09002d;
-        public static final int combo_keys_title=0x7f090037;
-        public static final int configuration=0x7f09002a;
-        public static final int connect=0x7f090009;
-        public static final int connection_text=0x7f09000b;
+        public static final int add_connection=0x7f050023;
+        public static final int app_name=0x7f050017;
+        public static final int cancel=0x7f05001d;
+        public static final int center_image=0x7f050043;
+        public static final int combo_keys_title=0x7f05004d;
+        public static final int configuration=0x7f050040;
+        public static final int connect=0x7f05001c;
+        public static final int connection=0x7f050058;
+        public static final int connection_text=0x7f05001e;
         /**  Cabeceras de Action Bar 
  USER TEXT 
          */
-        public static final int connections=0x7f090014;
-        public static final int delete_connection=0x7f090010;
-        public static final int disconnect=0x7f090028;
-        public static final int edit_connection=0x7f090011;
-        public static final int emptyUsers=0x7f090015;
-        public static final int favorites=0x7f090016;
-        public static final int favoritesTab=0x7f090023;
-        public static final int function_keys_title=0x7f090036;
-        public static final int help=0x7f09000d;
-        public static final int help_message=0x7f090001;
-        public static final int help_ok=0x7f090002;
-        public static final int help_title=0x7f090000;
-        /**  SWITCH MESSAGE 
- TOGGLE MESSAGE 
-         */
-        public static final int hide_mouse=0x7f09003a;
-        public static final int howto=0x7f09002b;
+        public static final int connections=0x7f050028;
+        public static final int delete_connection=0x7f050024;
+        public static final int disconnect=0x7f05003e;
+        public static final int edit_connection=0x7f050025;
+        public static final int emptyUsers=0x7f050029;
+        public static final int favorites=0x7f05002a;
+        public static final int favoritesTab=0x7f050039;
+        public static final int function_keys_title=0x7f05004c;
+        public static final int help=0x7f050020;
+        public static final int help_message=0x7f050004;
+        public static final int help_ok=0x7f050005;
+        public static final int help_page_intro=0x7f050006;
+        public static final int help_title=0x7f050003;
+        public static final int hide_mouse=0x7f050052;
+        public static final int howto=0x7f050041;
         /**  IMAGE TEXT 
- IMAGE TEXT 
          */
-        public static final int image_example=0x7f090013;
+        public static final int image_example=0x7f050027;
         /**  TOAST 
  TOAST 
          */
-        public static final int invalidIp=0x7f090024;
-        public static final int invalidName=0x7f090026;
-        public static final int invalidPort=0x7f090025;
-        public static final int invalidUserOrPass=0x7f09003f;
-        public static final int menu_settings=0x7f090004;
+        public static final int invalidIp=0x7f05003a;
+        public static final int invalidName=0x7f05003c;
+        public static final int invalidPort=0x7f05003b;
+        public static final int invalidUserOrPass=0x7f050059;
+        public static final int loadingbodytext=0x7f050033;
+        public static final int loadingtext=0x7f050032;
+        public static final int memory_exceeded=0x7f05004a;
+        public static final int memory_info=0x7f050049;
+        public static final int menu_settings=0x7f050018;
         /**  CONNECTIONS MESSAGES  
  CONNECTIONS MESSAGES  
- CONNECTIONS MESSAGES  
          */
-        public static final int message_ip=0x7f090005;
-        public static final int message_port=0x7f090006;
-        public static final int message_psw=0x7f090008;
-        public static final int message_user=0x7f090007;
-        public static final int new_connection=0x7f09000e;
-        public static final int no=0x7f09003d;
-        public static final int open=0x7f09000c;
+        public static final int message_ip=0x7f050019;
+        public static final int message_port=0x7f05001a;
+        public static final int message_psw=0x7f05001b;
+        public static final int modify_connectiontext=0x7f050022;
+        public static final int new_connection=0x7f050021;
+        public static final int no=0x7f050055;
+        public static final int open=0x7f05001f;
         /**  DOWN MENU 
  DOWN MENU 
          */
-        public static final int options_down=0x7f090029;
-        public static final int password_dialog=0x7f090039;
-        public static final int password_title=0x7f090038;
+        public static final int options_down=0x7f05003f;
+        public static final int password_dialog=0x7f05004f;
+        public static final int password_title=0x7f05004e;
+        /**  INFO DIALOGS 
+ INFO DIALOGS 
+         */
+        public static final int port=0x7f050056;
         /**  TEXT TAB 
  TEXT TAB 
          */
-        public static final int recents=0x7f090022;
-        public static final int remember_exit=0x7f09003b;
-        public static final int save_connection=0x7f090012;
-        public static final int send_text_here=0x7f090034;
-        /**  DIALOG SPECIAL KEYS 
- DIALOG SPECIAL KEYS 
-         */
-        public static final int send_text_title=0x7f090033;
+        public static final int recents=0x7f050038;
+        public static final int remember_exit=0x7f050053;
+        public static final int save_connection=0x7f050026;
         /**  DIALOG CANVAS 
  DIALOG CANVAS 
          */
-        public static final int server_dialog=0x7f09002e;
-        public static final int server_interrupt=0x7f090030;
-        public static final int server_not_found=0x7f09002f;
-        public static final int special_keys_title=0x7f090035;
-        public static final int time_exceeded=0x7f090032;
-        public static final int time_info=0x7f090031;
-        public static final int yes=0x7f09003c;
+        public static final int server_dialog=0x7f050044;
+        public static final int server_interrupt=0x7f050046;
+        public static final int server_not_found=0x7f050045;
+        /**  DIALOG SPECIAL KEYS 
+ DIALOG SPECIAL KEYS 
+         */
+        public static final int special_keys_title=0x7f05004b;
+        public static final int text_section1=0x7f050008;
+        public static final int text_section2=0x7f05000a;
+        public static final int text_section3=0x7f05000c;
+        public static final int text_section4=0x7f05000e;
+        public static final int text_section5=0x7f050010;
+        public static final int text_section6=0x7f050012;
+        public static final int text_section7=0x7f050014;
+        public static final int text_section8=0x7f050016;
+        public static final int time_exceeded=0x7f050048;
+        public static final int time_info=0x7f050047;
+        public static final int title_section1=0x7f050007;
+        public static final int title_section2=0x7f050009;
+        public static final int title_section3=0x7f05000b;
+        public static final int title_section4=0x7f05000d;
+        public static final int title_section5=0x7f05000f;
+        public static final int title_section6=0x7f050011;
+        public static final int title_section7=0x7f050013;
+        public static final int title_section8=0x7f050015;
+        public static final int titlecontrol=0x7f050051;
+        /**  SWITCH MESSAGE 
+ TOGGLE MESSAGE 
+         */
+        public static final int titlegeneral=0x7f050050;
+        public static final int yes=0x7f050054;
     }
     public static final class style {
         /** 

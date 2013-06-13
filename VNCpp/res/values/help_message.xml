@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
  <string name="help_title">Help!</string>
- <string name="help_message">\n
-  There is a extended help menu\n
-  at the main activity.\n
-  Show it\n
+ <string name="help_message">
+	Para mandar eventos ctrl,alt,supr,shift, basta con seleccionar la tecla Combo teclas,\n
+	y en dialog seleccionar las teclas que se quieran enviar. \nLas teclas función y el resto\n
+	de letras, se pueden seleccionar desde el botón central "Teclas".
  </string>
  <string name="help_ok">OK</string>
 </resources>

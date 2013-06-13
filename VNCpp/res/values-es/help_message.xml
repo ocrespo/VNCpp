@@ -2,9 +2,9 @@
 <resources>
  <string name="help_title">AYUDA</string>
  <string name="help_message">\n
-  Hay un menú de ayuda\n
-  extenso en el desplegable\n
-  dentro de la actividad principal.\n
+	Para mandar eventos ctrl,alt,supr,shift, basta con seleccionar la tecla Combo teclas,\n
+	y en dialog seleccionar las teclas que se quieran enviar. Las teclas función y el resto\n
+	de letras, se pueden seleccionar desde el botón central "Teclas".\n
  </string>
  <string name="help_ok">OK</string>
 </resources>

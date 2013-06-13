@@ -42,6 +42,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import es.farfuteam.vncpp.controller.CanvasActivity.EnumDialogs;
 import es.farfuteam.vncpp.controller.NewConnectionActivity.QualityArray;
 import es.farfuteam.vncpp.model.sql.Connection;
 import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
@@ -182,7 +183,6 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 	        	return true;
 	        	
 	        case R.id.about:
-	        	//TODO funcion texto Luis acerca de
 	        	showDialog(InfoDialogs.aboutDialog.ordinal());
 	        	return true;
 	        	
@@ -378,7 +378,6 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 			//Aquí veo el tipo de conexión, para usar un tipo de compresión de imagen u otro
 			if (checkConnectivity()){
 					
-					//TODO Oscar -> se pasa a la canvasActivity true->wifi, false->3g
 					canvasActivity.putExtra("wifi", isWifiConnectivityType());					
 					startActivity(canvasActivity);					
 
@@ -546,6 +545,8 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 		
 		private Dialog infoDialog() {
 			
+			final Activity actThis = this;
+			
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			
 			final String portText = getString(R.string.port);
@@ -557,19 +558,47 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 	        String port = ((Connection) getO()).getPORT();
 	        QualityArray color = ((Connection) getO()).getColorFormat();
 	        
-	        builder.setMessage("IP: "+ip+"\n"+portText+": "+port+"\n"+qualityText+": "+color);
+	        String quality = messageQuality(color);
+	        
+	        builder.setMessage("IP: "+ip+"\n"+portText+": "+port+"\n"+qualityText+": "+quality);
 			 
 		    builder.setTitle(connectionText +" "+name);
 		    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 		        @Override
 				public void onClick(DialogInterface dialog, int which) {
-		            dialog.cancel();
+		            actThis.removeDialog(InfoDialogs.infoDialog.ordinal());
 		        }
 
 		    });
 		 
 		    return builder.create();
 		    
+		}
+		
+		private String messageQuality(QualityArray color){
+
+			final String[] colors = getResources().getStringArray(R.array.color_array);
+			
+			int position = color.ordinal();
+			
+			switch (position) {
+				case 0:
+					//SuperHigh
+					return colors[0];
+				case 1:
+					//High
+					return colors[1];
+				case 2:
+					//Medium
+					return colors[2];
+				case 3:
+					//Low
+					return colors[3];
+
+			}
+
+			return null;
+			
 		}
 		
 		private Dialog createAboutDialog()
