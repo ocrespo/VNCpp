@@ -33,7 +33,7 @@
 		la sección de favoritos.\n
     </string>
     
-		<string name="title_section5">Opciones de conexión</string>
+	<string name="title_section5">Opciones de conexión</string>
 	<string name="text_section5">
 		Al pulsar sobre una conexión de la lista, se presenta un menú de opciones. Desde ahí se
 		puede conectar, mostrar la información de la conexión, editar y eliminar dicha conexión.
@@ -48,8 +48,16 @@
 		y desconectar.\n
     </string>
     
-	<string name="title_section7">Envío de teclas especiales</string>
+	<string name="title_section7">Manejo</string>
 	<string name="text_section7">
+		Para hacer click, simplemente haga una pulsación con el dedo.\n
+		Para hacer dobleckick, mantenga presionado el dedo sobre la pantalla durante unos 3 segundos.\n
+		Para hacer zoom, coloque un dedo sobre la pantalla, mientras con otro dedo alejas o acercas del primer dedo,
+		a modo de pinza\n
+    </string>
+    
+	<string name="title_section8">Envío de teclas especiales</string>
+	<string name="text_section8">
 		Para mandar eventos ctrl, alt, supr, shift, basta con seleccionar la tecla "Combo teclas",
 		y en la ventana emergente seleccionar las teclas que se quieran enviar. \nLas teclas función (F1, F2, etc) y el resto
 		de letras, se pueden seleccionar desde el botón central "Teclas".\n
