@@ -11,9 +11,9 @@ This software have been builder to Android 4.0 or more
 Authors
 -------
 
-Oscar Crespo Salazar
-Gorka Jimeno Garrachon
-Luis Valero Martin
+Oscar Crespo Salazar.
+Gorka Jimeno Garrachon.
+Luis Valero Martin.
 
 License
 -------
