@@ -49,21 +49,11 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 	private ViewGroup container;
 	private Bundle savedInstanceState;
 	
-	private static ListFragmentTab instance = null;
 	   
 	public ListFragmentTab() {
 
 	}
-	
-	public static ListFragmentTab getInstance() {
-	      
-		if(instance == null) {
-	         instance = new ListFragmentTab();
-	    }
-	    return instance;
-	}	  
-	
-	
+	 
 	
 	@Override
 	  public View onCreateView(LayoutInflater inflater, 

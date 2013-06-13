@@ -26,7 +26,6 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 import es.farfuteam.vncpp.controller.ActivityTabs;
 import es.farfuteam.vncpp.controller.R;

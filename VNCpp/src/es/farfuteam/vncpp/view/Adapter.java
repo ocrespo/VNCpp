@@ -24,7 +24,6 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface.OnClickListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,11 +40,13 @@ public class Adapter extends BaseAdapter {
 	private Activity activity;
 	private ArrayList<Connection> list;
 	
+	private ListFragmentTab listFragment;
 
 	
 	public Adapter(Activity act,ArrayList<Connection> u){
 		super();
 		activity = act;
+		listFragment = new ListFragmentTab();
 		setList(u);
 	}
 
@@ -92,19 +93,16 @@ public class Adapter extends BaseAdapter {
 	                	  iconFav.setButtonDrawable(R.drawable.star_ful);
 	                	  user.setFav(true);
 	                	  
-	                	  ListFragmentTab l = ListFragmentTab.getInstance();
-	                	  l.refreshFavorites(user);
+	                	  
+	                	  
 	                	 
 	                  }
 	                  else {
 	                	  iconFav.setButtonDrawable(R.drawable.star_emp);
-	                	  user.setFav(false);
-	                	  
-	                	  ListFragmentTab l = ListFragmentTab.getInstance();
-	                	  l.refreshFavorites(user);
+	                	  user.setFav(false);	 
 	                	  
 	                  }
-	                  
+	                  listFragment.refreshFavorites(user);
 	              }
 	          });
 	       

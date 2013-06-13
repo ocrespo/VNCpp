@@ -20,7 +20,6 @@
  */
 package es.farfuteam.vncpp.controller;
 
-import es.farfuteam.vncpp.controller.NewConnectionActivity.QualityArray;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -36,6 +35,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import es.farfuteam.vncpp.controller.NewConnectionActivity.QualityArray;
 
 public class EditionActivity extends Activity{
 

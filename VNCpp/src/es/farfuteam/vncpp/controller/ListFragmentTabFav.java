@@ -55,21 +55,11 @@ public class ListFragmentTabFav extends ListFragment implements SuperListener{
 	private static ConnectionSQLite admin;
 	private View view;
 	
-	private static ListFragmentTabFav instance = null;
 	   
 	public ListFragmentTabFav() {
 
 	}
-	
-	public static ListFragmentTabFav getInstance() {
-	      
-		if(instance == null) {
-	         instance = new ListFragmentTabFav();
-	    }
-	    return instance;
-	}	  
-	
-	
+
 	
 	@Override
 	  public View onCreateView(LayoutInflater inflater, 
