@@ -24,6 +24,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -119,7 +120,7 @@ public class EditionActivity extends Activity{
 				        }
 				 
 				        public void onNothingSelected(AdapterView<?> parent) {
-				        	//por defecto se selecciona la posicion 0, 24-bit color
+				        	//por defecto se selecciona la posicion que indica lo elegido anteriormente
 				        	color_format = pos;
 				        }
 				});
@@ -139,6 +140,7 @@ public class EditionActivity extends Activity{
 		        	 String psw = PSW_field.getText().toString();
 		        	 returnIntent.putExtra("newPSW",psw);
 		        	 returnIntent.putExtra("newColor", color_format);
+		        	 Log.i("tag",String.valueOf(color_format));
 		        	 returnIntent.putExtra("fav", fav);
 		        	 setResult(RESULT_OK,returnIntent);     
 		        	 finish();

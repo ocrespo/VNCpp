@@ -210,20 +210,9 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 				
 			}
 		};	
-		/*final View activityRootView = findViewById(R.id.aa);
-		activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
-			
-			@Override
-			public void onGlobalLayout() {
-				int a = activityRootView.getRootView().getWidth();
-				int b = activityRootView.getWidth();
-				int c =0; t
-				c++;			
-			}
-		} );*/
-
 		
 	}
+	
 	private void runTimerConnection(){
 		final Activity activityThis = this;
 		new Thread(new Runnable() {
@@ -268,8 +257,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	private void iniConnection(final String host,final String port,final String pass, final QualityArray quality,final Boolean compress){
 		vnc = new VncBridgeJNI();
 		vnc.addObserver(this);
-		//ConnectionError error = vnc.startConnect(info.getString("ip"),Integer.parseInt(info.getString("port")));
-		//new Thread(vnc).start();
+
 		final Activity activityThis = this;
 		new Thread( new Runnable() {
 				
@@ -289,7 +277,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 							
 						}
 					});
-					//showDialog(1);
+
 					new Thread(new Runnable() {
 							
 						@Override
@@ -299,9 +287,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 								
 						}
 					}).start();
-					/*while(waitDialog);
-					vnc = null;
-					finish();*/
+
 					return;
 				}
 				else{
@@ -330,17 +316,6 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		.commit();
 	}
 	
-
-	
-	/*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-		super.onCreateOptionsMenu(menu);
-		MenuInflater mi = getMenuInflater();
-		mi.inflate(R.menu.canvas_menu, menu);
-		return true;
-	}
-	*/
-	
 	
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent evt){
@@ -352,10 +327,9 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			}
 		}
 		else if(keyCode == KeyEvent.KEYCODE_MENU){
-			Log.i("tag","en menu del canvas");
+			
 			menu.showMenu();
 			
-			//this.openOptionsMenu();
 		}
 		return true;
 		
@@ -986,8 +960,6 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	   
 		specialKeys = new Vector<EnumSpecialKey>();  // Where we track the selected items
 	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-	    
-	    //final String[] arraySpecialsKeys = getResources().getStringArray(R.array.keys_array);
 	
 	    // Set the dialog title
 	    final Activity actThis = this;
@@ -1048,7 +1020,6 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	            	   actThis.removeDialog(EnumDialogs.functionKeysDialog.ordinal());
 	            	   specialKeys = null;
 	            	   keys = null;
-	            	   //dialog.cancel();
 	               }
 	           });
 	    
@@ -1063,12 +1034,9 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	   if(keys == null)
 		   keys = new Vector<Integer>();  // Where we track the selected items
 	    
-	   // final String[] arrayFunctionKey = getResources().getStringArray(R.array.function_keys_array);
 	   final Activity actThis = this;
 	    // Set the dialog title
 	    builder.setTitle(R.string.function_keys_title)
-	    // Specify the list array, the items to be selected by default (null for none),
-	    // and the listener through which to receive callbacks when items are selected
 	           .setMultiChoiceItems(R.array.function_keys_array, null,
 	        		   new DialogInterface.OnMultiChoiceClickListener() {
 	               @Override
@@ -1087,15 +1055,12 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	           .setPositiveButton("OK", new DialogInterface.OnClickListener() {
 	               @Override
 	               public void onClick(DialogInterface dialog, int id) {
-	                   //TODO evento con la tecla function escogida
-	            	   //se vuelve a mostrar el dialog del comboKeys
 	            	   showDialog(EnumDialogs.comboEventsDialog.ordinal());
 	               }
 	           })
 	           .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
 	               @Override
 	               public void onClick(DialogInterface dialog, int id) {
-	                   //functionKeys se vacía
 	            	   showDialog(EnumDialogs.comboEventsDialog.ordinal());
 	            	   actThis.removeDialog(EnumDialogs.functionKeysDialog.ordinal());
 	            	  
