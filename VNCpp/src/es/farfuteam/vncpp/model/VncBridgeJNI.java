@@ -41,6 +41,7 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 	
 	private native int iniConnect(String host,int port,String pass,int quality,int compress,boolean hideMouse);
 	private native void closeConnection();
+	private native void stopUpdate();
 	private native void finish();
 	private native void iniJNI();
 	private native void rfbLoop();
@@ -61,6 +62,7 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 
 	private Screen screen;
 	
+	public boolean error = false;
 
 	static {  
 		System.loadLibrary("vncmain");  
@@ -75,6 +77,7 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 				try{
 					screen.createData();
 				}catch (OutOfMemoryError e) {
+					error = true;
 					notifyOutOfMemory();
 				}
 				
@@ -155,8 +158,8 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 			}
 		}).start();
 		
-		
-		notifyFinish();
+		if(!error)
+			notifyFinish();
 	}
 	@Override
 	public void updateIniFrame(int width, int height, int bpp, int depth) {
@@ -164,9 +167,12 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 		
 		iniBitmapData = new Thread(createScreen);
 		iniBitmapData.start();
-		while(iniBitmapData.isAlive());
-		
-		notifyIniFrame(screen.getData(),0,0,0,width,height,screen.getWidth(),screen.getHeight());
+		while(iniBitmapData.isAlive() && !error);
+		if(!error)
+			notifyIniFrame(screen.getData(),0,0,0,width,height,screen.getWidth(),screen.getHeight());
+		else{
+			stopUpdate();
+		}
 		
 		
 		

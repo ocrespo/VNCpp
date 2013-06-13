@@ -480,7 +480,8 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	public void updateOutOfMemory() {
 		progressDialog.dismiss();
 		showDialogWait(EnumDialogs.outOfMemoryDialog);
-		vnc.finishVnc();
+		if(vnc != null)
+			vnc.finishVnc();
 		finishConnection();
 		
 	}
