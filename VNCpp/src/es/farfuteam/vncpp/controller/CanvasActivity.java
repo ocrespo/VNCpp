@@ -463,56 +463,38 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 
 	@Override
 	public void updateFinish() {
-		//Dialog servidor interrumpida conexion
-		waitDialog = true;
 		if(progressDialog.isShowing()){
 			progressDialog.dismiss();
 		}
-		this.runOnUiThread(new Runnable() {
-			
-			@Override
-			public void run() {
-			
-				showDialog(EnumDialogs.serverInterruptConexionDialog.ordinal());
-				
-			}
-		});
-		while(waitDialog);
+		showDialogWait(EnumDialogs.serverInterruptConexionDialog);
 		finishConnection();
 	}
 	@Override
 	public String updatePass() {
-		waitDialog = true;
-		this.runOnUiThread(new Runnable() {
-			
-			@Override
-			public void run() {
-				showDialog(EnumDialogs.passwordNeededDialog.ordinal());
-				
-			}
-		});
-			
-		while(waitDialog);
+		showDialogWait(EnumDialogs.passwordNeededDialog);
 		String aux_pass = pass;
 		pass = null;
 		return aux_pass;
 	}
 	@Override
 	public void updateOutOfMemory() {
-		
-		waitDialog = true;
 		progressDialog.dismiss();
+		showDialogWait(EnumDialogs.outOfMemoryDialog);
+		vnc.finishVnc();
+		finishConnection();
+		
+	}
+	public void showDialogWait(final EnumDialogs dialog){
+		waitDialog = true;
 		this.runOnUiThread(new Runnable() {
 			
 			@Override
 			public void run() {
 			
-				showDialog(EnumDialogs.outOfMemoryDialog.ordinal());
+				showDialog(dialog.ordinal());
 			}
 		});
 		while(waitDialog);
-		vnc.finishVnc();
-		finishConnection();
 		
 	}
 
