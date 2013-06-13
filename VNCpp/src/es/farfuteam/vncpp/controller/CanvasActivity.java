@@ -25,6 +25,7 @@ import java.util.Vector;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -47,6 +48,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
@@ -1075,15 +1077,19 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	
 	private Dialog openHelpDialog()
 	 {
+		
+               
+        final TextView text = new TextView(this);
+        text.setText(R.string.help_message); 
+
 	  return new AlertDialog.Builder(this)
-	  .setTitle(R.string.help_title).setMessage(R.string.help_message)
+	  .setTitle(R.string.help_title)
+	  .setView(text)
 	  .setPositiveButton(R.string.help_ok,
 	   new DialogInterface.OnClickListener() {
 	    
 	    @Override
-	    public void onClick(DialogInterface dialog, int which) {
-	     // Auto-generated method stub
-	     
+	    public void onClick(DialogInterface dialog, int which) {	     
 	    }
 	   }
 	    )
