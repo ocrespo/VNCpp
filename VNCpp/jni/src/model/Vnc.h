@@ -54,6 +54,7 @@ public:
 	bool sendMouseEvent(int x,int y,MouseEvent event);
 	bool sendKeyEvent(int key,bool down);
 
+	void setUpdate(bool update);
 
 };
 

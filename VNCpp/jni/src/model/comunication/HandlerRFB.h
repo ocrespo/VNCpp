@@ -36,11 +36,14 @@ private:
 
 	static char* pass;
 
+	static bool update;
+
 public:
 	HandlerRFB();
 	virtual ~HandlerRFB();
 
 	static void setScreen(ClientScreen *screen);
+	static void setUpdate(bool aux_update);
 
 	static rfbBool iniFrameBuffer(rfbClient* client_screen);
 	static void updateScreen(rfbClient *client,int x,int y,int w,int h);

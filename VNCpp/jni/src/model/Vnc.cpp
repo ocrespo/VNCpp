@@ -33,6 +33,7 @@ Vnc::Vnc() {
 	rfb = new ClientConnectionRFB;
 	screen = new ClientScreen;
 	HandlerRFB::setScreen(screen);
+	HandlerRFB::setUpdate(true);
 
 }
 /**
@@ -63,7 +64,7 @@ ConnectionError Vnc::iniConnection(char *host,int port,char *pass,int quality,in
  * Invoca rfb->cleanRfb, para que cierra la conexion con el servidor
  */
 void Vnc::closeConnection(){
-	rfb->cleanRfb();
+	rfb->stopConnection();
 }
 /**
  * Añade a screen el observer, para que este se comunique con java
@@ -79,4 +80,7 @@ bool Vnc::sendMouseEvent(int x,int y,MouseEvent event){
 }
 bool Vnc::sendKeyEvent(int key,bool down){
 	return rfb->sendKeyEvent(key,down);
+}
+void Vnc::setUpdate(bool update){
+	HandlerRFB::setUpdate(update);
 }

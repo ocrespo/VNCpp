@@ -35,6 +35,7 @@ extern "C" {
 	JNIEXPORT jint JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_iniConnect(JNIEnv* env,jobject javaThis,jstring host_java,jint port_java,jstring pass_java,
 			jint quality_java,jint conpress_java,jboolean hide_mouse);
 	JNIEXPORT void JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_closeConnection(JNIEnv* env,jobject javaThis);
+	JNIEXPORT void JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_stopUpdate(JNIEnv* env,jobject javaThis);
 	JNIEXPORT void JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_finish(JNIEnv* env,jobject javaThis);
 	JNIEXPORT void JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_iniJNI(JNIEnv* env,jobject javaThis);
 	JNIEXPORT jboolean JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_mouseEvent(JNIEnv* env,jobject javaThis,int x,int y,int event);
@@ -86,4 +87,7 @@ JNIEXPORT jboolean JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_mouseEvent
 }
 JNIEXPORT jboolean JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_keyEvent(JNIEnv* env,jobject javaThis,int key,jboolean down){
 	return vnc->sendKeyEvent(key,(bool)down);
+}
+JNIEXPORT void JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_stopUpdate(JNIEnv* env,jobject javaThis){
+	vnc->setUpdate(false);
 }

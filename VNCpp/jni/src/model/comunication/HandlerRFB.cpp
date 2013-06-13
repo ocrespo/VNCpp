@@ -28,6 +28,7 @@
 
 ClientScreen* HandlerRFB::screen = NULL;
 char* HandlerRFB::pass = NULL;
+bool HandlerRFB::update = true;
 
 HandlerRFB::HandlerRFB() {
 	// TODO Auto-generated constructor stub
@@ -65,6 +66,9 @@ void HandlerRFB::setPass(char *aux_pass){
 		pass = strcpy(pass,aux_pass);
 	}
 }
+void HandlerRFB::setUpdate(bool aux_update){
+	update = aux_update;
+}
 void HandlerRFB::freePass(){
 	if(pass != NULL){
 		free(pass);
@@ -80,10 +84,12 @@ char* HandlerRFB::getPass(rfbClient* client){
 }
 
 void HandlerRFB::updateScreen(rfbClient *client,int x,int y,int w,int h){
-	screen->updateScreen(client->frameBuffer,x,y,w,h);
+	if(update)
+		screen->updateScreen(client->frameBuffer,x,y,w,h);
 }
 void HandlerRFB::finishUpdate(rfbClient *client){
-	screen->notifyReDraw();
+	if(update)
+		screen->notifyReDraw();
 }
 void HandlerRFB::finishConnection(){
 	screen->notifyFinishConnection();

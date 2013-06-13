@@ -5,7 +5,8 @@
 
 	This file is part of VNC++.
 
-	VNC++ is free software: you can redistribute it and/or modify
+	VNC++ is free software: you can redistribute
+	 it and/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 3 of the License, or
 	any later version.
@@ -26,7 +27,6 @@
  * @brief Indica si se esta en modo debug para mostrar los logs o no.
  */
 #define DEBUG 0
-
 /**
  * @def LOG_TAG
  * @brief Etiqueta que sera mostrada en el logcat junto con el mensaje.
