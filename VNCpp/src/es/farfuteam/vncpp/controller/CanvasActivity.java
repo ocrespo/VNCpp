@@ -31,10 +31,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.ResultReceiver;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.MotionEventCompat;
 import android.text.InputType;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
@@ -42,7 +42,7 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.ScaleGestureDetector.OnScaleGestureListener;
-import android.view.View.MeasureSpec;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -137,15 +137,17 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		setContentView(R.layout.canvas);
 		canvas = (CanvasView)findViewById(R.id.vnc_canvas);		
 		
-		DisplayMetrics displayMetrics = new DisplayMetrics();
+		/*DisplayMetrics displayMetrics = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+		int width = displayMetrics.widthPixels;
+		int height = displayMetrics.heightPixels;*/
 		
-		
-		canvas.measure(MeasureSpec.makeMeasureSpec((displayMetrics.widthPixels), MeasureSpec.AT_MOST),MeasureSpec.makeMeasureSpec(displayMetrics.heightPixels, MeasureSpec.AT_MOST));
+		//canvas.setLayoutParams(new RelativeLayout.LayoutParams());
+		//canvas.measure(MeasureSpec.makeMeasureSpec((width), MeasureSpec.AT_MOST),MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST));
 		
 		
 		//setBehindContentView(R.layout.activity_main);
-		menu = new SlidingMenu(this);
-		startSlideMenu();
+		
 				
 		Bundle info = getIntent().getExtras();		
 		
@@ -175,6 +177,8 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
         progressDialog.show();
         progressDialog.setCancelable(false);
         
+        menu = new SlidingMenu(this);
+		startSlideMenu();
         
         runTimerConnection();
         
@@ -210,15 +214,14 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 				
 			}
 		};	
-		/*final View activityRootView = findViewById(R.id.aa);
-		activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+		//final View activityRootView = findViewById(R.id.aa);
+		/*canvas.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
 			
 			@Override
 			public void onGlobalLayout() {
-				int a = activityRootView.getRootView().getWidth();
-				int b = activityRootView.getWidth();
-				int c =0; t
-				c++;			
+				int a = canvas.getRootView().getHeight();
+				int b = canvas.getHeight();
+				Log.e(DEBUG_TAG, a+" "+b);
 			}
 		} );*/
 
@@ -344,7 +347,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent evt){
-		super.onKeyDown(keyCode, evt);
+		//super.onKeyDown(keyCode, evt);
 		if(keyCode == KeyEvent.KEYCODE_BACK){
 			if(vnc != null){
 				//Dialog pregunta salir
@@ -352,8 +355,8 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			}
 		}
 		else if(keyCode == KeyEvent.KEYCODE_MENU){
-			Log.i("tag","en menu del canvas");
-			menu.showMenu();
+			//Log.i("tag","en menu del canvas");
+			menu.toggle();
 			
 			//this.openOptionsMenu();
 		}
@@ -379,6 +382,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		    	vnc.sendKey(modKeyCount+key,down);
 		    	
 		    }
+		   
 		    
 		    Log.e(DEBUG_TAG,String.valueOf( event.getKeyCode()));
 		}
@@ -501,11 +505,15 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 
 	//publica porque necesito llamarla desde el fragment slide lateral
 	public void showKeyboard(){
-        inputMgr.toggleSoftInputFromWindow(canvas.getApplicationWindowToken(), InputMethodManager.SHOW_FORCED, 0);
-        
+		//showKeyboard = !showKeyboard;
+		
+        //inputMgr.toggleSoftInputFromWindow(canvas.getWindowToken(), InputMethodManager.SHOW_FORCED, 0);
+        inputMgr.toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_IMPLICIT_ONLY);
+		//IMMResult result = new IMMResult();
+		//inputMgr.showSoftInput(canvas, InputMethodManager.SHOW_FORCED, result);
+		//inputMgr.showSoftInput(canvas, InputMethodManager.SHOW_IMPLICIT, result);
         menu.toggle();
 	}
-	
 	private void finishConnection(){
 		if(progressDialog.isShowing()){
 			progressDialog.dismiss();
@@ -525,8 +533,8 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		boolean allOkY= true;
 		int offSetKeyboard =0;
 		
-		/*if(showKeyboard)
-			offSetKeyboard = canvas.getHeight()/2;*/
+		//if(showKeyboard)
+			offSetKeyboard = canvas.getHeight()/2;
 		
 		float width = canvas.getWidth() / scaleFactor ;
 		float height = canvas.getHeight() / scaleFactor ;

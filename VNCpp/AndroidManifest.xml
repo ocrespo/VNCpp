@@ -61,6 +61,7 @@
         <activity 
             android:name="es.farfuteam.vncpp.controller.CanvasActivity"
              android:configChanges="keyboardHidden|orientation|screenSize"
+             android:windowSoftInputMode="adjustResize"
              >
             <intent-filter>
 				<action android:name="android.intent.action.VIEW"></action>
