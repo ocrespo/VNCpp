@@ -1,30 +1,23 @@
 Una vez llegados a este punto, siempre es interesante comparar el resultado final con las aplicaciones que tomamos como referencia en un principio. Como ya se indicó en el capítulo dos, usamos como punto de partida tres aplicaciones que abarcan el campo del control remoto móvil.\\
 
-Nuestro propósito inicial era mejorar ciertos aspectos de estas aplicaciones ya existentes, y en este apartado observamos resultados:
-\begin{itemize}
-\item \textbf{VNC Viewer para Android:} como ya se matizó, esta aplicación está basada en software privativo, por lo que no disponemos de mucha información relativa a la implementación interna de este proyecto. Pero algo que nos propusimos desde el principio era crear un software puramente libre ya que pensamos que es así como se llega a un producto final con más opciones de desarrollo y uso futuro.
-\item \textbf{MultiVNC:} Usa aceleración hardware OpenGL para el dibujado y el zoom, mientras que en nuestro caso se ha optado por el uso de Canvas.
-\end{itemize}
+\section{Funcionalidad}
 
-Funcionalidades destacadas compartidas con VNC++:
+Nuestro propósito inicial era mejorar ciertos aspectos de estas aplicaciones ya existentes, y en este apartado observamos resultados.
+
+\subsection{Funcionalidades destacadas compartidas con VNC++}
 \begin{itemize}
-\item \textbf{VNC Viewer:}
-\begin{itemize}
-\item Modo de pantalla completa.
-\item Acceso intuitivo a un menú de opciones que incluye desactivar el modo de pantalla completa o reenviar una secuencia de teclas Ctrl-Alt-Supr.
-\item Utiliza protocolo RFB.
-\item Puede tunelar VNC mediante SSH.
-\end{itemize}
-\item \textbf{MultiVNC:}
-\begin{itemize}
+\item Enviar secuencia de teclas.
 \item Recuerda conexiones previas.
-\item Copia y pega.
 \end{itemize}
-\item \textbf{Android-vnc-viewer:}
+\subsection{Funcionalidades diferentes respecto VNC++}
 \begin{itemize}
-\item También es libre y de código abierto, pero como contrapartida tiene un diseño minimalista en el que el usuario se ve obligado a tener la pantalla en posición horizontal. Además, en dispositivos con pantallas de reducido tamaño, la información es difícil de acceder, haciéndose el manejo bastante incómodo.
+\item \textbf{VNC Viewer para Android:} como ya se matizó, esta aplicación está basada en software privativo, por lo que no disponemos de mucha información relativa a la implementación interna de este proyecto. Pero algo que nos propusimos desde el principio era crear un software puramente libre ya que pensamos que es así como se llega a un producto final con más opciones de desarrollo y uso futuro.\\
+
+Permite, a través de un menú de opciones, desactivar el modo de pantalla completa, así como opción de Copy\&paste.
+\item \textbf{MultiVNC:} Usa aceleración hardware OpenGL para el dibujado y el zoom, mientras que en nuestro caso se ha optado por el uso de Canvas.
+\item \textbf{Android-vnc-viewer:} También es libre y de código abierto, pero como contrapartida tiene un diseño minimalista en el que el usuario se ve obligado a tener la pantalla en posición horizontal. Además, en dispositivos con pantallas de reducido tamaño, la información es difícil de acceder, haciéndose el manejo bastante incómodo.
 \end{itemize}
-\end{itemize}
+\subsection{Mejoras consideradas}
 
 Nuestra principal meta, como se indica en la sección de propósito, era lograr usar el potencial del NDK para el uso de VNC, que es la principal desventaja de todos los proyectos software estudiados.\\
 
