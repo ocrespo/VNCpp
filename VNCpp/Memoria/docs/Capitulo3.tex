@@ -1,8 +1,8 @@
 En este apartado se describirá algunas de las tecnologías que se pensaron usar en un principio y que por un motivo u otro al final se desecharon.
 
-\section{Simple DirectMedia Layer}
+\section{Simple DirectMedia Layer}.
 
-Simple DirectMedia Layer, o más comúnmente conocida por sus siglas SDL, es una librería desarrollada en C y licenciada y distribuida bajo licencia LGPL, proporciona una serie de funciones para la gestión de dibujos e imágenes en dos dimensiones. Escrita originalmente por Sam Latinga.\\
+Simple DirectMedia Layer \cite{sdl:sdl}, o más comúnmente conocida por sus siglas SDL, es una librería desarrollada en C y licenciada y distribuida bajo licencia LGPL, proporciona una serie de funciones para la gestión de dibujos e imágenes en dos dimensiones. Escrita originalmente por Sam Latinga.\\
 
 Durante el proceso de desarrollo del proyecto, una de las tecnologías por las que se optaron fue SDL, dada las facilidades y potencia que ofrecía para el tratamiento y renderizado de la imagen, sin embargo durante la inclusión del mismo en el proyecto fueron surgiendo una serie de problemas que acabaron provocando desecharlo del proyecto.\\
 
@@ -12,4 +12,8 @@ Por otro lado el rendimiento obtenido, una vez acoplado al proyecto, fue muy pob
 
 \section{SherlockBar}
 
-SherlockBar es una librería de código libre para poder usar el patrón de diseño de estilo Holo de Android en versiones anteriores a la aparición de este patrón. Debido a nuestra decisión de portar de la versión 2.3.3 a la 4.0, en la versión anterior el diseño necesitaba de esta librería para ceñirnos al estilo de las aplicaciones del momento. Pero como al final se decidió usar la versión 4.0, ya no era necesario el uso de esta librería ya que el diseño viene de forma nativa para dicha versión, por lo que se retiró por completo del proyecto \cite{sherlock:sherlock}.
+SherlockBar\cite{sherlock:sherlock} es una librería de código libre para poder usar el patrón de diseño de estilo Holo de Android en versiones anteriores a la aparición de este patrón. Debido a nuestra decisión de portar de la versión 2.3.3 a la 4.0. En la versión anterior el diseño necesitaba de esta librería para ceñirnos al estilo de las aplicaciones del momento.\\
+
+Durante el desarrollo del proyecto encontramos errores de compatibilidad en el NDK, ya que el funcionamiento de los hilos que eran válidos en uno, no lo eran en el otro.
+
+Por ello y debido a la creciente cuota de mercado de la versión 4.0 y la desaparición prematura de terminales 2.3.3, se decidió abandonar el soporte para ésta última. Por ello ésta librería carecía de sentido.

@@ -1,6 +1,6 @@
 \section{Librerías de terceros}
 \subsection{LibVNCServer}
-LibVNCServer es una librería multiplataforma de software libre, distribuida bajo la licencia GPL versión 2 o más reciente, desarrollada por Johannes E. Schindelin y escrita en C. Está compuesta en dos partes, por una parte la que está destinada a la creación de un servidor, conocida como LibVNCServer, y por otra, la que está destinada a la creación de un cliente, conocida como LibVNCClient. Para el desarrollo del proyecto se ha usado la parte perteneciente al cliente.\\
+LibVNCServer\cite{LibVNC:LibVNC} es una librería multiplataforma de software libre, distribuida bajo la licencia GPL versión 2 o más reciente, desarrollada por Johannes E. Schindelin y escrita en C. Está compuesta en dos partes, por una parte la que está destinada a la creación de un servidor, conocida como LibVNCServer, y por otra, la que está destinada a la creación de un cliente, conocida como LibVNCClient. Para el desarrollo del proyecto se ha usado la parte perteneciente al cliente.\\
 
 LibVNCServer implementa el protocolo de comunicación (poner referencias) RFB y añade funcionalidad extra para facilitar el uso del mismo. LibVNCServer se encarga de la codificación y decodificación de datos, así como, el aplanamiento de los mismos para su envío. Implementa protocolos de seguridad para encriptar la comunicación por SSL mediante la librería GNUTLS. Así mismo LibVNCServer utiliza el estándar VNC con lo cual es compatible con la gran mayoría de programas que lo usan.\\
 
@@ -14,11 +14,11 @@ Ambas codificaciones utilizar la librería zlib para comprimir los datos de los 
 
 Tight hace un tratamiento de la imagen mediante la librería LibJPEG o, en caso de poderse, LibJPEG-Turbo, siendo esta última una versión avanzada de la primero, de tal forma, que esta preparada para el uso de procesadores vectoriales y su consecuente ganancia de rendimiento.\\
 
-Así pues, Tight es un codificación preparada para entornos de red pobres, teniendo un consumo de red bajo, además en el envío de regiones de la imagen, algo que VNC está constantemente realizando, tiene un rendimiento superior en torno a cuatro veces más rápido. Sin embargo, Tight puedo tener pérdidas en la calidad de la imagen.\\
+Así pues, Tight es un codificación preparada para entornos de red pobres ya que tiene un consumo de red bajo. Además en el envío de regiones de la imagen, algo que VNC está constantemente realizando, tiene un rendimiento superior. Sin embargo, Tight puede tener pérdidas en la calidad de la imagen.\\
 
-ZRLE aun siendo una codificación preparada para conexiones lentas, es inferior en este punto, sin embargo, al no hacer un tratamiento previo de la imagen no tiene pérdidas en la misma.\\
+ZRLE aún siendo una codificación preparada para conexiones lentas, es inferior en este punto, sin embargo, al no hacer un tratamiento previo de la imagen no tiene pérdidas en la misma.\\
 
-La aplicación usa, y a diferencia de otras aplicaciones, como codificación máxima Tight, sin embargo, uno de los problemas lo encontramos en no poder usar LibJPEG-turbo. Aunque fue compilada sin problemas para Android, los procesadores móviles actuales carecen de cálculo vectorial, con lo cual, no funcionó, con la consiguiente pérdida de rendimiento.\\
+La aplicación usa, a diferencia de otras aplicaciones, como codificación máxima Tight, sin embargo, uno de los problemas lo encontramos en no poder usar LibJPEG-turbo. Aunque fue compilada sin problemas para Android, los procesadores móviles actuales carecen de cálculo vectorial, con lo cual no funcionó, con la consiguiente pérdida de rendimiento.\\
 
 Para el uso de esta librería en Android fue necesaria la compilación de otras librerías que son usadas por LibVNCServer. Para poder compilarlas fue necesario el uso del (poner referencias) NDK (Native Development kit) de Android, ya que todas ellas se encuentran escritas en C/C++. La librerías que fueron compiladas para Android son las siguientes:
 \begin{itemize}
@@ -35,7 +35,7 @@ Entre las diferentes opciones de compilación que ofrece LibVNCServer, ésta fue
 
 \subsection{SlidingMenu}
 
-SlidingMenu es una librería de código abierto de Android, distribuida bajo la licencia Apache versión 2.0, desarrollada por Jeremy Feinstein. Según se cita en el repositorio del autor es una librería que “permite a los desarrolladores crear fácilmente aplicaciones con menús como los que se hizo popular en Google+, YouTube y aplicaciones de Facebook móvil”.
+SlidingMenu\cite{slide:slide} es una librería de código abierto de Android, distribuida bajo la licencia Apache versión 2.0, desarrollada por Jeremy Feinstein. Según se cita en el repositorio del autor es una librería que “permite a los desarrolladores crear fácilmente aplicaciones con menús como los que se hizo popular en Google+, YouTube y aplicaciones de Facebook móvil”.\cite{slide:slide}
 SlidingMenu se utiliza actualmente en muchas otras aplicaciones Android, como pueden ser: \\
 
 \begin{itemize}
@@ -47,7 +47,9 @@ SlidingMenu se utiliza actualmente en muchas otras aplicaciones Android, como pu
 \item Mantano Reader.\\
 \end{itemize}
 
-Todas estas aplicaciones marcan el diseño y entorno de uso presente y futuro en Android, y éste nuevo menú es el que se está implantando, ya que el menú desplegable clásico dejará de tener validez en los nuevos terminales móviles. Aparte es fácil de integrar en proyectos Android ya existentes.\\
+Todas estas aplicaciones marcan el diseño y entorno de uso presente y futuro en Android, y éste nuevo menú es el que se está implantando.
+
+Se decidió la utilización de esta librería ya que el menú desplegable clásico dejará de tener validez en los nuevos terminales móviles y versiones Android. Además es fácil de integrar en proyectos Android ya existentes.\\
 
 A la hora de usar esta librería, se han modificado una serie de parámetros que se consideran útiles para la aplicación.\\
 
@@ -61,7 +63,7 @@ En este menú se han introducido todas las opciones de control y envío de event
 
 SQLite es un motor de bases de datos muy popular en la actualidad por ofrecer características tan interesantes como su pequeño tamaño, no necesitar servidor, precisar poca configuración, ser transaccional y por ser de código libre. Éstas son unas de las grandes razones por las que Android usa esta librería software para almacenar los datos. \\
 
-En este proyecto se da uso a esta tecnología para guardar las conexiones creadas por el usuario. La estructura elegida ha sido muy sencilla, para facilitar la rápida recuperación de datos. La base de datos se crea y se da uso en la clase ConnectionSQLite, encargada de todo el control persistente. En dicha clase se crea la base de datos DBConnections con una única tabla para almacenar las conexiones denominada Connections cuyos campos son: $MARGIN_THRESHOLD = 28;$\\
+En este proyecto se da uso a esta tecnología para guardar las conexiones creadas por el usuario. La estructura elegida ha sido muy sencilla, para facilitar la rápida recuperación de datos. La base de datos se crea y se da uso en la clase ConnectionSQLite, encargada de todo el control persistente. En dicha clase se crea la base de datos DBConnections con una única tabla para almacenar las conexiones denominada Connections cuyos campos son:\\
 
 \begin{itemize}
 
@@ -84,27 +86,27 @@ En este proyecto se da uso a esta tecnología para guardar las conexiones creada
 
 \section{Aplicación}
 
-\subsection{Iterfaz Holo}
+\subsection{Interfaz Holo}
 
 Debido a la multiplicidad de diseños dentro de las aplicaciones en Android, con esta interfaz se ha intentado marcar un estándar que sirva como diseño de control y manejo de las nuevas aplicaciones a partir de la 4.0. De esta manera, se facilita al usuario la interacción con todas las aplicaciones ya que comparten el formato de manejo y estilo, compartiendo iconos y las funcionalidades que se entienden de estas pequeñas imágenes. Por esta razón en el proyecto se incluyen los iconos y estándares de diseño marcados por Google, usando los iconos con las distintas resoluciones provistas en Android Developers \cite{holo:holo}.
 
 \subsection{JNI-NDK}
-NDK, Native Development Kit, de Android es el SDK (Software Development Kit) mediante el cual se pueden desarrollar aplicaciones nativas para Android, esto es, aplicaciones escritas en C/C++ y compiladas a través de GCC.\\
+Native Development Kit (NDK), de Android es el SDK mediante el cual se pueden desarrollar aplicaciones nativas para Android, esto es, aplicaciones escritas en C/C++ y compiladas a través de GCC.\\
 
-Por otro lado JNI (Java Native Interface), es una interfaz proporcionada por el NDK para la interacción de la parte Java con C/C++. Aunque si bien Android no usa Java, sino Dalvik, a efectos prácticos es equivalente.\\
+Por otro lado JNI, es una interfaz proporcionada por el NDK para la interacción de la parte Java con C/C++.\\
 
-El proyecto se desarrolla en dos partes. Por un lado la parte (poner referencias) Java, que es la delegada de la interfaz gráfica, GUI (Graphics User Interface), y por otra la parte nativa, desarrollada en C++ y encargada de la conexión, así como tratamiento de píxeles.\\
+El proyecto se desarrolla en dos partes. Por un lado la parte Java(Ver sección 5.2.1), que es la delegada de la interfaz gráfica, GUI (Graphics User Interface), y por otra la parte nativa, desarrollada en C++ (Ver sección 5.2.2) y encargada de la conexión, así como tratamiento de píxeles.\\
 
 El lugar que nos ocupa ahora es el de la parte nativa , también llamada, parte C++. Para la correcta concurrencia entre Java y C/C++, el proyecto ha sido desarrollado de tal forma que cuando se hace la petición de conexión con el servidor, cuya petición es hecha por el usuario desde Java, la aplicación se separa en 2 hilos altamente diferenciados y cuya sincronización es fundamental.\\
 
-Por un lado encontramos el hilo perteneciente a la GUI de Android, el cual se encargará de interactuar con el usuario. Y, por otra, encontramos el hilo de C++, el cual es creado al iniciarse la conexión y que será el encargado de atender las peticiones hechas por el servidor.\\
+Por un lado encontramos el hilo perteneciente a la GUI de Android, el cual se encargará de interactuar con el usuario. Por otro lado, encontramos el hilo de C++, el cual es creado al iniciarse la conexión y que será el encargado de atender las peticiones hechas por el servidor.\\
 
 En este punto la aplicación se encuentra bajo unas limitaciones importantes:
 \begin{itemize}
 \item \textbf{El uso de memoria:} La memoria que es capaz de reservar y manejar C/C++ dentro de la máquina virtual de Dalvik (JVM) es limitado, es decir, si la parte nativa quisiese crear un vector de grandes dimensiones en Java no podría y para ello tendría que cambiar de hilo y situarse en Java.
 \item \textbf{Rendimiento:} Las invocaciones de funciones de la parte nativa a Java no gozan de una gran velocidad, por ello si la parte nativa quisiese actualizar una gran densidad de información, la forma de actuar sería acceder, mediante JNI, directamente a los datos de la JVM y modificarlo, sin que Java intervenga.\\
 
-También encontramos el problema de una velocidad dispar en la ejecución, es decir, la parte nativa se ejecuta a una velocidad, y sin embargo, la parte Java a otra, siendo ésta última significativamente inferior. Por ello la parte nativa debe esperar a que Java haya realizado sus procesos antes de proseguir.
+También encontramos el problema de una velocidad dispar en la ejecución, es decir, la parte nativa se ejecuta a una velocidad y la parte Java a otra, siendo ésta última significativamente inferior. Por ello la parte nativa debe esperar a que Java haya realizado sus procesos antes de proseguir.
 
 \item \textbf{Concurrencia:} Las invocaciones a Java que son realizadas desde C++ se hacen en un hilo diferente de invocación, y que es creado en cada invocación independiente al resto. Estas interrumpen el funcionamiento lineal de Java, como por ejemplo, en la notificación de un cambio en la pantalla.
 
@@ -112,7 +114,7 @@ También encontramos el problema de una velocidad dispar en la ejecución, es de
 
 La parte nativa también es la delegada de realizar una de las tareas más críticas de la aplicación, el tratamiento de píxeles. Cuando el servidor envía la notificación de que hay cambios en la pantalla, la aplicación recoge esa información y la debe trasladar a Java, que es la que se encargará de representarlo.\\
 
-La información de la imagen, que se almacena en el framebuffer de RFB, se recoge como un puntero al tipo uint8\_T (uint8\_t*), y la parte nativa se encarga de procesarla, ya que, como veremos a continuación, es un proceso pesado y C++ proporciona un rendimiento más óptimo.\\
+La información de la imagen, que se almacena en el framebuffer de RFB, se recoge como un puntero al tipo uint8\_t (uint8\_t*), y la parte nativa se encarga de procesarla, ya que, como veremos a continuación, es un proceso pesado y C++ proporciona un rendimiento más óptimo.\\
 Para explicar el proceso hay dos cosas a tener en cuenta:\\
 
 \begin{itemize}
@@ -129,38 +131,42 @@ Anchura*bpp\\
 \\
 En cualquier caso, nos encontraríamos con un recorrido del orden $O(n^2)$ (coste cuadrático).\\
 \\
-Para recoger la información de la imagen, se recorre el rectángulo que ha sufrido cambios y se copia directamente en el vector final. Para hacer la copia se usa la función de C memcpy, dada su eficiencia copiando bloques de bytes.\\
+Para recoger la información de la imagen, se recorre el rectángulo que ha sufrido cambios y se copia directamente en el vector final. Para hacer la copia se usa la función de C \emph{memcpy}, dada su eficiencia copiando bloques de bytes.\\
 \end{itemize}
 
 \subsection{Canvas para la representación}
 
 Para la representación de la imagen se ha usado Canvas para Android, usando sus funciones de dibujado de Bitmap. Los dos métodos de Canvas usados para dibujar el bitmap son:\\
 
-\emph{drawBitmap(int[] colors, int offset, int stride, int x, int y, int width, int height, boolean hasAlpha, Paint paint)}\\
+\begin{lstlisting}
+drawBitmap(int[] colors, int offset, int stride, int x, int y, int width, int height, boolean hasAlpha, Paint paint)
+\end{lstlisting}
 
 Mediante este método es posible dibujar un bitmap a partir de su información de píxeles, almacenada en colors, se usa para representar los datos de la imagen según se modifican.\\
 
-\emph{drawBitmap(Bitmap bitmap, Rect src, RectF dst, Paint paint)}\\
+\begin{lstlisting}
+drawBitmap(Bitmap bitmap, Rect src, RectF dst, Paint paint)
+\end{lstlisting}
 
-Mediante este dibujamos un bitmap, pasándole el bitmap ya creado como parámetro.\\
+Mediante éste dibujamos un bitmap, pasándole el bitmap ya creado como parámetro.\\
 
-Cada uno de los métodos anteriores es usado en dos situaciones y contexto distintos, es necesario usar ambos, como veremos mas adelante, para una óptima representación. Los dos contextos distintos a los que hace frente la aplicación son:\\
+Cada uno de los métodos anteriores es usado en dos situaciones y contexto distintos, es necesario usar ambos, como veremos más adelante, para una óptima representación. Los dos contextos distintos a los que hace frente la aplicación son:\\
 
 \begin{itemize}
-\item \textbf{Estado normal:} Sucede siempre que hay una actualización en la imagen y siempre y cuando el usuario no se esté desplazando por la pantalla o haciendo zoom. En este caso la imagen se representará mediante su vector de píxeles.
+\item \textbf{Estado normal:} sucede siempre que hay una actualización en la imagen y siempre y cuando el usuario no se esté desplazando por la pantalla o haciendo zoom. En este caso la imagen se representará mediante su vector de píxeles.
 
-\item \textbf{El usuario se mueve por la imagen o hace zoom:} Cuando el usuario se desplaza a través de la imagen o hace zoom, es necesario crear un bitmap con la información actual de la imagen, ya que en caso contrario, obtendríamos un pésimo rendimiento por dos motivos:
+\item \textbf{El usuario se mueve por la imagen o hace zoom:} cuando el usuario se desplaza a través de la imagen o hace zoom, es necesario crear un bitmap con la información actual de la imagen, ya que en caso contrario, obtendríamos un pésimo rendimiento por dos motivos:
 
 \begin{itemize}
 \item Si usásemos la representación a partir de su información de píxeles, en cada progresión por la imagen haría falta redibujar la imagen, consiguiendo un movimiento o zoom lento.
 \item Como estaríamos continuamente redibujando la imagen, y además, en cada representación Android crearía un bitmap temporal,     provocaríamos un alto consumo de CPU.\\
 \end{itemize}
 
-De tal forma, al crear un bitmap, el movimiento por la imagen es fluido. El único punto a considerar es la optimización de cuando crear y destruir este bitmap, ya que la creación de bitmaps es un proceso pesado y que requiere de muchos recursos. Así pues los puntos en los que se destruye, o se marca para destruir, el bitmap son:
+De tal forma, al crear un bitmap, el movimiento por la imagen es fluido. El único punto a considerar es la optimización de cuando crear y destruir este bitmap, ya que la creación de bitmaps es un proceso pesado y que requiere de muchos recursos. Así pues los puntos en los que se destruye o se marca para destruir el bitmap son:
 
 \begin{itemize}
 \item Cuando el usuario haga click sobre la imagen, en este punto se considera que el usuario intenta interactuar con el servidor, por lo tanto, es necesario destruir el bitmap y mantener actualizada la imagen en todo momento.
-\item En el caso que el usuario deje de moverse por la pantalla, al menos, durante un segundo o deje de hacer zoom. En este caso es     conveniente destruir la imagen en pos de conseguir una imagen actualizada del servidor. El motivo por el cual se espera un segundo es con el fin de no interrumpir el movimiento del usuario, es decir, si se destruyese el bitmap en el momento que levanta el dedo de la pantalla, al volver a moverse se produciría una lentitud hasta que se volviese a crear el nuevo bitmap. Además así, optimizamos la creación de bitmap y reducimos el uso de CPU.
+\item En el caso de que el usuario deje de moverse por la pantalla, al menos, durante medio segundo o deje de hacer zoom. En este caso es conveniente destruir la imagen en pos de conseguir una imagen actualizada del servidor. El motivo por el cual se espera un segundo es con el fin de no interrumpir el movimiento del usuario, es decir, si se destruyese el bitmap en el momento que levanta el dedo de la pantalla, al volver a moverse se produciría una lentitud hasta que se volviese a crear el nuevo bitmap. Además así, optimizamos la creación de bitmap y reducimos el uso de CPU.
 \end{itemize}
 
 \end{itemize}
