@@ -9,7 +9,7 @@
      Una vez dentro, es necesario especificar la IP del servidor, así como un nombre de
      identificación de la conexión.\n
 	 El puerto por defecto es el 5900, pudiendose cambiar.\n	
-     La contraseña es opcional.\n
+     La contraseña es opcional, en caso de no introducirla y ser requerida, se pedirá en medio de la conexión.\n
      El desplegable de calidades sirve para indicar la calidad de la imagen.\n
     </string>
 
