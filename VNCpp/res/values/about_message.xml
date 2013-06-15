@@ -2,7 +2,7 @@
 <resources>
  <string name="about_title">About</string>
  <string name="about_message">\n
-  VNC++ 2013 License GPLv3\n
+  VNCpp 2013 License GPLv3\n
   Authors:\n
   Óscar Crespo\n
   Gorka Jimeno\n

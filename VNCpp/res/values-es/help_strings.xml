@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="help_page_intro">Página de ayuda de VNC++\n</string>
+    <string name="help_page_intro">Página de ayuda de VNCpp\n</string>
 
     <string name="title_section1">Manejo principal</string>
     <string name="text_section1">
