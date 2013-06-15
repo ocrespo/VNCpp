@@ -2,7 +2,7 @@
 \subsection{LibVNCServer}
 LibVNCServer\cite{LibVNC:LibVNC} es una librería multiplataforma de software libre, distribuida bajo la licencia GPL versión 2 o más reciente, desarrollada por Johannes E. Schindelin y escrita en C. Está compuesta en dos partes, por una parte la que está destinada a la creación de un servidor, conocida como LibVNCServer, y por otra, la que está destinada a la creación de un cliente, conocida como LibVNCClient. Para el desarrollo del proyecto se ha usado la parte perteneciente al cliente.\\
 
-LibVNCServer implementa el protocolo de comunicación (poner referencias) RFB y añade funcionalidad extra para facilitar el uso del mismo. LibVNCServer se encarga de la codificación y decodificación de datos, así como, el aplanamiento de los mismos para su envío. Implementa protocolos de seguridad para encriptar la comunicación por SSL mediante la librería GNUTLS. Así mismo LibVNCServer utiliza el estándar VNC con lo cual es compatible con la gran mayoría de programas que lo usan.\\
+LibVNCServer implementa el protocolo de comunicación RFB (Ver apartado 1.1.3) y añade funcionalidad extra para facilitar el uso del mismo. LibVNCServer se encarga de la codificación y decodificación de datos, así como, el aplanamiento de los mismos para su envío. Implementa protocolos de seguridad para encriptar la comunicación por SSL mediante la librería GNUTLS. Así mismo LibVNCServer utiliza el estándar VNC con lo cual es compatible con la gran mayoría de programas que lo usan.\\
 
 La librería soporta cualquier codificación de imagen usada por un servidor VNC, entre las que destacan, debido a su gran rendimiento en procesado y bajo coste en envío de datos:
 \begin{itemize}
@@ -20,7 +20,7 @@ ZRLE aún siendo una codificación preparada para conexiones lentas, es inferior
 
 La aplicación usa, a diferencia de otras aplicaciones, como codificación máxima Tight, sin embargo, uno de los problemas lo encontramos en no poder usar LibJPEG-turbo. Aunque fue compilada sin problemas para Android, los procesadores móviles actuales carecen de cálculo vectorial, con lo cual no funcionó, con la consiguiente pérdida de rendimiento.\\
 
-Para el uso de esta librería en Android fue necesaria la compilación de otras librerías que son usadas por LibVNCServer. Para poder compilarlas fue necesario el uso del (poner referencias) NDK (Native Development kit) de Android, ya que todas ellas se encuentran escritas en C/C++. La librerías que fueron compiladas para Android son las siguientes:
+Para el uso de esta librería en Android fue necesaria la compilación de otras librerías que son usadas por LibVNCServer. Para poder compilarlas fue necesario el uso del NDK (Native Development kit) de Android, ya que todas ellas se encuentran escritas en C/C++. La librerías que fueron compiladas para Android son las siguientes:
 \begin{itemize}
 \item Libnettle.
 \item Libhogweed.
@@ -31,7 +31,7 @@ Para el uso de esta librería en Android fue necesaria la compilación de otras 
 \item Libjpeg.
 \end{itemize}
 
-Entre las diferentes opciones de compilación que ofrece LibVNCServer, ésta fue compilada con todas ellas, esto es, con LibJPEG necesaria para un óptima codificación de los datos de la imagen, y con GNUTLS para poder encriptar los datos mediante SSL.
+Entre las diferentes opciones de compilación que ofrece LibVNCServer, ésta fue compilada con todas ellas, es decir, con LibJPEG necesaria para un óptima codificación de los datos de la imagen, y con GNUTLS para poder encriptar los datos mediante SSL.
 
 \subsection{SlidingMenu}
 
@@ -61,7 +61,7 @@ En este menú se han introducido todas las opciones de control y envío de event
 
 \subsection{SQLite Android}
 
-SQLite es un motor de bases de datos muy popular en la actualidad por ofrecer características tan interesantes como su pequeño tamaño, no necesitar servidor, precisar poca configuración, ser transaccional y por ser de código libre. Éstas son unas de las grandes razones por las que Android usa esta librería software para almacenar los datos. \\
+SQLite es un motor de bases de datos muy popular en la actualidad por ofrecer características tan interesantes como: su pequeño tamaño, no necesitar servidor, precisar poca configuración, ser transaccional y por ser de código libre. Éstas son unas de las grandes razones por las que Android usa esta librería software para almacenar los datos. \\
 
 En este proyecto se da uso a esta tecnología para guardar las conexiones creadas por el usuario. La estructura elegida ha sido muy sencilla, para facilitar la rápida recuperación de datos. La base de datos se crea y se da uso en la clase ConnectionSQLite, encargada de todo el control persistente. En dicha clase se crea la base de datos DBConnections con una única tabla para almacenar las conexiones denominada Connections cuyos campos son:\\
 

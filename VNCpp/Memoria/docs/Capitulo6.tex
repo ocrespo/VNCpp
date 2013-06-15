@@ -18,7 +18,7 @@ En esta sección se indican los requisitos externos a la aplicación.\\ \\
 \textbf{Interfaces de software:}
 \begin{itemize}
 \item La versión de Android del dispositivo móvil debe ser la 4.0 o superior.
-\item El en la máquina remota se debe disponer de una aplicación VNC de tipo servidor.\\
+\item En la máquina remota se debe disponer de una aplicación VNC de tipo servidor.\\
 \end{itemize}
 \textbf{Interfaces de comunicación:}
 \begin{itemize}
@@ -414,7 +414,7 @@ Las clases ListFragmentTab y ListFragmentTabFav (Ver Figura 5.3) son las encarga
 
 La clase SlideListFragment (Ver Figura 5.4) se encarga de construir el menú lateral y es llamada desde CanvasActivity.\\
 
-CanvasActivity (Ver Figura 5.4) es la encargada de capturar todos los eventos que se produzcan en el cliente, mostrar la imagen del escritorio y comunicarse con la parte nativa. Para dibujar la imagen se apolla en la clase CanvasView (Ver Figura 5.4). Para Comunicarse con la parte nativa se apolla en VncBridgeJNI (Ver imagen 5.5). La comunicación entre el VncBridgeJNI y el Canvas Activity se realiza mediante el patrón observer (Ver figura 5.4 y 5.5).\\
+CanvasActivity (Ver Figura 5.4) es la encargada de capturar todos los eventos que se produzcan en el cliente, mostrar la imagen del escritorio y comunicarse con la parte nativa. Para dibujar la imagen se apoya en la clase CanvasView (Ver Figura 5.4). Para Comunicarse con la parte nativa se apoya en VncBridgeJNI (Ver imagen 5.5). La comunicación entre el VncBridgeJNI y el Canvas Activity se realiza mediante el patrón observer (Ver figura 5.4 y 5.5).\\
 
 \begin{figure}[h]
 \begin{center}
@@ -510,7 +510,7 @@ Ahora vamos a describir el código escrito en C/C++. La clase Java VncBridgeJNI 
 
 Al inicializar el código nativo se crea la clase Vnc (Ver Figura 5.6) y se añade el observer a la clase ClientScreen para que éste pueda realizar las notificaciones a Java. En la constructora de Vnc se crean las clases ClientScreen, ClientConnectionRFB y se le pasa a la clase HandlerRFB la referencia a ClientScreen para que ésta pueda comunicarse con ella. Vnc retrasmitirá todas las ordenes que le lleguen de JavaBridge a ClientConnectionRFB.\\
 
-La clase ClientConnectionRFB (Ver Figura 5.6) es la encargada de gestionar la conexión entre el cliente y el servidor utilizando el protocolo RFB. Para establecer una conexión lo primero que se hace es inicializar la estructura rfbClient, en este punto se indica cual es el host, el puerto, la calidad de imagen, etc. Un punto muy importante de la inicialización es indicar cuales son las funciones que se han de llamar cuando el server mande notificaciones. Para ello nos apollamos en la clase HandlerRFB, de tal manera que, por ejemplo, cuando llega un update de la imagen indicamos que tiene que llamar al método \emph{updateScreen} del handler.
+La clase ClientConnectionRFB (Ver Figura 5.6) es la encargada de gestionar la conexión entre el cliente y el servidor utilizando el protocolo RFB. Para establecer una conexión lo primero que se hace es inicializar la estructura rfbClient, en este punto se indica cual es el host, el puerto, la calidad de imagen, etc. Un punto muy importante de la inicialización es indicar cuales son las funciones que se han de llamar cuando el server mande notificaciones. Para ello nos apoyamos en la clase HandlerRFB, de tal manera que, por ejemplo, cuando llega un update de la imagen indicamos que tiene que llamar al método \emph{updateScreen} del handler.
 \begin{lstlisting}
 clientRFB=rfbGetClient(bitsPerSample,samplesPerPixel,bytesPerPixel);
 clientRFB->serverPort = port;
