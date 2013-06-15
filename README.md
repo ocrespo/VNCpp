@@ -1,7 +1,7 @@
-VNC++
+VNCpp
 =====
 
-VNC++ is a free software, it's a VNC viewer to Android build with NDK and powered by [LibVNCServer][1].
+VNCpp is a free software, it's a VNC viewer to Android build with NDK and powered by [LibVNCServer][1].
 
 Requirements
 ------------

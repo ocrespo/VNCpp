@@ -3,20 +3,20 @@
  	Copyright 2013 Gorka Jimeno Garrachon
  	Copyright 2013 Luis Valero Martin
   
-	This file is part of VNC++.
+	This file is part of VNCpp.
 
-	VNC++ is free software: you can redistribute it and/or modify
+	VNCpp is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 3 of the License, or
 	any later version.
 	
-	VNC++ is distributed in the hope that it will be useful,
+	VNCpp is distributed in the hope that it will be useful,
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 	GNU General Public License for more details.
 	
 	You should have received a copy of the GNU General Public License
-	along with VNC++.  If not, see <http://www.gnu.org/licenses/>.
+	along with VNCpp.  If not, see <http://www.gnu.org/licenses/>.
  */
 package es.farfuteam.vncpp.controller;
 
@@ -25,14 +25,12 @@ import java.util.Vector;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.os.ResultReceiver;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.MotionEventCompat;
 import android.text.InputType;
@@ -43,7 +41,6 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.ScaleGestureDetector.OnScaleGestureListener;
-import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
