@@ -19,7 +19,9 @@ License
 The source code of this project is license under GPLv3
 
 Copyright 2013 Oscar Crespo Salazar
+
 Copyright 2013 Gorka Jimeno Garrachon
+
 Copyright 2013 Luis Valero Martin
 
 For more information about License, please see file: LICENSE
