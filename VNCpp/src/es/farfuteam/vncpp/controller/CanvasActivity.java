@@ -91,7 +91,6 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	private int realY = 0;
 	private float scaleFactor = 1;
 	
-	private Thread scrollThread;
 	private Thread endScrollThread;
 	
 	private Runnable endScrollRun;
@@ -531,7 +530,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			moveX = 0;
 			allOkX = false;
 		}
-		if( (realY+height >= canvas.getRealHeight()+offSetKeyboard && distanceY>0) || (realY == 0 && distanceY < 0)|| (canvas.getHeight()/scaleFactor > canvas.getRealHeight() ) ){
+		if( (realY+height >= canvas.getRealHeight()+offSetKeyboard && distanceY>0) || (realY == 0 && distanceY < 0)|| (canvas.getHeight()/scaleFactor > canvas.getRealHeight()+offSetKeyboard ) ){
 			moveY = 0;
 			allOkY = false;
 		}
@@ -574,14 +573,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			realY = realY + (int)moveY;
 			
 		
-			scrollThread = new Thread(new Runnable() {
-				
-				@Override
-				public void run() {
-					canvas.scrollTo((int)(realX*scaleFactor),(int)(realY*scaleFactor));
-				}
-			});
-			scrollThread.start();
+			canvas.scrollTo((int)(realX*scaleFactor),(int)(realY*scaleFactor));
 		}
 		
 		return true;
