@@ -59,7 +59,7 @@ import es.farfuteam.vncpp.view.ListFragmentTabFav;
  * This is the detailed description
  *
  * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
- * @extends SherlockFragmentActivity
+ * @extends FragmentActivity
  * @implements SuperListener
  */
 
@@ -76,12 +76,7 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 	private Object o;
 	
 	private Adapter adapter;
-	
-	//recuerda si sacar o no la ventana de pregunta de salida,
-	//que se guarda en el properties
-	//private boolean rememberExit; /**< Remember whether or not to show the exit dialog  */
-	//private boolean hideCursor;
-	//private SharedPreferences prefs;/**< The preferences from the preferences file */
+
 
 	/**
 	 * @brief This is the onCreate method
