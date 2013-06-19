@@ -38,6 +38,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import es.farfuteam.vncpp.controller.NewConnectionActivity.QualityArray;
 
+/**
+ * @class EditionActivity
+ * @brief This is the activity created to managed the connection edition.
+ * 
+ * This is the detailed description
+ * @extends Activity
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ */
 public class EditionActivity extends Activity{
 
 
@@ -52,7 +60,11 @@ public class EditionActivity extends Activity{
 	private int color_format;
 	private boolean fav;
 
-
+	/**
+	 * @brief This is the onCreate method
+	 * @param savedInstanceState
+	 * @details The onCreate method adds the buttons and spinner at the activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

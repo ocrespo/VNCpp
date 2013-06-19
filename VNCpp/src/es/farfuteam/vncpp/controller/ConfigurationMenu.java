@@ -27,11 +27,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Switch;
 
+/**
+ * @class ConfigurationMenu
+ * @brief This is the activity who control the SharedPreferences file.
+ * 
+ * This is the detailed description
+ * @extends Activity
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ */
 public class ConfigurationMenu extends Activity{
 	
 	public static final String PREFS_NAME="PreferencesFile";
 		
-	
+	/**
+	 * @brief This is the onCreate method
+	 * @param savedInstanceState
+	 * @details The onCreate method adds two switches to control the remember exit,
+	 * and the show of the cursor
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,25 +59,6 @@ public class ConfigurationMenu extends Activity{
 		checkBox.setChecked((Configuration.getInstance()).isRememberExit());
 		
 		checkBoxHide.setChecked((Configuration.getInstance()).isHideMouse());
-		
-		
-		
-		//final String title = getString(R.string.configuration);
-		
-		
-		
-		
-		
-        //accedemos a fichero preferencias
-        //setPrefs(getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE));
-
-        //false es el valor por defecto si no se encuentra la etiqueta exit
-        //setRememberExit(getPrefs().getBoolean("exit", false));
-        //setHideMouse(getPrefs().getBoolean("hidecursor", false));
-        
-        //configurationDialog();
-        
-        //finish();
         
 		//efectos del actionBar
 		final ActionBar actionBar = getActionBar();
@@ -74,12 +68,16 @@ public class ConfigurationMenu extends Activity{
 	
 	}
 	
-	
-	//menu llamado al haber evento sobre el checkbox de la activity
+	/**
+	 * @brief This is the onToggleClicked method
+	 * @param view
+	 * @details The onToggleClicked method is called when the state of the switch has changed
+	 */
+	//menu llamado al haber evento sobre el switch de la activity
 	public void onToggleClicked(View view) {
 		 
 		boolean checked = ((Switch) view).isChecked();
-	    // Check which checkbox was clicked
+	    // Check which switch was clicked
 	    switch(view.getId()) {
 	        case R.id.checkbox_remember:
 	            if (checked){			    	
@@ -101,6 +99,12 @@ public class ConfigurationMenu extends Activity{
 	    }
 	}
 	
+	/**
+	 * @brief Handles the item selection
+	 * @param item
+	 * @return always true
+	 * @details Handles the item selection. Not ready yet
+	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Sirve para volver atrás al pulsar en la actionBar

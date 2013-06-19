@@ -34,6 +34,15 @@ import android.widget.TextView;
 import es.farfuteam.vncpp.controller.R;
 import es.farfuteam.vncpp.model.sql.Connection;
 
+/**
+ * @class Adapter
+ * @brief This is the Adapter class.
+ * 
+ * This is the detailed description
+ *
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ * @extends BaseAdapter
+ */
 public class Adapter extends BaseAdapter {	
 	
 	private Activity activity;
@@ -41,7 +50,12 @@ public class Adapter extends BaseAdapter {
 	
 	private ListFragmentTab listFragment;
 
-	
+	/**
+	 * @brief Constructor method
+	 * @param act
+	 * @param u
+	 * @details Constructor method
+	 */
 	public Adapter(Activity act,ArrayList<Connection> u){
 		super();
 		activity = act;
@@ -49,22 +63,47 @@ public class Adapter extends BaseAdapter {
 		setList(u);
 	}
 
-
+	/**
+	 * @brief Returns the size of the list
+	 * @return size
+	 * @details Returns the size of the list
+	 */
 	@Override
 	public int getCount() {
 		return getList().size();
 	}
 
+	/**
+	 * @brief Returns the Object at the position
+	 * @param position
+	 * @return Object at the position
+	 * @details Returns the Object at the position
+	 */
 	@Override
 	public Object getItem(int position) {
 		return getList().get(position);
 	}
 
+	/**
+	 * @brief Returns the id at the position
+	 * @param position
+	 * @return ID at the position
+	 * @details Returns the id at the position
+	 */
 	@Override
 	public long getItemId(int position) {
 		return position;
 	}
 
+	/**
+	 * @brief Returns the view clicked in the list
+	 * @param position
+	 * @param convertView
+	 * @param parent
+	 * @return view
+	 * @details Returns the view clicked in the list, put the connection name, the ip, and the
+	 * icon star
+	 */
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		
@@ -88,12 +127,9 @@ public class Adapter extends BaseAdapter {
 	            @Override
 				public void onCheckedChanged(CompoundButton buttonView,
 	                                                  boolean isChecked) {
-	                  if (isChecked){// && !user.isFav()) {
+	                  if (isChecked){
 	                	  iconFav.setButtonDrawable(R.drawable.star_ful);
-	                	  user.setFav(true);
-	                	  
-	                	  
-	                	  
+	                	  user.setFav(true);	                	  
 	                	 
 	                  }
 	                  else {
@@ -127,21 +163,33 @@ public class Adapter extends BaseAdapter {
 		
 	}	
 		
-	
+	/**
+	 * @brief Delete the indicated row
+	 * @param row 
+	 * @details Delete the indicated row
+	 */
     public void deleteRow(Connection row) {
         
         if(this.getList().contains(row)) {
             this.getList().remove(row);
         }   
         
-    }
-    
+    }    
 
-
+	/**
+	 * @brief Returns the list attribute
+	 * @return ArrayList<Connection>
+	 * @details Returns the list attribute
+	 */
 	public ArrayList<Connection> getList() {
 		return list;
 	}
 
+	/**
+	 * @brief Sets the list attribute
+	 * @param list 
+	 * @details Sets the list attribute
+	 */
 	public void setList(ArrayList<Connection> list) {
 		this.list = list;
 	}

@@ -31,7 +31,16 @@ import android.support.v4.app.FragmentActivity;
 
 
 
-
+/**
+ * @class TabListener<T>
+ * @brief This is the TabListener.
+ * 
+ * This is the detailed description
+ *
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ * @extends ListFragment
+ * @implements TabListener
+ */
 public class TabListener<T extends ListFragment> implements android.app.ActionBar.TabListener{
 	  private Fragment mFragment;
 	  private final FragmentActivity mActivity;
@@ -39,14 +48,26 @@ public class TabListener<T extends ListFragment> implements android.app.ActionBa
 	  private final Class<T> mClass;
 	  private FragmentTransaction mTransaction;
 
+	/**
+	 * @brief Constructor of TabListener
+	 * @param activity
+	 * @param tag
+	 * @param clz
+	 * @details Constructor of TabListener
+	 */
 	  public TabListener(FragmentActivity activity, String tag, Class<T> clz) {
 	    mActivity = activity;
 	    mTag = tag;
 	    mClass = clz;
 	  }
 	  
-
-	  @Override
+	/**
+	 * @brief Method called when the tab is selected
+	 * @param tab
+	 * @param ft
+	 * @details Method called when the tab is selected
+	 */
+	@Override
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
 	    // Check if the fragment is already initialized
 		  mFragment = mActivity.getFragmentManager().findFragmentByTag(mTag);
@@ -66,8 +87,14 @@ public class TabListener<T extends ListFragment> implements android.app.ActionBa
 
 	    
 	  }
-
-	  @Override
+	
+	/**
+	 * @brief Method called when the tab is unselected
+	 * @param tab
+	 * @param ft
+	 * @details Method called when the tab is unselected
+	 */
+	@Override
 	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 		  
 		  if (mFragment != null) {
@@ -77,18 +104,32 @@ public class TabListener<T extends ListFragment> implements android.app.ActionBa
 		  
 	  }
 
-	  @Override
+	/**
+	 * @brief Method called when the tab is reselected
+	 * @param tab
+	 * @param ft
+	 * @details Method called when the tab is reselected
+	 */
+	@Override
 	public void onTabReselected(Tab tab, FragmentTransaction ft) {
 	    // User selected the already selected tab. Usually do nothing.
 		  		  
 	  }
 	  
-
+	/**
+	 * @brief Returns the mTransaction attribute
+	 * @return mTransaction
+	 * @details Returns the mTransaction attribute
+	 */
 	public FragmentTransaction getmTransaction() {
 		return mTransaction;
 	}
 
-
+	/**
+	 * @brief Sets the mTransaction attribute
+	 * @param mTransaction 
+	 * @details Sets the mTransaction attribute
+	 */
 	public void setmTransaction(FragmentTransaction mTransaction) {
 		this.mTransaction = mTransaction;
 	}
