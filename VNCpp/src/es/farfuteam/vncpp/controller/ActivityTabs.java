@@ -390,7 +390,10 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 			
 		}	
 		
-		
+		/**
+		 * @brief Show the dialog with the connection information
+		 * @details Show the dialog with the connection information
+		 */
 		public void showInfoDialog() {
 				showDialog(InfoDialogs.infoDialog.ordinal());			
 		}
@@ -433,7 +436,11 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 		}//onKeyDown 
 
 		
-		
+		/**
+		 * @brief Check the connectivity of the terminal
+		 * @return True if the connectivity exists, false in another case.
+		 * @details Check the connectivity of the terminal
+		 */
 		private boolean checkConnectivity()
 	    {
 	        boolean enabled = true;
@@ -448,6 +455,11 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 	        return enabled;        
 	    }
 		
+		/**
+		 * @brief Check the connectivity type of the terminal
+		 * @return True if the connectivity type is Wifi, false in another case.
+		 * @details Check the connectivity type of the terminal
+		 */
 		//devuelve true si es conexion wifi, false en caso contrario
 		private boolean isWifiConnectivityType(){
 			ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -465,6 +477,13 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 	        	
 		}
 		
+		/**
+		 * @brief Override function to create dialogs
+		 * @param id
+		 * @return Dialog created
+		 * @details Create the dialog with a showDialog(id) called,
+		 * id is the number of the dialog to be created
+		 */
 		@Override
 		protected Dialog onCreateDialog(int id) {
 		    Dialog dialog = null;
@@ -488,6 +507,11 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 		    return dialog;
 		}
 		
+		/**
+		 * @brief Show the dialog with the exit question
+		 * @return The new dialog
+		 * @details Show the dialog with the exit question
+		 */
 		private Dialog createExitDialog(){
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			
@@ -523,6 +547,12 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 		      });
 		    return builder.create();
 		}
+		
+		/**
+		 * @brief Shows the dialog to indicate there is no network connection
+		 * @return The new dialog 
+		 * @details Shows the dialog to indicate there is no network connection
+		 */
 		private Dialog createNonConnectionDialog() {
 		    AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		    
@@ -542,6 +572,11 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 		    return builder.create();
 		}
 		
+		/**
+		 * @brief Shows the dialog to indicate the connection info
+		 * @return The new dialog
+		 * @details Shows the dialog to indicate the connection info
+		 */
 		private Dialog infoDialog() {
 			
 			final Activity actThis = this;
@@ -574,6 +609,12 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 		    
 		}
 		
+		/**
+		 * @brief Receive the QualityArray and return the String
+		 * @param color 
+		 * @return String
+		 * @details Receive the QualityArray and return the String to show the info in String type
+		 */
 		private String messageQuality(QualityArray color){
 
 			final String[] colors = getResources().getStringArray(R.array.color_array);
@@ -600,6 +641,11 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 			
 		}
 		
+		/**
+		 * @brief Shows the dialog to indicate about info
+		 * @return The new dialog
+		 * @details Shows the dialog to indicate about info
+		 */
 		private Dialog createAboutDialog()
 		 {
 			//necesario para poder clicar en los links
