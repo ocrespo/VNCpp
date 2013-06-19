@@ -23,8 +23,12 @@ package es.farfuteam.vncpp.controller;
 import android.content.SharedPreferences;
 
 /**
- * @author roni
+ * @class Configuration
+ * @brief This is the class who control the SharedPreferences file.
+ * 
+ * This is the detailed description
  *
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
  */
 public class Configuration {
 
@@ -34,25 +38,42 @@ public class Configuration {
 	private boolean hideMouse;
 	private SharedPreferences prefs;
 	
+	/**
+	 * @brief Singleton of Configuration
+	 * @return Configuration
+	 * @details Create the instance of Configuration
+	 */
 	public static Configuration getInstance(){
 		if(singleton == null){
 			singleton = new Configuration();
 		}
 		return singleton;
 	}
+	
+	/**
+	 * @brief Private constructor of Configuration
+	 * @details Private constructor of Configuration to set the configuration
+	 * options to false
+	 */
 	private Configuration(){
 		rememberExit = false;
 		hideMouse = false;
 
 	}
+
 	/**
-	 * @return the rememberExit
+	 * @brief Returns the rememberExit attribute
+	 * @return rememberExit
+	 * @details Returns the rememberExit attribute
 	 */
 	public boolean isRememberExit() {
 		return rememberExit;
 	}
+
 	/**
-	 * @param rememberExit the rememberExit to set
+	 * @brief Sets the rememberExit attribute
+	 * @param rememberExit 
+	 * @details Sets the rememberExit attribute
 	 */
 	public void setRememberExit(boolean rememberExit) {
 		SharedPreferences.Editor editor = prefs.edit();
@@ -60,14 +81,20 @@ public class Configuration {
     	editor.commit();
 		this.rememberExit = rememberExit;
 	}
+	
 	/**
-	 * @return the hideMouse
+	 * @brief Returns the hideMouse attribute
+	 * @return hideMouse
+	 * @details Returns the hideMouse attribute
 	 */
 	public boolean isHideMouse() {
 		return hideMouse;
 	}
+
 	/**
-	 * @param hideMouse the hideMouse to set
+	 * @brief Sets the hideMouse attribute
+	 * @param hideMouse 
+	 * @details Sets the hideMouse attribute
 	 */
 	public void setHideMouse(boolean hideMouse) {
 		SharedPreferences.Editor editor = prefs.edit();
@@ -75,18 +102,29 @@ public class Configuration {
     	editor.commit();
 		this.hideMouse = hideMouse;
 	}
+	
 	/**
-	 * @return the prefs
+	 * @brief Returns the prefs attribute
+	 * @return prefs
+	 * @details Returns the prefs attribute, the SharedPreferences file
 	 */
 	public SharedPreferences getPrefs() {
 		return prefs;
 	}
+
 	/**
-	 * @param prefs the prefs to set
+	 * @brief Sets the SharedPreferences attribute
+	 * @param SharedPreferences 
+	 * @details Sets the SharedPreferences attribute
 	 */
 	public void setPrefs(SharedPreferences prefs) {
 		this.prefs = prefs;
 	}
+	
+	/**
+	 * @brief Read the SharedPreferences values
+	 * @details Read the SharedPreferences values
+	 */
 	public void readPrefs(){
 		rememberExit =  prefs.getBoolean("exit", false);
 		hideMouse =  prefs.getBoolean("hidecursor", false);

@@ -59,8 +59,14 @@ import es.farfuteam.vncpp.view.SlideListFragment;
 
 
 /**
- * @author roni
+ * @class CanvasActivity
+ * @brief This is the activity who controls the Canvas.
+ * 
+ * This is the detailed description
  *
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ * @extends FragmentActivity
+ * @implements ObserverCanvas
  */
 
 public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
@@ -113,8 +119,6 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	
 	private InputMethodManager inputMgr ;
 	
-	//private boolean showKeyboard = false;
-	
 	private String pass;
 	
 	private boolean connect = false;
@@ -124,6 +128,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		super.onConfigurationChanged(newConfig);
 	
 	}
+	
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		
@@ -134,18 +139,6 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		
 		setContentView(R.layout.canvas);
 		canvas = (CanvasView)findViewById(R.id.vnc_canvas);		
-		
-		/*DisplayMetrics displayMetrics = new DisplayMetrics();
-		getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-		int width = displayMetrics.widthPixels;
-		int height = displayMetrics.heightPixels;*/
-		
-		//canvas.setLayoutParams(new RelativeLayout.LayoutParams());
-		//canvas.measure(MeasureSpec.makeMeasureSpec((width), MeasureSpec.AT_MOST),MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST));
-		
-		
-		//setBehindContentView(R.layout.activity_main);
-		
 				
 		Bundle info = getIntent().getExtras();		
 		
@@ -159,15 +152,12 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
         progressDialog.setMessage(loadImage);
         final String cancel = getString(R.string.cancel);
         
-        //progressDialog.setCancelable(true);
         progressDialog.setButton(cancel, new DialogInterface.OnClickListener() 
         {
             public void onClick(DialogInterface dialog, int which) 
             {
-                // Use either finish() or return() to either close the activity or just the dialog
             	vnc.finishVnc();
-				finishConnection();
-                
+				finishConnection();                
             }
            });
 
@@ -212,18 +202,6 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 				
 			}
 		};	
-
-		//final View activityRootView = findViewById(R.id.aa);
-		/*canvas.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
-			
-			@Override
-			public void onGlobalLayout() {
-				int a = canvas.getRootView().getHeight();
-				int b = canvas.getHeight();
-				Log.e(DEBUG_TAG, a+" "+b);
-			}
-		} );*/
-
 		
 	}
 	
@@ -246,7 +224,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 						
 						@Override
 						public void run() {
-							//Ddialogo "Se ha excedido el tiempo de conexion"
+							//Dialogo "Se ha excedido el tiempo de conexion"
 							progressDialog.dismiss();
 							showDialog(EnumDialogs.timeExceededDialog.ordinal());
 							
