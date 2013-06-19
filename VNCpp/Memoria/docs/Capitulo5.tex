@@ -166,7 +166,7 @@ Así pues los puntos en los que se destruye o se marca para destruir el bitmap s
 
 \begin{itemize}
 \item Cuando el usuario haga click sobre la imagen, en este punto se considera que el usuario intenta interactuar con el servidor, por lo tanto, es necesario destruir el bitmap y mantener actualizada la imagen en todo momento.
-\item En el caso de que el usuario deje de moverse por la pantalla, al menos, durante medio segundo o deje de hacer zoom. En este caso es conveniente destruir la imagen en pos de conseguir una imagen actualizada del servidor. El motivo por el cual se espera un segundo, es con el fin de no interrumpir el movimiento del usuario, es decir, si se destruyese el bitmap en el momento que levanta el dedo de la pantalla, al volver a moverse se produciría una lentitud hasta que se volviese a crear el nuevo bitmap. Además así, optimizamos la creación de bitmap y reducimos el uso de CPU.
+\item En el caso de que el usuario deje de moverse por la pantalla, al menos, durante medio segundo o deje de hacer zoom. En este caso es conveniente destruir la imagen en pos de conseguir una imagen actualizada del servidor. El motivo por el cual se espera medio segundo, es con el fin de no interrumpir el movimiento del usuario, es decir, si se destruyese el bitmap en el momento que levanta el dedo de la pantalla, al volver a moverse se produciría una lentitud hasta que se volviese a crear el nuevo bitmap. Además así, optimizamos la creación de bitmap y reducimos el uso de CPU.
 \end{itemize}
 
 \end{itemize}

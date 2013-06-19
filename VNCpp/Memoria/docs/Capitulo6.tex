@@ -437,19 +437,13 @@ En el momento que el usuario deja de moverse salta un timer creado en un hilo ap
 
 La actualización de la imagen nos llega desde el código nativo (Ver sección 6.2.2). Cuando llega una notificación desde C++ de que la imagen ha sido modificada, el canvas se invalida y se redibuja.\\
 
-Si CanvasActivity detecta un evento de Scroll (movimiento por la pantalla), se llama al método \emph{doScroll}. Este método calcula cuantos píxeles se ha movido en los ejes X e Y, comprobando que no se salga de la imagen. Una vez calculados se crea un nuevo hilo y se llama al método de canvas \emph{scrollTo} para que modifique la imagen.
+Si CanvasActivity detecta un evento de Scroll (movimiento por la pantalla), se llama al método \emph{doScroll}. Este método calcula cuantos píxeles se ha movido en los ejes X e Y, comprobando que no se salga de la imagen. Una vez calculados se llama al método de canvas \emph{scrollTo} para que modifique la imagen.
 \begin{lstlisting}
 if(moveX != 0 || moveY != 0){
   realX = realX + (int)moveX;
   realY = realY + (int)moveY
-  scrollThread = new Thread(new Runnable() {
-    @Override
-    public void run() {
-      canvas.scrollTo((int)(realX*scaleFactor),
-		      (int)(realY*scaleFactor));
-    }
-  });
-  scrollThread.start();
+  canvas.scrollTo((int)(realX*scaleFactor),
+		          (int)(realY*scaleFactor));
 }
 \end{lstlisting}
 
