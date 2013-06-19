@@ -1,4 +1,4 @@
-Una vez llegados a este punto, siempre es interesante comparar el resultado final con las aplicaciones que tomamos como referencia en un principio. Como ya se indicó en el capítulo dos, usamos como punto de partida tres aplicaciones que abarcan el campo del control remoto móvil.\\
+Una vez llegados a este punto, siempre es interesante comparar el resultado final con las aplicaciones que tomamos como referencia en un principio. Como ya se indicó en el capítulo dos, usamos como punto de partida tres aplicaciones que abarcan el campo del control remoto móvil.
 
 \section{Funcionalidad}
 
@@ -6,10 +6,10 @@ Nuestro propósito inicial era mejorar ciertos aspectos de estas aplicaciones ya
 
 \subsection{Funcionalidades destacadas compartidas con VNC++}
 \begin{itemize}
-\item Hacer zoom.
-\item Mostrar teclado.
-\item Escribir.
-\item Enviar secuencia de teclas.
+\item Hace zoom.
+\item Muestra el teclado.
+\item Escribe.
+\item Envía secuencias de teclas.
 \item Recuerda conexiones previas.
 \end{itemize}
 \subsection{Funcionalidades diferentes respecto VNC++}
@@ -22,18 +22,17 @@ Permite, a través de un menú de opciones, desactivar el modo de pantalla compl
 \end{itemize}
 \subsection{Mejoras consideradas}
 
-Nuestra principal meta, como se indica en la sección de objetivos(Sección 1.3), era lograr usar el potencial del NDK para el uso de VNC, que es la principal desventaja de todos los proyectos software libre estudiados.\\
+Nuestra principal meta, como se indica en la sección de objetivos (Sección 1.3), era lograr usar el potencial del NDK para el uso de VNC, que es la principal desventaja de todos los proyectos software libre estudiados.\\
 
 Partiendo de esta diferencia, el resto de matices los hemos querido mejorar también, viendo las deficiencias que pudieran tener el resto de aplicaciones, que echamos en falta como usuarios.\\
 
-Como todas ellas usamos el protocolo RFB, con opciones de pantalla completa, mostrar teclado, etc, con lo que en estos aspectos no mejoramos ni empeoramos nada.\\
+Como todas ellas usamos el protocolo RFB, con opciones de pantalla completa, mostrar teclado, etc., con lo que en estos aspectos no mejoramos ni empeoramos nada.\\
 
-Pero como usuarios hemos intentado hacer un envío más intuitivo de teclas combinadas(tipo Alt-F4), así como diálogos informativos al usuario. Además se ha incorporado la opción de centrar la imagen, con el fin de recolocarse.\\
+Pero como usuarios hemos intentado hacer un envío más intuitivo de teclas combinadas (tipo Alt-F4), así como diálogos informativos al usuario. Además se ha incorporado la opción de centrar la imagen, con el fin de recolocarse.\\
 
 En cuanto a la codificación de la imagen, los otros dos proyectos software de referencia usan ZRLE, lo que implica no aplicar ningún tratamiento previo a la imagen con la consiguiente carga en la transmisión de datos. VNC++, sin embargo, usa codificación Tight, que aplica una compresión a la imagen para tener un rendimiento mayor.\\
 
-Otro logro significativo es que nuestra aplicación soporta SSL(capa de conexión segura), que es un protocolo criptográfico que permite conexiones seguras, que es algo que como usuario siempre se demanda.\\
-
+Otro logro significativo es que nuestra aplicación soporta SSL (capa de conexión segura), que es un protocolo criptográfico que permite conexiones seguras, que es algo que como usuario siempre se demanda.
 \section{Rendimiento}
 
 Para analizar los resultados obtenidos, desde el punto de vista del rendimiento, se han querido analizar diferentes puntos: uso de CPU, tiempo de respuesta y uso de la red.
@@ -58,7 +57,7 @@ Aplicaciones a comparar:
 \item MultiVNC.
 \end{itemize}
 
-Para unas mediciones adecuadas, las pruebas se han realizado en una red local cerrada, en la cual, el servidor se encontraba conectado al switch mediante cable de ethernet y el móvil mediante wifi. También se han hecho las pruebas mediante el uso de 3G en móvil, en un entorno equivalente, con la excepción de que en este caso el Servidor se encontraba conectado a internet.
+Para unas mediciones adecuadas, las pruebas se han realizado en una red local cerrada, en la cual, el servidor se encontraba conectado al switch mediante cable de ethernet y el móvil mediante wifi. También se han hecho las pruebas mediante el uso de 3G en móvil, en un entorno equivalente, con la excepción de que en este caso el servidor se encontraba conectado a Internet.
 
 \subsection{Características de las pruebas}
 
@@ -68,17 +67,17 @@ En las pruebas se ha querido someter a las aplicaciones a una situación de estr
 
 En el primer punto, uso de CPU, no se ha conseguido ninguna forma fiable de conseguir mediciones, y por otro lado, no todas las aplicaciones utilizan la misma tecnología, por ejemplo, MultiVNC utiliza GPU para la representación. Por ello se ha decidido desechar las pruebas relativas a este punto.\\
 
-En segundo lugar, tiempo de respuesta, nos encontramos en un caso análogo al anterior, aunque en este caso si cabe destacar un matiz. En la carga inicial de la aplicación, al mostrar la primera imagen del servidor, en las pruebas con Wifi , RealVNC es sensiblemente más rápido que VNC++ y ambos son notablemente más rápidos que AndroidVNC, el cual a su vez, es sensiblemente más rápido que MultiVNC.\\
+En segundo lugar, tiempo de respuesta. Nos encontramos en un caso análogo al anterior, aunque en este caso si cabe destacar un matiz. En la carga inicial de la aplicación, al mostrar la primera imagen del servidor, en las pruebas con Wifi, RealVNC es sensiblemente más rápido que VNC++ y ambos son notablemente más rápidos que AndroidVNC, el cual a su vez, es sensiblemente más rápido que MultiVNC.\\
 
 Cabe destacar que en el caso de conexión 3G las diferencias fueron muy significativas, mientras RealVNC y VNC++ mantuvieron tiempos parejos (como ya se ha descrito anteriormente), AndroidVNC y MultiVNC mostraron la primera imagen prácticamente al acabar la prueba.\\
 
 En cuanto al tiempo de respuesta una vez hecha la carga, nos encontraríamos en rendimientos muy parejos entre todos, nada que destacar en este punto.\\
 
-Por último nos encontramos en las pruebas de uso de red, en este punto si hemos podido obtener resultados fiables y concluyentes, por ello lo detallaremos de forma amplia en el siguiente punto.
+Por último, nos encontramos en las pruebas de uso de red, en este punto sí hemos podido obtener resultados fiables y concluyentes, por ello lo detallaremos de forma amplia en el siguiente apartado.
 
 \subsection{Uso de Red}
 
-Para la realización de estas mediciones se ha utilizado el software Wireshark (Ver sección 1.1.10), mediante el cual se ha podido sniffear los paquetes, para posteriormente, recoger los resultados.\\
+Para la realización de estas mediciones se ha utilizado el software Wireshark (Ver sección 1.1.10), mediante el cual se ha podido capturar los paquetes, para posteriormente, recoger los resultados.\\
 
 Antes de proceder con los resultados explicaremos los diferentes campos que componen los resultados:
 \begin{itemize}
@@ -135,9 +134,9 @@ MultiVNC:
 \caption{Rendimiento Wifi MultiVNC}
 \end{figure}
 
-Como se puede observar, los resultados de RealVNC, AndroidVNC y MultiVNC son muy parejos, esto es debido principalmente a que todos ellos utilizan la codificación para la imagen ZRLE. Sin embargo los resultados de VNC++ son muy distintos, debido a que usa Tight.\\
+Como se puede observar, los resultados de RealVNC, AndroidVNC y MultiVNC son muy similares, esto es debido principalmente a que todos ellos utilizan la codificación para la imagen ZRLE. Sin embargo, los resultados de VNC++ son muy distintos, debido a que usa Tight.\\
 
-En primer lugar se puede observar que tanto AndroidVNC como MultiVNC tienen un tamaño medio de paquetes muy parecido, mientras que los de RealVNC son aproximadamente el doble, y a su vez, los de VNC++ el doble de este.\\
+En primer lugar, se puede observar que tanto AndroidVNC como MultiVNC tienen un tamaño medio de paquetes muy parecido, mientras que los de RealVNC son aproximadamente el doble, y a su vez, los de VNC++ el doble de éste.\\
 
 Por otro lado, encontramos que el promedio de Mbit/sec de RealVNC, AndroidVNC y MultiVNC es muy parecido pero el de VNC++ es significativamente inferior. Esto se debe a la codificación de la imagen, como ya dijimos anteriormente, la codificación usada por VNC++ es Tight. Esto provoca, al procesar previamente la imagen, que el uso de la red sea inferior.\\
 
@@ -181,4 +180,4 @@ MultiVNC:
 \caption{Rendimiento 3G MultiVNC}
 \end{figure}
 
-Como se puede observar los valores con una conexión 3G son muy parecidos, ello es debido a como funciona la propia conexión y sus limitaciones. Así pues se puede concluir que el rendimiento en entornos de 3G de las aplicaciones es equivalente. 
+Como se puede observar los valores con una conexión 3G son muy parecidos, ello es debido a cómo funciona la propia conexión y sus limitaciones. Así pues se puede concluir que el rendimiento en entornos de 3G de las aplicaciones es equivalente. 
