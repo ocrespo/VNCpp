@@ -40,7 +40,11 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 	 * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
 	 * @details Indicates the different errors that you can get when you start the connection
 	 */
-	public enum ConnectionError{ALLOK,NoServerFound ,NoFrameFound,errorCreateThread};
+	public enum ConnectionError{ALLOK,///< No error
+								NoServerFound,///< No server found error
+								NoFrameFound,///< No frameBuffer information error
+								errorCreateThread///< Could not be created the thread to handle the request from RFB
+								};
 	
 	/**
 	 * @enum MouseEvent
@@ -48,7 +52,9 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 	 * @details Indicates the different mouse event
 	 *
 	 */
-	public enum MouseEvent{Click ,RightClick};
+	public enum MouseEvent{Click,///< leftClick
+						   RightClick///< rightClick
+						   };
 
 	/**
 	 * @brief Initializes the connection

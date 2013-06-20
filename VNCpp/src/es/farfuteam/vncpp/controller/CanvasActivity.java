@@ -60,75 +60,187 @@ import es.farfuteam.vncpp.view.SlideListFragment;
 
 /**
  * @class CanvasActivity
- * @brief This is the activity which controls the Canvas.
- * 
- * This is the detailed description
- *
+ * @brief This is the activity which controls the Canvas
  * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
  * @extends FragmentActivity
  * @implements ObserverCanvas
+ * @details This is the activity which controls the Canvas
  */
-
 public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 
-	public enum EnumDialogs{createServerNotFoundDialog,exitDialog ,serverInterruptConexionDialog,
-							comboEventsDialog,functionKeysDialog,openHelpDialog,timeExceededDialog,passwordNeededDialog,
-							outOfMemoryDialog};
+	/**
+	 * @enum EnumDialogs
+	 * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+	 * @details Indicates what dialog 
+	 */
+	public enum EnumDialogs{createServerNotFoundDialog,///< Server not found dialog
+							exitDialog,///< exit dialog
+							serverInterruptConexionDialog,///< server interrupt connection
+							comboEventsDialog,///< combo events dialog
+							functionKeysDialog,///< function keys dialog
+							openHelpDialog,///< open help dialog
+							timeExceededDialog,///< time exceeded dialog
+							passwordNeededDialog,///< password needed dialog
+							outOfMemoryDialog///< out of memory dialog
+							};
 
-	public enum EnumSpecialKey{ctrl,alt,supr,shift,meta};
+	/**
+	 * @enum EnumSpecialKey
+	 * @autors Oscar Crespo, Gorka Jimeno, Luis Valero
+	 * @details Indicates the special keys
+	 */
+	public enum EnumSpecialKey{ctrl,///< ctrl
+							   alt,///< alt
+							   supr,///< supr
+							   shift,///< shift
+							   meta///< meta
+							   };
 	//etiqueta debug
+	/**
+	 * Debug tag
+	 */
 	private static final String DEBUG_TAG = "CanvasActivity";
 	
+	/**
+	 * Velocity mode
+	 */
 	private static final int VELOCITY_MOD = 30;
 	
+	/**
+	 * Timer connection, the time out to the connection
+	 */
 	private static final int timerConnection = 30000;
 	
+	/**
+	 * Timer scroll, the time to wait when the drag mode is over
+	 */
 	private static final int timerScroll = 500;
 	
+	/**
+	 * adjust key, the adjust to match the SDK key code to RFB key code
+	 */
 	private static final int adjustKeys = 17;
 
+	/**
+	 * The VncBridgeJNI object
+	 */
 	private VncBridgeJNI vnc;
+	
+	/**
+	 * The CanvasView object
+	 */
 	private CanvasView canvas;
 
+	/**
+	 * The GestureDetector object, this object captures the move gestures
+	 */
 	private GestureDetector gesture;
+	
+	/**
+	 * The ScaleGestureDetector object, this object captures the scale gestures
+	 */
 	private ScaleGestureDetector scaleGesture;
 	
+	/**
+	 * The X coordinate in the server
+	 */
 	private int realX = 0;
+	
+	/**
+	 * The Y coordinate in the server
+	 */
 	private int realY = 0;
+	
+	/**
+	 * The scale factor
+	 */
 	private float scaleFactor = 1;
 	
+	/**
+	 * The end scroll timer thread
+	 */
 	private Thread endScrollThread;
 	
+	/**
+	 * The end scroll timer Runnable, it is used with timerScroll to make the sleep when the drag mode is over 
+	 */
 	private Runnable endScrollRun;
 	
+	/**
+	 * is drag, indicates if the drag mode is on or off
+	 */
 	private boolean drag = false;
+	
+	/**
+	 * is zoom, indicates if the zoom mode is on or off
+	 */
 	private boolean zoom = false;
+	
+	/**
+	 * indicates if it has to make a turn more to the loop
+	 */
 	private boolean oneLoopMore = false;
 	
+	/**
+	 * A vector with the special keys
+	 */
 	private Vector<EnumSpecialKey> specialKeys;
+	
+	/**
+	 * A vector with the keys
+	 */
 	private Vector<Integer> keys;
 	
-	
+	/**
+	 * The SlidingMenu object
+	 */
 	private SlidingMenu menu;
 	
+	/**
+	 * is waitDialog, indicates that it has to wait the end of a dialog
+	 */
 	private boolean waitDialog = false;
 	
+	/**
+	 * The ProcessDialog dialog, is the loading canvas dialog 
+	 */
 	private ProgressDialog progressDialog;
 	
+	/**
+	 * offset to adjust the shift key
+	 */
 	private int modKeyCount = 0;
 	
+	/**
+	 * The InputMethodManager object, to handle the keyboard
+	 */
 	private InputMethodManager inputMgr ;
 	
+	/**
+	 * The password
+	 */
 	private String pass;
 	
+	/**
+	 * is connected, indicates to the timeout thread has not to finish the canvas
+	 */
 	private boolean connect = false;
 	
+	/**
+	 * @brief Changes the configuration when the terminal is rotate
+	 * @details Changes the configuration when the terminal is rotate
+	 */
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
 	
 	}
 	
+	/**
+	 * @brief The Android onCreate method
+	 * @details The Android onCreate method. Initializes the CanvasView, SlidingMenu, VncBridgeJNI. 
+	 * Also calls the method to start the connection
+	 */
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		
@@ -205,6 +317,10 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		
 	}
 	
+	/**
+	 * @brief The time out thread
+	 * @details The time out thread. Wait 
+	 */
 	private void runTimerConnection(){
 		final Activity activityThis = this;
 		new Thread(new Runnable() {
@@ -744,7 +860,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	            break;
 	            
 	        case 2:
-	        	dialog = serverInterruptConexionDialog();
+	        	dialog = serverInterruptConnectionDialog();
 	        	break;
 	        	
 	        case 3:
@@ -858,7 +974,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	      .show();
 	}
 	
-	private Dialog serverInterruptConexionDialog() {
+	private Dialog serverInterruptConnectionDialog() {
 	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
 	    
 	    String info = getString(R.string.server_dialog);
