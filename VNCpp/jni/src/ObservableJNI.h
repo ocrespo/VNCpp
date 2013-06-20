@@ -29,23 +29,26 @@
 #include <CommonType.h>
 
 using namespace std;
+
 /**
  * @class ObservableJNI
- * @brief Clase que notifica a java.
+ * @brief This is the class which notifies to Java
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ * @details This class notifies all the changes to the Java code
  */
 class ObservableJNI {
 private:
 	//JNIEnv *env;
-	jobject observer_object;///< Objeto java al que seran enviadas las notificaciones
-	jclass observer_class;///< Clase java de observer_object, necesaria para buscar el ID de los metodos
+	jobject observer_object;///< The Java object to which notifications will be sent
+	jclass observer_class;///< The observer_object Class, it is needed for search the methods IDs
 
-	jobject bitmap_object;///< Objeto java que sera modificado con la nueva informacion de pixeles
-	jclass bitmap_class;///< Clase java de bitmap_object, necesaria para buscar el ID del array
+	jobject bitmap_object;///< The Java object that will be modified with the new information of pixels
+	jclass bitmap_class;///< The bitmap_object Class, it is needed to search the array ID
 
-	JavaVM *vm;///< Puntero a la maquina virtual java. Necesario para coger el entorno actual de ejecuccion.
-	JNIEnv *env;
+	JavaVM *vm;///< A pointer to the JVM. It is needed to catch the current execution environment
+	JNIEnv *env;///< A pointer of a structure that contains the interface to communicate with the JVM
 
-	jintArray bitmap_data;
+	jintArray bitmap_data;///< The bitmap array
 
 	void getEnviroment();
 	void getBitmapObject();

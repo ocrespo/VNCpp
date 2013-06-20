@@ -25,7 +25,7 @@
 
 /**
  * @def CLASS_PATH
- * @brief Ruta java en el que se encuentra la clase.
+ * @brief The Java path which the Classes are located
  */
 #define CLASS_OBSERVABLE_PATH "es/farfuteam/vncpp/model/VncBridgeJNI"
 #define CLASS_BITMAP_PATH "es/farfuteam/vncpp/model/Screen"
@@ -34,14 +34,18 @@
 /**
  * Constructor por efecto, no inicializa nada
  */
+/**
+ * @brief The default constructor
+ * @details Do not initializes anything
+ */
 ObservableJNI::ObservableJNI() {
 	bitmap_object = NULL;
 	bitmap_data = NULL;
 }
+
 /**
- * Destructor por defecto.
- *
- *Elimina la referencia global de observer_object
+ * @brief The deafault destructor
+ * @details Frees the global reference to the observer_object
  */
 ObservableJNI::~ObservableJNI() {
 
@@ -60,13 +64,13 @@ ObservableJNI::~ObservableJNI() {
 	//vm = NULL;
 
 }
+
 /**
- * Añade el objecto java que recibira las notificaciones.
- *
- * Observer se transforma en un variabel global, para que perdure a los cambios de entorno de jni.
- * Ademas se toma la referencia de la maquina virtual de java (javaVM).
- * @param observer Objecto java que recibira las notificaciones.
- * @param env Entorno actual en el que se hace la llamada, necesario para coger la referencia a javaVM.
+ * @brief Adds the Java object that will receive the notifications
+ * @param observer The Java object to which notifications will be sent
+ * @param env A pointer of a structure that contains the interface to communicate with the JVM
+ * @details The observer parameter becomes a global variable to survive the JNI environment changes.
+ * Also the JVM reference is taken
  */
 void ObservableJNI::addObserver(jobject observer,JNIEnv *env){
 
@@ -85,10 +89,11 @@ void ObservableJNI::addObserver(jobject observer,JNIEnv *env){
 	}
 
 }
+
 /**
- * Coloca el entorno de ejecucion de java al hilo actual
- *
- * @return puntero al entorno actual de ejecucion
+ * @brief Places the Java runtime environment to the current thread
+ * @return A pointer to the current runtime environment
+ * @details Places the Java runtime environment to the current thread
  */
 void ObservableJNI::getEnviroment(){
 	int getEnv = vm->GetEnv((void**)&env,JNI_VERSION_1_6);
@@ -106,6 +111,14 @@ void ObservableJNI::getEnviroment(){
  * @param height altura de la imagen
  * @param bpp Bytes por pixel
  * @param depth Profundidad (bits por pixel)
+ */
+/**
+ * @brief Invokes the observer method updateIniFrame
+ * @param width The image width
+ * @param height The image height
+ * @param bpp Bytes per pixel
+ * @param depth Depth (bits per pixel)
+ * @details Calls to the observer method updateIniFrame
  */
 void ObservableJNI::notifyIniFrame(int width,int height,int bpp,int depth){
 
@@ -130,6 +143,10 @@ void ObservableJNI::notifyIniFrame(int width,int height,int bpp,int depth){
 	//vm->DetachCurrentThread();
 }
 
+/**
+ * @brief Notifies a redraw of the image
+ * @details Calls to the observer method updateReDraw
+ */
 void ObservableJNI::notifyReDraw(){
 	if(DEBUG)
 		LOGE("Take method reDraw");
@@ -152,6 +169,11 @@ void ObservableJNI::notifyReDraw(){
 	//env = NULL;
 	//vm->DetachCurrentThread();
 }
+
+/**
+ * @brief Notifies the end of the connection
+ * @details Calls to the observer method updateFinishConnection
+ */
 void ObservableJNI::notifyFinishConnection(){
 	getEnviroment();
 	observer_class  = env->GetObjectClass(this->observer_object);
@@ -176,6 +198,11 @@ void ObservableJNI::notifyFinishConnection(){
 	}
 
 }
+
+/**
+ * @brief Finishes the current thread
+ * @details Finishes the current thread
+ */
 void ObservableJNI::finishByClient(){
 	if(DEBUG)
 		LOGE("Fin por usuario");
@@ -188,6 +215,11 @@ void ObservableJNI::finishByClient(){
 
 	}
 }
+
+/**
+ * @brief Gets the current bitmap object from the observer
+ * @details Gets the current bitmap object from the observer
+ */
 void ObservableJNI::getBitmapObject(){
 	if(bitmap_object == NULL){
 
@@ -213,6 +245,11 @@ void ObservableJNI::getBitmapObject(){
 	//jclass bitmap_class = env->GetObjectClass(CLASS_BITMAP_PATH);
 
 }
+
+/**
+ * @brief Gets the current bitmap data
+ * @details Gets the current bitmap data
+ */
 void  ObservableJNI::getBitmapData(){
 	getEnviroment();
 	if(bitmap_data != NULL){
@@ -239,12 +276,24 @@ void  ObservableJNI::getBitmapData(){
 	//return bitmap_data;
 
 }
+
+/**
+ * @brief Gets the elements of the bitmap data
+ * @return The elements of the bitmap data
+ * @details Gets the elements of the bitmap data
+ */
 jint* ObservableJNI::getArrayElements(){
 
 	jint *info = env->GetIntArrayElements(bitmap_data,0);
 
 	return info;
 }
+
+/**
+ * @brief Sets the bitmap data elements
+ * @param info the elements
+ * @details Sets the bitmap data elements
+ */
 void ObservableJNI::setArrayElements(jint *info){
 
 	env->ReleaseIntArrayElements(bitmap_data,info,0);
@@ -258,6 +307,12 @@ void ObservableJNI::setArrayElements(jint *info){
 
 	//env = NULL;
 }
+
+/**
+ * @brief Notifies a password request
+ * @return the password
+ * @details class to the observer method updateAskPass
+ */
 char* ObservableJNI::notifyAskPass(){
 	getEnviroment();
 	observer_class  = env->GetObjectClass(this->observer_object);
