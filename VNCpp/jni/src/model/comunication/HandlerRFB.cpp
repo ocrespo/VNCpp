@@ -30,17 +30,39 @@ ClientScreen* HandlerRFB::screen = NULL;
 char* HandlerRFB::pass = NULL;
 bool HandlerRFB::update = true;
 
+/**
+ * @brief The default constructor
+ * @details The default constructor
+ */
 HandlerRFB::HandlerRFB() {
 	// TODO Auto-generated constructor stub
 
 }
 
+/**
+ * @brief The default destroyer
+ * @details The default destroyer
+ */
 HandlerRFB::~HandlerRFB() {
 	// TODO Auto-generated destructor stub
 }
+
+/**
+ * @brief Sets the ClientScreen attribute
+ * @param client_screen The ClientScreen
+ * @details Sets the ClientScreen attribute
+ */
 void HandlerRFB::setScreen(ClientScreen *client_screen){
 	screen = client_screen;
 }
+
+/**
+ * @brief Initializes the frameBuffer
+ * @param client Pointer to the RFB structure with the client information
+ * @return true
+ * @details Calls the ClientScreen method iniScreen to initialize the frameBuffer, and also
+ * sets the structure rfbClient
+ */
 rfbBool HandlerRFB::iniFrameBuffer(rfbClient* client) {
 	int size = screen->iniScreen(client->width,client->height,client->format.bitsPerPixel);
 
@@ -58,6 +80,12 @@ rfbBool HandlerRFB::iniFrameBuffer(rfbClient* client) {
 
 	return true;
 }
+
+/**
+ * @brief Sets the password
+ * @param aux_pass The password
+ * @details Sets the password
+ */
 void HandlerRFB::setPass(char *aux_pass){
 	if(pass == NULL){
 		pass = (char*)malloc(250*sizeof(char));
@@ -66,15 +94,32 @@ void HandlerRFB::setPass(char *aux_pass){
 		pass = strcpy(pass,aux_pass);
 	}
 }
+
+/**
+ * @brief Sets the update attribute
+ * @param aux_update A boolean
+ * @details Sets the update attribute
+ */
 void HandlerRFB::setUpdate(bool aux_update){
 	update = aux_update;
 }
+
+/**
+ * @brief Frees the password
+ * @details Frees the password
+ */
 void HandlerRFB::freePass(){
 	if(pass != NULL){
 		free(pass);
 		pass = NULL;
 	}
 }
+
+/**
+ * @brief Gets the password from rfbClient
+ * @param client Pointer to the RFB structure with the client information
+ * @return the password
+ */
 char* HandlerRFB::getPass(rfbClient* client){
 	if(pass == NULL || strcmp(pass,"") == 0){
 		char* aux_pass =screen->notifyAskPass();
@@ -83,17 +128,42 @@ char* HandlerRFB::getPass(rfbClient* client){
 	return strdup(pass);
 }
 
+/**
+ * @brief The RFB event updateScreen
+ * @param client Pointer to the RFB structure with the client information
+ * @param x The initial x coordinate of the section
+ * @param y The initial y coordinate of the section
+ * @param w The section width
+ * @param h The section height
+ * @details Calls to the ClientScreen method updateScreen to update the section of the image that has changes
+ */
 void HandlerRFB::updateScreen(rfbClient *client,int x,int y,int w,int h){
 	if(update)
 		screen->updateScreen(client->frameBuffer,x,y,w,h);
 }
+
+/**
+ * @brief The RFB event finishUpdate
+ * @param client Pointer to the RFB structure with the client information
+ * @details Calls to the ClientScreen method notifyReDraw to indicate the end of the update
+ */
 void HandlerRFB::finishUpdate(rfbClient *client){
 	if(update)
 		screen->notifyReDraw();
 }
+
+/**
+ * @brief The RFB event fihishConnection
+ * @details Calls to the ClientScreen method notifyFinishConnection to indicate the end of the connection
+ */
 void HandlerRFB::finishConnection(){
 	screen->notifyFinishConnection();
 }
+
+/**
+ * @brief Finish the current thread
+ * @details Calls to the ClientScreen method finishByClient that ends the current thread
+ */
 void HandlerRFB::finishClient(){
 	screen->finishByClient();
 }

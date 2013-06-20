@@ -28,15 +28,21 @@
 
 using namespace std;
 
+/**
+ * @class HandlerRFB
+ * @brief This Class handles the RFB events
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ * @details This Class handles the RFB events
+ */
 class ClientScreen;
 class ObservableJNI;
 class HandlerRFB{
 private:
-	static ClientScreen *screen;
+	static ClientScreen *screen;///< A pointer to the ClientScreen object
 
-	static char* pass;
+	static char* pass;///< The password
 
-	static bool update;
+	static bool update;///< A boolean which indicates if HandlerRFb has to manage the events or not
 
 public:
 	HandlerRFB();
