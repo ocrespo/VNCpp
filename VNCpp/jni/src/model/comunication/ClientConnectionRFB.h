@@ -48,7 +48,7 @@ private:
 
 	bool thread_finish;///< Indicates the end of the main thread
 
-	int buttonMask;///<
+	int buttonMask;///< the cursor mask
 
 	static void* eventLoop(void *This);
 

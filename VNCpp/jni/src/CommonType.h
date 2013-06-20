@@ -56,12 +56,12 @@ enum ConnectionError{
  * @brief Indicates the different mouse event
  */
 enum MouseEvent{
-			leftClick = 1,  //!< leftClick
-			wheelClick = 2, //!< wheelClick
-			doubleClick = 3,//!< doubleClick
-			rightClick = 4, //!< rightClick
-			wheelUp = 8,    //!< wheelUp
-			wheelDown = 16, //!< wheelDown
+			leftClick = 1,  ///< leftClick
+			wheelClick = 2, ///< wheelClick
+			doubleClick = 3,///< doubleClick
+			rightClick = 4, ///< rightClick
+			wheelUp = 8,    ///< wheelUp
+			wheelDown = 16, ///< wheelDown
 };
 
 #endif /* COMMONTYPE_H_ */

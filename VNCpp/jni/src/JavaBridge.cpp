@@ -63,6 +63,7 @@ JNIEXPORT void JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_iniJNI(JNIEnv*
  * @param quality_java the image quality
  * @param compress_java the image has to be compress or not
  * @param hide_mouse the mouse has to be hide or not
+ * @return An connection error
  * @details Calls to iniConnection method from Vnc to start the connection with the server
  */
 JNIEXPORT jint JNICALL Java_es_farfuteam_vncpp_model_VncBridgeJNI_iniConnect(JNIEnv* env,jobject javaThis,

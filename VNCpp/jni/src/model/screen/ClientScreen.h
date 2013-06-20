@@ -46,13 +46,6 @@ private:
 	int size;///< The size of the frameBuffer, it is height*width*bytersPerPixel
 	int depth;///< The image depth, it is equal to bitsPerPixel
 
-
-/*	static ClientScreen *screen;/**< Puntero estatico a la propia clase, necesario para acceder a los atributos
-								en los metodos estaticos. Los metodos estaticos son los que son invocados
-								por los eventos de rfb, deben ser estatico porque son punteros a funciones
-								y es la forma de eliminar el parametro this del metodo.
-								*/
-	//static char *sdlPixels;
 public:
 	ClientScreen();
 	virtual ~ClientScreen();
