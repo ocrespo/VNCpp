@@ -33,10 +33,7 @@ import android.support.v4.app.FragmentActivity;
 
 /**
  * @class TabListener<T>
- * @brief This is the TabListener.
- * 
- * This is the detailed description
- *
+ * @brief This is the TabListener
  * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
  * @extends ListFragment
  * @implements TabListener

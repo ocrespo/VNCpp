@@ -70,7 +70,10 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 	 * @authors Oscar Crespo, Gorka Jimeno, Luis Valero 
 	 * @details Dialogs with util info for the user
 	 */
-	public enum InfoDialogs{infoDialog,createNonConnectionDialog,exitDialog,aboutDialog};
+	public enum InfoDialogs{infoDialog,///< Info dialog 
+							createNonConnectionDialog,///< Connection no available dialog
+							exitDialog,///< Exit dialog
+							aboutDialog};///< About dialog
 	
 	/** Preferences file*/
 	public static final String PREFS_NAME="PreferencesFile";
