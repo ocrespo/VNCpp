@@ -36,9 +36,19 @@ import es.farfuteam.vncpp.model.sql.Connection;
 import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
 import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
 
+/**
+ * @class ListFragmentTab
+ * @brief This is class which controls the recent list
+ * 
+ * This is the detailed description
+ *
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ * @extends ListFragment
+ * @implements SuperListener
+ */
 public class ListFragmentTab extends ListFragment implements SuperListener{
 	
-	
+	//variable donde se guarda el Objeto User al pulsarlo en la lista
 	private static Object o;
 	
 	private static Adapter adapter;
@@ -50,12 +60,21 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 	private ViewGroup container;
 	private Bundle savedInstanceState;
 	
-	   
+	/**
+	 * @brief Constructor of ListFragmentTab
+	 * @details Constructor of ListFragmentTab
+	 */   
 	public ListFragmentTab() {
 
 	}
 	 
-	
+	/**
+	 * @brief Method that create the list view
+	 * @param inflater
+	 * @param container
+	 * @param savedInstanceState
+	 * @details Method that create the list view
+	 */ 
 	@Override
 	  public View onCreateView(LayoutInflater inflater, 
 	                 ViewGroup container, Bundle savedInstanceState) {
@@ -67,18 +86,21 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 		setUserList(new ArrayList<Connection>());
 	    // Inflate the layout for this fragment
 	    view = inflater.inflate(R.layout.list_users, container, false);
-
+	
 	    // Se vincula Adaptador
 	    admin = ConnectionSQLite.getInstance(getActivity());
 	    adapter = new Adapter(this.getActivity(),admin.getAllUsers());
 	    setUserList(admin.getAllUsers());
-        setListAdapter(adapter);
+	    setListAdapter(adapter);
 	   
 	    
 	    return view;
 	  }
 	
-	
+	/**
+	 * @brief Override method called on activity start
+	 * @details Override method called on activity start
+	 */ 
 	@Override
 	public void onStart() {
 	    super.onStart();  
@@ -91,24 +113,21 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 
 	}
 	    
-	  
+		/**
+		 * @brief Method called when the user click on the list
+		 * @param listView
+		 * @param view
+		 * @param position
+		 * @param id
+		 * @details Method called when the user click on the list and show the options dialog
+		 */ 
 	    @Override
 		public void onListItemClick(ListView listView, View view, int position, long id) {
 	    	
 
 			super.onListItemClick(listView, view, position, id);
 			
-			setO(getListAdapter().getItem(position));
-			
-			
-			/*final CheckBox iconFav = (CheckBox) listView.findViewById(R.id.checkFav);
-			if (((Connection) o).isFav()){
-		    	iconFav.setButtonDrawable(R.drawable.star_ful);
-
-		    }
-		    else{
-		    	iconFav.setButtonDrawable(R.drawable.star_emp);
-		    }	*/		
+			setO(getListAdapter().getItem(position));	
 			
 			((ActivityTabs)getActivity()).setO(getO());			
 			
@@ -119,7 +138,10 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 		}
 	    
 
-
+		/**
+		 * @brief Delete connection on the list
+		 * @details Delete connection on the list
+		 */ 
 		@Override
 		public void deleteUser() {
 			
@@ -129,7 +151,10 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 			
 		}
 		
-
+		/**
+		 * @brief Edit connection on the list
+		 * @details Edit connection on the list
+		 */
 		@Override
 		public void editingUser() {
 			
@@ -147,37 +172,49 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 			
 
 		/**
-		 * 
+		 * @brief Refresh the favorites connections
 		 * @param user
+		 * @details Refresh the favorites connections
 		 */
 		public void refreshFavorites(Connection user) {
-			admin.updateUser(user);
-			
+			admin.updateUser(user);			
 		}
 
 		/**
-		 * 
-		 * @return
+		 * @brief Returns the Object clicked on the list
+		 * @return o
+		 * @details Returns the Object clicked on the list
 		 */
 		public static Object getO() {
 			return o;
 		}
 
+		/**
+		 * @brief Sets the Object clicked on the list
+		 * @param o 
+		 * @details Sets the Object clicked on the list
+		 */
 		public static void setO(Object o) {
 			ListFragmentTab.o = o;
 		}
 
+		/**
+		 * @brief Returns the userList attribute
+		 * @return userList
+		 * @details Returns the userList attribute
+		 */
 		public ArrayList<Connection> getUserList() {
 			return userList;
 		}
 
+		/**
+		 * @brief Sets the userList attribute
+		 * @param userList 
+		 * @details Sets the userList attribute
+		 */
 		public void setUserList(ArrayList<Connection> userList) {
 			this.userList = userList;
-		}
-
-
-	
-	    
+		}	    
 	  	  
 
 }

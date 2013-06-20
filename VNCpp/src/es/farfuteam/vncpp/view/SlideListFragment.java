@@ -36,13 +36,33 @@ import es.farfuteam.vncpp.controller.CanvasActivity;
 import es.farfuteam.vncpp.controller.CanvasActivity.EnumDialogs;
 import es.farfuteam.vncpp.controller.R;
 
+/**
+ * @class SlideListFragment
+ * @brief This is class which controls the lateral menu in Canvas
+ * 
+ * This is the detailed description
+ *
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ * @extends ListFragment
+ */
 public class SlideListFragment extends ListFragment {
 	
-
+	/**
+	 * @brief Method that create the view
+	 * @param inflater
+	 * @param container
+	 * @param savedInstanceState
+	 * @details Method that create the view
+	 */
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {		
 		return inflater.inflate(R.layout.list_slide, null);
 	}
 
+	/**
+	 * @brief Override method called on activity created
+	 * @param savedInstanceState
+	 * @details Override method called on activity created which form the lateral menu
+	 */
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		MenuSlideAdapter adapter = new MenuSlideAdapter(getActivity());
@@ -63,22 +83,60 @@ public class SlideListFragment extends ListFragment {
 		setListAdapter(adapter);
 	}
 
+	/**
+	 * @class SlideMenuItem
+	 * @brief This is class which controls the items of menu in Canvas
+	 * 
+	 * This is the detailed description
+	 *
+	 * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+	 */
 	private class SlideMenuItem {
 		public String tag;
 		public int iconRes;
+		
+		/**
+		 * @brief Constructor of SlideMenuItem
+		 * @param tag
+		 * @param iconRes
+		 * @details Constructor of SlideMenuItem
+		 */
 		public SlideMenuItem(String tag, int iconRes) {
 			this.tag = tag; 
 			this.iconRes = iconRes;
 		}
 	}
 
+	/**
+	 * @class MenuSlideAdapter
+	 * @brief This is class whith the Adapter of the lateral menu
+	 * 
+	 * This is the detailed description
+	 *
+	 * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+	 * @extends ArrayAdapter<SlideMenuItem>
+	 */
 	public class MenuSlideAdapter extends ArrayAdapter<SlideMenuItem> {
 
+		/**
+		 * @brief Constructor of MenuSlideAdapter
+		 * @param context
+		 * @details Constructor of MenuSlideAdapter
+		 */
 		public MenuSlideAdapter(Context context) {
 			super(context, 0);
 		}
 
+		/**
+		 * @brief Returns the view clicked in the menu
+		 * @param position
+		 * @param convertView
+		 * @param parent
+		 * @return view
+		 * @details Returns the view clicked in the menu
+		 */
 		public View getView(int position, View convertView, ViewGroup parent) {
+			
 			if (convertView == null) {
 				convertView = LayoutInflater.from(getContext()).inflate(R.layout.row_slide, null);
 			}
@@ -94,7 +152,14 @@ public class SlideListFragment extends ListFragment {
 	}
 	
 	
-	
+	/**
+	 * @brief Method called when the user click on a item of the lateral menu
+	 * @param listView
+	 * @param view
+	 * @param position
+	 * @param id
+	 * @details Method called when the user click on a item of the lateral menu
+	 */ 
 	@Override
 	public void onListItemClick(ListView listView, View view, int position, long id) {
     	
@@ -124,8 +189,6 @@ public class SlideListFragment extends ListFragment {
 			break;
 			
 		}
-						
-
 	
 	}
 	

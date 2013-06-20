@@ -35,13 +35,16 @@ import es.farfuteam.vncpp.controller.R;
 import es.farfuteam.vncpp.model.sql.Connection;
 import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
 import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
+
 /**
- * @Name        : ListFragmentTabFav.java
- * @author      : Oscar Crespo, Luis Valero, Gorka Jimeno
- * @Version     :
- * @Copyright   : GPLv3
- * @Description : Class who control the ListFragment of favorites users
+ * @class ListFragmentTabFav
+ * @brief This is class which controls the favorites list
+ * 
+ * This is the detailed description
  *
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ * @extends ListFragment
+ * @implements SuperListener
  */
 public class ListFragmentTabFav extends ListFragment implements SuperListener{
 	
@@ -53,12 +56,21 @@ public class ListFragmentTabFav extends ListFragment implements SuperListener{
 	private static ConnectionSQLite admin;
 	private View view;
 	
-	   
+	/**
+	 * @brief Constructor of ListFragmentTabFav
+	 * @details Constructor of ListFragmentTabFav
+	 */   
 	public ListFragmentTabFav() {
 
 	}
 
-	
+	/**
+	 * @brief Method that create the list view
+	 * @param inflater
+	 * @param container
+	 * @param savedInstanceState
+	 * @details Method that create the list view
+	 */ 
 	@Override
 	  public View onCreateView(LayoutInflater inflater, 
 	                 ViewGroup container, Bundle savedInstanceState) {
@@ -78,8 +90,9 @@ public class ListFragmentTabFav extends ListFragment implements SuperListener{
 	  }
 	
 	/**
-	 * 
-	 */
+	 * @brief Override method called on activity start
+	 * @details Override method called on activity start
+	 */ 
 	@Override
 	public void onStart() {
 		
@@ -93,7 +106,14 @@ public class ListFragmentTabFav extends ListFragment implements SuperListener{
 	    
 	}
 	    
-	  
+		/**
+		 * @brief Method called when the user click on the list
+		 * @param listView
+		 * @param view
+		 * @param position
+		 * @param id
+		 * @details Method called when the user click on the list and show the options dialog
+		 */ 
 	    @Override
 		public void onListItemClick(ListView listView, View view, int position, long id) {	    	
 
@@ -108,7 +128,10 @@ public class ListFragmentTabFav extends ListFragment implements SuperListener{
 		
 		}
 	    
-
+		/**
+		 * @brief Delete connection on the list
+		 * @details Delete connection on the list
+		 */
 		@Override
 		public void deleteUser() {
 			
@@ -119,7 +142,10 @@ public class ListFragmentTabFav extends ListFragment implements SuperListener{
 			
 		}
 		
-
+		/**
+		 * @brief Edit connection on the list
+		 * @details Edit connection on the list
+		 */
 		@Override
 		public void editingUser() {
 			
@@ -138,33 +164,40 @@ public class ListFragmentTabFav extends ListFragment implements SuperListener{
 		}
 
 		/**
-		 * Return the Object User down at the list
-		 * \return
+		 * @brief Returns the Object clicked on the Favlist
+		 * @return o
+		 * @details Returns the Object clicked on the Favlist
 		 */
 		public static Object getO() {
 			return o;
 		}
 		
 		/**
-		 * Set the User 
-		 * \param o
+		 * @brief Sets the Object clicked on the Favlist
+		 * @param o 
+		 * @details Sets the Object clicked on the Favlist
 		 */
 		public static void setO(Object o) {
 			ListFragmentTabFav.o = o;
 		}
+
 		/**
-		 * 
-		 * @return
+		 * @brief Returns the userList attribute
+		 * @return userList
+		 * @details Returns the userList attribute
 		 */
 		public ArrayList<Connection> getUserList() {
 			return userList;
 		}
 
+		/**
+		 * @brief Sets the userList attribute
+		 * @param userList 
+		 * @details Sets the userList attribute
+		 */
 		public void setUserList(ArrayList<Connection> userList) {
 			this.userList = userList;
-		}
-	
-	    
+		}	    
 	  	  
 
 }
