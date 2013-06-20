@@ -28,8 +28,13 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 
 /**
- * @author roni
+ * @class CanvasView
+ * @brief This is the class which controls the bitmap.
+ * 
+ * This is the detailed description
  *
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ * @extends ImageView
  */
 public class CanvasView extends  ImageView{
 	private int[] data;
@@ -51,13 +56,22 @@ public class CanvasView extends  ImageView{
 	private float scaleX = 0;
 	private float scaleY = 0;
 	
+	/**
+	 * @brief Constructor method
+	 * @param context
+	 * @param attrs
+	 * @details Constructor method
+	 */
 	public CanvasView(Context context,AttributeSet attrs) {
 		super(context,attrs);
 		data = null;
-		
-
 	}
 
+	/**
+	 * @brief Override onDraw method
+	 * @param canvas
+	 * @details Called when the canvas is drawn
+	 */
 	@Override
 	protected void onDraw (Canvas canvas){		
 		if(data != null){
@@ -76,21 +90,39 @@ public class CanvasView extends  ImageView{
 		
 	}
 	
+	/**
+	 * @brief Returns the height attribute
+	 * @return height
+	 * @details Returns the height attribute
+	 */
 	public int getRealHeight() {
 		return height;
 	}
+	
+	/**
+	 * @brief Returns the width attribute
+	 * @return width
+	 * @details Returns the width attribute
+	 */
 	public int getRealWidth() {
 		return width;
 	}
+
 	/**
-	 * @return the scale
+	 * @brief Returns the scale attribute
+	 * @return scale
+	 * @details Returns the scale attribute
 	 */
 	public float getScale() {
 		return scale;
 	}
 
 	/**
-	 * @param scale the scale to set
+	 * @brief Sets the scales attributes
+	 * @param scale 
+	 * @param scaleX  
+	 * @param scaleY 
+	 * @details Sets the scales attributes
 	 */
 	public void setScale(float scale,float scaleX,float scaleY) {
 		this.scale = scale;
@@ -98,6 +130,10 @@ public class CanvasView extends  ImageView{
 		this.scaleY = scaleY;
 	}
 
+	/**
+	 * @brief Create a temporal bitmap
+	 * @details Create a temporal bitmap when the user moves around the image
+	 */
 	public void startDrag() {
 		if(bitmap ==null){
 			bitmap = Bitmap.createBitmap(data, offset, stride, width, height,Bitmap.Config.RGB_565);
@@ -105,6 +141,11 @@ public class CanvasView extends  ImageView{
 		update = false;
 		drag = true;	
 	}
+	
+	/**
+	 * @brief Destroy the temporal bitmap
+	 * @details Invalidate the temporal bitmap created al startDrag()
+	 */
 	public void endDrag(){
 		drag = false;
 		if(update){
@@ -112,6 +153,11 @@ public class CanvasView extends  ImageView{
 		}
 		postInvalidate();
 	}
+	
+	/**
+	 * @brief Update the bitmap
+	 * @details Update the bitmap
+	 */
 	public void reDraw(){
 		if(!drag){
 			bitmap = null;
@@ -122,6 +168,18 @@ public class CanvasView extends  ImageView{
 		}
 
 	}
+	
+	/**
+	 * @brief Initialized Canvas
+	 * @param data 
+	 * @param offset  
+	 * @param stride 
+	 * @param x
+	 * @param y 
+	 * @param width
+	 * @param height 
+	 * @details Initialized Canvas
+	 */
 	public void initCanvas(int[] data,int offset,int stride,int x,int y,int width,int height) {
 		this.x = x;
 		this.y = y;

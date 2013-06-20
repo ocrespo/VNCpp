@@ -60,7 +60,7 @@ import es.farfuteam.vncpp.view.SlideListFragment;
 
 /**
  * @class CanvasActivity
- * @brief This is the activity who controls the Canvas.
+ * @brief This is the activity which controls the Canvas.
  * 
  * This is the detailed description
  *
