@@ -28,9 +28,8 @@
 #define main_blue_mask 0x000000ff
 
 /**
- * Constructor por defecto.
- *
- * Inicia todos los parametros a 0 y screen apunta a la propia clase (this)
+ * @brief The default constructor
+ * @details Sets all the attributes as 0
  */
 ClientScreen::ClientScreen() {
 	width = 0;
@@ -40,16 +39,22 @@ ClientScreen::ClientScreen() {
 	depth = 0;
 	size = 0;
 }
+
 /**
- * Destructor por defecto.
- *
- * Pone screen a NULL
+ * @brief The default destroyer
+ * @details The default destroyer
  */
 ClientScreen::~ClientScreen() {
 	if(DEBUG){
 		LOGE("Limpiando screen");
 	}
 }
+
+/**
+ * @brief Sets the color mask
+ * @param client Pointer to the RFB structure with the client information
+ * @details Sets the color mask
+ */
 void ClientScreen::doMask(rfbClient *client) {
 
 	while (! (main_red_mask & (1 << client->format.redShift))) {
@@ -64,12 +69,12 @@ void ClientScreen::doMask(rfbClient *client) {
 }
 
 /**
- * Inicializa frameBuffer.
- *
- * Evento generado por rfb, inicializa las dimensiones del frameBuffer a size y se toman el resto de
- * atributos, para almacenarlos en la clase.
- * @param client
- * @return
+ * @brief Initializes the frameBuffer
+ * @param width The width
+ * @param height The height
+ * @param bitsPerPixel The bits per pixel
+ * @return The size of the frameBuffer
+ * @details This is an event form RFB, initializes the frameBuffers dimensions, and also sets all the attributes
  */
 int ClientScreen::iniScreen(const int width,const int height,const int bitsPerPixel) {
 	if(DEBUG)
@@ -97,17 +102,15 @@ int ClientScreen::iniScreen(const int width,const int height,const int bitsPerPi
 
 	return size;
 }
+
 /**
- * Actualiza la regin de la imagen especificados por el rectangulo.
- *
- * Evento generado por rfb, indica la actualizacion de la imagen en el buffer. La seccion formada por
- * el rectandulo, siendo x e y las coordenadas iniciales, y w y h la anchura y altura, es la que ha recibido
- * cambios.
- * @param cl cliente rfb que se actualiza
- * @param x coordenada x inicial del rectangulo
- * @param y coordenada y inicial del rectangulo
- * @param w anchura del rectangulo
- * @param h altura del rectangulo
+ * @brief Updates a section of the image
+ * @param frameBuffer The frameBuffer
+ * @param x The initial x coordinate of the section
+ * @param y The initial y coordinate of the section
+ * @param w The section width
+ * @param h The section height
+ * @brief Updates a section of the image. This is an event from RFB. Indicates an image update in the buffer.
  */
 void  ClientScreen::updateScreen(uint8_t *frameBuffer,const int x,const int y,const int w,const int h){
 	if(DEBUG)

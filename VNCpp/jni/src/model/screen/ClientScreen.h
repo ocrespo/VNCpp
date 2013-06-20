@@ -32,19 +32,19 @@ using namespace std;
 
 /**
  * @class ClientScreen
- * @brief Clase encargada de gestionar los eventos de rfb y transformar la imagen.
- *
- * Clase encargada de gestionar los eventos de rfb y transformar la imagen. Hereda la clase ObservableJNI
- * para asi poder notificar cambios a Java
+ * @brief This Class handles the RFB events and the image
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ * @extends ObservableJNI
+ * @details This Class handles the RFB events and the image. Extends ObservableJNI in order to report changes to Java
  */
 class ClientScreen : public  ObservableJNI {
 private:
-	int width;///< Anchura dela imagen
-	int height;///< altura de la imagen
+	int width;///< The image width
+	int height;///< The image height
 
-	int bytesPerPixel;///< bytes por pixel
-	int size;///< tamaño del frameBuffer, se calcula con height*width*bytesPerPixel
-	int depth;///< profundidad de la imagen, es igual que los bitsPerPixel
+	int bytesPerPixel;///< The bytes per pixel
+	int size;///< The size of the frameBuffer, it is height*width*bytersPerPixel
+	int depth;///< The image depth, it is equal to bitsPerPixel
 
 
 /*	static ClientScreen *screen;/**< Puntero estatico a la propia clase, necesario para acceder a los atributos

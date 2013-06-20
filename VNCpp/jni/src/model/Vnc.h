@@ -31,11 +31,6 @@ using namespace std;
 
 /**
  * @class Vnc
- * @brief Clase encargada de enlazar la conexion, hecha en la clase ClientConnectionRFB
- * con la clase encargada de convertir la imagen y gestionar eventos de rfb
- */
-/**
- * @class Vnc
  * @brief This Class is delegate to link the connection
  * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
  * @details This Class is delegate to link the connection.
