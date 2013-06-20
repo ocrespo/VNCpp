@@ -29,7 +29,7 @@ import android.widget.Switch;
 
 /**
  * @class ConfigurationMenu
- * @brief This is the activity who control the SharedPreferences file.
+ * @brief This is the activity which control the SharedPreferences file.
  * 
  * This is the detailed description
  * @extends Activity

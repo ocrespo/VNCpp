@@ -30,6 +30,16 @@ import android.widget.Toast;
 import es.farfuteam.vncpp.controller.ActivityTabs;
 import es.farfuteam.vncpp.controller.R;
 
+/**
+ * @class DialogOptions
+ * @brief This is class which controls the dialogs
+ * 
+ * This is the detailed description
+ *
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ * @extends ListFragment
+ * @implements TabListener
+ */
 public class DialogOptions extends DialogFragment {
 	
 	

@@ -24,7 +24,7 @@ import android.content.SharedPreferences;
 
 /**
  * @class Configuration
- * @brief This is the class who control the SharedPreferences file.
+ * @brief This is the class which control the SharedPreferences file.
  * 
  * This is the detailed description
  *
