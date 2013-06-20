@@ -25,7 +25,7 @@ package es.farfuteam.vncpp.model;
  *
  */
 public interface ObserverCanvas {
-	public void updateIniFrame(int[] data,int offset,int x,int y,int width,int height,int realWidth,int realHeight);
+	public void updateIniFrame(int[] data,int offset,int x,int y,int width,int height);
 	public void updateRedraw();
 	public void updateFinish();
 	public String updatePass();

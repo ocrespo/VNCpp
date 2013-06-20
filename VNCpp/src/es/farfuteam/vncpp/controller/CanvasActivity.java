@@ -426,8 +426,8 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	}
 	
 	@Override
-	public void updateIniFrame(int[] data,int offset,int x,int y,int width,int height,int realWidth,int realHeight) {
-		canvas.initCanvas(data, offset, realWidth, x,y,  realWidth, realHeight);		
+	public void updateIniFrame(int[] data,int offset,int x,int y,int width,int height) {
+		canvas.initCanvas(data, offset, width, x,y,  width, height);		
 	}
 
 	@Override

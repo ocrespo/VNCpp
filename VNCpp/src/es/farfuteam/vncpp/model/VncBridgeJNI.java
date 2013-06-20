@@ -169,7 +169,7 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 		iniBitmapData.start();
 		while(iniBitmapData.isAlive() && !error);
 		if(!error)
-			notifyIniFrame(screen.getData(),0,0,0,width,height,screen.getWidth(),screen.getHeight());
+			notifyIniFrame(screen.getData(),0,0,0,width,height);
 		else{
 			stopUpdate();
 		}
