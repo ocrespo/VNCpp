@@ -88,11 +88,11 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 	}
 	 
 	/**
-	 * @brief Method that create the list view
-	 * @param inflater
-	 * @param container
+	 * @brief Method that creates the list view
+	 * @param inflater The inflater layout
+	 * @param container The container
 	 * @param savedInstanceState
-	 * @details Method that create the list view
+	 * @details Method that creates the list view
 	 */ 
 	@Override
 	  public View onCreateView(LayoutInflater inflater, 
@@ -133,12 +133,12 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 	}
 	    
 		/**
-		 * @brief Method called when the user click on the list
-		 * @param listView
-		 * @param view
-		 * @param position
-		 * @param id
-		 * @details Method called when the user click on the list and show the options dialog
+		 * @brief Method called when the user clicks in the list
+		 * @param listView The list view
+		 * @param view The view
+		 * @param position The position of the list
+		 * @param id The identification
+		 * @details Method called when the user clicks on the list and shows the options dialog
 		 */ 
 	    @Override
 		public void onListItemClick(ListView listView, View view, int position, long id) {
@@ -158,8 +158,8 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 	    
 
 		/**
-		 * @brief Delete connection on the list
-		 * @details Delete connection on the list
+		 * @brief Deletes connection of the list
+		 * @details Deletes connection of the list
 		 */ 
 		@Override
 		public void deleteUser() {
@@ -171,8 +171,8 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 		}
 		
 		/**
-		 * @brief Edit connection on the list
-		 * @details Edit connection on the list
+		 * @brief Edits connection of the list
+		 * @details Edits connection of the list
 		 */
 		@Override
 		public void editingUser() {
@@ -191,9 +191,9 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 			
 
 		/**
-		 * @brief Refresh the favorites connections
-		 * @param user
-		 * @details Refresh the favorites connections
+		 * @brief Refreshes the favorites connections
+		 * @param user The connection
+		 * @details Refreshes the favorites connections
 		 */
 		public void refreshFavorites(Connection user) {
 			admin.updateUser(user);			
@@ -201,7 +201,7 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 
 		/**
 		 * @brief Returns the Object clicked on the list
-		 * @return o
+		 * @return o The object
 		 * @details Returns the Object clicked on the list
 		 */
 		public static Object getO() {
@@ -210,7 +210,7 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 
 		/**
 		 * @brief Sets the Object clicked on the list
-		 * @param o 
+		 * @param o The object
 		 * @details Sets the Object clicked on the list
 		 */
 		public static void setO(Object o) {
@@ -219,7 +219,7 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 
 		/**
 		 * @brief Returns the userList attribute
-		 * @return userList
+		 * @return userList The connections list
 		 * @details Returns the userList attribute
 		 */
 		public ArrayList<Connection> getUserList() {
@@ -228,7 +228,7 @@ public class ListFragmentTab extends ListFragment implements SuperListener{
 
 		/**
 		 * @brief Sets the userList attribute
-		 * @param userList 
+		 * @param userList The connections list
 		 * @details Sets the userList attribute
 		 */
 		public void setUserList(ArrayList<Connection> userList) {

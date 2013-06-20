@@ -49,10 +49,10 @@ public class DialogOptions extends DialogFragment {
 	  }
 
 	/**
-	 * @brief Set the dialog listener
+	 * @brief Sets the dialog listener
 	 * @param listener
 	 * @return DialogOptions
-	 * @details Set the dialog listener
+	 * @details Sets the dialog listener
 	 */	  
 	  public static DialogOptions newInstance(SuperListener listener){
 		  	DialogOptions f = new DialogOptions();
@@ -62,10 +62,10 @@ public class DialogOptions extends DialogFragment {
 	
 		
 	/**
-	 * @brief Create the dialog with options over the connection list
+	 * @brief Creates the dialog with options over the connection list
 	 * @param savedInstanceState
 	 * @return Dialog
-	 * @details Create the dialog with options over the connection list
+	 * @details Creates the dialog with options over the connection list
 	 */
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {

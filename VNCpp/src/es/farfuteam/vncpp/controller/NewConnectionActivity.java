@@ -47,7 +47,7 @@ import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
 
 /**
  * @class NewConnectionActivity
- * @brief This is the activity created to create a new connection
+ * @brief This is the activity created to make a new connection
  * @extends FragmentActivity
  * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
  */
@@ -88,7 +88,7 @@ public class NewConnectionActivity extends FragmentActivity {
 	/**
 	 * @brief This is the onCreate method
 	 * @param savedInstanceState
-	 * @details The onCreate method adds bottons and edittext on the activity
+	 * @details The onCreate method adds buttons and edittext on the activity
 	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -119,14 +119,10 @@ public class NewConnectionActivity extends FragmentActivity {
 		 
 		Spinner_colors.setAdapter(adapter);
 		
-		//final String[] colors = getResources().getStringArray(R.array.color_array);
-		
 		Spinner_colors.setOnItemSelectedListener(
 		        new AdapterView.OnItemSelectedListener() {
 		        public void onItemSelected(AdapterView<?> parent,
 		            android.view.View v, int position, long id) {
-		                
-		                //setColor_format(colors[position]);
 		                setColor_format(getPosEnumQuality(position));
 		        }
 		 
@@ -180,10 +176,10 @@ public class NewConnectionActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * @brief Return the image quality 
+	 * @brief Returns the image quality 
 	 * @param pos position on the array
 	 * @return the image quality
-	 * @details Return the image quality of th enum
+	 * @details Returns the image quality of th enum
 	 */
 	private QualityArray getPosEnumQuality(int pos){
 		
@@ -238,18 +234,18 @@ public class NewConnectionActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * @brief Cancel the creation of new connection
+	 * @brief Cancels the creation of new connection
 	 * @param v the view
-	 * @details Cancel the creation of new connection
+	 * @details Cancels the creation of new connection
 	 */
 	private void Cancel(View v){	        
 	        finish();
 	}
 	
 	/**
-	 * @brief Check the connectivity of the terminal
+	 * @brief Checks the connectivity of the terminal
 	 * @return True if the connectivity exists, false in another case.
-	 * @details Check the connectivity of the terminal
+	 * @details Checks the connectivity of the terminal
 	 */
 	private boolean checkConnectivity()
     {
@@ -266,9 +262,9 @@ public class NewConnectionActivity extends FragmentActivity {
     }
 	
 	/**
-	 * @brief Check the connectivity type of the terminal
+	 * @brief Checks the connectivity type of the terminal
 	 * @return True if the connectivity type is Wifi, false in another case.
-	 * @details Check the connectivity type of the terminal
+	 * @details Checks the connectivity type of the terminal
 	 */
 	//devuelve true si es conexion wifi, false en caso contrario
 	private boolean isWifiConnectivityType(){
@@ -290,7 +286,7 @@ public class NewConnectionActivity extends FragmentActivity {
     
     /**
      * @brief Preserved the state of the activity
-     * @param newConfig
+     * @param newConfig the new state
      * @details Preserved the state of the activity when the terminal changed the orientation
      */
 	@Override
@@ -298,7 +294,12 @@ public class NewConnectionActivity extends FragmentActivity {
 		super.onConfigurationChanged(newConfig);
 	}
 
-
+	/**
+	 * @brief Handles the item selection
+	 * @param item
+	 * @return always true
+	 * @details Handles the item selection. Not ready yet
+	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Sirve para volver a Tabs al pulsar en la actionBar
@@ -313,9 +314,9 @@ public class NewConnectionActivity extends FragmentActivity {
 
 
 	/**
-	 * @brief Verify the data introduced by the user
+	 * @brief Verifies the data introduced by the user
 	 * @param v the view
-	 * @details Verify the data introduced by the user
+	 * @details Verifies the data introduced by the user
 	 */
 	private boolean verify(View v) {		
 		
@@ -354,10 +355,10 @@ public class NewConnectionActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * @brief Valid the connection name
+	 * @brief Valids the connection name
 	 * @param name the name of the connection
 	 * @return true if is a valid name, false if this name is in use
-	 * @details Return true if this name it is not in use
+	 * @details Returns true if this name it is not in use
 	 */
 	private boolean validNameConnection(String name){
 		
@@ -373,9 +374,9 @@ public class NewConnectionActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * @brief This function check the port parameter
+	 * @brief This function checks the port parameter
 	 * @return true if it is a valid Port, false in another case 
-	 * @details This function check the port parameter
+	 * @details This function checks the port parameter
 	 */
 	private boolean validPort(String port){
 		
@@ -393,10 +394,10 @@ public class NewConnectionActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * @brief This function check the ip format
+	 * @brief This function checks the ip format
 	 * @param ipAddress the address
-	 * @return true if it's a valid IP, false in another case
-	 * @details This function check the ip format
+	 * @return true if it is a valid IP, false in another case
+	 * @details This function checks the ip format
 	 */
 	private boolean validateIPAddress( String ipAddress ) {
 		
@@ -428,8 +429,8 @@ public class NewConnectionActivity extends FragmentActivity {
 	
 	
 	/**
-	 * @brief Create and connect the new connection
-	 * @details Create and connect the new connection
+	 * @brief Creates and connects to the new connection
+	 * @details Creates and connects to the new connection
 	 */
 	private void createNewConnection(){
 		
@@ -458,7 +459,7 @@ public class NewConnectionActivity extends FragmentActivity {
 	 * @brief Override function to create dialogs
 	 * @param id
 	 * @return Dialog created
-	 * @details Create the dialog with a showDialog(id) called,
+	 * @details Creates the dialog with a showDialog(id) called,
 	 * id is the number of the dialog to be created
 	 */
 	@Override
@@ -482,9 +483,9 @@ public class NewConnectionActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * @brief Show the dialog when any field is empty
+	 * @brief Shows the dialog when any field is empty
 	 * @return The new dialog
-	 * @details Show the dialog when any field is empty
+	 * @details Shows the dialog when any field is empty
 	 */
 	private Dialog createAlertDialog() {
 	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -506,9 +507,9 @@ public class NewConnectionActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * @brief Show the dialog when the connection is not available
+	 * @brief Shows the dialog when the connection is not available
 	 * @return The new dialog
-	 * @details Show the dialog when the connection is not available
+	 * @details Shows the dialog when the connection is not available
 	 */
 	private Dialog createNonConnectionDialog() {
 	    AlertDialog.Builder builder = new AlertDialog.Builder(this);

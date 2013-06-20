@@ -45,11 +45,11 @@ import es.farfuteam.vncpp.controller.R;
 public class SlideListFragment extends ListFragment {
 	
 	/**
-	 * @brief Method that create the view
-	 * @param inflater
-	 * @param container
+	 * @brief Method that creates the view
+	 * @param inflater the inflater layout
+	 * @param container The container
 	 * @param savedInstanceState
-	 * @details Method that create the view
+	 * @details Method that creates the view
 	 */
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {		
 		return inflater.inflate(R.layout.list_slide, null);
@@ -106,10 +106,7 @@ public class SlideListFragment extends ListFragment {
 
 	/**
 	 * @class MenuSlideAdapter
-	 * @brief This is class whith the Adapter of the lateral menu
-	 * 
-	 * This is the detailed description
-	 *
+	 * @brief This is class with the Adapter of the lateral menu
 	 * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
 	 * @extends ArrayAdapter<SlideMenuItem>
 	 */
@@ -117,7 +114,7 @@ public class SlideListFragment extends ListFragment {
 
 		/**
 		 * @brief Constructor of MenuSlideAdapter
-		 * @param context
+		 * @param context The context
 		 * @details Constructor of MenuSlideAdapter
 		 */
 		public MenuSlideAdapter(Context context) {
@@ -126,10 +123,10 @@ public class SlideListFragment extends ListFragment {
 
 		/**
 		 * @brief Returns the view clicked in the menu
-		 * @param position
-		 * @param convertView
-		 * @param parent
-		 * @return view
+		 * @param position The position on the list
+		 * @param convertView The view
+		 * @param parent The view group
+		 * @return view The view
 		 * @details Returns the view clicked in the menu
 		 */
 		public View getView(int position, View convertView, ViewGroup parent) {
@@ -150,12 +147,12 @@ public class SlideListFragment extends ListFragment {
 	
 	
 	/**
-	 * @brief Method called when the user click on a item of the lateral menu
-	 * @param listView
-	 * @param view
-	 * @param position
-	 * @param id
-	 * @details Method called when the user click on a item of the lateral menu
+	 * @brief Method called when the user clicks on an item of the lateral menu
+	 * @param listView The list view
+	 * @param view The view
+	 * @param position The position list
+	 * @param id The identification
+	 * @details Method called when the user clicks on an item of the lateral menu
 	 */ 
 	@Override
 	public void onListItemClick(ListView listView, View view, int position, long id) {

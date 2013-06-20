@@ -56,7 +56,7 @@ public class HelpActivity extends Activity {
 	
 	/**
 	 * @brief Handles the onKeyDown event
-	 * @param keyCode
+	 * @param keyCode The key code
 	 * @param event
 	 * @return True if the event is handled properly. If the keyCode is not equal to KEYCODE_BACK 
 	 * it returns the event
