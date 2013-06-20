@@ -37,17 +37,25 @@ import es.farfuteam.vncpp.controller.R;
  * This is the detailed description
  *
  * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
- * @extends ListFragment
- * @implements TabListener
+ * @extends DialogFragment
  */
 public class DialogOptions extends DialogFragment {
 	
-	
+	/**
+	 * @brief Interface to control the manipulation of the list elements
+	 * @details Interface to control the manipulation of the list elements
+	 */
 	  public interface SuperListener{
 		     void deleteUser();
 		     void editingUser();
 	  }
 
+	/**
+	 * @brief Set the dialog listener
+	 * @param listener
+	 * @return DialogOptions
+	 * @details Set the dialog listener
+	 */	  
 	  public static DialogOptions newInstance(SuperListener listener){
 		  	DialogOptions f = new DialogOptions();
 		    f.setTargetFragment((Fragment) listener, 1234);
@@ -55,7 +63,12 @@ public class DialogOptions extends DialogFragment {
 	  }
 	
 		
-	
+	/**
+	 * @brief Create the dialog with options over the connection list
+	 * @param savedInstanceState
+	 * @return Dialog
+	 * @details Create the dialog with options over the connection list
+	 */
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 		
