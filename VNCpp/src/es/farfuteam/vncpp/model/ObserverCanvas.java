@@ -21,8 +21,10 @@
 package es.farfuteam.vncpp.model;
 
 /**
- * @author roni
- *
+ * @interface ObserverCanvas
+ * @brief This is the Observer interface for Canvas
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ * @details This is the Observer interface for Canvas
  */
 public interface ObserverCanvas {
 	public void updateIniFrame(int[] data,int offset,int x,int y,int width,int height);

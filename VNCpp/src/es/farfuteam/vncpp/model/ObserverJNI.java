@@ -21,7 +21,12 @@
 package es.farfuteam.vncpp.model;
 
 
-
+/**
+ * @interface ObserverJNI
+ * @brief This is the observer interface for JNI
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ * @details This is the observer interface for JNI
+ */
 public interface ObserverJNI {
 	void updateFinishConnection();
 	void updateIniFrame(int width,int height,int bpp,int depth);
