@@ -121,32 +121,7 @@ void  ClientScreen::updateScreen(uint8_t *frameBuffer,const int x,const int y,co
 	int pos_col;
 
 	int pos_array;
-	/*for(int i=x;i < w;i++ ){
-		pos_col = (i*screen->bytesPerPixel);
-		for(int j=y;j<h;j++){
-			pos = ((screen->bytesPerPixel*screen->width) * j) + pos_col;
 
-			memcpy(&pixel,&cl->frameBuffer[pos],screen->bytesPerPixel);
-
-			pos_array = (screen->width *j) + i;
-			screen->notifyUpdateScreen(pixel,pos_array,y,w,h);
-		}
-	}*/
-	/*int real_i,real_j;
-	for(int i=0;i < w;i++ ){
-		real_i = i + x;
-		pos_col = (real_i*screen->bytesPerPixel);
-		for(int j=0;j<h;j++){
-			real_j = j + y;
-
-			pos = ((screen->bytesPerPixel*screen->width) * real_j) + pos_col;
-
-			memcpy(&pixel,&cl->frameBuffer[pos],screen->bytesPerPixel);
-
-			pos_array = (screen->width *real_j) + real_i;
-			screen->notifyUpdateScreen(pixel,pos_array,y,w,h);
-		}
-	}*/
 	getBitmapData();
 	jint *info = getArrayElements();
 	int real_i,real_j;
