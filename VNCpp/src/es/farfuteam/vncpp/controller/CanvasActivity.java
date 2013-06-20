@@ -109,17 +109,27 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	/**
 	 * Timer connection, the time out to the connection
 	 */
-	private static final int timerConnection = 30000;
+	private static final int TIMER_CONNECTION = 30000;
 	
 	/**
 	 * Timer scroll, the time to wait when the drag mode is over
 	 */
-	private static final int timerScroll = 500;
+	private static final int TIMER_SCROLL = 500;
 	
 	/**
 	 * adjust key, the adjust to match the SDK key code to RFB key code
 	 */
-	private static final int adjustKeys = 17;
+	private static final int ADJUST_KEY = 17;
+	
+	/**
+	 * The maximum scale factor
+	 */
+	private static final float MAX_ZOOM = 3;
+	
+	/**
+	 * The minimum scale factor
+	 */
+	private static final float MIN_ZOOM = 0.5f;
 
 	/**
 	 * The VncBridgeJNI object
@@ -302,7 +312,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 				while(drag || oneLoopMore){
 					oneLoopMore = false;
 					try {
-						Thread.sleep(timerScroll);
+						Thread.sleep(TIMER_SCROLL);
 					} catch (InterruptedException e) {
 						// Auto-generated catch block
 	
@@ -319,7 +329,8 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	
 	/**
 	 * @brief The time out thread
-	 * @details The time out thread. Wait 
+	 * @details The time out thread. Waits the timerConnection and then checks the connect attribute, if it is false 
+	 * then finish the Activity
 	 */
 	private void runTimerConnection(){
 		final Activity activityThis = this;
@@ -328,7 +339,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			@Override
 			public void run() {
 				try {
-					Thread.sleep(timerConnection);
+					Thread.sleep(TIMER_CONNECTION);
 				} catch (InterruptedException e) {
 					// Auto-generated catch block
 
@@ -362,6 +373,17 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			}
 		}).start();
 	}
+	
+	/**
+	 * @brief Starts the connection
+	 * @param host The IP
+	 * @param port The port
+	 * @param pass The pasword
+	 * @param quality The image quality
+	 * @param compress The image has to be compress or not
+	 * @details Starts the connection. Calls the VncBridgeJNI method startConnect to start the connection. If everything ok 
+	 * the connection starts and the connect attribute is set as true
+	 */
 	private void iniConnection(final String host,final String port,final String pass, final QualityArray quality,final Boolean compress){
 		vnc = new VncBridgeJNI();
 		vnc.addObserver(this);
@@ -404,6 +426,11 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			}
 		}).start();
 	}
+	
+	/**
+	 * @brief Starts the SlideMenu
+	 * @details Starts the SlideMenu. Sets all the configurations
+	 */
 	private void startSlideMenu(){
         // configure the SlidingMenu
         //para modificar el margen de dips cambiar MARGIN_THRESHOLD en la 
@@ -424,7 +451,13 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		.commit();
 	}
 	
-	
+	/**
+	 * @brief Handles the onKeyDown event
+	 * @param keyCode The key code
+	 * @param event The event
+	 * @return True
+	 * @details Handles the onKeyDown event. Only handles the back key and the menu key
+	 */
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent evt){
 		//super.onKeyDown(keyCode, evt);
@@ -444,6 +477,13 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		return true;
 		
 	}
+	
+	/**
+	 * @brief Captures the keys of the keyboard
+	 * @param event The event
+	 * @details Capture the keys of the keyboard. If the character has to be pressed with a combination of the shift key 
+	 * and other key then adds 100 to the modKeyCount attribute to applies the offset
+	 */
 	@Override
 	public boolean dispatchKeyEvent(KeyEvent event) {
 		if(event.getAction() == KeyEvent.ACTION_DOWN || event.getAction() == KeyEvent.ACTION_UP|| event.getAction() == KeyEvent.ACTION_MULTIPLE){
@@ -469,6 +509,14 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		}
 	    return super.dispatchKeyEvent(event);
 	}
+	
+	/**
+	 * @brief Captures the onkeyUp event
+	 * @param keyCode The key
+	 * @param evt The event
+	 * @return true
+	 * @details Captures the onKeyUp event and returns true
+	 */
 	@Override
 	public boolean onKeyUp(int keyCode, KeyEvent evt){
 		super.onKeyUp(keyCode, evt);
@@ -476,6 +524,12 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		return true;
 	}
 	
+	/**
+	 * @brief Captures onTouchEvent
+	 * @param event The event
+	 * @return true
+	 * @details Captures onTouchEvent. Sends the event to the gesture and scaleGesture objects
+	 */
 	@Override
 	public boolean onTouchEvent(MotionEvent event){
 	
@@ -508,6 +562,13 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
         }
 	}
 	
+	/**
+	 * @brief Handles the onUpMouse event
+	 * @param e The event
+	 * @return true
+	 * @details Handles the onUpMouse event. Starts the endScrollThreads and sets the onLoopMore as true, drag as false 
+	 * and zoom as false
+	 */
 	public boolean onUpMouse(MotionEvent e){
 		if(drag || zoom){
 			if(endScrollThread != null){
@@ -528,6 +589,12 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
         
 		return true;
 	}
+	
+	/**
+	 * @brief updateRedraw notification
+	 * @details updateRedraw notification. This method calls to canvas reDraw when the activity gets a notification of 
+	 * redraw
+	 */
 	@Override
 	public void updateRedraw() {
 		canvas.reDraw();
@@ -535,17 +602,27 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			progressDialog.dismiss();
 			
 		canvas.postInvalidate();
-		/*if(progressDialog.isShowing() && canvas.getRealWidth() == x+width && canvas.getRealHeight() == y+height){
-			progressDialog.dismiss(); 
-			canvas.postInvalidate();
-		}*/
 	}
 	
+	/**
+	 * @brief updateIniFrame notification
+	 * @param data The bitmap data
+	 * @param offset The offset
+	 * @param x The x coordinate
+	 * @param y The y coordinate
+	 * @param width The image width 
+	 * @param height The image height
+	 * @details updateIniFrame notification. Calls the canvas method initCanvas 
+	 */
 	@Override
 	public void updateIniFrame(int[] data,int offset,int x,int y,int width,int height) {
 		canvas.initCanvas(data, offset, width, x,y,  width, height);		
 	}
 
+	/**
+	 * @brief updateFinish notification
+	 * @details updateFinish notification. Ends the connection 
+	 */
 	@Override
 	public void updateFinish() {
 		if(progressDialog.isShowing()){
@@ -554,6 +631,12 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		showDialogWait(EnumDialogs.serverInterruptConexionDialog);
 		finishConnection();
 	}
+	
+	/**
+	 * @brief updatePass notification
+	 * @return The password
+	 * @details updatePass notification. Returns the password when the activity gets a request 
+	 */
 	@Override
 	public String updatePass() {
 		showDialogWait(EnumDialogs.passwordNeededDialog);
@@ -561,6 +644,12 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		pass = null;
 		return aux_pass;
 	}
+	
+	/**
+	 * @brief updateOutMemory notification
+	 * @details updateOutMemory notification. If there are not enough memory, closes the connection when the activity 
+	 * gets the notification
+	 */
 	@Override
 	public void updateOutOfMemory() {
 		progressDialog.dismiss();
@@ -570,7 +659,14 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		finishConnection();
 		
 	}
-	public void showDialogWait(final EnumDialogs dialog){
+	
+	/**
+	 * @brief Shows a dialog
+	 * @param dialog the dialog enum
+	 * @details Shows a dialog. Shows the dialog indicated in the enum dialog parameter and waits until the dialog 
+	 * is closed
+	 */
+	private void showDialogWait(final EnumDialogs dialog){
 		waitDialog = true;
 		this.runOnUiThread(new Runnable() {
 			
@@ -584,17 +680,21 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		
 	}
 
-	//publica porque necesito llamarla desde el fragment slide lateral
+	/**
+	 * @brief Makes a toggle of the keyboard
+	 * @details Makes a toggle of the keyboard
+	 */
 	public void showKeyboard(){
-		//showKeyboard = !showKeyboard;
-		
-        //inputMgr.toggleSoftInputFromWindow(canvas.getWindowToken(), InputMethodManager.SHOW_FORCED, 0);
+
         inputMgr.toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_IMPLICIT_ONLY);
-		//IMMResult result = new IMMResult();
-		//inputMgr.showSoftInput(canvas, InputMethodManager.SHOW_FORCED, result);
-		//inputMgr.showSoftInput(canvas, InputMethodManager.SHOW_IMPLICIT, result);
+		
         menu.toggle();
 	}
+	
+	/**
+	 * @brief Ends the connection
+	 * @details Ends the connection
+	 */
 	private void finishConnection(){
 		if(progressDialog.isShowing()){
 			progressDialog.dismiss();
@@ -603,6 +703,14 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		finish();
 	}
 	
+	/**
+	 * @brief Makes the scroll
+	 * @param distanceX the distance of the x coordinate
+	 * @param distanceY the distance of the y coordinate
+	 * @return true
+	 * @details Makes the scroll. Checks if the move is out of the image, if it is the method recalculates the distances 
+	 * and adds the distances to the current coordinates and calls the canvas method scrollTo
+	 */
 	private boolean doScroll(float distanceX,float distanceY){
 		if(!drag){
 			drag = true;
@@ -673,6 +781,11 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		return true;
 	}
 	
+	/**
+	 * @brief Centers the image
+	 * @details Centers the image. Sets the x coordinate, the y coordinate, scaleFActor to the defaults values 
+	 * also calls the canvas methods scrollTo and setScale to sets the new scroll and the new scale
+	 */
 	private void centerImage(){
 		realX = 0;
 		realY = 0;
@@ -681,15 +794,36 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		canvas.setScale(scaleFactor,0,0);
 	}
 
+	/**
+	 * @class GestureListener
+	 * @brief This is the Class which handles the gesture events
+	 * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+	 * @implements OnScaleGestureListener 
+	 * @implements OnGestureListener
+	 * @details This is the Class which handles the gesture events.
+	 */
 	private class GestureListener implements OnScaleGestureListener,OnGestureListener{
+		/**
+		 * The x coordinate
+		 */
 		private float x;
+		/**
+		 * The y coordinate
+		 */
 		private float y;
+		
 		@Override
 		public boolean onDown(MotionEvent e) {
 			
 			return true;
 		}
 		
+		/**
+		 * @brief Handles the onLongPress event
+		 * @param e The event
+		 * @details Handles the onLongPress event. Calculates the real position of the mouse in the bitmap and 
+		 * calls the VncBridgeJNI method sendMouseEvent
+		 */
 		@Override
 		public void onLongPress(MotionEvent e) {
 			if(drag){
@@ -701,6 +835,16 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			if(vnc != null)
 				vnc.sendMouseEvent((int)posX,(int)posY,MouseEvent.RightClick);
 		}
+		
+		/**
+		 * @brief Handles the onFling event
+		 * @param e1 The first capture position
+		 * @param e2 The second capture position
+		 * @param velocityX The velocity of the x coordinate
+		 * @param velocityY The velocity of the y coordinate
+		 * @return true
+		 * @details Handles the onFling event. Makes scroll according to the velocity
+		 */
 		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
 				float velocityY) {
@@ -709,6 +853,16 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			
 			return true;
 		}
+		
+		/**
+		 * @brief Handles the onScroll event
+		 * @param e1 The first capture position
+		 * @param e2 The second capture position
+		 * @param distanceX The distance of the x coordinate between the first and the second capture
+		 * @param distanceY The distance of the y coordinate between the first and the second capture
+		 * @return true
+		 * @details Handles the onScroll event. Calls to doScroll method
+		 */
 		@Override
 		public boolean onScroll(MotionEvent e1, MotionEvent e2,float distanceX,
 				float distanceY) {
@@ -723,6 +877,13 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 
 		}
 
+		/**
+		 * @brief Handles the onSingleTapUp event
+		 * @param e The event capture
+		 * @return true
+		 * @details Handles the onSingleTapUp event. Calculates the real position of the mouse in the bitmap and 
+		 * calls the VncBridgeJNI method sendMouseEvent
+		 */
 		@Override
 		public boolean onSingleTapUp(MotionEvent e) {
 			if(drag){
@@ -739,31 +900,36 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			return true;
 		}
 		
-		
-		
+		/**
+		 * @brief Handles the onScale event
+		 * @param detector The class which stores all the event information
+		 * @return true
+		 * @details Handles the onScale event. Checks if it is zoomed or unzoomed, then calls the canvas method 
+		 * scaleFactor and moves to the user current position 
+		 */
 		@Override
 		public boolean onScale(ScaleGestureDetector detector) {
 			float factor = detector.getScaleFactor();
 			boolean isDo = false;
-			if(factor > 1 && scaleFactor != 3){
-				if(scaleFactor + 0.1 < 3){
+			if(factor > 1 && scaleFactor != MAX_ZOOM){
+				if(scaleFactor + 0.1 < MAX_ZOOM){
 					scaleFactor += 0.1;
 					
 				}
 				else{
-					scaleFactor = 3;
+					scaleFactor = MAX_ZOOM;
 					
 					
 				}
 				isDo = true;
 			}
-			else if(factor < 1 && scaleFactor != 0.5f){
-				if(scaleFactor - 0.1 > 0.5f){
+			else if(factor < 1 && scaleFactor != MIN_ZOOM){
+				if(scaleFactor - 0.1 > MIN_ZOOM){
 					scaleFactor -= 0.1;
 					
 				}
 				else{
-					scaleFactor = 0.5f;
+					scaleFactor = MIN_ZOOM;
 				}
 				isDo = true;
 			}
@@ -810,6 +976,12 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			return true;
 		}
 	
+		/**
+		 * @brief Handles the onScaleBegin event
+		 * @param detector The class which stores all the event information
+		 * @return true
+		 * @details Handles the onScaleBegin event. Calls the canvas method startDrag and gets the x and y coordinates
+		 */
 		@Override
 		public boolean onScaleBegin(ScaleGestureDetector detector) {
 			
@@ -830,21 +1002,28 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 			return true;
 		}
 	
+		/**
+		 * @brief Handles the onScaleEnd event
+		 * @param detector The class which stores all the event information
+		 * @return true
+		 * @details Handles the onScaleEnd event. Calls the method doScroll to set the image  
+		 */
 		@Override
 		public void onScaleEnd(ScaleGestureDetector detector) {
 			
 			doScroll(1, 1);
 
-			//isDrag = false;
-			//canvas.endDrag();
-
 		}
 
 	};
 	
-	
-	//control de dialogos
-	
+	/**
+	 * @brief Override function to create dialogs
+	 * @param id the dialog ID
+	 * @return Dialog created
+	 * @details Create the dialog with a showDialog(id) called,
+	 * id is the number of the dialog to be created
+	 */
 	@Override
 	protected Dialog onCreateDialog(int id) {
 	    Dialog dialog = null;
@@ -895,9 +1074,11 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	    return dialog;
 	}
 	
-	
-	
-	
+	/**
+	 * @brief Show the dialog with the password needed message
+	 * @return The new dialog
+	 * @details Show the dialog with the password needed message
+	 */
 	private Dialog passwordNeededDialog() {
 		
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -933,6 +1114,11 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	    return builder.create();
 	}
 	
+	/**
+	 * @brief Show the dialog with the server not found message
+	 * @return The new dialog
+	 * @details Show the dialog with the server not found message
+	 */
 	private Dialog createServerNotFoundDialog() {
 	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
 	    
@@ -954,7 +1140,11 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	    return builder.create();
 	}
 	
-	
+	/**
+	 * @brief Show the dialog with the exit question
+	 * @return The new dialog
+	 * @details Show the dialog with the exit question
+	 */
 	private Dialog exitDialog() {
 		final String titleExit = getString(R.string.DialogTitleExit);
 		final String question = getString(R.string.DialogQuestion);			
@@ -974,6 +1164,11 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	      .show();
 	}
 	
+	/**
+	 * @brief Show the dialog with the connection interrupted message
+	 * @return The new dialog
+	 * @details Show the dialog with the connection interrupted message
+	 */
 	private Dialog serverInterruptConnectionDialog() {
 	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
 	    
@@ -995,6 +1190,11 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	    return builder.create();
 	}
 	
+	/**
+	 * @brief Show the dialog with timeout message
+	 * @return The new dialog
+	 * @details Show the dialog with timeout message
+	 */
 	private Dialog timeExceededDialog() {
 	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
 	    
@@ -1015,6 +1215,12 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	    
 	    return builder.create();
 	}
+	
+	/**
+	 * @brief Show the dialog with the out of memory message
+	 * @return The new dialog
+	 * @details Show the dialog with the out of memory message
+	 */
 	private Dialog outOfMemoryDialog() {
 	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
 	    
@@ -1035,6 +1241,12 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	    
 	    return builder.create();
 	}
+	
+	/**
+	 * @brief Sends the special keys
+	 * @param down if it is down or not the key
+	 * @details Sends the special keys. Calls the VncBridgeJNI method sendKey
+	 */
 	private void sendSpecialKeys(boolean down){
 		for(EnumSpecialKey s : specialKeys){
  		   switch (s) {
@@ -1057,13 +1269,25 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 				}
  	   }
 	}
+	
+	/**
+	 * @brief Sends the keys
+	 * @param down if it is down or not the key
+	 * @details Sends the keys. Calls the VncBridgeJNI method sendKey
+	 */
 	private void sendKeys(boolean down){
 		if(keys != null){
 			for(int s : keys){
-				vnc.sendKey(s+adjustKeys,down);
+				vnc.sendKey(s+ADJUST_KEY,down);
 	 	   }
 		}
 	}
+	
+	/**
+	 * @brief Show the dialog with the combo event
+	 * @return The new dialog
+	 * @details Show the dialog with the combo event
+	 */
 	private Dialog comboEventsDialog() {
 	   
 		specialKeys = new Vector<EnumSpecialKey>();  // Where we track the selected items
@@ -1136,6 +1360,11 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		
 	}
 	
+	/**
+	 * @brief Show the dialog with the function keys
+	 * @return The new dialog
+	 * @details Show the dialog with the function keys
+	 */
 	private Dialog functionKeysDialog() {		   
 
 	   AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -1181,6 +1410,11 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 		
 	}
 	
+	/**
+	 * @brief Show the dialog with the help message
+	 * @return The new dialog
+	 * @details Show the dialog with the help message
+	 */
 	private Dialog openHelpDialog()
 	 {
 		
@@ -1202,7 +1436,10 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	  .show();
 	 }
 	
-	//publica porque se llama desde el fragment lateral
+	/**
+	 * @brief Centers the image
+	 * @details Centers the image. 
+	 */
 	public void centerImageCanvas(){
 		centerImage();
 		menu.toggle();

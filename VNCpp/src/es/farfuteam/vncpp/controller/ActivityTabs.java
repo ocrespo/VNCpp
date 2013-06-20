@@ -484,7 +484,7 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 		
 		/**
 		 * @brief Override function to create dialogs
-		 * @param id
+		 * @param id the dialog ID
 		 * @return Dialog created
 		 * @details Create the dialog with a showDialog(id) called,
 		 * id is the number of the dialog to be created
