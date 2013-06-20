@@ -25,17 +25,17 @@ import android.content.SharedPreferences;
 /**
  * @class Configuration
  * @brief This is the class which control the SharedPreferences file.
- * 
- * This is the detailed description
- *
  * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
  */
 public class Configuration {
 
+	/**Singleton */
 	private static Configuration singleton = null;
-	
+	/**remember the exit */
 	private boolean rememberExit;
+	/**hide the cursor of the mouse */
 	private boolean hideMouse;
+	/**the file with the preferences*/
 	private SharedPreferences prefs;
 	
 	/**

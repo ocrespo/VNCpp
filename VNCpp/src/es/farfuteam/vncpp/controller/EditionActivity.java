@@ -40,24 +40,30 @@ import es.farfuteam.vncpp.controller.NewConnectionActivity.QualityArray;
 
 /**
  * @class EditionActivity
- * @brief This is the activity created to managed the connection edition.
- * 
- * This is the detailed description
+ * @brief This is the activity created to managed the connection edition
  * @extends Activity
  * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
  */
 public class EditionActivity extends Activity{
 
-
+	/** EditText to write the ip connection*/
 	private EditText IP_field;
+	/** EditText to write the port connection*/
 	private EditText PORT_field;
+	/** EditText to write the password connection*/
 	private EditText PSW_field;
 	
+	/**ip connection*/
 	private String IP;
+	/**port connection*/
 	private String PORT;
+	/**password connection*/
 	private String PSW;
+	/**spinner with the image quality*/
 	private Spinner Spinner_colors;
+	/**image quality*/
 	private int color_format;
+	/**fav connection*/
 	private boolean fav;
 
 	/**
@@ -180,7 +186,11 @@ public class EditionActivity extends Activity{
 		
 	}
 	
-	
+	/**
+	 * @brief This function check the ip format and the port parameter
+	 * @return true if it is a valid IP and valid Port.
+	 * @details This function check the ip format and the port parameter
+	 */
 	private boolean verify(){
 		
 		//Comprobar validez IP
@@ -205,7 +215,11 @@ public class EditionActivity extends Activity{
 		
 	}
 	
-	
+	/**
+	 * @brief This function check the port parameter
+	 * @return true if it is a valid Port, false in another case 
+	 * @details This function check the port parameter
+	 */
 	private boolean validPort(String port){
 		
 		try {
@@ -224,7 +238,12 @@ public class EditionActivity extends Activity{
 		
 	}
 	
-	
+	/**
+	 * @brief This function check the ip format
+	 * @param ipAddress the address
+	 * @return true if it's a valid IP, false in another case
+	 * @details This function check the ip format
+	 */
 	private boolean validateIPAddress( String ipAddress ) {
 		
 		String[] tokens = ipAddress.split("\\.");
@@ -254,6 +273,14 @@ public class EditionActivity extends Activity{
 	}
 	
 	
+	/**
+	 * @brief Handles the onKeyDown event
+	 * @param keyCode
+	 * @param event
+	 * @return True if the event is handled properly. If the keyCode is not equal to KEYCODE_BACK 
+	 * it returns the event
+	 * @details Only handles the back key. Otherwise it returns the event
+	 */
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 	   
@@ -268,6 +295,12 @@ public class EditionActivity extends Activity{
 	  return super.onKeyDown(keyCode, event);
 	} 
 
+	/**
+	 * @brief Handles the item selected event
+	 * @param item
+	 * @return True if the event is handled properly
+	 * @details Handles the item selected event, in this case, the event of the actionBar to return to the last activity
+	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Sirve para volver atrás al pulsar en la actionBar

@@ -65,8 +65,14 @@ import es.farfuteam.vncpp.view.ListFragmentTabFav;
 
 public class ActivityTabs extends FragmentActivity implements SuperListener{	
 	
+	/**
+	 * @enum InfoDialogs
+	 * @authors Oscar Crespo, Gorka Jimeno, Luis Valero 
+	 * @details Dialogs with util info for the user
+	 */
 	public enum InfoDialogs{infoDialog,createNonConnectionDialog,exitDialog,aboutDialog};
 	
+	/** Preferences file*/
 	public static final String PREFS_NAME="PreferencesFile";
 		
 	/** A string */
@@ -75,6 +81,7 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 	/** Object */
 	private Object o;
 	
+	/** Adapter of the list*/
 	private Adapter adapter;
 
 

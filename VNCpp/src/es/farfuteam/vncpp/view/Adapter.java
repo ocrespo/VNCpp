@@ -45,9 +45,11 @@ import es.farfuteam.vncpp.model.sql.Connection;
  */
 public class Adapter extends BaseAdapter {	
 	
+	/** the activity which uses the Adapter*/
 	private Activity activity;
+	/** List of the Adapter */
 	private ArrayList<Connection> list;
-	
+	/** the listfragment*/
 	private ListFragmentTab listFragment;
 
 	/**

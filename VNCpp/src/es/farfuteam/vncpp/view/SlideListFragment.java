@@ -39,9 +39,6 @@ import es.farfuteam.vncpp.controller.R;
 /**
  * @class SlideListFragment
  * @brief This is class which controls the lateral menu in Canvas
- * 
- * This is the detailed description
- *
  * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
  * @extends ListFragment
  */

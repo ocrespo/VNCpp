@@ -46,35 +46,50 @@ import es.farfuteam.vncpp.model.sql.ConnectionSQLite;
 
 
 /**
- * @Name        : Server.cpp
- * @author      : Oscar Crespo, Luis Valero, Gorka Jimeno
- * @Version     :
- * @Copyright   : GPLv3
- * @Description : Main class
- *
+ * @class NewConnectionActivity
+ * @brief This is the activity created to create a new connection
+ * @extends FragmentActivity
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
  */
 public class NewConnectionActivity extends FragmentActivity {
 	
+	/**
+	 * @enum QualityArray
+	 * @authors Oscar Crespo, Gorka Jimeno, Luis Valero 
+	 * @details Controls the image quality
+	 */
 	public enum QualityArray{SuperHigh,High,Medium,Low};
 	
+	/** EditText to write the name connection*/
 	private EditText ConnectionName_field;
+	/** EditText to write the ip connection*/
 	private EditText IP_field;
+	/** EditText to write the port connection*/
 	private EditText PORT_field;
+	/** EditText to write the password connection*/
 	private EditText PSW_field;
 	
-	
+	/**connection name */
 	private String connectionName;
+	/**connection ip */
 	private String IP;
+	/**connection port */
 	private String PORT;
+	/**connection psw */
 	private String PSW;
+	/**connection pswAuth */
 	private String PSWAuth;
-	
+	/**spinners with the quality image */
 	private Spinner Spinner_colors;
-	//formato de color seleccionado
+	/**image quality selected */
 	private QualityArray color_format;	
 	
 
-   
+	/**
+	 * @brief This is the onCreate method
+	 * @param savedInstanceState
+	 * @details The onCreate method adds bottons and edittext on the activity
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -164,6 +179,12 @@ public class NewConnectionActivity extends FragmentActivity {
         
 	}
 	
+	/**
+	 * @brief Return the image quality 
+	 * @param pos position on the array
+	 * @return the image quality
+	 * @details Return the image quality of th enum
+	 */
 	private QualityArray getPosEnumQuality(int pos){
 		
 		switch (pos) {
@@ -183,6 +204,10 @@ public class NewConnectionActivity extends FragmentActivity {
 		return null;
 	}
 	
+	/**
+	 * @brief Method that initialized the Canvas Activity
+	 * @details Method that initialized the Canvas Activity
+	 */
 	private void iniCanvasActivity(){
 		
 		Intent canvasActivity = new Intent(this, CanvasActivity.class);
@@ -195,7 +220,6 @@ public class NewConnectionActivity extends FragmentActivity {
 		//Aquí veo el tipo de conexión, para usar un tipo de compresión de imagen u otro
 		if (checkConnectivity()){
 				
-				//TODO Oscar -> se pasa a la canvasActivity true->wifi, false->3g
 				canvasActivity.putExtra("wifi", isWifiConnectivityType());
 				
 				startActivity(canvasActivity);
@@ -213,11 +237,20 @@ public class NewConnectionActivity extends FragmentActivity {
 
 	}
 	
+	/**
+	 * @brief Cancel the creation of new connection
+	 * @param v the view
+	 * @details Cancel the creation of new connection
+	 */
 	private void Cancel(View v){	        
 	        finish();
 	}
 	
-	
+	/**
+	 * @brief Check the connectivity of the terminal
+	 * @return True if the connectivity exists, false in another case.
+	 * @details Check the connectivity of the terminal
+	 */
 	private boolean checkConnectivity()
     {
         boolean enabled = true;
@@ -232,6 +265,11 @@ public class NewConnectionActivity extends FragmentActivity {
         return enabled;        
     }
 	
+	/**
+	 * @brief Check the connectivity type of the terminal
+	 * @return True if the connectivity type is Wifi, false in another case.
+	 * @details Check the connectivity type of the terminal
+	 */
 	//devuelve true si es conexion wifi, false en caso contrario
 	private boolean isWifiConnectivityType(){
 		ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -250,7 +288,11 @@ public class NewConnectionActivity extends FragmentActivity {
 	}
 	
     
-    
+    /**
+     * @brief Preserved the state of the activity
+     * @param newConfig
+     * @details Preserved the state of the activity when the terminal changed the orientation
+     */
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
@@ -271,8 +313,9 @@ public class NewConnectionActivity extends FragmentActivity {
 
 
 	/**
-	 * Aqui se verifican los datos introducidos por el usuario
-	 * @param v
+	 * @brief Verify the data introduced by the user
+	 * @param v the view
+	 * @details Verify the data introduced by the user
 	 */
 	private boolean verify(View v) {		
 		
@@ -310,6 +353,12 @@ public class NewConnectionActivity extends FragmentActivity {
 
 	}
 	
+	/**
+	 * @brief Valid the connection name
+	 * @param name the name of the connection
+	 * @return true if is a valid name, false if this name is in use
+	 * @details Return true if this name it is not in use
+	 */
 	private boolean validNameConnection(String name){
 		
 		//se mira en la base de datos que no exista
@@ -323,6 +372,11 @@ public class NewConnectionActivity extends FragmentActivity {
 		
 	}
 	
+	/**
+	 * @brief This function check the port parameter
+	 * @return true if it is a valid Port, false in another case 
+	 * @details This function check the port parameter
+	 */
 	private boolean validPort(String port){
 		
 		try {
@@ -338,6 +392,12 @@ public class NewConnectionActivity extends FragmentActivity {
 		return true;		
 	}
 	
+	/**
+	 * @brief This function check the ip format
+	 * @param ipAddress the address
+	 * @return true if it's a valid IP, false in another case
+	 * @details This function check the ip format
+	 */
 	private boolean validateIPAddress( String ipAddress ) {
 		
 		String[] tokens = ipAddress.split("\\.");
@@ -367,7 +427,10 @@ public class NewConnectionActivity extends FragmentActivity {
 	}
 	
 	
-	
+	/**
+	 * @brief Create and connect the new connection
+	 * @details Create and connect the new connection
+	 */
 	private void createNewConnection(){
 		
 		if (!isEmpty(ConnectionName_field) && !isEmpty(IP_field) && !isEmpty(PORT_field)){
@@ -383,9 +446,6 @@ public class NewConnectionActivity extends FragmentActivity {
 	        //se anade el usuario a la base de datos
 	        ConnectionSQLite dataBase = ConnectionSQLite.getInstance(this);
 	        dataBase.newUser(c);
-	        	        
-	        //a formar canvas
-	        //iniCanvasActivity();
 
 		}
 		else{
@@ -394,7 +454,13 @@ public class NewConnectionActivity extends FragmentActivity {
 		}
 	}
 		
-	
+	/**
+	 * @brief Override function to create dialogs
+	 * @param id
+	 * @return Dialog created
+	 * @details Create the dialog with a showDialog(id) called,
+	 * id is the number of the dialog to be created
+	 */
 	@Override
 	protected Dialog onCreateDialog(int id) {
 	    Dialog dialog = null;
@@ -415,7 +481,11 @@ public class NewConnectionActivity extends FragmentActivity {
 	    return dialog;
 	}
 	
-	
+	/**
+	 * @brief Show the dialog when any field is empty
+	 * @return The new dialog
+	 * @details Show the dialog when any field is empty
+	 */
 	private Dialog createAlertDialog() {
 	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
 	    
@@ -435,6 +505,11 @@ public class NewConnectionActivity extends FragmentActivity {
 	    return builder.create();
 	}
 	
+	/**
+	 * @brief Show the dialog when the connection is not available
+	 * @return The new dialog
+	 * @details Show the dialog when the connection is not available
+	 */
 	private Dialog createNonConnectionDialog() {
 	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
 	    
@@ -454,7 +529,11 @@ public class NewConnectionActivity extends FragmentActivity {
 	    return builder.create();
 	}
 	
-	
+	/**
+	 * @brief Controls if the EditText is empty
+	 * @return False if the EditText is empty,true in another case
+	 * @details Controls if the EditText is empty
+	 */
 	private boolean isEmpty(EditText etText) {
 	    if (etText.getText().toString().trim().length() > 0) {
 	        return false;
@@ -463,6 +542,14 @@ public class NewConnectionActivity extends FragmentActivity {
 	    }
 	}
 	
+	/**
+	 * @brief Handles the onKeyDown event
+	 * @param keyCode
+	 * @param event
+	 * @return True if the event is handled properly. If the keyCode is not equal to KEYCODE_BACK 
+	 * it returns the event
+	 * @details Only handles the back key. Otherwise it returns the event
+	 */
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 	   
@@ -494,56 +581,110 @@ public class NewConnectionActivity extends FragmentActivity {
 	
 	} 
 
-
+	/**
+	 * @brief Returns the connectionName attribute
+	 * @return connectionName the connection name
+	 * @details Returns the connectionName attribute
+	 */
 	public String getConnectionName() {
 		return connectionName;
 	}
 
-
+	/**
+	 * @brief Sets the connectionName attribute
+	 * @param connectionName the connection name
+	 * @details Sets the connectionName attribute
+	 */
 	public void setConnectionName(String connectionName) {
 		this.connectionName = connectionName;
 	}
 
-
+	/**
+	 * @brief Returns the IP attribute
+	 * @return IP
+	 * @details Returns the IP attribute
+	 */
 	public String getIP() {
 		return IP;
 	}
 
-
+	/**
+	 * @brief Sets the IP attribute
+	 * @param iP
+	 * @details Sets the IP attribute
+	 */
 	public void setIP(String iP) {
 		IP = iP;
 	}
 
-
+	/**
+	 * @brief Returns the PSW attribute
+	 * @return PSW the password atributte
+	 * @details Returns the PSW attribute
+	 */
 	public String getPSW() {
 		return PSW;
 	}
 
-
+	/**
+	 * @brief Sets the PSW attribute
+	 * @param pSW the password of the connection
+	 * @details Sets the PSW attribute
+	 */
 	public void setPSW(String pSW) {
 		PSW = pSW;
 	}
 
+	/**
+	 * @brief Returns the PORT attribute
+	 * @return PORT
+	 * @details Returns the PORT attribute
+	 */
 	public String getPORT() {
 		return PORT;
 	}
 
+	/**
+	 * @brief Sets the PSW attribute
+	 * @param pSW the password of the connection
+	 * @details Sets the PSW attribute
+	 */
 	public void setPORT(String pORT) {
 		PORT = pORT;
 	}
 
+	/**
+	 * @brief Returns the color_format attribute
+	 * @return color_format
+	 * @details Returns the color_format attribute
+	 */
 	public QualityArray getColor_format() {
 		return color_format;
 	}
 
+	/**
+	 * @brief Sets the color_format attribute
+	 * @param color_format the image quality of the connection
+	 * @details Sets the color_format attribute
+	 */
 	public void setColor_format(QualityArray color_format) {
 		this.color_format = color_format;
 	}
 
+	/**
+	 * @brief Returns the PSWAuth attribute
+	 * @return PSWAuth
+	 * @details Returns the PSWAuth attribute
+	 */
 	public String getPSWAuth() {
 		return PSWAuth;
 	}
 
+	/**
+	 * @brief Sets the PSWAuth attribute
+	 * @param pSWAuth the password authentication of the connection
+	 * @details Sets the PSWAuth attribute
+	 */
 	public void setPSWAuth(String pSWAuth) {
 		PSWAuth = pSWAuth;
 	}

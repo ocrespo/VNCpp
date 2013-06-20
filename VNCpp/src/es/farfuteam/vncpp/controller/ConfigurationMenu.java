@@ -30,13 +30,12 @@ import android.widget.Switch;
 /**
  * @class ConfigurationMenu
  * @brief This is the activity which control the SharedPreferences file.
- * 
- * This is the detailed description
  * @extends Activity
  * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
  */
 public class ConfigurationMenu extends Activity{
 	
+	/**constant with the Preferences name file*/
 	public static final String PREFS_NAME="PreferencesFile";
 		
 	/**
