@@ -30,10 +30,6 @@
 #define CLASS_OBSERVABLE_PATH "es/farfuteam/vncpp/model/VncBridgeJNI"
 #define CLASS_BITMAP_PATH "es/farfuteam/vncpp/model/Screen"
 
-
-/**
- * Constructor por efecto, no inicializa nada
- */
 /**
  * @brief The default constructor
  * @details Do not initializes anything
@@ -44,7 +40,7 @@ ObservableJNI::ObservableJNI() {
 }
 
 /**
- * @brief The deafault destructor
+ * @brief The default destroyer
  * @details Frees the global reference to the observer_object
  */
 ObservableJNI::~ObservableJNI() {
@@ -105,13 +101,7 @@ void ObservableJNI::getEnviroment(){
 
 
 }
-/**
- * Invoca el metodo updateIniFrame del observer
- * @param width anchura de la imagen
- * @param height altura de la imagen
- * @param bpp Bytes por pixel
- * @param depth Profundidad (bits por pixel)
- */
+
 /**
  * @brief Invokes the observer method updateIniFrame
  * @param width The image width

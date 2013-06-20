@@ -34,12 +34,18 @@ using namespace std;
  * @brief Clase encargada de enlazar la conexion, hecha en la clase ClientConnectionRFB
  * con la clase encargada de convertir la imagen y gestionar eventos de rfb
  */
+/**
+ * @class Vnc
+ * @brief This Class is delegate to link the connection
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ * @details This Class is delegate to link the connection.
+ */
 class ClientConnectionRFB;
 class ClientScreen;
 class Vnc {
 private:
-	ClientConnectionRFB *rfb; ///< referencia a ClientConnectionRfb, se encarga de gestionar la conexion rfb
-	ClientScreen *screen;///< referencia a ClientScreen, se encarga de gestion los eventos rfb y tratar la imagen
+	ClientConnectionRFB *rfb; ///< Reference to ClientConnection RFB, it manages the RFB connection
+	ClientScreen *screen;///< Reference to ClientScreen, it handles the RFB events and also manage the image
 
 public:
 	Vnc();
