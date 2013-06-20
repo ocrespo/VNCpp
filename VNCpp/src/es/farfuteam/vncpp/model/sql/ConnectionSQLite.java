@@ -31,9 +31,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 /**
- * @brief Clase encargada del control de la base de datos 
- * @author gorka
- *
+ * @class ConnectionSQLite
+ * @brief This is the class which creates and controls the data base
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ * @extends SQLiteOpenHelper
  */
 public class ConnectionSQLite extends SQLiteOpenHelper {
 	
