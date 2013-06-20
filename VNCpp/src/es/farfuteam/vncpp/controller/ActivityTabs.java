@@ -55,9 +55,6 @@ import es.farfuteam.vncpp.view.ListFragmentTabFav;
 /**
  * @class ClientActivityTabs
  * @brief This is the main activity.
- * 
- * This is the detailed description
- *
  * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
  * @extends FragmentActivity
  * @implements SuperListener
@@ -396,8 +393,8 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 		}	
 		
 		/**
-		 * @brief Show the dialog with the connection information
-		 * @details Show the dialog with the connection information
+		 * @brief Shows the dialog with the connection information
+		 * @details Shows the dialog with the connection information
 		 */
 		public void showInfoDialog() {
 				showDialog(InfoDialogs.infoDialog.ordinal());			
@@ -442,9 +439,9 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 
 		
 		/**
-		 * @brief Check the connectivity of the terminal
+		 * @brief Checks the connectivity of the terminal
 		 * @return True if the connectivity exists, false in another case.
-		 * @details Check the connectivity of the terminal
+		 * @details Checks the connectivity of the terminal
 		 */
 		private boolean checkConnectivity()
 	    {
@@ -461,9 +458,9 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 	    }
 		
 		/**
-		 * @brief Check the connectivity type of the terminal
+		 * @brief Checks the connectivity type of the terminal
 		 * @return True if the connectivity type is Wifi, false in another case.
-		 * @details Check the connectivity type of the terminal
+		 * @details Checks the connectivity type of the terminal
 		 */
 		//devuelve true si es conexion wifi, false en caso contrario
 		private boolean isWifiConnectivityType(){
@@ -486,7 +483,7 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 		 * @brief Override function to create dialogs
 		 * @param id the dialog ID
 		 * @return Dialog created
-		 * @details Create the dialog with a showDialog(id) called,
+		 * @details Creates the dialog with a showDialog(id) called,
 		 * id is the number of the dialog to be created
 		 */
 		@Override
@@ -513,9 +510,9 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 		}
 		
 		/**
-		 * @brief Show the dialog with the exit question
+		 * @brief Shows the dialog with the exit question
 		 * @return The new dialog
-		 * @details Show the dialog with the exit question
+		 * @details Shows the dialog with the exit question
 		 */
 		private Dialog createExitDialog(){
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -615,10 +612,10 @@ public class ActivityTabs extends FragmentActivity implements SuperListener{
 		}
 		
 		/**
-		 * @brief Receive the QualityArray and return the String
-		 * @param color 
-		 * @return String
-		 * @details Receive the QualityArray and return the String to show the info in String type
+		 * @brief Receives the QualityArray and return the String
+		 * @param color quality image
+		 * @return String quality
+		 * @details Receives the QualityArray and return the String to show the info in String type
 		 */
 		private String messageQuality(QualityArray color){
 

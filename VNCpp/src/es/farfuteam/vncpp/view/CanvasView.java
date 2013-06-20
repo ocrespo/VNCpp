@@ -79,7 +79,7 @@ public class CanvasView extends  ImageView{
 	 */
 	private boolean update = false;
 	/**
-	 * The auxiliar bitmap
+	 * The auxiliary bitmap
 	 */
 	private Rect bitmapRect;
 	/**
@@ -170,8 +170,8 @@ public class CanvasView extends  ImageView{
 	}
 
 	/**
-	 * @brief Create a temporal bitmap
-	 * @details Create a temporal bitmap when the user moves around the image
+	 * @brief Creates a temporal bitmap
+	 * @details Creates a temporal bitmap when the user moves around the image
 	 */
 	public void startDrag() {
 		if(bitmap ==null){
@@ -182,8 +182,8 @@ public class CanvasView extends  ImageView{
 	}
 	
 	/**
-	 * @brief Destroy the temporal bitmap
-	 * @details Invalidate the temporal bitmap created al startDrag()
+	 * @brief Destroys the temporal bitmap
+	 * @details Invalidates the temporal bitmap created on startDrag()
 	 */
 	public void endDrag(){
 		drag = false;
@@ -194,8 +194,8 @@ public class CanvasView extends  ImageView{
 	}
 	
 	/**
-	 * @brief Update the bitmap
-	 * @details Update the bitmap
+	 * @brief Updates the bitmap
+	 * @details Updates the bitmap
 	 */
 	public void reDraw(){
 		if(!drag){
@@ -210,14 +210,14 @@ public class CanvasView extends  ImageView{
 	
 	/**
 	 * @brief Initialized Canvas
-	 * @param data 
-	 * @param offset  
-	 * @param stride 
-	 * @param x
-	 * @param y 
-	 * @param width
-	 * @param height 
-	 * @details Initialized Canvas
+	 * @param data Bitmap data
+	 * @param offset The offset is the array position with the first pixel 
+	 * @param stride The array stride
+	 * @param x The X coordinate
+	 * @param y The Y coordinate
+	 * @param width The width 
+	 * @param height The height
+	 * @details Initialized Canvas with the indicated parameters
 	 */
 	public void initCanvas(int[] data,int offset,int stride,int x,int y,int width,int height) {
 		this.x = x;

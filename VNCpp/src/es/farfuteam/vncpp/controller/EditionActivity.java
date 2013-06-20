@@ -187,9 +187,9 @@ public class EditionActivity extends Activity{
 	}
 	
 	/**
-	 * @brief This function check the ip format and the port parameter
+	 * @brief This function checks the ip format and the port parameter
 	 * @return true if it is a valid IP and valid Port.
-	 * @details This function check the ip format and the port parameter
+	 * @details This function checks the ip format and the port parameter
 	 */
 	private boolean verify(){
 		
@@ -216,9 +216,9 @@ public class EditionActivity extends Activity{
 	}
 	
 	/**
-	 * @brief This function check the port parameter
+	 * @brief This function checks the port parameter
 	 * @return true if it is a valid Port, false in another case 
-	 * @details This function check the port parameter
+	 * @details This function checks the port parameter
 	 */
 	private boolean validPort(String port){
 		
@@ -239,10 +239,10 @@ public class EditionActivity extends Activity{
 	}
 	
 	/**
-	 * @brief This function check the ip format
+	 * @brief This function checks the ip format
 	 * @param ipAddress the address
-	 * @return true if it's a valid IP, false in another case
-	 * @details This function check the ip format
+	 * @return true if it is a valid IP, false in another case
+	 * @details This function checks the ip format
 	 */
 	private boolean validateIPAddress( String ipAddress ) {
 		
@@ -275,8 +275,8 @@ public class EditionActivity extends Activity{
 	
 	/**
 	 * @brief Handles the onKeyDown event
-	 * @param keyCode
-	 * @param event
+	 * @param keyCode The code key
+	 * @param event The key event
 	 * @return True if the event is handled properly. If the keyCode is not equal to KEYCODE_BACK 
 	 * it returns the event
 	 * @details Only handles the back key. Otherwise it returns the event
@@ -297,7 +297,7 @@ public class EditionActivity extends Activity{
 
 	/**
 	 * @brief Handles the item selected event
-	 * @param item
+	 * @param item The item
 	 * @return True if the event is handled properly
 	 * @details Handles the item selected event, in this case, the event of the actionBar to return to the last activity
 	 */

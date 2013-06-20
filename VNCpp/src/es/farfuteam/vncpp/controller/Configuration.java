@@ -41,7 +41,7 @@ public class Configuration {
 	/**
 	 * @brief Singleton of Configuration
 	 * @return Configuration
-	 * @details Create the instance of Configuration
+	 * @details Creates the instance of Configuration
 	 */
 	public static Configuration getInstance(){
 		if(singleton == null){
@@ -122,8 +122,8 @@ public class Configuration {
 	}
 	
 	/**
-	 * @brief Read the SharedPreferences values
-	 * @details Read the SharedPreferences values
+	 * @brief Reads the SharedPreferences values
+	 * @details Reads the SharedPreferences values
 	 */
 	public void readPrefs(){
 		rememberExit =  prefs.getBoolean("exit", false);

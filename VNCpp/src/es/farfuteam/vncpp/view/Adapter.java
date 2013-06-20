@@ -54,8 +54,8 @@ public class Adapter extends BaseAdapter {
 
 	/**
 	 * @brief Constructor method
-	 * @param act
-	 * @param u
+	 * @param act The activity
+	 * @param u Connection List
 	 * @details Constructor method
 	 */
 	public Adapter(Activity act,ArrayList<Connection> u){
@@ -164,9 +164,9 @@ public class Adapter extends BaseAdapter {
 	}	
 		
 	/**
-	 * @brief Delete the indicated row
-	 * @param row 
-	 * @details Delete the indicated row
+	 * @brief Deletes the indicated row
+	 * @param row the row of the list
+	 * @details Deletes the indicated row
 	 */
     public void deleteRow(Connection row) {
         
