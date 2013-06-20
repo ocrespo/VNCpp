@@ -31,22 +31,23 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 /**
- * @brief Clase encargada del control de la base de datos 
- * @author gorka
- *
+ * @class ConnectionSQLite
+ * @brief This is the class which creates and controls the data base
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ * @extends SQLiteOpenHelper
  */
 public class ConnectionSQLite extends SQLiteOpenHelper {
 	
-	// Database Version
+	/** Database Version */
     private static final int DATABASE_VERSION = 1;
  
-    // Database Name
+    /** Database Name */
     private static final String DATABASE_NAME = "DBConnections";
  
-    // Contacts table name
+    /** Connection table name */
     private static final String TABLE_CONNECTIONS = "Connections";
  
-    // Contacts Table Columns names
+    /** Connection Table Columns names */
     private static final String KEY_NAME = "NameConnection";
     private static final String KEY_IP = "ip";
     private static final String KEY_PORT = "port";
@@ -54,10 +55,15 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
     private static final String KEY_FAV = "fav";
     private static final String KEY_COLOR = "colorFormat";
         
-    
+    /** instance of ConnectionSQLite */
 	private static ConnectionSQLite instance = null;
 	   
-	
+	/**
+	 * @brief Get the ConnectionSQLite instance
+	 * @param context
+	 * @return ConnectionSQLite the instance
+	 * @details Get the ConnectionSQLite instance
+	 */
 	public static ConnectionSQLite getInstance(Context context) {
 	      
 		if(instance == null) {
@@ -67,14 +73,21 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
 	    
 	}    
     
- 
+	/**
+	 * @brief ConnectionSQLite constructor
+	 * @param context
+	 * @return ConnectionSQLite
+	 * @details ConnectionSQLite constructor
+	 */
     public ConnectionSQLite(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
     
  
     /**
-     * Create the sqlite database of Users
+     * @brief Creates the sqlite table of Connections
+     * @param db The Data Base
+     * @details Creates the sqlite table of Connections
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -87,11 +100,16 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
         db.execSQL(CREATE_USERS_TABLE);        
         
     }
+
     /**
-     * Recreate the sqlite database of Users
+     * @brief Recreates the sqlite database of Connections
+     * @param db The Data Base
+     * @param beforeVersion Before version of the table
+     * @param newVersion The new version table
+     * @details Recreates the sqlite database of Connections
      */
     @Override
-    public void onUpgrade(SQLiteDatabase db, int versionAnterior, int versionNueva) {
+    public void onUpgrade(SQLiteDatabase db, int beforeVersion, int newVersion) {
         //Se elimina la versión anterior de la tabla,aunque quizas
     	//hubiese que salvar datos anteriores, pero de momento no interesa
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CONNECTIONS);
@@ -105,8 +123,8 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
   //CONTROL BASE DE DATOS
 	
 	/**
-	 * @brief Create a new User
-	 * @param u
+	 * @brief Creates a new Connection
+	 * @param u The new connection
 	 */
   	public void newUser(Connection u ) {  		
   		
@@ -128,9 +146,9 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
       }
 
   	 /**
-  	 * @brief Devuelve un usuario especifico
-  	 * @param nameID
-  	 * @return
+  	 * @brief Returns an specific connection
+  	 * @param nameID The id connection
+  	 * @return Connection with this id
   	 */
       public Connection getUserConnection(String nameID) {
 
@@ -156,14 +174,12 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
 
       }
       
-      /*private QualityArray getQuality(String quality){
-    	QualityArray q;
-    	QualityArray.
-    	
-		return null;
-    	  
-      }*/
-      
+      /**
+       * @brief Returns true if the connection is favorite
+       * @param value
+       * @return true if the value is 1, false in another case
+       * @details Returns true if the connection is favorite
+       */
       private boolean getBooleanFav(int value){
     	 if(value == 1){
     		 return true;
@@ -174,8 +190,9 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
       }
 
       /**
-       * @brief Recoge todos los usuarios
-       * @return todos los usuarios
+       * @brief Returns the list with all the connections
+       * @return connections list
+       * @details Returns the list with all the connections
        */
       public ArrayList<Connection> getAllUsers() {
           ArrayList<Connection> userList = new ArrayList<Connection>();
@@ -214,8 +231,9 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
       
       
       /**
-       * @brief Devuelve los usuarios favoritos
-       * @return usuario_favorito
+       * @brief Returns the list with all the favorites connections
+       * @return favorites connections list
+       * @details Returns the list with all the favorites connections
        */
       public ArrayList<Connection> getAllFavUsers() {
           ArrayList<Connection> userList = new ArrayList<Connection>();
@@ -254,8 +272,9 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
       
 
       /**
-       * @brief Actualizando usuario
-       * @param user
+       * @brief Updates the connection
+       * @param user The connection to update
+       * @details Updates the connection
        */
       public void updateUser(Connection user) {
     	      	  
@@ -280,8 +299,9 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
    
 
       /**
-       * @brief Se elimina un usuario indicado
-       * @param user
+       * @brief Deletes the connection
+       * @param user Connection to delete
+       * @details Deletes the specific connection
        */
       public void deleteUser(Connection user) {
           SQLiteDatabase db = this.getWritableDatabase();
@@ -293,8 +313,8 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
    
 
       /**
-       * @brief Devuelve el numero de usuarios almacenados
-       * @return num_usuarios
+       * @brief Returns the number of connections
+       * @return number of connections
        */
       public int getUsersCount() {
           String countQuery = "SELECT  * FROM " + TABLE_CONNECTIONS;
@@ -309,9 +329,9 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
       }
       
       /**
-       * Busca en la Base de Datos el nombre de la conexion
-       * @param name
-       * @return
+       * @brief Searches a connection by the name
+       * @param name The name connection
+       * @return true if the connection exists, false in another case
        */
       public boolean searchNameConnection(String name){
     	  

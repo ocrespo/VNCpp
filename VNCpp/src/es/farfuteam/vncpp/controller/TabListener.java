@@ -33,19 +33,22 @@ import android.support.v4.app.FragmentActivity;
 
 /**
  * @class TabListener<T>
- * @brief This is the TabListener.
- * 
- * This is the detailed description
- *
+ * @brief This is the TabListener
  * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
  * @extends ListFragment
  * @implements TabListener
  */
 public class TabListener<T extends ListFragment> implements android.app.ActionBar.TabListener{
+	
+	/** fragment of the activity*/
 	  private Fragment mFragment;
+	  /**fragment activity to control the tabs */
 	  private final FragmentActivity mActivity;
+	  /**tag to find the tab */
 	  private final String mTag;
+	  /**the class of the listener */
 	  private final Class<T> mClass;
+	  /**transaction between tabs */
 	  private FragmentTransaction mTransaction;
 
 	/**

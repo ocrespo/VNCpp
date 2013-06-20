@@ -33,15 +33,13 @@ import es.farfuteam.vncpp.controller.R;
 /**
  * @class DialogOptions
  * @brief This is class which controls the dialogs
- * 
- * This is the detailed description
- *
  * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
  * @extends DialogFragment
  */
 public class DialogOptions extends DialogFragment {
 	
 	/**
+	 * @interface SuperListener
 	 * @brief Interface to control the manipulation of the list elements
 	 * @details Interface to control the manipulation of the list elements
 	 */

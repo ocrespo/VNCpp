@@ -39,21 +39,32 @@ import es.farfuteam.vncpp.view.DialogOptions.SuperListener;
 /**
  * @class ListFragmentTabFav
  * @brief This is class which controls the favorites list
- * 
- * This is the detailed description
- *
  * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
  * @extends ListFragment
  * @implements SuperListener
  */
 public class ListFragmentTabFav extends ListFragment implements SuperListener{
 	
+	/**
+	 * The clicked object of the list
+	 */
 	//variable donde se guarda el Objeto User al pulsarlo en la lista
 	private static Object o;
-	
+	/**
+	 * List adapter
+	 */
 	private static Adapter adapter;
+	/**
+	 * The list with the connections
+	 */
 	private ArrayList<Connection> userList;
+	/**
+	 * The variable of the Data Base
+	 */
 	private static ConnectionSQLite admin;
+	/**
+	 * The view
+	 */
 	private View view;
 	
 	/**

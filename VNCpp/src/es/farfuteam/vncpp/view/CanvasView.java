@@ -37,23 +37,62 @@ import android.widget.ImageView;
  * @extends ImageView
  */
 public class CanvasView extends  ImageView{
+	
+	/**
+	 * The bitmap data
+	 */
 	private int[] data;
+	/**
+	 * The image height
+	 */
 	private int height;
+	/**
+	 * The image width
+	 */
 	private int width;
+	/**
+	 * The stride of bitmap
+	 */
 	private int stride;
+	/**
+	 * The x coordinate
+	 */
 	private int x;
+	/**
+	 * The y coordinate
+	 */
 	private int y;
+	/**
+	 * The offset bitmap
+	 */
 	private int offset;
-	
+	/**
+	 * The bitmap
+	 */
 	private Bitmap bitmap;
+	/**
+	 * The image drag 
+	 */
 	private boolean drag = false;
+	/**
+	 * The image update 
+	 */
 	private boolean update = false;
-	
+	/**
+	 * The auxiliar bitmap
+	 */
 	private Rect bitmapRect;
-
-	
+	/**
+	 * Scale factor
+	 */
 	private float scale = 1;
+	/**
+	 * The X scale factor
+	 */
 	private float scaleX = 0;
+	/**
+	 * The Y scale factor
+	 */
 	private float scaleY = 0;
 	
 	/**

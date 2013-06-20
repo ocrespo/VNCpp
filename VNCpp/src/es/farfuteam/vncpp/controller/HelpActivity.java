@@ -28,10 +28,19 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 
 
-
+/**
+ * @class HelpActivity
+ * @brief This is the activity created to managed the help activity.
+ * @extends Activity
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ */
 public class HelpActivity extends Activity {
 
-
+	/**
+	 * @brief This is the onCreate method
+	 * @param savedInstanceState
+	 * @details The onCreate method adds an actionBar the show title and the home display
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
@@ -45,6 +54,14 @@ public class HelpActivity extends Activity {
         
 	}
 	
+	/**
+	 * @brief Handles the onKeyDown event
+	 * @param keyCode
+	 * @param event
+	 * @return True if the event is handled properly. If the keyCode is not equal to KEYCODE_BACK 
+	 * it returns the event
+	 * @details Only handles the back key. Otherwise it returns the event
+	 */
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 	   
@@ -59,6 +76,12 @@ public class HelpActivity extends Activity {
 	  return super.onKeyDown(keyCode, event);
 	}
 	
+	/**
+	 * @brief Handles the item selected event
+	 * @param item
+	 * @return True if the event is handled properly
+	 * @details Handles the item selected event, in this case, the event of the actionBar to return to the last activity
+	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Sirve para volver atrás al pulsar en la actionBar
