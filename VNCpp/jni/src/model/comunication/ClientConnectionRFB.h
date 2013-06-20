@@ -32,22 +32,23 @@ using namespace std;
 
 #include <CommonType.h>
 
-
 /**
  * @class ClientConnectionRFB
- * @brief Clase encargada de gestionar la conexion con el servidor mediante rfb.
+ * @brief This Class handles the RFB connection with the server
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ * @details This Class handles the RFB connection with the server
  */
 class HandlerRFB;
 class ClientConnectionRFB {
 private:
-	rfbClient *clientRFB;///< Puntero a la estructura de rfb con la informacion del cliente.
-	pthread_t mainThreadId;///< ID del hilo que ejecuta el bucle principal
+	rfbClient *clientRFB;///< Pointer to the RFB structure with the client information
+	pthread_t mainThreadId;///< Thread ID that handles the main loop
 
-	bool stop_connection;///< Indica si la conexion debe ser interrumpida
+	bool stop_connection;///< Indicates if the connection has to be interrupted
 
-	bool thread_finish;
+	bool thread_finish;///< Indicates the end of the main thread
 
-	int buttonMask;
+	int buttonMask;///<
 
 	static void* eventLoop(void *This);
 

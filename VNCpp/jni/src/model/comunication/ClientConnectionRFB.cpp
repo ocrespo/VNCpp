@@ -32,12 +32,9 @@
 #define bytesPerPixel 4
 #define timeWait 500
 
-
-
 /**
- * Constructor por defecto.
- *
- * Inicializa clientRFB a NULL y stop_connection a false
+ * @brief The default constructor
+ * @details The default constructor. Initializes the clientRFB as NULL and stop_connection as false
  */
 ClientConnectionRFB::ClientConnectionRFB() {
 	//cl = NULL;
@@ -49,10 +46,10 @@ ClientConnectionRFB::ClientConnectionRFB() {
 	//buttonMask = 0;
 
 }
+
 /**
- * Destructor por defecto.
- *
- * Pone stop_connection a true, el hilo se parara y limpiara la inforacion de la conexion
+ * @brief The default destroyer
+ * @details The default destroyer. Sets stop_connection as true, stops the thread and frees the connection information
  */
 ClientConnectionRFB::~ClientConnectionRFB() {
 	if(DEBUG){
@@ -82,6 +79,18 @@ ClientConnectionRFB::~ClientConnectionRFB() {
  * @param host IP del servidor a la que se conectara.
  * @param port Puerto por el que se realizara la conexion.
  * @return devuelve si la conexion tuvo exito, mediante el enum ConnectionError.
+ */
+/**
+ * @brief Starts the connection
+ * @param host The IP
+ * @param port The port
+ * @param pass The password
+ * @param picture_quality The image quality
+ * @param compress The image has to be compress or not
+ * @param hide_mouse The mouse has to be hide or not
+ * @return ALLOK if everything ok, or an error
+ * @details Starts the connection with the server. Configures all the functions (handler) that have to be invoke in RFB events.
+ * When the connection is completed starts the main thread with the function eventLoop
  */
 ConnectionError ClientConnectionRFB::iniConnection(char* host,int port,char* pass,int picture_quality,int compress,bool hide_mouse){
 	if(DEBUG)
