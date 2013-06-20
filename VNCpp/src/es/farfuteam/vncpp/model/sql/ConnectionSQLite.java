@@ -59,10 +59,10 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
 	private static ConnectionSQLite instance = null;
 	   
 	/**
-	 * @brief Get the ConnectionSQLite instance
-	 * @param context
+	 * @brief Gets the ConnectionSQLite instance
+	 * @param context The context
 	 * @return ConnectionSQLite the instance
-	 * @details Get the ConnectionSQLite instance
+	 * @details Gets the ConnectionSQLite instance
 	 */
 	public static ConnectionSQLite getInstance(Context context) {
 	      
@@ -75,7 +75,7 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
     
 	/**
 	 * @brief ConnectionSQLite constructor
-	 * @param context
+	 * @param context The context
 	 * @return ConnectionSQLite
 	 * @details ConnectionSQLite constructor
 	 */
@@ -176,7 +176,7 @@ public class ConnectionSQLite extends SQLiteOpenHelper {
       
       /**
        * @brief Returns true if the connection is favorite
-       * @param value
+       * @param value The value in the dataBase
        * @return true if the value is 1, false in another case
        * @details Returns true if the connection is favorite
        */
