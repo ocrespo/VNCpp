@@ -20,53 +20,151 @@
  */
 package es.farfuteam.vncpp.model;
 
-import android.os.Debug;
-import android.util.Log;
 import es.farfuteam.vncpp.controller.NewConnectionActivity.QualityArray;
 
 
 
 
 /**
- * @author roni
- *
+ * @class VncBridgeJNI
+ * @brief This Class handles the communication with the native code
+ * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+ * @extends ObservableCanvas
+ * @implements ObserverJNI
+ * @details This Class handles the communication with the native code.
  */
-
 public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 	
-	
+	/**
+	 * @enum ConnectionError
+	 * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+	 * @details Indicates the different errors that you can get when you start the connection
+	 */
 	public enum ConnectionError{ALLOK,NoServerFound ,NoFrameFound,errorCreateThread};
+	
+	/**
+	 * @enum MouseEvent
+	 * @authors Oscar Crespo, Gorka Jimeno, Luis Valero
+	 * @details Indicates the different mouse event
+	 *
+	 */
 	public enum MouseEvent{Click ,RightClick};
 
-	
+	/**
+	 * @brief Initializes the connection
+	 * @param host the IP
+	 * @param port the port
+	 * @param pass the password
+	 * @param quality the image quality
+	 * @param compress the image has to be compress or not
+	 * @param hideMouse the mouse has to be hide or not
+	 * @return An connection error
+	 * @details Calls to iniConnection method from Vnc to start the connection with the server
+	 */
 	private native int iniConnect(String host,int port,String pass,int quality,int compress,boolean hideMouse);
+	
+	/**
+	 * @brief Closes the connection
+	 * @details Calls to closeConnection method from Vnc to stop the connection with the server
+	 */
 	private native void closeConnection();
+	
+	/**
+	 * @brief Stops the updates
+	 * @details Stops the updates
+	 */
 	private native void stopUpdate();
+	
+	/**
+	 * @brief Cleans the memory
+	 * @details Destroys the Vnc object
+	 */
 	private native void finish();
+	
+	/**
+	 * @brief Initializes the JNI
+	 * @details Initializes the JNI, creates the Vnc object and adds env and javaThis as observers
+	 */
 	private native void iniJNI();
-	private native void rfbLoop();
+	
+	/**
+	 * @brief Sends a mouse event to the server
+	 * @param x the x coordinate
+	 * @param y the y coordinate
+	 * @param event the mouse event
+	 * @return true if everything ok, false otherwise
+	 * @details Sends a mouse event to the server from the client. Specifies the coordinates x and y of the event and also specifies the type
+	 */
 	private native boolean mouseEvent(int x,int y,int event);
+	
+	/**
+	 * @brief Sends a key event to the server
+	 * @param key the key
+	 * @param down the key is down or not
+	 * @return true if everything ok, false otherwise
+	 * @details Sends a key event to the server from the client
+	 */
 	private native boolean keyEvent(int key,boolean down);
 	
+	/**
+	 * Super high image quality
+	 */
 	private static int sQuality=9;
+	
+	/**
+	 * High image quality
+	 */
 	private static int hQuality=7;
+	
+	/**
+	 * Medium image quality
+	 */
 	private static int mQuality=5;
+	
+	/**
+	 * Low image quality
+	 */
 	private static int lQuality=2;
 	
+	/**
+	 * The wifi image compress
+	 */
 	private static int wifiCompress= 3;
+	
+	/**
+	 * The 3g image compress
+	 */
 	private static int gCompress = 5;
 	
+	/**
+	 * A Runnable to create the screen data
+	 */
 	private Runnable createScreen;
 
+	/**
+	 * A thread to create the screen data
+	 */
 	private Thread iniBitmapData;
 
+	/**
+	 * The Screen object
+	 */
 	private Screen screen;
 	
-	public boolean error = false;
+	/**
+	 * If true it indicates that there are an error, false otherwise
+	 */
+	private boolean error = false;
 
 	static {  
 		System.loadLibrary("vncmain");  
 	}
+	
+	/**
+	 * @brief The default constructor
+	 * @details the default constructor. Creates the screen data. If there are not enough memory, 
+	 * notifies to CanvasActivity the error and sets the error attribute as true
+	 */
 	public VncBridgeJNI() {
 
 		
@@ -87,6 +185,17 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 		
 	}
 
+	/**
+	 * @brief Starts the connection
+	 * @param host The IP
+	 * @param port The port
+	 * @param pass The password
+	 * @param quality The image quality
+	 * @param wifi is a wifi connection or not
+	 * @param hideMouse the mouse has to be hide or not
+	 * @return A connection error
+	 * @details Starts the connection. First starts JNI and then calls to the native function iniConnect to starts the connection
+	 */
 	public ConnectionError startConnect(String host,int port,String pass,QualityArray quality,boolean wifi,boolean hideMouse){
 
 		iniJNI();
@@ -126,27 +235,19 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 		
 	}
 
+	/**
+	 * @brief Closes the connection
+	 * @details Calls to the native function to close the connection
+	 */
 	public void finishVnc(){
 		finish();
 		screen = null;
 	}
-
 	
-	private static void memoryProbe() {
-		System.gc();
-		System.gc();
-		Runtime runtime = Runtime.getRuntime();
-		Double allocated = new Double(Debug.getNativeHeapAllocatedSize()) / 1048576.0;
-		Double available = new Double(Debug.getNativeHeapSize()) / 1048576.0;
-		Double free = new Double(Debug.getNativeHeapFreeSize()) / 1048576.0;
-		long maxMemory = runtime.maxMemory();
-		long totalMemory = runtime.totalMemory();
-		long freeMemory = runtime.freeMemory();
-		
-		Log.e("VncBridgeJNI", "allocated:"+allocated+" available:"+available+" free:"+free);
-		Log.e("VncBridgeJNI", "maxMem:"+maxMemory+" totalMem:"+totalMemory+" freeMem:"+freeMemory);
-	}
-	 
+	/**
+	 * @brief Closes the connection if the server has been disconnected
+	 * @details Close the connection if the server has been disconnected and notifies to CanvasActity
+	 */
 	@Override
 	public void updateFinishConnection(){
 		new Thread(new Runnable() {
@@ -161,6 +262,11 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 		if(!error)
 			notifyFinish();
 	}
+	
+	/**
+	 * @brief Initializes the bitmap
+	 * @details Initializes the bitmap and notifies to CanvasActivity
+	 */
 	@Override
 	public void updateIniFrame(int width, int height, int bpp, int depth) {
 		screen = new Screen(width, height, bpp);
@@ -178,12 +284,24 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 		
 		
 	}
+	
+	/**
+	 * @brief Notifies a redraw to CanvasActivity
+	 * @details Notifies a redraw to CanvasActivity
+	 */
 	@Override
 	public void updateReDraw() {
 		
 		notifyRedraw();
 	}
 	
+	/**
+	 * @brief Sends a mouse event
+	 * @param x The x coordinate
+	 * @param y The y coordinate
+	 * @param event The mouse event
+	 * @details Sends a mouse event to the native code
+	 */
 	public void sendMouseEvent(int x,int y,MouseEvent event){
 		int aux_event = 0;
 		if(event == MouseEvent.Click){
@@ -194,9 +312,21 @@ public  class VncBridgeJNI extends ObservableCanvas implements ObserverJNI{
 		}
 		mouseEvent(x, y, aux_event);
 	}
+	
+	/**
+	 * @brief Sends a key event
+	 * @param key The key
+	 * @param down the key is down or not
+	 * @details Sends a key event to the native code
+	 */
 	public void sendKey(int key,boolean down){
 		keyEvent(key,down);
 	}
+	
+	/**
+	 * @brief Asks for the password
+	 * @details Asks for the password to CanvasActivity
+	 */
 	@Override
 	public String updateAskPass() {
 		return notifyPass();
