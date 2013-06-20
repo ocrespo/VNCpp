@@ -23,41 +23,45 @@
 #define COMMONTYPE_H_
 /**
  * @def DEBUG
- * @brief Indica si se esta en modo debug para mostrar los logs o no.
+ * @brief Indicates if it is debug mode to show the logs or not
  */
 #define DEBUG 0
 /**
  * @def LOG_TAG
- * @brief Etiqueta que sera mostrada en el logcat junto con el mensaje.
+ * @brief Tag for the logcat
  */
 #define  LOG_TAG    "VNC_JNI"
 /**
  * @def LOGI
- * @brief Muestra un mensaje en el logcat como info.
+ * @brief Shows the message as info in the logcat
  */
 #define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
 /**
  * @def LOGE
- * @brief Muestra un mensaje en el logcat como error.
+ * @brief Shows the message as error in the logcat
  */
 #define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
 /**
  * @enum ConnectionError
- * @brief Indica diferentes errores que puedes sucederse al iniciar la conexion.
+ * @brief Indicates the different errors that you can get when you start the connection
  */
 enum ConnectionError{
-			ALLOK = 0,             ///< No ha habido ningun error
-			NoServerFound = 1,     ///< No se ha podido conectar con ningun servidor
-			NoFrameFound = 2,      ///< No hay ninguna informacion en el frameBuffer
-			errorCreateThread = 3///< No se ha podido crear el hilo para atender las peticiones de rfb
+			ALLOK = 0,             ///< No error
+			NoServerFound = 1,     ///< No server found error
+			NoFrameFound = 2,      ///< No frameBuffer information error
+			errorCreateThread = 3///< Could not be created the thread to handle the request from RFB
 };
+/**
+ * @enum MouseEvent
+ * @brief Indicates the different mouse event
+ */
 enum MouseEvent{
-			leftClick = 1,
-			wheelClick = 2,
-			doubleClick = 3,
-			rightClick = 4,
-			wheelUp = 8,
-			wheelDown = 16,
+			leftClick = 1,  //!< leftClick
+			wheelClick = 2, //!< wheelClick
+			doubleClick = 3,//!< doubleClick
+			rightClick = 4, //!< rightClick
+			wheelUp = 8,    //!< wheelUp
+			wheelDown = 16, //!< wheelDown
 };
 
 #endif /* COMMONTYPE_H_ */
