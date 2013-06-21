@@ -6,7 +6,7 @@ VNCpp is a free software, it's a VNC viewer to Android build with NDK and powere
 Requirements
 ------------
 
-This software have been builder to Android 4.0 or more
+This software has been built for Android 4.0 or later
 
 Authors
 -------

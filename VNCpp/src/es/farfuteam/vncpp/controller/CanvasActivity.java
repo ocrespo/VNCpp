@@ -1295,6 +1295,7 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	
 	    // Set the dialog title
 	    final Activity actThis = this;
+	    builder.setCancelable(false);
 	    builder.setTitle(R.string.combo_keys_title)
 	    // Specify the list array, the items to be selected by default (null for none),
 	    // and the listener through which to receive callbacks when items are selected
@@ -1373,21 +1374,22 @@ public class CanvasActivity extends FragmentActivity implements ObserverCanvas{
 	    
 	   final Activity actThis = this;
 	    // Set the dialog title
-	    builder.setTitle(R.string.function_keys_title)
-	           .setMultiChoiceItems(R.array.function_keys_array, null,
-	        		   new DialogInterface.OnMultiChoiceClickListener() {
-	               @Override
-	               public void onClick(DialogInterface dialog, int which,
-	                       boolean isChecked) {
-	                   if (isChecked) {
-	                       // If the user checked the item, add it to the selected items
-	                	   keys.add(which);
-	                   } else if (keys.contains(Integer.valueOf(which))) {
-	                       // Else, if the item is already in the array, remove it 
-	                	   keys.remove(Integer.valueOf(which));
-	                   }
-	               }
-	           }) 
+	   builder.setCancelable(false);
+	   builder.setTitle(R.string.function_keys_title)
+	          .setMultiChoiceItems(R.array.function_keys_array, null,
+        		   new DialogInterface.OnMultiChoiceClickListener() {
+               @Override
+               public void onClick(DialogInterface dialog, int which,
+                       boolean isChecked) {
+                   if (isChecked) {
+                       // If the user checked the item, add it to the selected items
+                	   keys.add(which);
+                   } else if (keys.contains(Integer.valueOf(which))) {
+                       // Else, if the item is already in the array, remove it 
+                	   keys.remove(Integer.valueOf(which));
+                   }
+               }
+           }) 
 	    // Set the action buttons
 	           .setPositiveButton("OK", new DialogInterface.OnClickListener() {
 	               @Override
