@@ -1,0 +1,33 @@
+\section{Entorno de desarrollo}
+Todo el proyecto ha sido desarrollado bajo el Sistema operativo Linux Mint Debian Edition 64 bits, bajo las opciones de escritorio tanto Mate como Xfce.\\
+
+La principal herramienta de desarrollo utilizada ha sido Eclipse Juno, con los entornos de desarrollo integrados tanto para C/C++ como para Java, ya que el proyecto ha necesitado de estos lenguajes.
+\begin{itemize}
+\item JDK: versión 1.6 64 bits.
+\item SDK: versión android-sdk-r21.1-linux.
+\item NDK: versión actual android-ndk-r8d.
+\item Android: versión mínima de desarrollo Android 4.0 (API 14). Aunque en un inicio se optó por desarrollar para Android 2.3.3 (API 10) por tener mayor cuota de mercado, nos dimos cuenta al ir desarrollando que la 4.0 nos daría mayores beneficios futuros.
+\item Git: sistema de control de versiones para el trabajo en equipo.
+\item Egit: plugin de Eclipse usado para interactuar con el repositorio público del proyecto entre los distintos integrantes.
+\item Doxygen: plugin que genera la documentación del código final, ya que consideramos más completo que el javadoc de serie.
+\item ADT: Android Developers Tools versión 22.0.1, plugin de Eclipse para el desarrollo de aplicaciones Android.
+\item LaTeX: herramienta usada para la composición del texto de la memoria.
+\end{itemize}
+
+Gracias a estas herramientas hemos podido trabajar sobre un entorno unificado, ya que Eclipse daba todas las posibilidades sin salir de él. Permitía escribir el código en Java y C/C++ desde la misma herramienta, así mismo, permitía el desarrollo sobre Android gracias al plugin ADT y la gestión del código mediante Git de una forma sencilla gracias a Egit. 
+
+
+
+\newpage
+\section{Banco de pruebas}
+Las pruebas de depuración de la aplicación se han realizado en dos terminales móviles con distintas resoluciones y especificaciones generales para observar el impacto tanto en terminales de gama media/baja, como en terminales de alta gama.
+\begin{itemize}
+\item Samsung Galaxy S3 con Android 4.2.2 Jelly Bean.
+\item Samsung Galaxy Mini 2 con Android 4.1.2 Jelly Bean.
+\end{itemize}
+
+Como servidores VNC se han usado:
+\begin{itemize}
+\item x11vnc, con codificación SSL y sin ella.
+\item RealVNC, con clave y sin ella.
+\end{itemize}

@@ -1,0 +1,10 @@
+
+Hoy en día hay una gran cantidad de aplicaciones basadas en VNC para Android. Sin embargo, ninguna de estas aplicaciones son Free Software y se implementa utilizando el NDK.\\
+
+El objetivo de este proyecto es utilizar el potencial del NDK para hacer una aplicación basada en VNC tratando de obtener un rendimiento mejor que el resto de las aplicaciones implementadas utilizando sólo el SDK y además la totalidad del código fuente será Free Software.\\
+
+El protocolo para comunicarse con un servidor VNC se llama RFB. Para la implementación de este protocolo en este proyecto se ha utilizado la librería LibVNCServer. Esta librería facilita el control de RFB. Sin LibVNCServer habría sido muy difícil hacer nuestra propia librería para gestionar el protocolo. JNI se utiliza como framework para comunicar el código nativo con Java. Las tecnologías, así como el proceso utilizado para construir este software se explicará a lo largo de esta memoria. 
+\\ \mbox{ } \\
+\textit{\textbf{Palabras clave}}
+
+VNC, Android, C++, C, NDK, SDK, JNI, RFB.
